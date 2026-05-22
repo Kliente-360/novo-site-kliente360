@@ -42,13 +42,13 @@ keywords: ["palavra1", "palavra2", "palavra3"]
 <!--
 ============================================================
 CORPO DO POST — escrito em Markdown padrão.
-O primeiro parágrafo recebe drop-cap automático (primeira letra
-grande, em serif, na cor do pilar). Escreva-o pensando nisso:
-abre com força, sem pré-amblo do tipo "Neste post vamos...".
+A primeira letra do primeiro parágrafo recebe automaticamente
+negrito + cor do pilar. Escreva pensando nisso: abre com força,
+sem pré-âmbulo do tipo "Neste post vamos...".
 ============================================================
 -->
 
-Primeiro parágrafo: começa direto na tese ou no observation que abre o ensaio. Sem "neste post", sem "vamos falar sobre". A primeira frase precisa fazer o leitor escolher continuar. A primeira letra é grande e colorida — escolha-a pensando no impacto visual também (palavras começando em consoante geralmente caem melhor que vogal).
+Primeiro parágrafo: começa direto na tese ou na observação que abre o ensaio. Sem "neste post", sem "vamos falar sobre". A primeira frase precisa fazer o leitor escolher continuar.
 
 Segundo parágrafo desdobra a tese, explica o contexto. Mantém os parágrafos curtos (4–6 linhas no desktop). Quebre antes de virar bloco visual.
 
@@ -148,14 +148,19 @@ O CTA fica no template do site automaticamente, ao final do post. Não termine o
 - Posts mais longos (>10 min) só com tese forte que justifique.
 - Posts mais curtos (<4 min) ficam parecendo nota — bom para "uma observação", ruim para "um ensaio".
 
-## SEO / GEO — o que importa
+## SEO / GEO — resumo
 
-- **Título**: declarativo, com a palavra-chave do tema.
-- **excerpt**: capa a tese e contém a palavra-chave.
-- **tldr**: pensado pra LLMs sumarizarem. Frase completa, sem "neste post".
-- **keywords**: 3–6 termos relevantes, em snake_case ou frases curtas.
-- **H2 em forma de pergunta** funciona melhor pra Featured Snippets e AI Overviews.
-- **Internal linking**: cite e linke outros posts do blog quando o tema cruzar.
+Há um playbook completo em `README.md` (seção "SEO & GEO"). Resumo:
+
+- **Title**: declarativo, palavra-chave nos primeiros 60 chars.
+- **excerpt**: ≤160 chars, contém a palavra-chave, frase completa.
+- **tldr**: 2–3 frases, sem CTA. É o que LLMs colhem ao sumarizar.
+- **keywords**: 3–6 termos (palavra-chave primária + LSI).
+- **H2 em forma de pergunta ou afirmação curta** — melhor para featured snippets e AI Overviews.
+- **Listas numeradas** para passos/regras — LLMs citam.
+- **Blockquote** com frase de 10–20 palavras citável — vira reference de LLM.
+- **Internal linking**: linke outro post quando o tema cruzar.
+- **Anchors factuais**: números, datas, percentuais — LLMs preferem dados concretos.
 
 ---
 

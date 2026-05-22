@@ -295,10 +295,10 @@ const apply = (lang) => {
     btn.setAttribute('aria-current', btn.dataset.lang === lang ? 'true' : 'false');
   });
 
-  updateHomePostCards(lang);
+  renderHomeBlogTeaser(lang);
 };
 
-// Cards de posts no home/teaser: troca título, data, URL e pílula do pilar.
+// Teaser de blog na home — renderiza os 3 posts mais recentes, troca conforme idioma.
 let _postsManifest = null;
 const ensureManifest = async () => {
   if (_postsManifest) return _postsManifest;
@@ -309,24 +309,29 @@ const ensureManifest = async () => {
   return _postsManifest;
 };
 
-const updateHomePostCards = async (lang) => {
-  const cards = document.querySelectorAll('[data-post-slug]');
-  if (!cards.length) return;
+const READ_LABELS = { pt: 'Ler →', en: 'Read →', es: 'Leer →' };
+
+const renderHomeBlogTeaser = async (lang) => {
+  const grid = document.getElementById('home-blog-grid');
+  if (!grid) return;
   const manifest = await ensureManifest();
-  cards.forEach(card => {
-    const slug = card.dataset.postSlug;
-    const post = manifest.find(p => p.slug === slug);
-    if (!post) return;
+
+  // Top 3 mais recentes (manifest já vem ordenado pelo build)
+  const latest = manifest.slice(0, 3);
+
+  grid.innerHTML = latest.map(post => {
     const tr = post.translations[lang] || post.translations.pt;
-    if (!tr) return;
-    card.setAttribute('href', tr.url);
-    const titleEl = card.querySelector('h3');
-    if (titleEl) titleEl.textContent = tr.title;
-    const dateEl = card.querySelector('.post-date');
-    if (dateEl) dateEl.textContent = tr.date;
-    const pillEl = card.querySelector('.pill-pillar');
-    if (pillEl) pillEl.textContent = PILLAR_LABELS[lang][post.pillar];
-  });
+    const pillarLbl = PILLAR_LABELS[lang][post.pillar];
+    return `
+      <a class="post-card" data-pillar="${post.pillar}" data-post-slug="${post.slug}" href="${tr.url}">
+        <div class="post-meta">
+          <span class="pill-pillar">${pillarLbl}</span>
+          <span class="post-date">${tr.date}</span>
+        </div>
+        <h3>${tr.title}</h3>
+        <div class="read">${READ_LABELS[lang] || READ_LABELS.pt}</div>
+      </a>`;
+  }).join('');
 };
 
 document.addEventListener('DOMContentLoaded', () => {

@@ -1,18 +1,38 @@
 # Blog Kliente 360 — guia para autores (humanos e agentes)
 
-Este diretório guarda **os posts do blog em Markdown**. O build os converte em HTML estilizado automaticamente.
+Este diretório guarda **os posts do blog em Markdown**. O build os converte em HTML estilizado, listagens, sitemap e manifest de dados — tudo automaticamente.
 
-> Para começar do zero: copie `_template.md`, renomeie para `<seu-slug>.md`, preencha o frontmatter e escreva o corpo.
+## Receita rápida (do zero ao deploy)
+
+```
+1. cp _template.md  meu-novo-post.md
+2. Edite o frontmatter e escreva o corpo (em Markdown)
+3. (opcional) cp _template.md meu-novo-post.en.md  e traduza
+4. (opcional) cp _template.md meu-novo-post.es.md  e traduza
+5. git add . && git commit -m "blog: meu-novo-post — ai"
+6. git push origin main
+7. Netlify roda `npm run build` automaticamente
+8. Em ~1min o post aparece em /blog/, /blog/en/, /blog/es/
+   e nos 3 destaques da home (substitui o mais antigo se for o caso)
+```
+
+Pra rodar local: `npm install && npm run build`.
 
 ## Pipeline
 
 ```
-blog/posts/<slug>.md   →   npm run build   →   blog/<slug>.html
-                                            +   blog/index.html (listagem)
-                                            +   sitemap.xml
+blog/posts/<slug>.md          ──►  blog/<slug>.html             (PT)
+blog/posts/<slug>.en.md       ──►  blog/en/<slug>.html          (EN)
+blog/posts/<slug>.es.md       ──►  blog/es/<slug>.html          (ES)
+                              ──►  blog/index.html              (listagem PT)
+                              ──►  blog/en/index.html           (listagem EN)
+                              ──►  blog/es/index.html           (listagem ES)
+                              ──►  sitemap.xml                  (URLs + lastmod)
+                              ──►  assets/data/posts.json       (manifest)
+                              ──►  og-image.png                 (re-render)
 ```
 
-O build é executado automaticamente pela Netlify em cada deploy. Para testar local: `npm install && npm run build`.
+O teaser da home (`index.html`) **lê `assets/data/posts.json` em runtime** e mostra os 3 posts mais recentes no idioma atual. O agente nunca toca em `index.html`.
 
 ## Estrutura de um post
 
@@ -35,34 +55,27 @@ keywords:    ["termo1", "termo2", "termo3"]  # opcional
 
 ### 2. Corpo em Markdown
 
-Padrão CommonMark + GFM. Suportado:
-- Headings `##`, `###`
-- Listas `-` e `1.`
-- Blockquote `>`
-- Ênfase `**negrito**`, `*itálico*`
-- Inline code `` `código` ``
-- Links `[texto](url)`
+Padrão CommonMark + GFM. Suportado e estilizado:
 
-Tabelas, código em blocos e imagens não estão integrados ao tema visual ainda. Evitar até habilitarmos.
+- Headings `##` e `###` (cada `##` ganha barra colorida no tom do pilar)
+- Listas `-` e `1.` (marcadores tomam a cor do pilar)
+- Blockquote `>` (vira pull quote em serif Fraunces, com barra lateral colorida)
+- Ênfase `**negrito**` e `*itálico*`
+- Inline code `` `código` ``
+- Links `[texto](url)` (sublinhados na cor do pilar)
+- **Primeira letra do primeiro parágrafo** ganha automaticamente negrito + cor do pilar
+
+Não usar (ainda): tabelas, blocos de código, imagens. Não estão estilizados no tema.
 
 ## Pilares
 
-Cada post pertence a **um pilar primário**. O pilar define:
-- Cor temática (pílula, drop-cap, barra lateral, marcadores)
-- Eyebrow do header
-- Recomendações automáticas no final
+Cada post pertence a **um pilar primário**. O pilar define a cor temática (pílula, barra lateral, marcadores, drop-cap simples, link colors).
 
 | Valor    | Pilar               | Cor       |
 |----------|---------------------|-----------|
 | `sf`     | Salesforce          | `#0B5394` |
 | `data`   | Data & Analytics    | `#C9A227` |
 | `ai`     | IA & Aplicações     | `#6D28D9` |
-
-## Arquivos especiais
-
-- `_template.md` — esqueleto. Ignorado pelo build.
-- `README.md` — esta documentação. Ignorada pelo build.
-- Qualquer arquivo iniciado por `_` é ignorado (use para rascunhos: `_draft-meu-post.md`).
 
 ## Traduções (multi-idioma)
 
@@ -74,14 +87,21 @@ quando-agente-e-resposta.en.md    → EN (opcional)
 quando-agente-e-resposta.es.md    → ES (opcional)
 ```
 
-Todos os arquivos do mesmo post compartilham o **mesmo `slug`** no frontmatter. Os campos a traduzir são `title`, `excerpt`, `tldr`, `keywords` e o corpo. O `pillar` e o `date` ficam no arquivo PT e valem para todas as variantes.
+Todos os arquivos do mesmo post compartilham o **mesmo `slug`** no frontmatter. Os campos a traduzir são `title`, `excerpt`, `tldr`, `keywords` e o **corpo**. O `pillar` e o `date` ficam no arquivo PT e valem para todas as variantes.
 
 URLs geradas:
+
 - `/blog/<slug>.html` (PT, sempre presente)
 - `/blog/en/<slug>.html` (somente se `<slug>.en.md` existir)
 - `/blog/es/<slug>.html` (somente se `<slug>.es.md` existir)
 
-A listagem `/blog/`, `/blog/en/` e `/blog/es/` mostra apenas posts com tradução para o idioma da página.
+A listagem `/blog/`, `/blog/en/` e `/blog/es/` mostra apenas posts com tradução para o idioma da página. O teaser da home só mostra um post quando há tradução no idioma atual; caso contrário, cai pro PT como fallback.
+
+## Arquivos especiais
+
+- `_template.md` — esqueleto. Ignorado pelo build.
+- `README.md` — esta documentação. Ignorada pelo build.
+- Qualquer arquivo iniciado por `_` é ignorado (use para rascunhos: `_draft-meu-post.md`).
 
 ## Tom de voz
 
@@ -90,6 +110,88 @@ Boutique informada falando com decisor informado. Direto, técnico, sem clichês
 **Usar**: "uma prática única", "agentes onde já existe dado", "conversa direta com quem entrega", nomes próprios (Salesforce, Tableau, Agentforce, Data Cloud).
 
 **Evitar**: "transformação digital", "jornada", "experiência fluida", "soluções inovadoras", "costurar", "ladainha", "no fim do dia", "alavancar", auto-elogio.
+
+## SEO & GEO — playbook completo
+
+Otimização para mecanismos de busca tradicionais (SEO) e para mecanismos generativos (GEO — AI Overviews do Google, Perplexity, ChatGPT Search, Claude). As duas convergem em conteúdo bem estruturado, mas têm ênfases distintas.
+
+### SEO clássico — o que o build já faz automaticamente
+
+Esses pontos saem de graça, o agente não precisa se preocupar:
+
+- `<title>` com formato `<post title> | Kliente 360`
+- `<meta name="description">` derivado do `excerpt`
+- `<link rel="canonical">` apontando pra URL do post (por idioma)
+- Open Graph (og:title/description/image/type/published_time)
+- Twitter Card summary_large_image
+- **JSON-LD `Article`** schema.org embutido (headline, description, datePublished, inLanguage, articleSection, keywords, author, publisher)
+- `<time datetime="ISO">` semântico
+- `<html lang="pt-BR|en-US|es-ES">` correto por variante
+- Entrada no `sitemap.xml` por URL/idioma
+- URLs limpas (sem query strings, sem `index.html` redundante)
+
+### SEO — o que o agente precisa fazer
+
+1. **Title (50–80 chars)** — declarativo, com a **palavra-chave primária nos primeiros 60 caracteres**. Evite stopwords no começo ("Sobre", "O que", "Como"). Exemplo bom: *"Data Cloud não é mais CDP — é o nervo central do Salesforce"*. Exemplo ruim: *"Sobre Data Cloud e a importância de entender o que ele faz"*.
+
+2. **Slug** — kebab-case, com 3–6 palavras, contendo a palavra-chave. Não traduzir slug entre idiomas — mantém o mesmo slug para o post em PT/EN/ES.
+
+3. **Excerpt (≤160 chars)** — vira meta description. Inclua a palavra-chave primária e uma ação ou benefício. Frase completa, sem reticências.
+
+4. **Primeiro parágrafo** — repita a palavra-chave **no primeiro ou segundo parágrafo**. Não force; integre na frase de abertura quando possível.
+
+5. **Hierarquia de headings** — exatamente um `<h1>` (que vem do `title` automaticamente). H2 para seções principais, H3 para subseções. Não pule de H2 para H4.
+
+6. **Internal linking** — quando o tema cruzar com outro post publicado, **linke**. Use texto descritivo, nunca "clique aqui". Mínimo 1 link interno por post quando possível.
+
+7. **Links externos** — para fontes autoritativas (documentação oficial, papers, dados de mercado). Reforça topical authority.
+
+8. **Keywords no frontmatter** — 3–6 termos. Estes alimentam o JSON-LD. Use a palavra-chave primária + 2–4 semanticamente relacionadas (LSI).
+
+9. **Densidade** — palavra-chave primária aparece de forma natural em: título, URL/slug, primeiro parágrafo, pelo menos um H2, e na conclusão. Não force repetições — Google penaliza keyword stuffing.
+
+10. **Tamanho** — posts entre 1000–1700 palavras (5–8 min de leitura) tendem a rankear melhor para queries informativas / consultivas. Posts muito curtos competem mal; muito longos diluem.
+
+### GEO — otimização para mecanismos generativos
+
+LLMs (ChatGPT, Claude, Perplexity, Gemini, AI Overviews do Google) **citam e resumem** conteúdo de forma diferente. O que ajuda:
+
+1. **TL;DR no topo** — caixa explícita logo após o título. LLMs priorizam essa estrutura ao sumarizar. **Já temos `tldr` no frontmatter** — capriche, é o resumo mais lido. 2–3 frases, autoexplicativo, **sem CTA**. Pense: "se o leitor sair daqui, ele já tem 80% do valor".
+
+2. **H2 em forma de pergunta ou afirmação curta** — facilita featured snippets e AI Overviews. Em vez de "Diagnóstico", use "O sintoma e o diagnóstico". Em vez de "Conclusão", "Por que IA sem governança vira passivo".
+
+3. **Listas numeradas para passos/regras** — LLMs citam listas com altíssima frequência. Use `1.`, `2.`, `3.` para checklists, frameworks, perguntas de validação. Cada item começando com **negrito** no conceito.
+
+4. **Definições explícitas** — quando introduzir um termo técnico, defina em uma frase. Ex.: *"Um agente é uma camada de execução: pega um processo, conecta a sistemas, decide pequenas coisas e age."* LLMs colhem essas definições para responder "o que é X".
+
+5. **Pull quotes citáveis** — uma frase de 10–20 palavras que sintetiza um insight. Use `>` em Markdown. Vira blockquote estilizado, mas o valor extra é que **LLMs costumam citar verbatim**. Tese forte + frase curta = citação.
+
+6. **Anchors factuais** — números concretos, datas, percentuais, nomes próprios. Em vez de "muitas empresas falham", "60–80% dos dashboards executivos não geram decisão". LLMs preferem citar afirmações ancoradas em dados.
+
+7. **Estrutura previsível** — abertura (tese) → diagnóstico → argumento → prática → fechamento. LLMs identificam padrão e extraem o que pediram.
+
+8. **Vocabulário consistente** — não troque entre "agente" e "copilot" no mesmo post se ambos significam a mesma coisa. Cadência semântica ajuda LLMs a manter contexto.
+
+9. **Sem clickbait** — LLMs penalizam (na prática) conteúdo que promete e não entrega. Title fiel ao conteúdo > title sensacionalista.
+
+10. **`inLanguage` no schema** — já gerado automaticamente por variante (`pt-BR`, `en-US`, `es-ES`). Garante que o LLM ofereça a versão certa por região.
+
+### Padrões de título que funcionam bem
+
+- **"X não é Y — é Z"** (reframe): *Data Cloud não é mais CDP — é o nervo central do Salesforce*
+- **"Quando X é Y — e quando é Z"** (dicotomia útil): *Quando um agente é a resposta — e quando ele é fuga de problema mal modelado*
+- **"X como Y: matando Z"** (manifesto + ação): *Tableau como linguagem executiva: matando o dashboard de vaidade*
+- **"O custo invisível de X"** / **"O que ninguém te diz sobre X"** — abre curiosidade autêntica
+- **"5 perguntas para validar X"** — listicle informativo, alto CTR
+
+### Anti-padrões que rebaixam o conteúdo
+
+- Títulos com "Tudo o que você precisa saber sobre…" (fraco em SEO e GEO)
+- Abrir com "Neste post vamos…" (LLMs descartam)
+- "Conclusão" como H2 final (substitua por uma síntese nominada)
+- Bullets sem início em negrito (LLMs perdem a hierarquia)
+- Excerpt = primeira frase do post (duplica conteúdo; faça único)
+- Keywords só com termos genéricos ("dados", "tecnologia") sem especificidade
 
 ## Checklist antes de publicar
 
@@ -104,21 +206,43 @@ Boutique informada falando com decisor informado. Direto, técnico, sem clichês
 - [ ] Pelo menos um blockquote forte para sintetizar um ponto.
 - [ ] Sem palavras da lista de evitar.
 - [ ] 5–8 minutos de leitura, salvo justificativa.
+- [ ] Se for traduzir: arquivos `.en.md` / `.es.md` com mesmo `slug`.
+- [ ] **SEO**: palavra-chave primária no title, no slug, no primeiro parágrafo e em pelo menos 1 H2. Pelo menos 1 link interno se houver post relacionado.
+- [ ] **GEO**: TL;DR autoexplicativo (sem CTA), H2 em forma de pergunta/afirmação curta, pelo menos 1 blockquote citável, listas numeradas para passos/regras, números/dados concretos quando aplicável.
 
 ## Para agentes de redação
 
 Se você é um agente automatizado escrevendo um post:
 
 1. Leia `_template.md` integralmente — ele tem regras editoriais que vão além do schema.
-2. Verifique 3 posts publicados nesta pasta como referência de tom.
+2. Verifique 2–3 posts publicados nesta pasta como referência de tom.
 3. Use os pilares conforme tabela acima — não invente cor ou label.
-4. Datas devem ser realistas (não futuras além de alguns dias).
+4. Datas devem ser realistas (não futuras além de poucos dias).
 5. Slug = nome do arquivo (sem `.md`). Devem ser idênticos.
-6. **Não** crie HTML por conta própria. **Não** edite `assets/` ou `scripts/`. **Não** suba dependências.
-7. Após criar o arquivo, abra um PR ou commit em `main` com a mensagem: `blog: <slug> — <pilar>`.
+6. **Não** crie HTML por conta própria. **Não** edite `assets/`, `scripts/`, `index.html`, `netlify.toml` ou qualquer arquivo fora de `blog/posts/`. **Não** suba dependências.
+7. Após criar o(s) arquivo(s), commite em `main` com a mensagem: `blog: <slug> — <pilar>`.
+8. Não rode `npm run build` localmente — o Netlify faz isso no deploy.
 
 ## Para agentes de revisão
 
 - Cheque o checklist acima.
-- Marque sugestões inline no PR.
+- Marque sugestões inline no PR (se houver) ou em comentário no commit.
 - Aprove apenas se o tom estiver fiel ao guia.
+
+## Anatomia visual da página do post (referência rápida)
+
+| Elemento                | Tratamento                                                     |
+|-------------------------|----------------------------------------------------------------|
+| Pílula do pilar         | Fundo translúcido + cor do pilar                              |
+| H1 do post              | Display grande, tracking apertado                              |
+| Linha de metadados      | Data + tempo de leitura + autor, em mono                       |
+| TL;DR                   | Caixa com tint do pilar + barra lateral                        |
+| Primeira letra          | Negrito + cor do pilar (sem drop-cap serif)                    |
+| Corpo                   | Inter 18–19px, line-height generoso, barra lateral colorida    |
+| H2                      | Tracking apertado + barra horizontal curta no tom do pilar     |
+| Lista (ul)              | Marcador = traço colorido                                      |
+| Lista (ol)              | Numeração mono `01`, `02`... no tom do pilar                   |
+| Blockquote              | Serif Fraunces grande + barra lateral colorida                 |
+| Links                   | Sublinhado fino no tom do pilar                                |
+| Card de CTA final       | Bloco com tint do pilar + link "Conversar com um sócio"        |
+| Próximas leituras       | 3 cards (preferem mesmo pilar, depois outros)                  |
