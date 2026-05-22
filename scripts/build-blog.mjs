@@ -541,7 +541,6 @@ const main = () => {
       if (!post.translations[lang]) continue;
       allUrls.push({ loc: postUrl(post.slug, lang), lastmod: post.date, changefreq: 'yearly', priority: '0.6' });
     }
-    // Listings em EN/ES
   }
   for (const lang of ['en', 'es']) {
     allUrls.push({ loc: listingUrl(lang), lastmod: today, changefreq: 'monthly', priority: '0.6' });
@@ -558,6 +557,22 @@ ${allUrls.map(u => `  <url>
 `;
   writeFileSync(join(ROOT, 'sitemap.xml'), sitemap);
   console.log(`   ✓ sitemap.xml (${allUrls.length} URLs)`);
+
+  // Manifest de posts (para o home trocar cards no swap de idioma)
+  const manifest = posts.map(p => ({
+    slug: p.slug,
+    pillar: p.pillar,
+    date: p.date,
+    translations: Object.fromEntries(LANGS.filter(l => p.translations[l]).map(l => [l, {
+      title: p.translations[l].title,
+      url: postUrl(p.slug, l),
+      date: formatDate(p.date, l),
+    }])),
+  }));
+  const dataDir = join(ROOT, 'assets', 'data');
+  if (!existsSync(dataDir)) mkdirSync(dataDir, { recursive: true });
+  writeFileSync(join(dataDir, 'posts.json'), JSON.stringify(manifest, null, 2));
+  console.log(`   ✓ assets/data/posts.json (${manifest.length} posts)`);
 
   // OG image PNG
   const ogSvgPath = join(ROOT, 'og-image.svg');

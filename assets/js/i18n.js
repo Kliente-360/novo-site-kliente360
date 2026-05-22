@@ -238,14 +238,34 @@ const DICT = {
 
 const SUPPORTED = ['pt', 'en', 'es'];
 const HTML_LANG = { pt: 'pt-BR', en: 'en-US', es: 'es-ES' };
+const PILLAR_LABELS = {
+  pt: { sf: 'Pilar 01 · Salesforce',     data: 'Pilar 02 · Data',     ai: 'Pilar 03 · IA' },
+  en: { sf: 'Practice 01 · Salesforce',  data: 'Practice 02 · Data',  ai: 'Practice 03 · AI' },
+  es: { sf: 'Pilar 01 · Salesforce',     data: 'Pilar 02 · Data',     ai: 'Pilar 03 · IA' },
+};
 
 const get = (obj, path) => path.split('.').reduce((o, k) => (o == null ? o : o[k]), obj);
 
+// Detecta idioma de uma página de blog pelo prefixo da URL.
+// /blog/en/...  → en | /blog/es/... → es | /blog/... → pt | (outras URLs) → null
+const langFromUrl = () => {
+  const m = location.pathname.match(/^\/blog\/(en|es)\//);
+  if (m) return m[1];
+  if (location.pathname.startsWith('/blog/')) return 'pt';
+  return null;
+};
+
 const detect = () => {
-  const urlLang = new URLSearchParams(location.search).get('lang');
-  if (urlLang && SUPPORTED.includes(urlLang)) return urlLang;
+  // URL é a fonte de verdade em páginas de blog.
+  const urlLang = langFromUrl();
+  if (urlLang) return urlLang;
+
+  const qs = new URLSearchParams(location.search).get('lang');
+  if (qs && SUPPORTED.includes(qs)) return qs;
+
   const stored = localStorage.getItem('k360.lang');
   if (stored && SUPPORTED.includes(stored)) return stored;
+
   const nav = (navigator.language || 'pt').slice(0, 2).toLowerCase();
   return SUPPORTED.includes(nav) ? nav : 'pt';
 };
@@ -274,6 +294,39 @@ const apply = (lang) => {
   document.querySelectorAll('[data-lang]').forEach(btn => {
     btn.setAttribute('aria-current', btn.dataset.lang === lang ? 'true' : 'false');
   });
+
+  updateHomePostCards(lang);
+};
+
+// Cards de posts no home/teaser: troca título, data, URL e pílula do pilar.
+let _postsManifest = null;
+const ensureManifest = async () => {
+  if (_postsManifest) return _postsManifest;
+  try {
+    const res = await fetch('/assets/data/posts.json');
+    _postsManifest = await res.json();
+  } catch { _postsManifest = []; }
+  return _postsManifest;
+};
+
+const updateHomePostCards = async (lang) => {
+  const cards = document.querySelectorAll('[data-post-slug]');
+  if (!cards.length) return;
+  const manifest = await ensureManifest();
+  cards.forEach(card => {
+    const slug = card.dataset.postSlug;
+    const post = manifest.find(p => p.slug === slug);
+    if (!post) return;
+    const tr = post.translations[lang] || post.translations.pt;
+    if (!tr) return;
+    card.setAttribute('href', tr.url);
+    const titleEl = card.querySelector('h3');
+    if (titleEl) titleEl.textContent = tr.title;
+    const dateEl = card.querySelector('.post-date');
+    if (dateEl) dateEl.textContent = tr.date;
+    const pillEl = card.querySelector('.pill-pillar');
+    if (pillEl) pillEl.textContent = PILLAR_LABELS[lang][post.pillar];
+  });
 };
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -283,7 +336,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('[data-lang]').forEach(btn => {
     btn.addEventListener('click', () => {
       const lang = btn.dataset.lang;
-      // Em páginas de blog, redirecionar para a URL do idioma correspondente.
+      // Em páginas de blog: SÓ redireciona, sem aplicar antes (evita flash).
       const path = location.pathname;
       const isBlog = path.startsWith('/blog/');
       if (isBlog) {
