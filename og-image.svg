@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#0a0a0a"/>
+
+  <!-- Mark grande no canto direito -->
+  <g transform="translate(820, 110)">
+    <circle cx="160" cy="88" r="44" fill="#00B300" opacity="0.45"/>
+    <circle cx="232" cy="160" r="44" fill="#00B300" opacity="0.65"/>
+    <circle cx="160" cy="232" r="44" fill="#00B300" opacity="0.85"/>
+    <circle cx="88" cy="160" r="44" fill="#00B300"/>
+  </g>
+
+  <!-- Wordmark -->
+  <text x="80" y="280" font-family="Inter, -apple-system, sans-serif" font-size="44" font-weight="700" fill="#ffffff" letter-spacing="-0.02em">kliente 360</text>
+
+  <!-- Tagline -->
+  <text x="80" y="400" font-family="Inter, -apple-system, sans-serif" font-size="64" font-weight="700" fill="#ffffff" letter-spacing="-0.035em">Conhecimento aplicado,</text>
+  <text x="80" y="478" font-family="Inter, -apple-system, sans-serif" font-size="64" font-weight="700" fill="#4f9e6b" letter-spacing="-0.035em">como serviço.</text>
+
+  <!-- Footer -->
+  <text x="80" y="568" font-family="Inter, -apple-system, sans-serif" font-size="22" font-weight="500" fill="#86868b" letter-spacing="0.02em">Boutique de CRM, dados e IA · Salesforce Partner</text>
+</svg>

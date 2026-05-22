@@ -77,11 +77,11 @@ const navHtml = (currentPath = '') => `
       </a>
 
       <nav class="nav-links" aria-label="Principal">
-        <a href="/#pilares">Pilares</a>
-        <a href="/#trilha">Trilha 360</a>
-        <a href="/#cases">Cases</a>
-        <a href="/blog/"${currentPath.startsWith('/blog') ? ' aria-current="page"' : ''}>Blog</a>
-        <a href="/#contato">Contato</a>
+        <a href="/#pilares" data-i18n="nav.pillars">Pilares</a>
+        <a href="/#trilha" data-i18n="nav.trilha">Trilha 360</a>
+        <a href="/#cases" data-i18n="nav.cases">Cases</a>
+        <a href="/blog/" data-i18n="nav.blog"${currentPath.startsWith('/blog') ? ' aria-current="page"' : ''}>Blog</a>
+        <a href="/#contato" data-i18n="nav.contact">Contato</a>
       </nav>
 
       <div class="nav-right">
@@ -90,7 +90,7 @@ const navHtml = (currentPath = '') => `
           <button type="button" data-lang="en">EN</button>
           <button type="button" data-lang="es">ES</button>
         </div>
-        <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-controls="nav-menu" aria-expanded="false" data-nav-toggle>
+        <button class="nav-toggle" type="button" aria-controls="nav-menu" aria-expanded="false" data-nav-toggle data-i18n-attr="aria-label:nav.menu" aria-label="Abrir menu">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
         </button>
       </div>
@@ -98,19 +98,19 @@ const navHtml = (currentPath = '') => `
 
     <div class="nav-menu" id="nav-menu" data-open="false">
       <div class="group">
-        <div class="group-label">Pilares</div>
-        <a href="/#salesforce">Salesforce</a>
-        <a href="/#data">Data &amp; Analytics</a>
-        <a href="/#ia">IA &amp; Aplicações</a>
+        <div class="group-label" data-i18n="nav.mobile.pillars">Pilares</div>
+        <a href="/#salesforce" data-i18n="nav.mobile.salesforce">Salesforce</a>
+        <a href="/#data" data-i18n="nav.mobile.data">Data &amp; Analytics</a>
+        <a href="/#ia" data-i18n="nav.mobile.ai">IA &amp; Aplicações</a>
       </div>
       <div class="group">
-        <div class="group-label">Empresa</div>
-        <a href="/#trilha">Trilha 360</a>
-        <a href="/#cases">Cases</a>
-        <a href="/blog/">Blog</a>
+        <div class="group-label" data-i18n="nav.mobile.empresa">Empresa</div>
+        <a href="/#trilha" data-i18n="nav.mobile.trilha">Trilha 360</a>
+        <a href="/#cases" data-i18n="nav.mobile.cases">Cases</a>
+        <a href="/blog/" data-i18n="nav.mobile.blog">Blog</a>
       </div>
       <div class="nav-cta">
-        <a class="btn btn-primary" href="/#contato">Falar com um sócio</a>
+        <a class="btn btn-primary" href="/#contato" data-i18n="nav.cta">Falar com um sócio</a>
       </div>
     </div>
   </header>`;
@@ -129,27 +129,27 @@ const footerHtml = `
             </svg>
             <span>kliente 360</span>
           </a>
-          <p>Boutique de CRM, dados e IA. Conhecimento aplicado, como serviço.</p>
+          <p data-i18n="footer.tagline">Boutique de CRM, dados e IA. Conhecimento aplicado, como serviço.</p>
         </div>
         <div class="footer-col">
-          <h4>Pilares</h4>
+          <h4 data-i18n="footer.pillarsTitle">Pilares</h4>
           <ul>
-            <li><a href="/#salesforce">Salesforce</a></li>
-            <li><a href="/#data">Data &amp; Analytics</a></li>
-            <li><a href="/#ia">IA &amp; Aplicações</a></li>
+            <li><a href="/#salesforce" data-i18n="nav.mobile.salesforce">Salesforce</a></li>
+            <li><a href="/#data" data-i18n="nav.mobile.data">Data &amp; Analytics</a></li>
+            <li><a href="/#ia" data-i18n="nav.mobile.ai">IA &amp; Aplicações</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4>Empresa</h4>
+          <h4 data-i18n="footer.empresaTitle">Empresa</h4>
           <ul>
-            <li><a href="/#trilha">Trilha 360</a></li>
-            <li><a href="/#cases">Cases</a></li>
-            <li><a href="/blog/">Blog</a></li>
-            <li><a href="/#contato">Contato</a></li>
+            <li><a href="/#trilha" data-i18n="nav.trilha">Trilha 360</a></li>
+            <li><a href="/#cases" data-i18n="nav.cases">Cases</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Blog</a></li>
+            <li><a href="/#contato" data-i18n="nav.contact">Contato</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4>Contato</h4>
+          <h4 data-i18n="footer.contactTitle">Contato</h4>
           <ul>
             <li><a href="mailto:contato@kliente360.com">contato@kliente360.com</a></li>
             <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a></li>
@@ -157,7 +157,7 @@ const footerHtml = `
         </div>
       </div>
       <div class="footer-bottom">
-        <div>© 2026 Kliente 360. Todos os direitos reservados.</div>
+        <div data-i18n="footer.rights">© 2026 Kliente 360. Todos os direitos reservados.</div>
         <div class="mono">v0.1 · boutique CRM · dados · IA</div>
       </div>
     </div>
@@ -181,7 +181,9 @@ const headCommon = ({ title, description, canonical, ogType = 'article', pubDate
   <meta property="og:site_name" content="Kliente 360" />
   <meta property="og:title" content="${escapeHtml(title)}" />
   <meta property="og:description" content="${escapeHtml(description)}" />
-  <meta property="og:image" content="/og-image.png" />
+  <meta property="og:image" content="/og-image.svg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   ${pubDate ? `<meta property="article:published_time" content="${pubDate}" />` : ''}
   ${section ? `<meta property="article:section" content="${escapeHtml(section)}" />` : ''}
   <meta name="twitter:card" content="summary_large_image" />
@@ -289,7 +291,7 @@ ${related.map(r => `            <a class="post-card" data-pillar="${r.pillar}" h
                 <span class="post-date">${formatDate(r.date)}</span>
               </div>
               <h3>${escapeHtml(r.title)}</h3>
-              <div class="read">Ler →</div>
+              <div class="read" data-i18n="blog.read">Ler →</div>
             </a>`).join('\n')}
           </div>
         </div>
@@ -300,6 +302,7 @@ ${related.map(r => `            <a class="post-card" data-pillar="${r.pillar}" h
 
 ${footerHtml}
 
+  <script src="/assets/js/i18n.js?v=${ASSET_VERSION}"></script>
   <script src="/assets/js/main.js?v=${ASSET_VERSION}" type="module"></script>
 </body>
 </html>`;
@@ -323,15 +326,15 @@ ${navHtml('/blog/')}
   <main id="main">
     <section class="blog-hero">
       <div class="container">
-        <span class="eyebrow">Blog</span>
-        <h1 style="margin-top: var(--sp-3);">Estratégia, prática e crítica.</h1>
-        <p class="lead">CRM, dados e IA — ensaios e análises para quem decide. Conteúdo técnico, sem clichês.</p>
+        <span class="eyebrow" data-i18n="blog.eyebrow">Blog</span>
+        <h1 style="margin-top: var(--sp-3);" data-i18n="blog.title">Estratégia, prática e crítica.</h1>
+        <p class="lead" data-i18n="blog.lead">CRM, dados e IA — ensaios e análises para quem decide. Conteúdo técnico, sem clichês.</p>
 
         <div class="blog-filter" role="group" aria-label="Filtrar por pilar">
-          <button type="button" data-filter="all" aria-pressed="true">Todos</button>
-          <button type="button" data-filter="sf"   aria-pressed="false">Salesforce</button>
-          <button type="button" data-filter="data" aria-pressed="false">Data &amp; Analytics</button>
-          <button type="button" data-filter="ai"   aria-pressed="false">IA &amp; Aplicações</button>
+          <button type="button" data-filter="all" aria-pressed="true" data-i18n="blog.filterAll">Todos</button>
+          <button type="button" data-filter="sf"   aria-pressed="false" data-i18n="nav.mobile.salesforce">Salesforce</button>
+          <button type="button" data-filter="data" aria-pressed="false" data-i18n="nav.mobile.data">Data &amp; Analytics</button>
+          <button type="button" data-filter="ai"   aria-pressed="false" data-i18n="nav.mobile.ai">IA &amp; Aplicações</button>
         </div>
       </div>
     </section>
@@ -345,7 +348,7 @@ ${posts.map(p => `          <a class="post-card" data-pillar="${p.pillar}" href=
               <span class="post-date">${formatDate(p.date)}</span>
             </div>
             <h3>${escapeHtml(p.title)}</h3>
-            <div class="read">Ler →</div>
+            <div class="read" data-i18n="blog.read">Ler →</div>
           </a>`).join('\n')}
         </div>
       </div>
@@ -354,6 +357,7 @@ ${posts.map(p => `          <a class="post-card" data-pillar="${p.pillar}" href=
 
 ${footerHtml}
 
+  <script src="/assets/js/i18n.js?v=${ASSET_VERSION}"></script>
   <script src="/assets/js/main.js?v=${ASSET_VERSION}" type="module"></script>
   <script>
     document.querySelectorAll('.blog-filter button').forEach(btn => {
@@ -404,6 +408,26 @@ const main = () => {
   // Gera a listagem
   writeFileSync(join(BLOG_DIR, 'index.html'), renderListing(posts));
   console.log(`   ✓ index.html (listing)`);
+
+  // Gera sitemap.xml
+  const today = new Date().toISOString().slice(0, 10);
+  const staticUrls = ['/', '/blog/', '/styleguide.html'];
+  const allUrls = [
+    ...staticUrls.map(u => ({ loc: u, lastmod: today, changefreq: 'monthly', priority: u === '/' ? '1.0' : '0.7' })),
+    ...posts.map(p => ({ loc: `/blog/${p.slug}.html`, lastmod: p.date, changefreq: 'yearly', priority: '0.6' })),
+  ];
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${allUrls.map(u => `  <url>
+    <loc>${u.loc}</loc>
+    <lastmod>${u.lastmod}</lastmod>
+    <changefreq>${u.changefreq}</changefreq>
+    <priority>${u.priority}</priority>
+  </url>`).join('\n')}
+</urlset>
+`;
+  writeFileSync(join(ROOT, 'sitemap.xml'), sitemap);
+  console.log(`   ✓ sitemap.xml (${allUrls.length} URLs)`);
 
   console.log(`✅ Build concluído (asset version: ${ASSET_VERSION}).`);
 };

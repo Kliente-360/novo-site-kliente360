@@ -10,13 +10,27 @@
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
 
+  <link rel="canonical" href="/" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Kliente 360" />
+  <meta property="og:title" content="Kliente 360 — Conhecimento aplicado, como serviço." />
+  <meta property="og:description" content="Boutique de CRM, dados e IA. Salesforce Partner. Três pilares como uma prática única." />
+  <meta property="og:image" content="/og-image.svg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Kliente 360 — Conhecimento aplicado, como serviço." />
+  <meta name="twitter:description" content="Boutique de CRM, dados e IA. Salesforce Partner." />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="/assets/css/tokens.css?v=20260522-14" />
-  <link rel="stylesheet" href="/assets/css/reset.css?v=20260522-14" />
-  <link rel="stylesheet" href="/assets/css/main.css?v=20260522-14" />
+  <link rel="stylesheet" href="/assets/css/tokens.css?v=20260522-15" />
+  <link rel="stylesheet" href="/assets/css/reset.css?v=20260522-15" />
+  <link rel="stylesheet" href="/assets/css/main.css?v=20260522-15" />
 </head>
 <body>
   <a class="skip-link" href="#main">Pular para o conteúdo</a>
@@ -35,21 +49,21 @@
       </a>
 
       <nav class="nav-links" aria-label="Principal">
-        <a href="#pilares">Pilares</a>
-        <a href="#trilha">Trilha 360</a>
-        <a href="#cases">Cases</a>
-        <a href="#blog">Blog</a>
-        <a href="#contato">Contato</a>
+        <a href="#pilares" data-i18n="nav.pillars">Pilares</a>
+        <a href="#trilha" data-i18n="nav.trilha">Trilha 360</a>
+        <a href="#cases" data-i18n="nav.cases">Cases</a>
+        <a href="#blog" data-i18n="nav.blog">Blog</a>
+        <a href="#contato" data-i18n="nav.contact">Contato</a>
       </nav>
 
       <div class="nav-right">
         <div class="lang-switch" role="group" aria-label="Idioma">
-          <button type="button" aria-current="true">PT</button>
-          <button type="button">EN</button>
-          <button type="button">ES</button>
+          <button type="button" data-lang="pt" aria-current="true">PT</button>
+          <button type="button" data-lang="en">EN</button>
+          <button type="button" data-lang="es">ES</button>
         </div>
 
-        <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-controls="nav-menu" aria-expanded="false" data-nav-toggle>
+        <button class="nav-toggle" type="button" aria-controls="nav-menu" aria-expanded="false" data-nav-toggle data-i18n-attr="aria-label:nav.menu" aria-label="Abrir menu">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
         </button>
       </div>
@@ -57,20 +71,20 @@
 
     <div class="nav-menu" id="nav-menu" data-open="false">
       <div class="group">
-        <div class="group-label">Pilares</div>
-        <a href="#salesforce">Salesforce</a>
-        <a href="#data">Data &amp; Analytics</a>
-        <a href="#ia">IA &amp; Aplicações</a>
+        <div class="group-label" data-i18n="nav.mobile.pillars">Pilares</div>
+        <a href="#salesforce" data-i18n="nav.mobile.salesforce">Salesforce</a>
+        <a href="#data" data-i18n="nav.mobile.data">Data &amp; Analytics</a>
+        <a href="#ia" data-i18n="nav.mobile.ai">IA &amp; Aplicações</a>
       </div>
       <div class="group">
-        <div class="group-label">Empresa</div>
-        <a href="#trilha">Trilha 360</a>
-        <a href="#cases">Cases</a>
-        <a href="#blog">Blog</a>
+        <div class="group-label" data-i18n="nav.mobile.empresa">Empresa</div>
+        <a href="#trilha" data-i18n="nav.mobile.trilha">Trilha 360</a>
+        <a href="#cases" data-i18n="nav.mobile.cases">Cases</a>
+        <a href="#blog" data-i18n="nav.mobile.blog">Blog</a>
       </div>
 
       <div class="nav-cta">
-        <a class="btn btn-primary" href="#contato">Falar com um sócio</a>
+        <a class="btn btn-primary" href="#contato" data-i18n="nav.cta">Falar com um sócio</a>
       </div>
     </div>
   </header>
@@ -88,20 +102,23 @@
 
       <div class="container">
         <div class="badges">
-          <span class="pill pill-line">Salesforce Partner</span>
-          <span class="pill pill-accent pill-dot">Agentforce ready</span>
+          <span class="pill pill-line" data-i18n="hero.badge1">Salesforce Partner</span>
+          <span class="pill pill-accent pill-dot" data-i18n="hero.badge2">Agentforce ready</span>
         </div>
 
-        <h1>Conhecimento aplicado, <em>como serviço</em>.</h1>
+        <h1>
+          <span data-i18n="hero.title1">Conhecimento aplicado,</span>
+          <em data-i18n="hero.title2">como serviço</em>.
+        </h1>
 
-        <p class="sub">
+        <p class="sub" data-i18n="hero.sub">
           Boutique de CRM, dados e IA — três pilares como uma prática única.
           Poucos clientes estratégicos, atendidos por quem entrega.
         </p>
 
         <div class="cta-row">
-          <a class="btn btn-primary" href="#contato">Falar com um sócio</a>
-          <a class="btn btn-ghost" href="#trilha">Conhecer a Trilha 360</a>
+          <a class="btn btn-primary" href="#contato" data-i18n="hero.cta1">Falar com um sócio</a>
+          <a class="btn btn-ghost" href="#trilha" data-i18n="hero.cta2">Conhecer a Trilha 360</a>
         </div>
       </div>
     </section>
@@ -110,47 +127,47 @@
     <section class="section alt" id="pilares">
       <div class="container">
         <header class="section-head">
-          <span class="eyebrow">Portfólio</span>
-          <h2 class="h2">Três pilares. Uma prática única.</h2>
-          <p class="lead">Nenhum boutique do Brasil entrega os três como uma só disciplina. CRM sem dado é cego; dado sem ativação é decoração; IA sem operação é demo. Operamos os três como uma engrenagem.</p>
+          <span class="eyebrow" data-i18n="pillars.eyebrow">Portfólio</span>
+          <h2 class="h2" data-i18n="pillars.title">Três pilares. Uma prática única.</h2>
+          <p class="lead" data-i18n="pillars.lead">Nenhum boutique do Brasil entrega os três como uma só disciplina. CRM sem dado é cego; dado sem ativação é decoração; IA sem operação é demo. Operamos os três como uma engrenagem.</p>
         </header>
 
         <div class="pillars-grid">
 
           <article class="pillar-card" data-pillar="sf">
-            <div class="num">01 · Pilar</div>
-            <h3>Salesforce</h3>
-            <p>Core CRM. Da implementação à evolução com agentes, sem terceirizar a estratégia.</p>
+            <div class="num" data-i18n="pillars.sf.num">01 · Pilar</div>
+            <h3 data-i18n="pillars.sf.t">Salesforce</h3>
+            <p data-i18n="pillars.sf.d">Core CRM. Da implementação à evolução com agentes, sem terceirizar a estratégia.</p>
             <ul>
               <li>Sales &amp; Service Cloud</li>
               <li>Data Cloud + ativação</li>
               <li>Agentforce / copilots</li>
             </ul>
-            <div class="more"><a class="btn-link" href="#salesforce">Ver o pilar</a></div>
+            <div class="more"><a class="btn-link" href="#salesforce" data-i18n="pillars.more">Ver o pilar</a></div>
           </article>
 
           <article class="pillar-card" data-pillar="data">
-            <div class="num">02 · Pilar</div>
-            <h3>Data &amp; Analytics</h3>
-            <p>Engenharia de dados, analytics avançado e data science. Agnóstico de cloud, viés Tableau na ponta.</p>
+            <div class="num" data-i18n="pillars.data.num">02 · Pilar</div>
+            <h3 data-i18n="pillars.data.t">Data &amp; Analytics</h3>
+            <p data-i18n="pillars.data.d">Engenharia de dados, analytics avançado e data science. Agnóstico de cloud, viés Tableau na ponta.</p>
             <ul>
               <li>Engenharia de dados</li>
               <li>Analytics avançado / DS</li>
               <li>Visualização — Tableau</li>
             </ul>
-            <div class="more"><a class="btn-link" href="#data">Ver o pilar</a></div>
+            <div class="more"><a class="btn-link" href="#data" data-i18n="pillars.more">Ver o pilar</a></div>
           </article>
 
           <article class="pillar-card" data-pillar="ai">
-            <div class="num">03 · Pilar</div>
-            <h3>IA &amp; Aplicações</h3>
-            <p>Copilots sob medida e produtos SaaS verticais. Pegada de software house com discovery rápido.</p>
+            <div class="num" data-i18n="pillars.ai.num">03 · Pilar</div>
+            <h3 data-i18n="pillars.ai.t">IA &amp; Aplicações</h3>
+            <p data-i18n="pillars.ai.d">Copilots sob medida e produtos SaaS verticais. Pegada de software house com discovery rápido.</p>
             <ul>
               <li>Agentes &amp; copilots</li>
               <li>Produtos SaaS verticais</li>
               <li>Sprint de IA</li>
             </ul>
-            <div class="more"><a class="btn-link" href="#ia">Ver o pilar</a></div>
+            <div class="more"><a class="btn-link" href="#ia" data-i18n="pillars.more">Ver o pilar</a></div>
           </article>
 
         </div>
@@ -162,12 +179,12 @@
       <div class="container">
         <div class="pillar-grid">
           <div class="pillar-copy">
-            <span class="eyebrow">Pilar 01</span>
-            <h2 class="h3" style="margin-top: var(--sp-3);">Salesforce — do CRM ao agente.</h2>
-            <p class="lead">Sales, Service, Data Cloud e Agentforce. Implementamos com cabeça de negócio, evoluímos com agentes onde já existe dado e processo.</p>
+            <span class="eyebrow" data-i18n="pillarDeep.sf.eyebrow">Pilar 01</span>
+            <h2 class="h3" style="margin-top: var(--sp-3);" data-i18n="pillarDeep.sf.title">Salesforce — do CRM ao agente.</h2>
+            <p class="lead" data-i18n="pillarDeep.sf.lead">Sales, Service, Data Cloud e Agentforce. Implementamos com cabeça de negócio, evoluímos com agentes onde já existe dado e processo.</p>
             <div class="actions">
-              <a class="btn btn-primary" href="#contato">Falar com um sócio</a>
-              <a class="btn-link" href="#trilha">Como entregamos</a>
+              <a class="btn btn-primary" href="#contato" data-i18n="pillarDeep.cta">Falar com um sócio</a>
+              <a class="btn-link" href="#trilha" data-i18n="pillarDeep.link">Como entregamos</a>
             </div>
           </div>
 
@@ -203,12 +220,12 @@
       <div class="container">
         <div class="pillar-grid">
           <div class="pillar-copy">
-            <span class="eyebrow">Pilar 02</span>
-            <h2 class="h3" style="margin-top: var(--sp-3);">Data &amp; Analytics — do dado bruto à decisão.</h2>
-            <p class="lead">Engenharia de dados moderna, modelos preditivos e visualização. Agnóstico de cloud, com prática certificada em Tableau na camada de consumo.</p>
+            <span class="eyebrow" data-i18n="pillarDeep.data.eyebrow">Pilar 02</span>
+            <h2 class="h3" style="margin-top: var(--sp-3);" data-i18n="pillarDeep.data.title">Data &amp; Analytics — do dado bruto à decisão.</h2>
+            <p class="lead" data-i18n="pillarDeep.data.lead">Engenharia de dados moderna, modelos preditivos e visualização. Agnóstico de cloud, com prática certificada em Tableau na camada de consumo.</p>
             <div class="actions">
-              <a class="btn btn-primary" href="#contato">Falar com um sócio</a>
-              <a class="btn-link" href="#trilha">Como entregamos</a>
+              <a class="btn btn-primary" href="#contato" data-i18n="pillarDeep.cta">Falar com um sócio</a>
+              <a class="btn-link" href="#trilha" data-i18n="pillarDeep.link">Como entregamos</a>
             </div>
           </div>
 
@@ -244,12 +261,17 @@
       <div class="container">
         <div class="pillar-grid">
           <div class="pillar-copy">
-            <span class="eyebrow">Pilar 03</span>
-            <h2 class="h3" style="margin-top: var(--sp-3);">IA &amp; Aplicações — do <span style="color: var(--green-300);">dado</span> ao <span style="color: var(--green-300);">agente</span>.</h2>
-            <p class="lead">Copilots sob medida e produtos SaaS verticais. Sprint de IA enxuto: do diagnóstico ao primeiro modelo em produção rapidamente.</p>
+            <span class="eyebrow" data-i18n="pillarDeep.ai.eyebrow">Pilar 03</span>
+            <h2 class="h3" style="margin-top: var(--sp-3);">
+              <span data-i18n="pillarDeep.ai.titleLead">IA &amp; Aplicações — do</span>
+              <span style="color: var(--green-300);" data-i18n="pillarDeep.ai.titleMid">dado</span>
+              <span data-i18n="pillarDeep.ai.titleConn">ao</span>
+              <span style="color: var(--green-300);" data-i18n="pillarDeep.ai.titleEnd">agente</span><span data-i18n="pillarDeep.ai.titleTail">. Sem emendas.</span>
+            </h2>
+            <p class="lead" data-i18n="pillarDeep.ai.lead">Copilots sob medida e produtos SaaS verticais. Sprint de IA enxuto: do diagnóstico ao primeiro modelo em produção rapidamente.</p>
             <div class="actions">
-              <a class="btn btn-on-dark" href="#contato">Falar com um sócio</a>
-              <a class="btn-link" href="#trilha" style="color: var(--green-300);">Como entregamos</a>
+              <a class="btn btn-on-dark" href="#contato" data-i18n="pillarDeep.cta">Falar com um sócio</a>
+              <a class="btn-link" href="#trilha" style="color: var(--green-300);" data-i18n="pillarDeep.link">Como entregamos</a>
             </div>
           </div>
 
@@ -284,37 +306,37 @@
     <section class="section" id="trilha">
       <div class="container">
         <header class="section-head">
-          <span class="eyebrow">Metodologia</span>
-          <h2 class="h2">Trilha 360.</h2>
-          <p class="lead">Cinco verbos. Híbrido entre consultoria estratégica, projeto de tecnologia e deploy rápido de IA. Mesmo método nos três pilares.</p>
+          <span class="eyebrow" data-i18n="trilha.eyebrow">Metodologia</span>
+          <h2 class="h2" data-i18n="trilha.title">Trilha 360.</h2>
+          <p class="lead" data-i18n="trilha.lead">Cinco verbos. Híbrido entre consultoria estratégica, projeto de tecnologia e deploy rápido de IA. Mesmo método nos três pilares.</p>
         </header>
 
         <div class="trilha-wrap">
           <ol class="trilha">
             <li class="trilha-step">
               <div class="num">01</div>
-              <div class="verb">Mapear</div>
-              <div class="desc">Negócio, dados e processos. Onde a fricção mora.</div>
+              <div class="verb" data-i18n="trilha.steps.0.v">Mapear</div>
+              <div class="desc" data-i18n="trilha.steps.0.d">Negócio, dados e processos. Onde a fricção mora.</div>
             </li>
             <li class="trilha-step">
               <div class="num">02</div>
-              <div class="verb">Prototipar</div>
-              <div class="desc">Primeiro corte funcional. Baixo compromisso, alto aprendizado.</div>
+              <div class="verb" data-i18n="trilha.steps.1.v">Prototipar</div>
+              <div class="desc" data-i18n="trilha.steps.1.d">Primeiro corte funcional. Baixo compromisso, alto aprendizado.</div>
             </li>
             <li class="trilha-step">
               <div class="num">03</div>
-              <div class="verb">Validar</div>
-              <div class="desc">Prova de valor com KPI claro. Mata ou avança.</div>
+              <div class="verb" data-i18n="trilha.steps.2.v">Validar</div>
+              <div class="desc" data-i18n="trilha.steps.2.d">Prova de valor com KPI claro. Mata ou avança.</div>
             </li>
             <li class="trilha-step">
               <div class="num">04</div>
-              <div class="verb">Implantar</div>
-              <div class="desc">Engenharia robusta, produção, integração.</div>
+              <div class="verb" data-i18n="trilha.steps.3.v">Implantar</div>
+              <div class="desc" data-i18n="trilha.steps.3.d">Engenharia robusta, produção, integração.</div>
             </li>
             <li class="trilha-step">
               <div class="num">05</div>
-              <div class="verb">Sustentar</div>
-              <div class="desc">AMS, evolução contínua, agentes vivos.</div>
+              <div class="verb" data-i18n="trilha.steps.4.v">Sustentar</div>
+              <div class="desc" data-i18n="trilha.steps.4.d">AMS, evolução contínua, agentes vivos.</div>
             </li>
           </ol>
         </div>
@@ -325,9 +347,9 @@
     <section class="section alt" id="cases">
       <div class="container">
         <header class="section-head">
-          <span class="eyebrow">Quem confia</span>
-          <h2 class="h2">Clientes estratégicos. Resultado mensurável.</h2>
-          <p class="lead">Carteira enxuta por escolha. Cada conta lidera-se por um sócio. Métricas exatas atualizadas a cada projeto encerrado.</p>
+          <span class="eyebrow" data-i18n="cases.eyebrow">Quem confia</span>
+          <h2 class="h2" data-i18n="cases.title">Clientes estratégicos. Resultado mensurável.</h2>
+          <p class="lead" data-i18n="cases.lead">Carteira enxuta por escolha. Cada conta lidera-se por um sócio. Métricas exatas atualizadas a cada projeto encerrado.</p>
         </header>
 
         <div class="cases-grid">
@@ -337,7 +359,7 @@
             <h3>Reformulação do core CRM e ativação data-driven do ciclo de cobrança.</h3>
             <div class="metric">
               <div class="big">—</div>
-              <div class="lbl">métrica a publicar com aprovação do cliente</div>
+              <div class="lbl" data-i18n="cases.placeholder">métrica a publicar com aprovação do cliente</div>
             </div>
             <div class="tag">Salesforce · Data</div>
           </article>
@@ -347,7 +369,7 @@
             <h3>Plataforma analítica para retenção e operação omnicanal das unidades.</h3>
             <div class="metric">
               <div class="big">—</div>
-              <div class="lbl">métrica a publicar com aprovação do cliente</div>
+              <div class="lbl" data-i18n="cases.placeholder">métrica a publicar com aprovação do cliente</div>
             </div>
             <div class="tag">Data · IA</div>
           </article>
@@ -360,27 +382,27 @@
     <section class="section dark" id="confianca">
       <div class="container">
         <header class="section-head">
-          <span class="eyebrow">Por que a Kliente 360</span>
-          <h2 class="h2" style="color: #fff;">Parceria Salesforce, time enxuto, conversa direta.</h2>
-          <p class="lead">Boutique por escolha. Operação liderada pelos sócios em todos os pilares, sem camadas de account manager entre você e quem entrega.</p>
+          <span class="eyebrow" data-i18n="trust.eyebrow">Por que a Kliente 360</span>
+          <h2 class="h2" style="color: #fff;" data-i18n="trust.title">Parceria Salesforce, time enxuto, conversa direta.</h2>
+          <p class="lead" data-i18n="trust.lead">Boutique por escolha. Operação liderada pelos sócios em todos os pilares, sem camadas de account manager entre você e quem entrega.</p>
         </header>
 
         <div class="trust-strip">
           <div class="trust-item">
-            <div class="num">3</div>
-            <div class="lbl">Pilares integrados — CRM, dados e IA</div>
+            <div class="num" data-i18n="trust.items.0.n">3</div>
+            <div class="lbl" data-i18n="trust.items.0.l">Pilares integrados — CRM, dados e IA</div>
           </div>
           <div class="trust-item">
-            <div class="num">2026</div>
-            <div class="lbl">Salesforce Partner ativo</div>
+            <div class="num" data-i18n="trust.items.1.n">2026</div>
+            <div class="lbl" data-i18n="trust.items.1.l">Salesforce Partner ativo</div>
           </div>
           <div class="trust-item">
-            <div class="num">100%</div>
-            <div class="lbl">Contas lideradas por sócio</div>
+            <div class="num" data-i18n="trust.items.2.n">100%</div>
+            <div class="lbl" data-i18n="trust.items.2.l">Contas lideradas por sócio</div>
           </div>
           <div class="trust-item">
-            <div class="num">&lt;10</div>
-            <div class="lbl">Clientes estratégicos por vez</div>
+            <div class="num" data-i18n="trust.items.3.n">&lt;10</div>
+            <div class="lbl" data-i18n="trust.items.3.l">Clientes estratégicos por vez</div>
           </div>
         </div>
       </div>
@@ -390,9 +412,9 @@
     <section class="section" id="blog">
       <div class="container">
         <header class="section-head">
-          <span class="eyebrow">Blog</span>
-          <h2 class="h2">Estratégia, prática e crítica.</h2>
-          <p class="lead">CRM, dados e IA — ensaios e análises para quem decide. Conteúdo técnico, sem clichês.</p>
+          <span class="eyebrow" data-i18n="blog.eyebrow">Blog</span>
+          <h2 class="h2" data-i18n="blog.title">Estratégia, prática e crítica.</h2>
+          <p class="lead" data-i18n="blog.lead">CRM, dados e IA — ensaios e análises para quem decide. Conteúdo técnico, sem clichês.</p>
         </header>
 
         <div class="blog-grid">
@@ -402,28 +424,28 @@
               <span class="post-date">14 mai 2026</span>
             </div>
             <h3>Quando um agente é a resposta — e quando ele é fuga de problema mal modelado.</h3>
-            <div class="read">Ler →</div>
+            <div class="read" data-i18n="blog.read">Ler →</div>
           </a>
-          <a class="post-card" data-pillar="sf" href="/blog/">
+          <a class="post-card" data-pillar="sf" href="/blog/data-cloud-nervo-central.html">
             <div class="post-meta">
               <span class="pill-pillar">Pilar 01 · Salesforce</span>
-              <span class="post-date">Em breve</span>
+              <span class="post-date">12 mai 2026</span>
             </div>
             <h3>Data Cloud não é mais CDP — é o nervo central do Salesforce.</h3>
-            <div class="read">Ler →</div>
+            <div class="read" data-i18n="blog.read">Ler →</div>
           </a>
-          <a class="post-card" data-pillar="data" href="/blog/">
+          <a class="post-card" data-pillar="data" href="/blog/tableau-linguagem-executiva.html">
             <div class="post-meta">
               <span class="pill-pillar">Pilar 02 · Data</span>
-              <span class="post-date">Em breve</span>
+              <span class="post-date">8 mai 2026</span>
             </div>
             <h3>Tableau como linguagem executiva: matando o dashboard de vaidade.</h3>
-            <div class="read">Ler →</div>
+            <div class="read" data-i18n="blog.read">Ler →</div>
           </a>
         </div>
 
         <div style="margin-top: var(--sp-8);">
-          <a class="btn-link" href="/blog/">Ver todos os textos</a>
+          <a class="btn-link" href="/blog/" data-i18n="blog.all">Ver todos os textos</a>
         </div>
       </div>
     </section>
@@ -433,9 +455,9 @@
       <div class="container">
         <div class="contact-grid">
           <div class="contact-copy">
-            <span class="eyebrow">Contato</span>
-            <h2 style="margin-top: var(--sp-3);">Conversa direta com um sócio.</h2>
-            <p class="lead">Mande uma linha sobre o problema. Respondemos em 1 dia útil. Sem formulário-fila, sem SDR, sem agenda fantasma.</p>
+            <span class="eyebrow" data-i18n="contact.eyebrow">Contato</span>
+            <h2 style="margin-top: var(--sp-3);" data-i18n="contact.title">Conversa direta com um sócio.</h2>
+            <p class="lead" data-i18n="contact.lead">Mande uma linha sobre o problema. Respondemos em 1 dia útil. Sem formulário-fila, sem SDR, sem agenda fantasma.</p>
 
             <ul class="contact-list">
               <li>
@@ -447,7 +469,7 @@
               <li>
                 <a href="https://www.linkedin.com/" target="_blank" rel="noopener">
                   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.22 8h4.56v14H.22V8zm7.34 0h4.37v1.92h.06c.61-1.15 2.1-2.36 4.32-2.36 4.62 0 5.47 3.04 5.47 6.99V22h-4.56v-6.51c0-1.55-.03-3.55-2.17-3.55-2.17 0-2.5 1.69-2.5 3.44V22H7.56V8z"/></svg>
-                  LinkedIn — Kliente 360
+                  <span data-i18n="contact.linkedin">LinkedIn — Kliente 360</span>
                 </a>
               </li>
             </ul>
@@ -455,23 +477,23 @@
 
           <form class="form" method="post" action="#" novalidate>
             <div>
-              <label for="f-name">Nome</label>
+              <label for="f-name" data-i18n="contact.name">Nome</label>
               <input id="f-name" name="name" type="text" required autocomplete="name" />
             </div>
             <div>
-              <label for="f-email">E-mail corporativo</label>
+              <label for="f-email" data-i18n="contact.email">E-mail corporativo</label>
               <input id="f-email" name="email" type="email" required autocomplete="email" />
             </div>
             <div>
-              <label for="f-company">Empresa</label>
+              <label for="f-company" data-i18n="contact.company">Empresa</label>
               <input id="f-company" name="company" type="text" autocomplete="organization" />
             </div>
             <div>
-              <label for="f-msg">Sobre o que conversamos?</label>
-              <textarea id="f-msg" name="message" rows="4" placeholder="Ex.: estamos implantando Data Cloud e queremos avaliar parceria."></textarea>
+              <label for="f-msg" data-i18n="contact.msg">Sobre o que conversamos?</label>
+              <textarea id="f-msg" name="message" rows="4" data-i18n-attr="placeholder:contact.msgPh" placeholder="Ex.: estamos implantando Data Cloud e queremos avaliar parceria."></textarea>
             </div>
-            <button type="submit" class="btn btn-primary submit">Enviar mensagem</button>
-            <p class="muted" style="font-size: var(--fs-12);">Respondemos pessoalmente em até 1 dia útil.</p>
+            <button type="submit" class="btn btn-primary submit" data-i18n="contact.submit" data-i18n-attr="data-sent:contact.sent" data-sent="Enviado — em breve respondemos">Enviar mensagem</button>
+            <p class="muted" style="font-size: var(--fs-12);" data-i18n="contact.reply">Respondemos pessoalmente em até 1 dia útil.</p>
           </form>
         </div>
       </div>
@@ -493,30 +515,30 @@
             </svg>
             <span>kliente 360</span>
           </a>
-          <p>Boutique de CRM, dados e IA. Conhecimento aplicado, como serviço.</p>
+          <p data-i18n="footer.tagline">Boutique de CRM, dados e IA. Conhecimento aplicado, como serviço.</p>
         </div>
 
         <div class="footer-col">
-          <h4>Pilares</h4>
+          <h4 data-i18n="footer.pillarsTitle">Pilares</h4>
           <ul>
-            <li><a href="#salesforce">Salesforce</a></li>
-            <li><a href="#data">Data &amp; Analytics</a></li>
-            <li><a href="#ia">IA &amp; Aplicações</a></li>
+            <li><a href="#salesforce" data-i18n="nav.mobile.salesforce">Salesforce</a></li>
+            <li><a href="#data" data-i18n="nav.mobile.data">Data &amp; Analytics</a></li>
+            <li><a href="#ia" data-i18n="nav.mobile.ai">IA &amp; Aplicações</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
-          <h4>Empresa</h4>
+          <h4 data-i18n="footer.empresaTitle">Empresa</h4>
           <ul>
-            <li><a href="#trilha">Trilha 360</a></li>
-            <li><a href="#cases">Cases</a></li>
-            <li><a href="#blog">Blog</a></li>
-            <li><a href="#contato">Contato</a></li>
+            <li><a href="#trilha" data-i18n="nav.trilha">Trilha 360</a></li>
+            <li><a href="#cases" data-i18n="nav.cases">Cases</a></li>
+            <li><a href="#blog" data-i18n="nav.blog">Blog</a></li>
+            <li><a href="#contato" data-i18n="nav.contact">Contato</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
-          <h4>Contato</h4>
+          <h4 data-i18n="footer.contactTitle">Contato</h4>
           <ul>
             <li><a href="mailto:contato@kliente360.com">contato@kliente360.com</a></li>
             <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a></li>
@@ -525,12 +547,13 @@
       </div>
 
       <div class="footer-bottom">
-        <div>© 2026 Kliente 360. Todos os direitos reservados.</div>
+        <div data-i18n="footer.rights">© 2026 Kliente 360. Todos os direitos reservados.</div>
         <div class="mono">v0.1 · boutique CRM · dados · IA</div>
       </div>
     </div>
   </footer>
 
-  <script src="/assets/js/main.js?v=20260522-14" type="module"></script>
+  <script src="/assets/js/i18n.js?v=20260522-15"></script>
+  <script src="/assets/js/main.js?v=20260522-15" type="module"></script>
 </body>
 </html>

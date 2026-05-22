@@ -1,5 +1,6 @@
 // Kliente 360 — main script
-// Mobile nav, idioma (stub), form simples.
+// Mobile nav + form simples.
+// (Idioma é tratado em assets/js/i18n.js)
 
 (() => {
   // -------- Mobile nav --------
@@ -30,16 +31,6 @@
     });
   }
 
-  // -------- Idioma (stub, sem swap real ainda) --------
-  document.querySelectorAll('.lang-switch button, .lang-mobile button').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const group = btn.parentElement;
-      group.querySelectorAll('button').forEach(b => b.removeAttribute('aria-current'));
-      btn.setAttribute('aria-current', 'true');
-      // TODO: integrar swap PT/EN/ES via data-i18n quando dicionários existirem.
-    });
-  });
-
   // -------- Form (impede submit, mostra estado) --------
   const form = document.querySelector('form.form');
   if (form) {
@@ -47,7 +38,8 @@
       e.preventDefault();
       const btn = form.querySelector('.submit');
       const original = btn.textContent;
-      btn.textContent = 'Enviado — em breve respondemos';
+      const sentMsg = btn.dataset.sent || 'Enviado — em breve respondemos';
+      btn.textContent = sentMsg;
       btn.disabled = true;
       // TODO: integrar com endpoint (Formspree / Netlify Forms / API própria).
       setTimeout(() => { btn.textContent = original; btn.disabled = false; form.reset(); }, 4000);
