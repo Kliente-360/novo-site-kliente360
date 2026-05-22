@@ -86,6 +86,17 @@
     .logo .dots span:nth-child(4) { opacity: 1; }
     .logo.large { font-size: clamp(2rem, 4vw, 3.5rem); }
     .logo.large .dots span { width: 12px; height: 12px; }
+    .logo-stack { flex-direction: column; align-items: flex-start; gap: 0; line-height: 0.95; }
+    .logo-stack .row { display: inline-flex; align-items: baseline; gap: 8px; }
+    .logo-compact { letter-spacing: -0.05em; }
+    .logo-pillars .dots span { opacity: 1 !important; }
+
+    .logo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-6); margin-top: var(--sp-12); }
+    @media (max-width: 768px) { .logo-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px) { .logo-grid { grid-template-columns: 1fr; } }
+    .logo-cell { display: flex; flex-direction: column; gap: var(--sp-3); }
+    .logo-cell .logo-stage { aspect-ratio: 4/3; background: var(--bg-alt); border: 1px solid var(--color-line); border-radius: var(--r-lg); display: flex; align-items: center; justify-content: center; padding: var(--sp-6); }
+    .logo-cell figcaption { font-size: var(--fs-14); color: var(--color-fg-muted); }
 
     /* ====== PALETA ====== */
     .swatch { border-radius: var(--r-md); overflow: hidden; border: 1px solid var(--color-line); background: var(--bg); }
@@ -206,6 +217,7 @@
         <span style="color: var(--color-fg-muted); font-weight: var(--fw-regular);">/ style guide</span>
       </div>
       <div class="sg-nav-links">
+        <a href="#logo-vars">Logo</a>
         <a href="#cor">Cor</a>
         <a href="#tipo">Tipografia</a>
         <a href="#componentes">Componentes</a>
@@ -249,6 +261,90 @@
     </div>
   </section>
 
+  <!-- Logo variações -->
+  <section class="sg" id="logo-vars">
+    <div class="container">
+      <div class="sg-eyebrow" style="color: var(--color-fg-muted);">01b — Variações de logo</div>
+      <h2 class="sg-h2">Lockups</h2>
+      <p class="sg-lead">Mesma marca, seis aplicações. Todos os mocks textuais — substituídos pelo PNG/SVG final do Felipe sem alterar proporção.</p>
+
+      <div class="logo-grid">
+        <!-- 1. Horizontal (canônico) -->
+        <figure class="logo-cell">
+          <div class="logo-stage">
+            <span class="logo large">
+              kliente 360
+              <span class="dots"><span></span><span></span><span></span><span></span></span>
+            </span>
+          </div>
+          <figcaption>01 · Horizontal (canônico) — uso default no header e materiais.</figcaption>
+        </figure>
+
+        <!-- 2. Stacked -->
+        <figure class="logo-cell">
+          <div class="logo-stage">
+            <span class="logo large logo-stack">
+              <span>kliente</span>
+              <span class="row">360 <span class="dots"><span></span><span></span><span></span><span></span></span></span>
+            </span>
+          </div>
+          <figcaption>02 · Empilhado — assinaturas verticais, perfis sociais, cards quadrados.</figcaption>
+        </figure>
+
+        <!-- 3. Sem dots -->
+        <figure class="logo-cell">
+          <div class="logo-stage">
+            <span class="logo large">kliente 360</span>
+          </div>
+          <figcaption>03 · Wordmark puro — espaços apertados (favicon largo, rodapé).</figcaption>
+        </figure>
+
+        <!-- 4. Compact k360 -->
+        <figure class="logo-cell">
+          <div class="logo-stage">
+            <span class="logo large logo-compact">
+              k360
+              <span class="dots"><span></span><span></span><span></span><span></span></span>
+            </span>
+          </div>
+          <figcaption>04 · Compacto "k360" — ícone para app, social avatar, watermark.</figcaption>
+        </figure>
+
+        <!-- 5. Símbolo (dots em arco) -->
+        <figure class="logo-cell">
+          <div class="logo-stage">
+            <svg viewBox="0 0 120 120" width="96" height="96" aria-label="Símbolo Kliente 360">
+              <g fill="var(--color-accent)">
+                <circle cx="60" cy="18" r="8" opacity="0.4"/>
+                <circle cx="102" cy="60" r="8" opacity="0.6"/>
+                <circle cx="60" cy="102" r="8" opacity="0.8"/>
+                <circle cx="18" cy="60" r="8" opacity="1"/>
+              </g>
+            </svg>
+          </div>
+          <figcaption>05 · Símbolo isolado — favicon, OG image, sello de "K360 Inside".</figcaption>
+        </figure>
+
+        <!-- 6. Multi-cor (pilares) -->
+        <figure class="logo-cell">
+          <div class="logo-stage">
+            <span class="logo large logo-pillars">
+              kliente 360
+              <span class="dots">
+                <span style="background:#0B5394"></span>
+                <span style="background:#C9A227"></span>
+                <span style="background:#6D28D9"></span>
+                <span style="background:var(--color-accent)"></span>
+              </span>
+            </span>
+          </div>
+          <figcaption>06 · Pilares — 4 pontos coloridos = Salesforce, Data, IA, K360. Use em manifesto/sobre.</figcaption>
+        </figure>
+      </div>
+      <p class="sg-label" style="margin-top: var(--sp-6);">Regra geral: o lockup canônico (01) é o padrão. Os demais resolvem contextos específicos.</p>
+    </div>
+  </section>
+
   <!-- Paleta -->
   <section class="sg" id="cor">
     <div class="container">
@@ -283,6 +379,42 @@
         <div class="swatch"><div class="chip" style="background:#006b3f"></div><div class="meta"><div class="name">Green 700</div><div class="hex">#006B3F</div></div></div>
       </div>
       <p class="sg-label" style="margin-top: var(--sp-3);">★ Verde canônico do logo. 700 = hover/emphasis. 50 = pílulas e fundos suaves.</p>
+
+      <h3 class="sg-h3" style="margin-top: var(--sp-12);">Cores secundárias — uma por pilar (proposta)</h3>
+      <p class="sg-lead" style="max-width: 70ch;">Cada pilar ganha uma cor que só aparece dentro da sua seção (eyebrow, ícones, micro-acentos). No nível do site, dominam neutro + verde. É um sistema, não um arco-íris.</p>
+      <div class="grid grid-3" style="margin-top: var(--sp-6);">
+        <div class="swatch"><div class="chip" style="background:#0B5394"></div><div class="meta"><div class="name">Salesforce blue</div><div class="hex">#0B5394</div><div class="sg-label" style="margin-top:6px;">Pilar 01 · associação natural com a marca SF, sem ser cyan genérico.</div></div></div>
+        <div class="swatch"><div class="chip" style="background:#C9A227"></div><div class="meta"><div class="name">Data amber</div><div class="hex">#C9A227</div><div class="sg-label" style="margin-top:6px;">Pilar 02 · âmbar quente, lê "inteligência" sem virar amarelo startup.</div></div></div>
+        <div class="swatch"><div class="chip" style="background:#6D28D9"></div><div class="meta"><div class="name">AI violet</div><div class="hex">#6D28D9</div><div class="sg-label" style="margin-top:6px;">Pilar 03 · roxo é o código universal da IA hoje (OpenAI, Anthropic).</div></div></div>
+      </div>
+
+      <h3 class="sg-h3" style="margin-top: var(--sp-12);">Sobre as cores antigas (cyan / amarelo / navy)</h3>
+      <div class="grid grid-3" style="margin-top: var(--sp-6);">
+        <div class="swatch" style="opacity: 0.7;">
+          <div class="chip" style="background:#F8DF61"></div>
+          <div class="meta">
+            <div class="name">Yellow #F8DF61</div>
+            <div class="hex">— não recomendado</div>
+            <div class="sg-label" style="margin-top:6px;">Sunny demais. Lê "startup amigável", rebaixa o premium. Pode ressuscitar em pílulas de alerta, no máximo.</div>
+          </div>
+        </div>
+        <div class="swatch" style="opacity: 0.7;">
+          <div class="chip" style="background:#0093FA"></div>
+          <div class="meta">
+            <div class="name">Cyan #0093FA</div>
+            <div class="hex">— não recomendado</div>
+            <div class="sg-label" style="margin-top:6px;">Briga com o verde, vira SaaS commodity. Substituí por Salesforce blue (#0B5394).</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="chip" style="background:#06073E"></div>
+          <div class="meta">
+            <div class="name">Navy #06073E</div>
+            <div class="hex">— reaproveitável</div>
+            <div class="sg-label" style="margin-top:6px;">Pode substituir o preto puro em hero/seções "alma corporativa". Não usar como acento, só como base alternativa ao Ink 900.</div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
