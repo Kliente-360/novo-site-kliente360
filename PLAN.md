@@ -2,7 +2,7 @@
 
 Documento mantido em main. Registra contexto, decisões tomadas e próximos passos. Atualizar a cada sessão.
 
-Última atualização: 2026-05-21.
+Última atualização: 2026-05-22.
 
 ---
 
@@ -39,11 +39,29 @@ Levantado do arquivo Figma "Kliente 360" (autora Bruna Slongo, 2022).
 
 **Arquitetura antiga**: Home / Sobre / Serviços CRM / Serviços BI / Blog / Contato. Header com badge "Salesforce partner". Copy de prova técnica ("dados reais", "profissionais certificados").
 
+## 3.1. Três pilares do novo portfólio (definidos 2026-05-22)
+
+1. **Salesforce — core CRM.** Sales Cloud, Service Cloud, Data Cloud, Agentforce. Reforça a herança/parceria.
+2. **Data & Analytics — agnóstico de marca.** Engenharia de dados + analytics avançado / data science. Viés de ferramenta de visualização: **Tableau**.
+3. **IA & Aplicações — pilar novo.** Aplicações práticas de IA em empresas de segmentos diversos. Pegada de **software house / produtos SaaS**.
+
+## 3.2. Shortlist competitiva (para o brief)
+
+Dois concorrentes por pilar, mistura de boutique + mid/enterprise:
+
+| Pilar | Boutique (espelho) | Mid/Enterprise (teto aspiracional) |
+|---|---|---|
+| Salesforce | Sottelli | Everymind |
+| Data & Analytics | Somativa | Indicium |
+| IA & Aplicações | Mind Group | CI&T |
+
+Referências secundárias mapeadas, fora do recorte: WeUse, Valtech, Capgemini, beAnalytic, Active BI, BDA Solutions, Aquarela, Zup, Slalom Build, Thoughtworks.
+
 ## 4. Sequência de trabalho
 
 1. ✅ Levantamento da marca antiga (Figma).
 2. ✅ Direção visual macro definida (premium corporativo, verde como acento).
-3. 🔄 **Repensar o portfólio** — em andamento. Skill escolhida: `product-management:competitive-brief`. Analisar 2–4 referências do mercado CRM/BI antes de definir ofertas, posicionamento e copy.
+3. 🔄 **Repensar o portfólio** — três pilares definidos (Salesforce / Data & Analytics / IA & Aplicações). Brief competitivo rodando sobre 6 referências (ver §3.2).
 4. ⏳ Redesenhar arquitetura de seções do site com base no novo portfólio.
 5. ⏳ Definir sistema visual (tokens, tipografia, paleta refinada).
 6. ⏳ Implementar `index.html` + `assets/css/tokens.css` + páginas.
@@ -71,3 +89,4 @@ Levantado do arquivo Figma "Kliente 360" (autora Bruna Slongo, 2022).
 ## 8. Histórico de sessões
 
 - **2026-05-21** — Scaffold criado. Levantamento Figma feito. Direção visual macro acordada. Portfólio entrou em revisão (competitive-brief). Documento PLAN.md criado em main.
+- **2026-05-22** — Três pilares do portfólio definidos (Salesforce / Data & Analytics / IA & Aplicações). Shortlist de 6 concorrentes consolidada. Brief competitivo rodado — resultados em `research/competitive-brief.md`.
