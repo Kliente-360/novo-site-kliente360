@@ -9,7 +9,7 @@ tldr: "Clean data, in the absolute sense, doesn't exist in a company that operat
 keywords: ["data quality", "data governance", "data roadmap", "MDM", "master data"]
 ---
 
-The most expensive sentence in a data meeting is "we need to clean the base first". It sounds responsible. It sounds mature. And it is, more often than not, the argument that kills the analytics project, the Salesforce project, the AI project — without anyone noticing it killed it. Because the base never finishes getting cleaned. There's always one more field, one more duplicate, one more legacy system. And the company that decided to wait keeps making decisions in the parallel spreadsheet while the "quality project" enters its third year.
+The most expensive sentence in a data meeting is "we need to clean the base first". It sounds responsible. It sounds mature. And it is, more often than not, the argument that kills the analytics project, [the Salesforce project](/blog/en/mapear-processos-antes-do-salesforce.html), the AI project — without anyone noticing it killed it. Because the base never finishes getting cleaned. There's always one more field, one more duplicate, one more legacy system. And the company that decided to wait keeps making decisions in the parallel spreadsheet while the "quality project" enters its third year.
 
 This text is against the myth that data has to be clean to be useful. It isn't against quality — quality matters, a lot. It's against the *way of pursuing quality* that paralyzes the rest of the operation.
 
@@ -31,7 +31,7 @@ The myth survives because it's comfortable. It postpones hard decisions, outsour
 
 A decent data boutique works like this. No magic, no new tool.
 
-1. **Define "good enough" for each use case.** Before any project, write down: for this decision, which fields need to be correct in what percentage of records? For an executive revenue dashboard, 98% on `amount` and `close date` solves it. For an email campaign, 90% on `primary email` solves it. For a churn model, it depends — but you need the number before starting.
+1. **Define "good enough" for each use case.** Before any project, write down: for this decision, which fields need to be correct in what percentage of records? For [an executive dashboard that drives decisions](/blog/en/tableau-linguagem-executiva.html), 98% on `amount` and `close date` solves it. For an email campaign, 90% on `primary email` solves it. For a churn model, it depends — but you need the number before starting.
 2. **Use real, dirty data in parallel with cleansing.** Don't block the use case waiting for cleanliness. Run the report, build the agent, launch the campaign — with what exists. The first run will show exactly where the noise hurts. *Then* clean. That's ten times cheaper than cleaning in the dark.
 3. **Make observability the permanent piece, not the cleansing.** Cleansing is an event. Observability is a process. Set up alerts for "% of records without tax ID on the Account object went from 5% to 12%", "average value of the Proposal stage dropped 30% without funnel variation". Those alerts tell you what to clean, when, and the real business impact.
 

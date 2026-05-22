@@ -32,7 +32,7 @@ La regla que aplicamos en todo kickoff. Si la respuesta a tres o más es "no lo 
 3. **¿Quién decide qué, en cada paso?** Quién aprueba descuento por encima de X. Quién reabre oportunidad cerrada-perdida. Quién cambia el owner de una cuenta estratégica. Cargo, no nombre.
 4. **¿Cuál es el SLA real (no el prometido) en cada etapa?** Tiempo medio que un lead pasa en Calificación hoy. Tiempo medio de aprobación de propuesta. Si nadie lo mide, Salesforce va a exponerlo en el primer mes — generalmente en reunión de board.
 5. **¿Qué dato tiene que estar cargado para que un registro avance?** No todo campo importa en toda etapa. Pero al menos 3–5 campos por etapa son obligatorios para que el proceso tenga sentido. ¿Cuáles?
-6. **¿Qué sistemas alimentan o consumen ese proceso?** ERP, billing, marketing automation, la planilla del área financiera. La integración mal mapeada es la causa #1 de atraso en el go-live.
+6. **¿Qué sistemas alimentan o consumen ese proceso?** ERP, billing, marketing automation, la planilla del área financiera. La integración mal mapeada es la causa #1 de atraso en el go-live. En arquitecturas Salesforce modernas, [Data Cloud entra como capa de contexto que unifica parte de esos sistemas](/blog/es/data-cloud-nervo-central.html) — pero solo funciona si el proceso por debajo está diseñado.
 7. **¿Quién va a usar esto en el día a día, y qué hace esa persona en 5 minutos?** El proceso tiene que caber en el flujo real del usuario, no en el ideal del consultor. Si la vendedora abre Salesforce 20 veces por día, cada pantalla tiene que servir a esos 20 momentos — no a las 20 etapas.
 
 Quien responde las siete sin dudar está listo para configurar. Quien duda en tres o más sigue en discovery, aunque el cronograma diga lo contrario.

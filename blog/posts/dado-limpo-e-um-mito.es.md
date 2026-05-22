@@ -9,7 +9,7 @@ tldr: "Dato limpio, en sentido absoluto, no existe en empresa que opera. Existe 
 keywords: ["calidad de datos", "data quality", "gobierno de datos", "roadmap de datos", "MDM"]
 ---
 
-La frase más cara de una reunión de datos es "antes tenemos que limpiar la base". Suena responsable. Suena maduro. Y es, la mayoría de las veces, el argumento que mata el proyecto de analytics, de Salesforce, de IA — sin que nadie note que lo mató. Porque la base nunca termina de limpiarse. Siempre hay un campo más, una duplicidad más, un sistema legado más. Y la empresa que decidió esperar sigue tomando decisiones en el Excel paralelo mientras el "proyecto de calidad" entra en su tercer año.
+La frase más cara de una reunión de datos es "antes tenemos que limpiar la base". Suena responsable. Suena maduro. Y es, la mayoría de las veces, el argumento que mata el proyecto de analytics, [el de Salesforce](/blog/es/mapear-processos-antes-do-salesforce.html), el de IA — sin que nadie note que lo mató. Porque la base nunca termina de limpiarse. Siempre hay un campo más, una duplicidad más, un sistema legado más. Y la empresa que decidió esperar sigue tomando decisiones en el Excel paralelo mientras el "proyecto de calidad" entra en su tercer año.
 
 Este texto va contra el mito de que el dato tiene que estar limpio para ser útil. No va contra la calidad — la calidad importa, y mucho. Va contra la *forma de buscar calidad* que paraliza al resto de la operación.
 
@@ -31,7 +31,7 @@ El mito sobrevive porque es cómodo. Posterga la decisión difícil, terceriza r
 
 La boutique de datos decente trabaja así. Sin magia, sin herramienta nueva.
 
-1. **Definí el "suficientemente bueno" para cada caso de uso.** Antes de cualquier proyecto, escribí: para esta decisión, ¿qué campos tienen que estar correctos en qué porcentaje de registros? Para un dashboard ejecutivo de ingresos, 98% en `monto` y `fecha de cierre` alcanza. Para una campaña de e-mail, 90% en `e-mail principal` alcanza. Para un modelo de churn, depende — pero necesitás el número antes de arrancar.
+1. **Definí el "suficientemente bueno" para cada caso de uso.** Antes de cualquier proyecto, escribí: para esta decisión, ¿qué campos tienen que estar correctos en qué porcentaje de registros? Para [un dashboard ejecutivo que activa decisión](/blog/es/tableau-linguagem-executiva.html), 98% en `monto` y `fecha de cierre` alcanza. Para una campaña de e-mail, 90% en `e-mail principal` alcanza. Para un modelo de churn, depende — pero necesitás el número antes de arrancar.
 2. **Usá dato real sucio en paralelo con la limpieza.** No trabes el caso de uso esperando limpieza. Corré el reporte, armá el agente, publicá la campaña — con lo que hay. La primera ejecución va a mostrar exactamente dónde el ruido molesta. *Ahí* limpiás. Es diez veces más barato que limpiar a ciegas.
 3. **Hacé de la observabilidad la pieza permanente, no de la limpieza.** La limpieza es evento. La observabilidad es proceso. Armá alertas para "% de registros sin CUIT en el objeto Cuenta pasó de 5% a 12%", "monto promedio del estado Propuesta cayó 30% sin variación en el funnel". Esas alertas te dicen qué limpiar, cuándo, y el impacto real en el negocio.
 
