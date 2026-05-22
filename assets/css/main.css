@@ -694,10 +694,10 @@ body {
 }
 .post-meta-line .sep { opacity: 0.4; }
 
-/* Corpo do post */
+/* Corpo do post — largura alinhada ao header (container-narrow = 820px) */
 .post-body {
   padding-block: var(--sp-12) var(--sp-16);
-  max-width: 720px; margin: 0 auto;
+  max-width: var(--container-narrow); margin: 0 auto;
 }
 @media (min-width: 768px) {
   .post-body {
@@ -837,7 +837,7 @@ body {
   border-top: 1px solid var(--color-line);
 }
 .post-end-cta {
-  max-width: 720px; margin: 0 auto;
+  max-width: var(--container-narrow); margin: 0 auto;
   padding: var(--sp-8); text-align: left;
   border-radius: var(--r-lg);
   background: var(--bg-alt);
