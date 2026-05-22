@@ -2,7 +2,7 @@
 
 Documento mantido em main. Registra contexto, decisões tomadas e próximos passos. Atualizar a cada sessão.
 
-Última atualização: 2026-05-22 (segunda passada).
+Última atualização: 2026-05-22 (terceira passada — lote de 10 posts + audit SEO).
 
 ---
 
@@ -156,8 +156,38 @@ Referências: **Apple**, **Google**, **Salesforce**. Síntese aplicada:
 - **Endpoint do form de contato**: hoje só faz feedback visual no submit (em `assets/js/main.js`). Integrar com Formspree / Netlify Forms / API própria quando definirmos.
 - **OG image PNG via build**: hoje funciona via `@resvg/resvg-js`. Se quisermos imagens OG dinâmicas por post (com título do post), virar tarefa futura.
 
+## 9. Roadmap SEO/Conteúdo (derivado do audit pós-#10)
+
+Auditoria SEO/GEO completa rodada com 13 posts publicados (3 back-catálogo + #01–#10). Quick wins do Bloco A já aplicados (títulos encurtados, links internos balanceados, backlinks). Pendências organizadas por dono.
+
+### 9.1. Conteúdo a escrever (eu, em sessões dedicadas)
+
+| Item | Esforço | Impacto | Notas |
+|---|---|---|---|
+| **3 pillar pages** (Salesforce, Data, IA Aplicada) | 1 sessão por pillar | Alto | Agregador temático linkando todos os posts do cluster + manifesto curto da prática Kliente 360. PT/EN/ES. |
+| **Glossário Kliente 360** | 1 sessão | Alto | 20–30 termos (Agentforce, Data Cloud, RAG, dbt, ELT, embedding, MRR, recall@k, etc.), 1 parágrafo cada + link pro post canônico. GEO-friendly. PT/EN/ES. |
+| **Cases-âncora** (Sem Parar, Bodytech) | 2 sessões | Alto | Bloqueado por input do Felipe sobre escopo, números aprovados e o que pode ser dito publicamente. |
+| **Página comercial** ("Como contratar consultoria especializada de CRM/Data/IA") | 1 sessão | Alto | Captura query comercial direta. Liga pillar pages. |
+| **Pass de backlinks dedicado** após cada lote de 5 posts novos | 0,5 sessão/lote | Médio | Revisar posts antigos pra linkar novos onde fizer sentido. Hoje feito ad-hoc. |
+
+### 9.2. Mudanças no build/infra (Felipe ou outro mantenedor — fora do escopo do agente de blog)
+
+| Item | Esforço | Impacto | Onde |
+|---|---|---|---|
+| **Confirmar hreflang** entre PT/EN/ES + `x-default` | 30 min | Médio | `scripts/build-blog.mjs` — injetar `<link rel="alternate" hreflang="...">` no `<head>` de cada variante |
+| **Verificar robots.txt** permite `/blog/*`, `/blog/en/*`, `/blog/es/*` e o sitemap | 5 min | Crítico se errado | raiz |
+| **FAQ schema** auto-injetado | 0,5 dia | Alto | `scripts/build-blog.mjs` — detectar H2 terminados em `?` (ou flag `faq: true` no frontmatter) → emitir `FAQPage` JSON-LD. Posts-alvo: quando-agente-e-resposta, mapear-processos, rag-na-pratica, avaliacao-de-agentes |
+| **BreadcrumbList schema** | 0,5 dia | Médio | `scripts/build-blog.mjs` — `Blog › Pilar › Post` |
+| **OG image dinâmica por post** | 1 dia | Médio | Hoje usa `og-image.png` genérica. Virar template SVG → PNG por post no build (título + pilar + cor secundária). Já listado em §7.1. |
+| **Rodar PageSpeed Insights** em 2–3 posts típicos | 15 min | Médio | Calibrar Core Web Vitals reais |
+
+### 9.3. Competitive SEO (futuro, quando houver capacidade)
+
+Rodar `marketing:competitive-brief` específico de SEO contra Indicium, Everymind e Sottelli (os 3 da shortlist competitiva §3.2 que mantêm blog ativo). Identificar keyword overlap e gaps.
+
 ## 8. Histórico de sessões
 
 - **2026-05-21** — Scaffold criado. Levantamento Figma feito. Direção visual macro acordada. Portfólio entrou em revisão (competitive-brief). Documento PLAN.md criado em main.
 - **2026-05-22** — Três pilares do portfólio definidos (Salesforce / Data & Analytics / IA Aplicada — pilar 3 renomeado de "IA & Aplicações" em 2026-05-22). Shortlist de 6 concorrentes consolidada. Brief competitivo rodado — resultados em `research/competitive-brief.md`. Marca consolidada: tagline "Conhecimento aplicado, como serviço.", metodologia "Trilha 360", posicionamento de **consultoria especializada premium** (decisão 2026-05-22: descartar "boutique" como label externa). Cases-âncora: Sem Parar, Bodytech (métricas a alimentar). Produtos SaaS placeholders: agente RH, analytics contábil PME. Inspirações de design definidas: Apple (base), Google (acento), Salesforce (confiança). Arquitetura da home decidida (single-page, 10 seções, pilares na home). Idiomas: PT/EN/ES. Trilha 360 definida: Mapear → Prototipar → Validar → Implantar → Sustentar. Styleguide v0.1 publicado em `styleguide.html` para validação antes do site grande.
 - **2026-05-22 (segunda passada)** — Site grande implementado e refinado: nav sticky com blur, hero com mark Aperture, 3 pilares + 3 seções deep, Trilha 360 horizontal, cases, confiança, blog teaser, contato, footer. Sistema de cor refinado (logo green sagrado vs UI green editorial; secundárias por pilar; navy resgatado como `--bg-deep`). i18n real PT/EN/ES com redirect inteligente. Build MD→HTML multilíngue (`scripts/build-blog.mjs`) — 3 posts publicados em PT/EN/ES com cadência Tue/Wed (13, 19, 20 mai). 34 temas mapeados para back-catálogo 2026. Routine de blog ativada. Favicon SVG + og-image.png gerado por `@resvg/resvg-js`. Sitemap + robots + JSON-LD `Article`. Cache invalidation robusto no Netlify. Tipografia do post editorial (escala suave, sem barra colorida, padrão bold-lead-in para subseções curtas). LinkedIn oficial + WhatsApp provisório adicionados (parking).
+- **2026-05-22 (terceira passada)** — Lote de blog posts #01–#10 publicado direto via skill `marketing:draft-content` + routine manual: mapear-processos-antes-do-salesforce (sf), dado-limpo-e-um-mito (data), rag-na-pratica (ai), sales-cloud-cinco-antipadroes (sf), dbt-na-pratica (data), llm-como-agente-interno (ai), service-cloud-sla-nao-e-decoracao (sf), elt-vs-etl (data), avaliacao-de-agentes (ai), customer-360-vs-cdp (sf). Todos PT/EN/ES com forward links contextuais entre posts. EDITORIAL.md atualizado por commit. Diretriz de links internos formalizada no `blog/posts/README.md` (§"Estratégia de links internos"). Audit SEO/GEO completo rodado — quick wins aplicados (títulos de #02 e #07 encurtados, +1 link interno em 3 posts subconectados, backlinks dedicados). Roadmap §9 criado com itens de conteúdo restantes (pillar pages, glossário, cases, página comercial) e itens de build (hreflang, FAQ schema, BreadcrumbList, OG dinâmica).
