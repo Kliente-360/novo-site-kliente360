@@ -90,9 +90,9 @@ Referências: **Apple**, **Google**, **Salesforce**. Síntese aplicada:
 
 ## 5. Próximos passos imediatos
 
-- Desenhar arquitetura de seções do site (home + páginas de pilar). Estrutura proposta a validar.
-- Travar copy do hero, dos 3 pilares e da seção de metodologia (Trilha 360).
-- Definir sistema visual mínimo (tokens, tipografia, paleta refinada) suficiente pra começar a implementar.
+- ✅ Sistema visual v0.1 publicado em `styleguide.html` (tokens, paleta, tipografia, componentes, Trilha 360, hero mock light + dark, tom de voz).
+- 🔄 Validar styleguide com Felipe. Ajustes pontuais antes de evoluir para o site grande.
+- ⏳ Após validação: arquitetura final aplicada em `index.html`, copy travada, decisões de i18n (PT/EN/ES).
 
 ## 6. Decisões em aberto
 
@@ -110,4 +110,4 @@ Referências: **Apple**, **Google**, **Salesforce**. Síntese aplicada:
 ## 8. Histórico de sessões
 
 - **2026-05-21** — Scaffold criado. Levantamento Figma feito. Direção visual macro acordada. Portfólio entrou em revisão (competitive-brief). Documento PLAN.md criado em main.
-- **2026-05-22** — Três pilares do portfólio definidos (Salesforce / Data & Analytics / IA & Aplicações). Shortlist de 6 concorrentes consolidada. Brief competitivo rodado — resultados em `research/competitive-brief.md`. Marca consolidada: tagline "Conhecimento aplicado, como serviço.", metodologia "Trilha 360", posicionamento boutique premium. Cases-âncora: Sem Parar, Bodytech (métricas a alimentar). Produtos SaaS placeholders: agente RH, analytics contábil PME. Inspirações de design definidas: Apple (base), Google (acento), Salesforce (confiança).
+- **2026-05-22** — Três pilares do portfólio definidos (Salesforce / Data & Analytics / IA & Aplicações). Shortlist de 6 concorrentes consolidada. Brief competitivo rodado — resultados em `research/competitive-brief.md`. Marca consolidada: tagline "Conhecimento aplicado, como serviço.", metodologia "Trilha 360", posicionamento boutique premium. Cases-âncora: Sem Parar, Bodytech (métricas a alimentar). Produtos SaaS placeholders: agente RH, analytics contábil PME. Inspirações de design definidas: Apple (base), Google (acento), Salesforce (confiança). Arquitetura da home decidida (single-page, 10 seções, pilares na home). Idiomas: PT/EN/ES. Trilha 360 definida: Mapear → Prototipar → Validar → Implantar → Sustentar. Styleguide v0.1 publicado em `styleguide.html` para validação antes do site grande.

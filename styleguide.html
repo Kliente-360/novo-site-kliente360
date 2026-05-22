@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Kliente 360 — Style Guide e identidade visual" />
+  <title>Style Guide — Kliente 360</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/tokens.css" />
+  <link rel="stylesheet" href="/assets/css/reset.css" />
+  <style>
+    /* === Styleguide-only styles (vão migrar para main.css quando aprovado) === */
+    body {
+      font-family: var(--font-sans);
+      color: var(--color-fg);
+      background: var(--color-bg);
+      font-size: var(--fs-16);
+      line-height: var(--lh-normal);
+    }
+    .container { max-width: var(--container); margin: 0 auto; padding: 0 var(--gutter); }
+    .narrow { max-width: var(--container-narrow); }
+
+    /* Navegação topo do guide */
+    .sg-nav {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid var(--color-line);
+    }
+    .sg-nav-inner { display: flex; align-items: center; justify-content: space-between; height: 56px; }
+    .sg-nav-brand { display: flex; align-items: center; gap: var(--sp-2); font-weight: var(--fw-semibold); letter-spacing: var(--ls-tight); }
+    .sg-nav-links { display: flex; gap: var(--sp-6); font-size: var(--fs-14); color: var(--color-fg-muted); }
+    .sg-nav-links a:hover { color: var(--color-fg); }
+
+    /* Cabeçalhos do guide */
+    .sg-cover { padding: var(--sp-32) 0 var(--sp-24); border-bottom: 1px solid var(--color-line); }
+    .sg-eyebrow { font-size: var(--fs-12); letter-spacing: var(--ls-wide); text-transform: uppercase; color: var(--color-accent); font-weight: var(--fw-semibold); margin-bottom: var(--sp-4); }
+    .sg-cover h1 { font-size: var(--fs-h1); line-height: var(--lh-tight); letter-spacing: var(--ls-tighter); font-weight: var(--fw-bold); }
+    .sg-cover p { margin-top: var(--sp-6); font-size: var(--fs-20); color: var(--color-fg-muted); max-width: 56ch; }
+
+    section.sg { padding: var(--sp-20) 0; border-bottom: 1px solid var(--color-line); }
+    section.sg.dark { background: var(--bg-dark); color: #fff; border-color: var(--ink-800); }
+    section.sg.dark .sg-h2 { color: #fff; }
+    section.sg.dark .sg-lead { color: var(--ink-300); }
+
+    .sg-h2 { font-size: var(--fs-h3); letter-spacing: var(--ls-tight); font-weight: var(--fw-semibold); line-height: var(--lh-snug); }
+    .sg-h3 { font-size: var(--fs-h4); letter-spacing: var(--ls-tight); font-weight: var(--fw-semibold); margin-top: var(--sp-8); margin-bottom: var(--sp-4); }
+    .sg-lead { font-size: var(--fs-18); color: var(--color-fg-muted); max-width: 60ch; margin-top: var(--sp-3); }
+    .sg-label { font-family: var(--font-mono); font-size: var(--fs-12); color: var(--color-fg-muted); letter-spacing: 0; }
+
+    /* Grid utilitário */
+    .grid { display: grid; gap: var(--sp-6); }
+    .grid-2 { grid-template-columns: repeat(2, 1fr); }
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .grid-4 { grid-template-columns: repeat(4, 1fr); }
+    .grid-5 { grid-template-columns: repeat(5, 1fr); }
+    @media (max-width: 768px) {
+      .grid-3, .grid-4, .grid-5 { grid-template-columns: repeat(2, 1fr); }
+      .grid-2 { grid-template-columns: 1fr; }
+    }
+
+    /* ====== LOGO MOCK ====== */
+    .logo {
+      display: inline-flex; align-items: baseline; gap: 6px;
+      font-weight: var(--fw-bold); letter-spacing: var(--ls-tight);
+      font-size: var(--fs-20);
+    }
+    .logo .dots { display: inline-flex; gap: 3px; margin-left: 4px; transform: translateY(-2px); }
+    .logo .dots span { width: 6px; height: 6px; border-radius: 50%; background: var(--color-accent); }
+    .logo .dots span:nth-child(1) { opacity: 0.4; }
+    .logo .dots span:nth-child(2) { opacity: 0.6; }
+    .logo .dots span:nth-child(3) { opacity: 0.8; }
+    .logo .dots span:nth-child(4) { opacity: 1; }
+    .logo.large { font-size: clamp(2rem, 4vw, 3.5rem); }
+    .logo.large .dots span { width: 12px; height: 12px; }
+
+    /* ====== PALETA ====== */
+    .swatch { border-radius: var(--r-md); overflow: hidden; border: 1px solid var(--color-line); background: var(--bg); }
+    .swatch .chip { aspect-ratio: 4/3; }
+    .swatch .meta { padding: var(--sp-3) var(--sp-4); font-size: var(--fs-14); }
+    .swatch .name { font-weight: var(--fw-medium); }
+    .swatch .hex { font-family: var(--font-mono); font-size: var(--fs-12); color: var(--color-fg-muted); margin-top: 2px; }
+
+    /* ====== TIPOGRAFIA ====== */
+    .type-row { display: grid; grid-template-columns: 110px 1fr; gap: var(--sp-6); padding: var(--sp-4) 0; border-bottom: 1px dashed var(--color-line); align-items: baseline; }
+    .type-row:last-child { border-bottom: 0; }
+    .type-row .sg-label { white-space: nowrap; }
+    .type-display { font-size: var(--fs-h1); line-height: var(--lh-tight); letter-spacing: var(--ls-tighter); font-weight: var(--fw-bold); }
+    .type-h1 { font-size: var(--fs-h1); line-height: var(--lh-tight); letter-spacing: var(--ls-tighter); font-weight: var(--fw-bold); }
+    .type-h2 { font-size: var(--fs-h2); line-height: var(--lh-tight); letter-spacing: var(--ls-tight); font-weight: var(--fw-semibold); }
+    .type-h3 { font-size: var(--fs-h3); line-height: var(--lh-snug); letter-spacing: var(--ls-tight); font-weight: var(--fw-semibold); }
+    .type-h4 { font-size: var(--fs-h4); line-height: var(--lh-snug); font-weight: var(--fw-semibold); }
+    .type-body { font-size: var(--fs-18); line-height: var(--lh-normal); }
+    .type-small { font-size: var(--fs-14); color: var(--color-fg-muted); }
+    .type-eyebrow { font-size: var(--fs-12); letter-spacing: var(--ls-wide); text-transform: uppercase; font-weight: var(--fw-semibold); color: var(--color-accent); }
+
+    /* ====== BOTÕES ====== */
+    .btn { display: inline-flex; align-items: center; gap: var(--sp-2); padding: 12px 22px; border-radius: var(--r-pill); font-weight: var(--fw-medium); font-size: var(--fs-16); letter-spacing: var(--ls-tight); transition: background var(--dur-base) var(--ease-out), color var(--dur-base) var(--ease-out), transform var(--dur-fast) var(--ease-out); }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary { background: var(--color-fg); color: var(--color-bg); }
+    .btn-primary:hover { background: var(--ink-800); }
+    .btn-accent { background: var(--color-accent); color: #fff; }
+    .btn-accent:hover { background: var(--color-accent-hover); }
+    .btn-ghost { background: transparent; color: var(--color-fg); border: 1px solid var(--line-strong); }
+    .btn-ghost:hover { background: var(--bg-alt); }
+    .btn-link { padding: 0; color: var(--color-accent); font-weight: var(--fw-medium); }
+    .btn-link:hover { color: var(--color-accent-hover); }
+    .btn-link::after { content: "→"; transition: transform var(--dur-base) var(--ease-out); display: inline-block; margin-left: 6px; }
+    .btn-link:hover::after { transform: translateX(4px); }
+
+    /* ====== PILLS / BADGES ====== */
+    .pill { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: var(--r-pill); font-size: var(--fs-12); font-weight: var(--fw-medium); letter-spacing: var(--ls-tight); }
+    .pill-line { border: 1px solid var(--line-strong); color: var(--color-fg-muted); }
+    .pill-accent { background: var(--color-accent-soft); color: var(--green-700); }
+    .pill-dark { background: var(--ink-800); color: #fff; }
+    .pill-dot::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--color-accent); display: inline-block; }
+
+    /* ====== CARDS ====== */
+    .card { background: var(--bg); border: 1px solid var(--color-line); border-radius: var(--r-lg); padding: var(--sp-8); transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out); }
+    .card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); border-color: var(--line-strong); }
+    .card .card-eyebrow { font-family: var(--font-mono); font-size: var(--fs-12); color: var(--color-fg-muted); margin-bottom: var(--sp-3); letter-spacing: 0; }
+    .card h3 { font-size: var(--fs-h4); font-weight: var(--fw-semibold); letter-spacing: var(--ls-tight); margin-bottom: var(--sp-3); }
+    .card p { color: var(--color-fg-muted); font-size: var(--fs-16); line-height: var(--lh-normal); }
+    .card ul { margin-top: var(--sp-6); display: flex; flex-direction: column; gap: var(--sp-2); }
+    .card ul li { font-size: var(--fs-14); color: var(--color-fg-muted); padding-left: 18px; position: relative; }
+    .card ul li::before { content: ""; position: absolute; left: 0; top: 8px; width: 8px; height: 2px; background: var(--color-accent); }
+
+    /* ====== TRILHA 360 ====== */
+    .trilha { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; counter-reset: step; align-items: stretch; }
+    .trilha-step { padding: var(--sp-6); border-right: 1px solid var(--color-line); position: relative; }
+    .trilha-step:last-child { border-right: 0; }
+    .trilha-step .num { font-family: var(--font-mono); font-size: var(--fs-12); color: var(--color-fg-muted); margin-bottom: var(--sp-3); }
+    .trilha-step .verb { font-size: var(--fs-h4); font-weight: var(--fw-semibold); letter-spacing: var(--ls-tight); margin-bottom: var(--sp-2); }
+    .trilha-step .desc { font-size: var(--fs-14); color: var(--color-fg-muted); }
+    .trilha-step .verb::first-letter { color: var(--color-accent); }
+    @media (max-width: 768px) {
+      .trilha { grid-template-columns: 1fr; }
+      .trilha-step { border-right: 0; border-bottom: 1px solid var(--color-line); }
+      .trilha-step:last-child { border-bottom: 0; }
+    }
+
+    /* ====== HERO MOCK ====== */
+    .hero-mock {
+      padding: var(--sp-32) 0 var(--sp-24);
+      background: linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%);
+      border-radius: var(--r-xl);
+    }
+    .hero-mock .eyebrow { font-size: var(--fs-12); letter-spacing: var(--ls-wide); text-transform: uppercase; color: var(--color-accent); font-weight: var(--fw-semibold); margin-bottom: var(--sp-6); }
+    .hero-mock h1 { font-size: var(--fs-h1); letter-spacing: var(--ls-tighter); line-height: var(--lh-tight); font-weight: var(--fw-bold); max-width: 16ch; }
+    .hero-mock h1 em { font-style: normal; color: var(--color-accent); }
+    .hero-mock .sub { font-size: var(--fs-20); color: var(--color-fg-muted); max-width: 52ch; margin-top: var(--sp-8); line-height: var(--lh-snug); }
+    .hero-mock .cta-row { display: flex; gap: var(--sp-3); margin-top: var(--sp-12); flex-wrap: wrap; }
+
+    /* ====== SPACING / RADIUS / SHADOW PREVIEW ====== */
+    .scale-row { display: flex; align-items: flex-end; gap: var(--sp-4); flex-wrap: wrap; }
+    .scale-row .item { display: flex; flex-direction: column; align-items: center; gap: var(--sp-2); }
+    .scale-row .box { background: var(--color-accent); border-radius: 4px; }
+    .scale-row .label { font-family: var(--font-mono); font-size: var(--fs-12); color: var(--color-fg-muted); }
+
+    .radius-row { display: flex; gap: var(--sp-6); flex-wrap: wrap; }
+    .radius-row .box { width: 100px; height: 100px; background: var(--bg-alt); border: 1px solid var(--color-line); display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: var(--fs-12); color: var(--color-fg-muted); }
+
+    .shadow-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-6); }
+    .shadow-row .box { aspect-ratio: 16/10; background: var(--bg); border-radius: var(--r-md); display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: var(--fs-12); color: var(--color-fg-muted); }
+
+    /* ====== TOM DE VOZ ====== */
+    .voice { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-8); }
+    .voice .col { padding: var(--sp-6); border-radius: var(--r-md); }
+    .voice .yes { background: var(--color-accent-soft); }
+    .voice .no { background: #fdecec; }
+    .voice h4 { font-size: var(--fs-18); font-weight: var(--fw-semibold); margin-bottom: var(--sp-3); }
+    .voice .yes h4 { color: var(--green-700); }
+    .voice .no h4 { color: #b3261e; }
+    .voice ul li { font-size: var(--fs-16); padding: var(--sp-2) 0; border-bottom: 1px dashed rgba(0,0,0,0.08); }
+    .voice ul li:last-child { border-bottom: 0; }
+    @media (max-width: 768px) { .voice { grid-template-columns: 1fr; } }
+
+    /* === footer === */
+    .sg-footer { padding: var(--sp-12) 0; text-align: center; font-size: var(--fs-14); color: var(--color-fg-muted); }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="sg-nav">
+    <div class="container sg-nav-inner">
+      <div class="sg-nav-brand">
+        <span class="logo">
+          kliente 360
+          <span class="dots"><span></span><span></span><span></span><span></span></span>
+        </span>
+        <span style="color: var(--color-fg-muted); font-weight: var(--fw-regular);">/ style guide</span>
+      </div>
+      <div class="sg-nav-links">
+        <a href="#cor">Cor</a>
+        <a href="#tipo">Tipografia</a>
+        <a href="#componentes">Componentes</a>
+        <a href="#trilha">Trilha 360</a>
+        <a href="#hero">Hero</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Cover -->
+  <header class="sg-cover">
+    <div class="container">
+      <div class="sg-eyebrow">Brand Guide · v0.1 · 2026</div>
+      <h1>Conhecimento aplicado,<br>como serviço.</h1>
+      <p>Sistema visual da Kliente 360 — boutique de CRM, dados e IA. Apple como base, Google no acento, Salesforce na camada de confiança.</p>
+    </div>
+  </header>
+
+  <!-- Logo -->
+  <section class="sg" id="logo">
+    <div class="container">
+      <div class="sg-eyebrow" style="color: var(--color-fg-muted);">01 — Marca</div>
+      <h2 class="sg-h2">Logo</h2>
+      <p class="sg-lead">Wordmark em lowercase + quatro círculos (representam os 360°). Mantém o gestual herdado. Para o site, usamos o wordmark em todos os contextos; ícone curto só em favicon.</p>
+
+      <div class="grid grid-2" style="margin-top: var(--sp-12); align-items: center;">
+        <div style="padding: var(--sp-16); background: var(--bg-alt); border-radius: var(--r-lg); display: flex; justify-content: center;">
+          <span class="logo large">
+            kliente 360
+            <span class="dots"><span></span><span></span><span></span><span></span></span>
+          </span>
+        </div>
+        <div style="padding: var(--sp-16); background: var(--bg-dark); border-radius: var(--r-lg); display: flex; justify-content: center; color: #fff;">
+          <span class="logo large" style="color: #fff;">
+            kliente 360
+            <span class="dots"><span></span><span></span><span></span><span></span></span>
+          </span>
+        </div>
+      </div>
+      <p class="sg-label" style="margin-top: var(--sp-4);">Observação: o logo real (PNG do Felipe) substitui esse mock. As proporções e o tracking ficam.</p>
+    </div>
+  </section>
+
+  <!-- Paleta -->
+  <section class="sg" id="cor">
+    <div class="container">
+      <div class="sg-eyebrow" style="color: var(--color-fg-muted);">02 — Cor</div>
+      <h2 class="sg-h2">Paleta</h2>
+      <p class="sg-lead">Base neutra (preto/branco/cinzas Apple). Verde como acento pontual — CTAs, palavra-chave do hero, linhas decorativas. Nunca cobrindo blocos inteiros.</p>
+
+      <h3 class="sg-h3">Tinta &amp; neutros</h3>
+      <div class="grid grid-5">
+        <div class="swatch"><div class="chip" style="background:#0a0a0a"></div><div class="meta"><div class="name">Ink 900</div><div class="hex">#0A0A0A</div></div></div>
+        <div class="swatch"><div class="chip" style="background:#1d1d1f"></div><div class="meta"><div class="name">Ink 800</div><div class="hex">#1D1D1F</div></div></div>
+        <div class="swatch"><div class="chip" style="background:#424245"></div><div class="meta"><div class="name">Ink 600</div><div class="hex">#424245</div></div></div>
+        <div class="swatch"><div class="chip" style="background:#6e6e73"></div><div class="meta"><div class="name">Ink 400</div><div class="hex">#6E6E73</div></div></div>
+        <div class="swatch"><div class="chip" style="background:#86868b"></div><div class="meta"><div class="name">Ink 300</div><div class="hex">#86868B</div></div></div>
+      </div>
+
+      <h3 class="sg-h3">Fundos &amp; linhas</h3>
+      <div class="grid grid-5">
+        <div class="swatch"><div class="chip" style="background:#ffffff; border-bottom: 1px solid var(--color-line);"></div><div class="meta"><div class="name">BG</div><div class="hex">#FFFFFF</div></div></div>
+        <div class="swatch"><div class="chip" style="background:#f5f5f7"></div><div class="meta"><div class="name">BG alt</div><div class="hex">#F5F5F7</div></div></div>
+        <div class="swatch"><div class="chip" style="background:#e5e5e7"></div><div class="meta"><div class="name">Line</div><div class="hex">#E5E5E7</div></div></div>
+        <div class="swatch"><div class="chip" style="background:#d2d2d7"></div><div class="meta"><div class="name">Line strong</div><div class="hex">#D2D2D7</div></div></div>
+        <div class="swatch"><div class="chip" style="background:#1d1d1f"></div><div class="meta"><div class="name">BG dark</div><div class="hex">#1D1D1F</div></div></div>
+      </div>
+
+      <h3 class="sg-h3">Verde Kliente — acento</h3>
+      <div class="grid grid-5">
+        <div class="swatch"><div class="chip" style="background:#e8f5ec"></div><div class="meta"><div class="name">Green 50</div><div class="hex">#E8F5EC</div></div></div>
+        <div class="swatch"><div class="chip" style="background:#c8e6d0"></div><div class="meta"><div class="name">Green 100</div><div class="hex">#C8E6D0</div></div></div>
+        <div class="swatch"><div class="chip" style="background:#66c285"></div><div class="meta"><div class="name">Green 300</div><div class="hex">#66C285</div></div></div>
+        <div class="swatch"><div class="chip" style="background:#009900"></div><div class="meta"><div class="name">Green 500 ★</div><div class="hex">#009900</div></div></div>
+        <div class="swatch"><div class="chip" style="background:#006b3f"></div><div class="meta"><div class="name">Green 700</div><div class="hex">#006B3F</div></div></div>
+      </div>
+      <p class="sg-label" style="margin-top: var(--sp-3);">★ Verde canônico do logo. 700 = hover/emphasis. 50 = pílulas e fundos suaves.</p>
+    </div>
+  </section>
+
+  <!-- Tipografia -->
+  <section class="sg" id="tipo">
+    <div class="container">
+      <div class="sg-eyebrow" style="color: var(--color-fg-muted);">03 — Tipografia</div>
+      <h2 class="sg-h2">Inter, um peso só de cada vez.</h2>
+      <p class="sg-lead">Sans humanista única. Regular para corpo, Medium para UI, Semibold/Bold para títulos. Tracking apertado nos titulões (estilo Apple).</p>
+
+      <div style="margin-top: var(--sp-12);">
+        <div class="type-row"><div class="sg-label">Display</div><div class="type-display">Aa 360</div></div>
+        <div class="type-row"><div class="sg-label">H1</div><div class="type-h1">Conhecimento aplicado.</div></div>
+        <div class="type-row"><div class="sg-label">H2</div><div class="type-h2">Costuramos CRM, dados e IA.</div></div>
+        <div class="type-row"><div class="sg-label">H3</div><div class="type-h3">Pilar — Salesforce</div></div>
+        <div class="type-row"><div class="sg-label">H4</div><div class="type-h4">Sales Cloud, Service Cloud, Data Cloud</div></div>
+        <div class="type-row"><div class="sg-label">Body</div><div class="type-body">Boutique de consultoria que entrega CRM, dados e IA como um sistema único. Time enxuto, poucos clientes estratégicos.</div></div>
+        <div class="type-row"><div class="sg-label">Small</div><div class="type-small">Última atualização: 2026-05-22 · Versão 0.1 do brand guide.</div></div>
+        <div class="type-row"><div class="sg-label">Eyebrow</div><div class="type-eyebrow">Trilha 360 · Etapa 02</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Componentes -->
+  <section class="sg" id="componentes">
+    <div class="container">
+      <div class="sg-eyebrow" style="color: var(--color-fg-muted);">04 — Componentes</div>
+      <h2 class="sg-h2">Botões, pílulas, cards.</h2>
+
+      <h3 class="sg-h3">Botões</h3>
+      <div style="display: flex; gap: var(--sp-3); flex-wrap: wrap; align-items: center;">
+        <button class="btn btn-primary">Conversar com a gente</button>
+        <button class="btn btn-accent">Começar a Trilha</button>
+        <button class="btn btn-ghost">Ver cases</button>
+        <a href="#" class="btn-link">Conhecer o pilar</a>
+      </div>
+
+      <h3 class="sg-h3">Pílulas / badges</h3>
+      <div style="display: flex; gap: var(--sp-3); flex-wrap: wrap; align-items: center;">
+        <span class="pill pill-line">Salesforce Partner</span>
+        <span class="pill pill-accent pill-dot">Agentforce ready</span>
+        <span class="pill pill-dark">v0.1</span>
+        <span class="pill pill-line">Tableau Certified</span>
+      </div>
+
+      <h3 class="sg-h3">Cards de pilar</h3>
+      <div class="grid grid-3" style="margin-top: var(--sp-6);">
+        <div class="card">
+          <div class="card-eyebrow">01 · Pilar</div>
+          <h3>Salesforce</h3>
+          <p>Core CRM: Sales, Service, Data Cloud e Agentforce. Da implementação à evolução com agentes.</p>
+          <ul>
+            <li>Sales &amp; Service Cloud</li>
+            <li>Data Cloud + ativação</li>
+            <li>Agentforce / copilots</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-eyebrow">02 · Pilar</div>
+          <h3>Data &amp; Analytics</h3>
+          <p>Engenharia de dados, analytics avançado e data science. Agnóstico de cloud, viés Tableau na ponta.</p>
+          <ul>
+            <li>Engenharia de dados</li>
+            <li>Analytics avançado / DS</li>
+            <li>Visualização — Tableau</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-eyebrow">03 · Pilar</div>
+          <h3>IA &amp; Aplicações</h3>
+          <p>Copilots sob medida e produtos SaaS verticais. Pegada de software house com discovery rápido.</p>
+          <ul>
+            <li>Agentes &amp; copilots</li>
+            <li>Produtos SaaS verticais</li>
+            <li>Sprint de IA</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trilha 360 -->
+  <section class="sg" id="trilha">
+    <div class="container">
+      <div class="sg-eyebrow" style="color: var(--color-fg-muted);">05 — Metodologia</div>
+      <h2 class="sg-h2">Trilha 360</h2>
+      <p class="sg-lead">Cinco verbos. Híbrido entre consultoria, projeto de tecnologia e deploy rápido de IA.</p>
+
+      <div class="trilha" style="margin-top: var(--sp-12); border: 1px solid var(--color-line); border-radius: var(--r-lg); overflow: hidden;">
+        <div class="trilha-step">
+          <div class="num">01</div>
+          <div class="verb">Mapear</div>
+          <div class="desc">Negócio, dados e processos. Onde a fricção mora.</div>
+        </div>
+        <div class="trilha-step">
+          <div class="num">02</div>
+          <div class="verb">Prototipar</div>
+          <div class="desc">Primeiro corte funcional. Baixo compromisso, alto aprendizado.</div>
+        </div>
+        <div class="trilha-step">
+          <div class="num">03</div>
+          <div class="verb">Validar</div>
+          <div class="desc">Prova de valor com KPI claro. Mata ou avança.</div>
+        </div>
+        <div class="trilha-step">
+          <div class="num">04</div>
+          <div class="verb">Implantar</div>
+          <div class="desc">Engenharia robusta, produção, integração.</div>
+        </div>
+        <div class="trilha-step">
+          <div class="num">05</div>
+          <div class="verb">Sustentar</div>
+          <div class="desc">AMS, evolução contínua, agentes vivos.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hero mock -->
+  <section class="sg" id="hero">
+    <div class="container">
+      <div class="sg-eyebrow" style="color: var(--color-fg-muted);">06 — Hero (preview)</div>
+      <h2 class="sg-h2">Hero da home</h2>
+      <p class="sg-lead">Aplicação dos tokens em uma seção real, para sentir o peso visual.</p>
+
+      <div class="hero-mock" style="margin-top: var(--sp-12); padding-left: var(--sp-12); padding-right: var(--sp-12);">
+        <div class="eyebrow">Boutique de CRM, dados e IA · Salesforce Partner</div>
+        <h1>Conhecimento aplicado, <em>como serviço</em>.</h1>
+        <p class="sub">Costuramos CRM, dados e IA num só sistema. Time enxuto, expertise sênior, poucos clientes estratégicos.</p>
+        <div class="cta-row">
+          <button class="btn btn-primary">Conversar com a gente</button>
+          <button class="btn btn-ghost">Conhecer a Trilha 360</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hero dark (alternativa) -->
+  <section class="sg dark" id="hero-dark">
+    <div class="container">
+      <div class="sg-eyebrow">06b — Hero (alternativa escura)</div>
+      <h2 class="sg-h2">Mesma estrutura, base escura</h2>
+      <p class="sg-lead">Opcional. Use para a seção de IA / produtos, ou como hero alternativo. Aplica o verde com mais força sobre preto.</p>
+
+      <div style="margin-top: var(--sp-12); padding: var(--sp-16) 0;">
+        <div style="font-size: var(--fs-12); letter-spacing: var(--ls-wide); text-transform: uppercase; color: var(--green-300); font-weight: var(--fw-semibold); margin-bottom: var(--sp-6);">Pilar 03 · IA &amp; Aplicações</div>
+        <h1 style="font-size: var(--fs-h1); letter-spacing: var(--ls-tighter); line-height: var(--lh-tight); font-weight: var(--fw-bold); max-width: 18ch;">
+          Do <span style="color: var(--green-300);">dado</span> ao <span style="color: var(--green-300);">agente</span>. Sem emendas.
+        </h1>
+        <p style="font-size: var(--fs-20); color: var(--ink-300); max-width: 52ch; margin-top: var(--sp-8); line-height: var(--lh-snug);">Copilots sob medida e produtos SaaS verticais. A IA entra onde já existe dado e processo — não antes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Escalas -->
+  <section class="sg">
+    <div class="container">
+      <div class="sg-eyebrow" style="color: var(--color-fg-muted);">07 — Sistema</div>
+      <h2 class="sg-h2">Espaço, raio, sombra.</h2>
+
+      <h3 class="sg-h3">Espaçamento (escala 4)</h3>
+      <div class="scale-row">
+        <div class="item"><div class="box" style="width:4px; height:4px;"></div><div class="label">4</div></div>
+        <div class="item"><div class="box" style="width:8px; height:8px;"></div><div class="label">8</div></div>
+        <div class="item"><div class="box" style="width:16px; height:16px;"></div><div class="label">16</div></div>
+        <div class="item"><div class="box" style="width:24px; height:24px;"></div><div class="label">24</div></div>
+        <div class="item"><div class="box" style="width:32px; height:32px;"></div><div class="label">32</div></div>
+        <div class="item"><div class="box" style="width:48px; height:48px;"></div><div class="label">48</div></div>
+        <div class="item"><div class="box" style="width:64px; height:64px;"></div><div class="label">64</div></div>
+        <div class="item"><div class="box" style="width:96px; height:96px;"></div><div class="label">96</div></div>
+        <div class="item"><div class="box" style="width:128px; height:128px;"></div><div class="label">128</div></div>
+      </div>
+
+      <h3 class="sg-h3">Raio</h3>
+      <div class="radius-row">
+        <div class="box" style="border-radius: 6px;">6</div>
+        <div class="box" style="border-radius: 10px;">10</div>
+        <div class="box" style="border-radius: 16px;">16</div>
+        <div class="box" style="border-radius: 24px;">24</div>
+        <div class="box" style="border-radius: 999px;">pill</div>
+      </div>
+
+      <h3 class="sg-h3">Sombras</h3>
+      <div class="shadow-row">
+        <div class="box" style="box-shadow: var(--shadow-xs);">xs</div>
+        <div class="box" style="box-shadow: var(--shadow-sm);">sm</div>
+        <div class="box" style="box-shadow: var(--shadow-md);">md</div>
+        <div class="box" style="box-shadow: var(--shadow-lg);">lg</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tom de voz -->
+  <section class="sg">
+    <div class="container">
+      <div class="sg-eyebrow" style="color: var(--color-fg-muted);">08 — Tom de voz</div>
+      <h2 class="sg-h2">Direto. Técnico. Sem ladainha.</h2>
+      <p class="sg-lead">Boutique informada falando com decisor informado. Sem "transformação digital", sem "jornada", sem "experiência fluida".</p>
+
+      <div class="voice" style="margin-top: var(--sp-12);">
+        <div class="col yes">
+          <h4>Usar</h4>
+          <ul>
+            <li>"Costuramos CRM, dados e IA."</li>
+            <li>"Agentes onde já existe dado."</li>
+            <li>"Time enxuto, poucos clientes."</li>
+            <li>"Da prova de valor à operação."</li>
+            <li>Nomes próprios: Salesforce, Tableau, Agentforce.</li>
+          </ul>
+        </div>
+        <div class="col no">
+          <h4>Evitar</h4>
+          <ul>
+            <li>"Transformação digital"</li>
+            <li>"Jornada de sucesso do cliente"</li>
+            <li>"Experiência fluida e omnichannel"</li>
+            <li>"Soluções inovadoras"</li>
+            <li>Adjetivos vazios em série.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="sg-footer">
+    <div class="container">
+      <span class="logo">
+        kliente 360
+        <span class="dots"><span></span><span></span><span></span><span></span></span>
+      </span>
+      <div style="margin-top: var(--sp-3);">Style Guide · v0.1 · 2026-05-22 · Para validar antes do site grande.</div>
+    </div>
+  </footer>
+
+</body>
+</html>
