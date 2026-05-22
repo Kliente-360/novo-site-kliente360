@@ -67,6 +67,6 @@ La combinación que funciona: **warehouse limpio + modelo de negocio bien defini
 
 ## El dashboard final
 
-La mejor métrica de calidad para un dashboard: *cuántas decisiones reales salieron de él en el último trimestre*. No accesos, no tiempo de pantalla. Decisiones. Si cero, mátalo y rehazlo.
+La mejor métrica de calidad para un dashboard: *cuántas decisiones reales salieron de él en el último trimestre*. No accesos, no tiempo de pantalla. Decisiones. Si cero, mátalo y rehazlo. [El mismo principio vale para métricas de producto que se vuelven "north dust"](/blog/es/metricas-de-produto-north-dust.html) — el problema rara vez es la métrica, es el sistema alrededor.
 
 Empresas que adoptan esta regla reducen 60–80% del número de dashboards y — no por casualidad — pasan a confiar en lo que sobra. Una consultoría de datos decente entrega eso, no reportes.

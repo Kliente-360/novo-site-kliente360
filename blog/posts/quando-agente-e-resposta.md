@@ -38,7 +38,7 @@ Antes de aprovar qualquer projeto de agente, passamos por cinco verificações. 
 2. **Os dados que o agente vai consultar existem, são confiáveis e acessíveis via API?** Não há mágica — agente sem dado é palpite confiante. Quando o conhecimento vive em documento e não em sistema, entra [RAG — e aí a recuperação vira o gargalo, não o LLM](/blog/rag-na-pratica.html).
 3. **Tem KPI de operação atual?** Tempo médio, taxa de resolução, NPS, custo por contato. Sem baseline, não dá pra provar valor depois — e [avaliação séria de agente exige métricas próprias além das de canal](/blog/avaliacao-de-agentes.html).
 4. **Há um humano dono do processo?** Não o "patrocinador executivo" — o operador sênior que sabe onde dói. Sem essa pessoa o projeto vira teatro.
-5. **O risco do agente errar é tolerável?** Em atendimento, sim. Em escalonamento jurídico, talvez não. Em decisão de crédito, certamente não sem governança específica.
+5. **O risco do agente errar é tolerável?** [Em atendimento humano, sim — com a fronteira clara entre o que automatizar e o que não](/blog/agentforce-atendimento-humano.html). Em escalonamento jurídico, talvez não. Em decisão de crédito, certamente não sem governança específica.
 
 ## O caminho do MVP em quatro semanas
 

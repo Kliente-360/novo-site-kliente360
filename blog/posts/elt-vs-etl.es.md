@@ -17,7 +17,7 @@ Este texto va sobre por qué ELT ganó, qué significa eso de verdad para un equ
 
 ETL nació en un mundo donde almacenar era barato y procesar era caro. Storage local + compute en servidor dedicado significaba que transformar dato antes de cargar tenía sentido — no querías cargar 100 GB para extraer 10 GB de KPI. La transformación era un filtro de costo.
 
-En 2026, la cuenta se invirtió. Warehouse cloud (Snowflake, BigQuery, Databricks) cobra storage muy barato y compute elástico bajo demanda. Cargar dato bruto cuesta casi nada; procesar cuando hace falta cuesta lo que cuesta el uso. Mantener dato bruto histórico se volvió económicamente trivial. Y ahí transformar antes de cargar dejó de tener sentido — estás pagando dos veces (compute en la transformación previa + carga), para ahorrar storage que ya no es caro.
+En 2026, la cuenta se invirtió. [Warehouse cloud — Snowflake, BigQuery, Databricks](/blog/es/snowflake-bigquery-databricks.html) — cobra storage muy barato y compute elástico bajo demanda. Cargar dato bruto cuesta casi nada; procesar cuando hace falta cuesta lo que cuesta el uso. Mantener dato bruto histórico se volvió económicamente trivial. Y ahí transformar antes de cargar dejó de tener sentido — estás pagando dos veces (compute en la transformación previa + carga), para ahorrar storage que ya no es caro.
 
 Ese es el motivo técnico de fondo. No es "ELT es más moderno". Es "el cuello de botella de costo se movió".
 

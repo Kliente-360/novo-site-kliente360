@@ -38,7 +38,7 @@ Before approving any agent project, we run five checks. If three or more fail, a
 2. **Do the data the agent will query exist, are they trustworthy, and accessible via API?** No magic here — an agent without data is a confident guess. When the knowledge lives in documents rather than systems, you're in [RAG territory — and there retrieval becomes the bottleneck, not the LLM](/blog/en/rag-na-pratica.html).
 3. **Is there a current operational KPI?** Average time, resolution rate, NPS, cost per contact. Without baseline, you can't prove value later — and [serious agent evaluation requires its own metrics beyond channel ones](/blog/en/avaliacao-de-agentes.html).
 4. **Is there a human owner of the process?** Not the "executive sponsor" — the senior operator who knows where it hurts. Without that person, the project becomes theater.
-5. **Is the risk of an agent being wrong tolerable?** In customer service, yes. In legal escalation, maybe not. In credit decisions, certainly not without specific governance.
+5. **Is the risk of an agent being wrong tolerable?** [In customer service, yes — with a clear boundary between what to automate and what not to](/blog/en/agentforce-atendimento-humano.html). In legal escalation, maybe not. In credit decisions, certainly not without specific governance.
 
 ## The four-week MVP path
 

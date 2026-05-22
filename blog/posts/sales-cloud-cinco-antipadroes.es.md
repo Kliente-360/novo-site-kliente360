@@ -31,7 +31,7 @@ Sales Cloud es flexible por diseño. Esa libertad castiga al que copia. Quien di
 
 Flow es poderoso, y por eso peligroso. El equipo configura "cuando la etapa cambia a Propuesta, dispara mail al cliente, crea task al gerente, actualiza forecast, notifica a legal". Suena sofisticado. En producción se vuelve cascada: el vendedor cambia a la etapa equivocada, tres sistemas reaccionan, el cliente recibe un mail que no debía, el gerente recibe una task absurda, legal cierra un caso válido. Revertir cuesta dos semanas.
 
-La regla que funciona: la automatización que toca cliente externo, dispara firma o mueve dinero necesita validación humana intermedia. No en todo paso — en los puntos de impacto irreversible. La velocidad pura es rasgo de demo; la resiliencia es rasgo de producción.
+La regla que funciona: la automatización que toca cliente externo, dispara firma o mueve dinero necesita validación humana intermedia. No en todo paso — en los puntos de impacto irreversible. La velocidad pura es rasgo de demo; la resiliencia es rasgo de producción. [Y la elección entre Flow y Apex para cada automatización depende de la complejidad, no de la directriz default](/blog/es/flow-vs-apex.html).
 
 ## Antipatrón 4 — reporte como reemplazo de la conversación
 

@@ -17,7 +17,7 @@ This text is about why ELT won, what that actually means for a data team, and wh
 
 ETL was born in a world where storing was cheap and processing was expensive. Local storage + compute on a dedicated server meant transforming data before loading made sense — you didn't want to load 100 GB to extract 10 GB of KPI. The transformation was a cost filter.
 
-In 2026, the math inverted. Cloud warehouses (Snowflake, BigQuery, Databricks) charge very cheap storage and elastic compute on demand. Loading raw data costs almost nothing; processing when needed costs what usage costs. Keeping raw historical data became economically trivial. And then transforming before loading stopped making sense — you're paying twice (compute on the prior transformation + load) to save storage that's no longer expensive.
+In 2026, the math inverted. [Cloud warehouses — Snowflake, BigQuery, Databricks](/blog/en/snowflake-bigquery-databricks.html) — charge very cheap storage and elastic compute on demand. Loading raw data costs almost nothing; processing when needed costs what usage costs. Keeping raw historical data became economically trivial. And then transforming before loading stopped making sense — you're paying twice (compute on the prior transformation + load) to save storage that's no longer expensive.
 
 That's the underlying technical reason. It's not "ELT is more modern". It's "the cost bottleneck moved".
 

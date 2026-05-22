@@ -31,7 +31,7 @@ Sales Cloud is flexible by design. That freedom punishes copy-pasters. Whoever d
 
 Flow is powerful, and therefore dangerous. The team configures "when stage changes to Proposal, fire email to client, create task for manager, update forecast, notify legal". Sounds sophisticated. In production it becomes a cascade: rep changes to the wrong stage, three systems react, customer gets an email they shouldn't, manager gets an absurd task, legal closes a valid case. Rolling back takes two weeks.
 
-The rule that works: automation that touches an external customer, triggers a signature, or moves money needs an intermediate human validation. Not at every step — at the points of irreversible impact. Pure speed is a demo trait; resilience is a production trait.
+The rule that works: automation that touches an external customer, triggers a signature, or moves money needs an intermediate human validation. Not at every step — at the points of irreversible impact. Pure speed is a demo trait; resilience is a production trait. [And the choice between Flow and Apex for each automation depends on complexity, not on the default guideline](/blog/en/flow-vs-apex.html).
 
 ## Antipattern 4 — reports replacing conversation
 
