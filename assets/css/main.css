@@ -1015,11 +1015,11 @@ body {
 }
 .pp-manifesto h2 {
   margin-top: var(--sp-3);
-  font-family: 'Fraunces', Georgia, serif;
+  font-family: var(--font-sans);
   font-size: clamp(1.875rem, 1.5rem + 1.5vw, 2.75rem);
-  font-weight: 500;
+  font-weight: var(--fw-semibold);
   line-height: 1.2;
-  letter-spacing: -0.01em;
+  letter-spacing: var(--ls-tight);
   color: var(--ink-900);
   margin-bottom: var(--sp-8);
 }
@@ -1192,26 +1192,36 @@ body {
   padding-block: var(--sp-20);
   background: var(--ink-900);
   color: #fff;
-  text-align: center;
 }
 @media (min-width: 768px) { .pp-cta { padding-block: var(--sp-32); } }
+.pp-cta .container { text-align: center; }
 .pp-cta h2 {
   font-size: clamp(2rem, 1.5rem + 1.5vw, 3rem);
   font-weight: var(--fw-bold);
   letter-spacing: var(--ls-tighter);
   line-height: 1.1;
-  max-width: 20ch;
-  margin: 0 auto var(--sp-6);
+  max-width: 22ch;
+  margin-inline: auto;
+  margin-bottom: var(--sp-6);
   color: #fff;
+  text-align: center;
 }
 .pp-cta p {
   font-size: var(--fs-18);
   color: var(--ink-300);
   max-width: 50ch;
-  margin: 0 auto var(--sp-10);
+  margin-inline: auto;
+  margin-bottom: var(--sp-10);
   line-height: 1.5;
+  text-align: center;
 }
-.pp-cta .cta-row { display: flex; justify-content: center; gap: var(--sp-3); flex-wrap: wrap; }
+.pp-cta .cta-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--sp-3);
+  flex-wrap: wrap;
+}
 .pp-cta .btn-pillar { background: var(--pp-color); color: #fff; border-color: var(--pp-color); }
 .pp-cta .btn-pillar:hover { background: var(--pp-color-deep); border-color: var(--pp-color-deep); }
 
