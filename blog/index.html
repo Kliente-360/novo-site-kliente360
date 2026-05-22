@@ -1,28 +1,38 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Blog — Kliente 360</title>
   <meta name="description" content="Blog Kliente 360 — Estratégia, prática e crítica em CRM, dados e IA. Ensaios e análises para quem decide." />
   <meta name="theme-color" content="#0a0a0a" />
-  <title>Blog — Kliente 360</title>
   <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
 
+  <link rel="canonical" href="/blog/" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="alternate icon" href="/favicon.ico" />
+
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Kliente 360" />
-  <meta property="og:title" content="Blog Kliente 360 — Estratégia, prática e crítica" />
-  <meta property="og:description" content="CRM, dados e IA — ensaios e análises para quem decide." />
+  <meta property="og:title" content="Blog — Kliente 360" />
+  <meta property="og:description" content="Blog Kliente 360 — Estratégia, prática e crítica em CRM, dados e IA. Ensaios e análises para quem decide." />
+  <meta property="og:image" content="/og-image.png" />
+  
+  
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Blog — Kliente 360" />
+  <meta name="twitter:description" content="Blog Kliente 360 — Estratégia, prática e crítica em CRM, dados e IA. Ensaios e análises para quem decide." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="/assets/css/tokens.css?v=20260522-13" />
-  <link rel="stylesheet" href="/assets/css/reset.css?v=20260522-13" />
-  <link rel="stylesheet" href="/assets/css/main.css?v=20260522-13" />
+  <link rel="stylesheet" href="/assets/css/tokens.css?v=20260522" />
+  <link rel="stylesheet" href="/assets/css/reset.css?v=20260522" />
+  <link rel="stylesheet" href="/assets/css/main.css?v=20260522" />
 </head>
 <body>
   <a class="skip-link" href="#main">Pular para o conteúdo</a>
@@ -49,9 +59,9 @@
 
       <div class="nav-right">
         <div class="lang-switch" role="group" aria-label="Idioma">
-          <button type="button" aria-current="true">PT</button>
-          <button type="button">EN</button>
-          <button type="button">ES</button>
+          <button type="button" data-lang="pt" aria-current="true">PT</button>
+          <button type="button" data-lang="en">EN</button>
+          <button type="button" data-lang="es">ES</button>
         </div>
         <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-controls="nav-menu" aria-expanded="false" data-nav-toggle>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
@@ -79,7 +89,6 @@
   </header>
 
   <main id="main">
-
     <section class="blog-hero">
       <div class="container">
         <span class="eyebrow">Blog</span>
@@ -98,66 +107,35 @@
     <section class="section" style="padding-top: 0;">
       <div class="container">
         <div class="blog-list">
-
           <a class="post-card" data-pillar="ai" href="/blog/quando-agente-e-resposta.html">
             <div class="post-meta">
               <span class="pill-pillar">Pilar 03 · IA</span>
               <span class="post-date">14 mai 2026</span>
             </div>
-            <h3>Quando um agente é a resposta — e quando ele é fuga de problema mal modelado.</h3>
+            <h3>Quando um agente é a resposta — e quando ele é fuga de problema mal modelado</h3>
             <div class="read">Ler →</div>
           </a>
-
-          <a class="post-card" data-pillar="sf" href="#">
+          <a class="post-card" data-pillar="sf" href="/blog/data-cloud-nervo-central.html">
             <div class="post-meta">
               <span class="pill-pillar">Pilar 01 · Salesforce</span>
-              <span class="post-date">Em breve</span>
+              <span class="post-date">12 mai 2026</span>
             </div>
-            <h3>Data Cloud não é mais CDP — é o nervo central do Salesforce.</h3>
+            <h3>Data Cloud não é mais CDP — é o nervo central do Salesforce</h3>
             <div class="read">Ler →</div>
           </a>
-
-          <a class="post-card" data-pillar="data" href="#">
+          <a class="post-card" data-pillar="data" href="/blog/tableau-linguagem-executiva.html">
             <div class="post-meta">
               <span class="pill-pillar">Pilar 02 · Data</span>
-              <span class="post-date">Em breve</span>
+              <span class="post-date">8 mai 2026</span>
             </div>
-            <h3>Tableau como linguagem executiva: matando o dashboard de vaidade.</h3>
+            <h3>Tableau como linguagem executiva: matando o dashboard de vaidade</h3>
             <div class="read">Ler →</div>
           </a>
-
-          <a class="post-card" data-pillar="sf" href="#">
-            <div class="post-meta">
-              <span class="pill-pillar">Pilar 01 · Salesforce</span>
-              <span class="post-date">Em breve</span>
-            </div>
-            <h3>Agentforce em produção: o que muda na operação de atendimento.</h3>
-            <div class="read">Ler →</div>
-          </a>
-
-          <a class="post-card" data-pillar="data" href="#">
-            <div class="post-meta">
-              <span class="pill-pillar">Pilar 02 · Data</span>
-              <span class="post-date">Em breve</span>
-            </div>
-            <h3>Modern data stack em 2026: o que importa pra empresa brasileira de médio porte.</h3>
-            <div class="read">Ler →</div>
-          </a>
-
-          <a class="post-card" data-pillar="ai" href="#">
-            <div class="post-meta">
-              <span class="pill-pillar">Pilar 03 · IA</span>
-              <span class="post-date">Em breve</span>
-            </div>
-            <h3>Governança de IA: o passivo que ninguém vê até o primeiro incidente.</h3>
-            <div class="read">Ler →</div>
-          </a>
-
         </div>
       </div>
     </section>
-
   </main>
+
 
   <footer class="footer" role="contentinfo">
     <div class="container">
@@ -206,7 +184,7 @@
     </div>
   </footer>
 
-  <script src="/assets/js/main.js?v=20260522-13" type="module"></script>
+  <script src="/assets/js/main.js?v=20260522" type="module"></script>
   <script>
     document.querySelectorAll('.blog-filter button').forEach(btn => {
       btn.addEventListener('click', () => {

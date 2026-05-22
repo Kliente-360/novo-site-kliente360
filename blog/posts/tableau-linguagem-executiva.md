@@ -1,0 +1,72 @@
+---
+title: "Tableau como linguagem executiva: matando o dashboard de vaidade"
+slug: "tableau-linguagem-executiva"
+pillar: "data"
+date: "2026-05-08"
+readMinutes: 5
+excerpt: "Dashboard executivo bom é o que vira decisão na sala. Pare de medir, comece a recomendar."
+tldr: "A maioria dos dashboards executivos não muda decisão alguma. Custam tempo de construção, atenção da diretoria, e dão a falsa sensação de gestão data-driven. Como sair desse padrão em três movimentos."
+keywords: ["Tableau", "BI", "dashboards", "data-driven", "decisão"]
+---
+
+A pergunta que abre quase toda reunião de BI: "qual dashboard você quer?". Errado. A pergunta certa é: "qual decisão você precisa tomar?". Dashboard é meio — decisão é fim. Mas a indústria de BI passou 20 anos vendendo o meio como se fosse o fim, e o resultado está nas paredes de todo C-level: televisões com gráficos coloridos que ninguém mais olha.
+
+Esse texto é sobre como o Tableau (ou Power BI, ou Looker — a ferramenta é menos importante do que parece) pode virar **linguagem de decisão executiva**, não vitrine.
+
+## O custo invisível do dashboard de vaidade
+
+Dashboard de vaidade tem três marcas registradas:
+
+- **Mostra muita coisa.** Quinze KPIs na mesma tela, três cores, quatro filtros, dois períodos. Tudo "importante", nada acionável.
+- **Não recomenda nada.** Aponta números — vendas, churn, NPS. Não diz o que fazer.
+- **Vive desatualizado.** Foi criado pra uma pergunta de 2024. Em 2026 o negócio mudou, ninguém atualizou, todo mundo finge que ainda usa.
+
+O custo é triplo: hora de quem construiu (visível), atenção de quem deveria decidir (invisível) e — pior — falsa sensação de governança. Diretoria que olha dashboard se convence que está data-driven. Não está. Está performando data-driveness.
+
+## Três perguntas que todo dashboard deveria responder
+
+A regra que a gente usa pra revisar BI antes de qualquer projeto. Se o dashboard não responde **uma das três**, ele provavelmente não justifica existir.
+
+1. **O que está acontecendo agora que eu precisa decidir essa semana?** Foco em *acionável*. Não "vendas YTD", mas "quais 3 contas precisam de intervenção hoje".
+2. **Qual é a tendência que afeta o próximo trimestre?** Foco em *direcional*. Não "churn por mês", mas "essa coorte está saindo no padrão X e exige resposta".
+3. **Onde minha intuição está errada?** Foco em *contraintuitivo*. Não "mostra meus números", mas "mostra onde meu modelo mental falha".
+
+Dashboard que não responde nada disso é decoração.
+
+> O melhor dashboard executivo é o que mata o próximo dashboard. Cada visão precisa ganhar seu espaço — não ocupar por inércia.
+
+## Anatomia de uma view que ativa decisão
+
+Quando construímos analítica executiva, seguimos um padrão simples:
+
+### Headline numérico, não gráfico
+
+A primeira coisa na tela é o número que importa — grande, sem decoração. Tipo: "**3 contas estratégicas em risco de churn nas próximas 4 semanas**". Não um gráfico de barras. Não uma série temporal. O número, em palavras claras, com período.
+
+### Contexto comparativo de uma linha
+
+Logo abaixo: "vs. 1 conta no trimestre anterior; vs. média de 1,8 nos últimos 4 trimestres". Comparação é o que dá significado ao número. Sem comparação, número é trivia.
+
+### Drill que termina em ação
+
+Cliques que abrem detalhes — *contas afetadas, motivo provável, próximo passo recomendado*. Não apenas dados. **Próximos passos**. Quem tem que falar com quem, até quando, com qual oferta.
+
+O Tableau (e similares) entrega esse padrão bem quando você o constrói. Mas a ferramenta sozinha não faz — esse é o ponto.
+
+## O que o Tableau faz bem (e o que ele não substitui)
+
+Tableau é excelente em três coisas: exploração visual rápida sobre dados modelados, distribuição de visões pra organização, e personalização por persona/role.
+
+Não substitui:
+
+- **Modelagem de dados.** Modelo ruim faz Tableau bonito e impreciso. Invista no warehouse/dbt antes do Tableau.
+- **Conversa de negócio.** A view só ajuda se houve discovery sério com quem vai decidir.
+- **Recomendação automatizada.** Para isso entra ML/IA — Tableau visualiza, não pensa.
+
+A combinação que funciona: **warehouse limpo + modelo de negócio bem definido + Tableau como camada de leitura**. Cada peça no lugar.
+
+## O dashboard final
+
+A melhor métrica de qualidade pra um dashboard: *quantas decisões reais saíram dele no último trimestre*. Não acessos, não tempo de tela. Decisões. Se zero, mata e refaz.
+
+Empresas que adotam essa régua reduzem 60–80% do número de dashboards e — não por acaso — passam a confiar no que sobrou. Boutique de dados decente entrega isso, não relatório.
