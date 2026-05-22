@@ -2,6 +2,8 @@
 
 Este diretório guarda **os posts do blog em Markdown**. O build os converte em HTML estilizado, listagens, sitemap e manifest de dados — tudo automaticamente.
 
+> Antes de criar HTML/CSS novo (se for o caso), leia também **[/DESIGN.md](../../DESIGN.md)** na raiz. Posts em Markdown não precisam disso — o template do post já usa os primitivos do design system. Mas se você for tocar em layout, é leitura obrigatória.
+
 ## Receita rápida (do zero ao deploy)
 
 ```

@@ -2,7 +2,7 @@
 
 Documento mantido em main. Registra contexto, decisões tomadas e próximos passos. Atualizar a cada sessão.
 
-Última atualização: 2026-05-22 (quinta passada — pillar pages + glossário + comercial entregues).
+Última atualização: 2026-05-22 (sétima passada — design system fechado, **`DESIGN.md` é fonte única**).
 
 ---
 
@@ -138,7 +138,21 @@ Referências: **Apple**, **Google**, **Salesforce**.
 - **Página comercial** em `/como-trabalhamos/` com 3 modos de engajamento (Sprint, Projeto, AMS), faixas de investimento ordem-de-grandeza, links pros 3 pilares, "o que esperamos do cliente", FAQ com 9 perguntas (com `FAQPage` JSON-LD), CTA final escuro.
 - Footer global ganhou seção "Empresa" expandida com links pra "Como trabalhamos" e "Glossário".
 
-### 4.5. Infraestrutura — entregue
+### 4.5. Design system — fechado e documentado (2026-05-22, ondas 1–7)
+
+Refator profundo dividido em 7 ondas, com **`DESIGN.md` na raiz** como fonte única para criação de novas páginas/componentes:
+
+- **Onda 1**: auditoria — identificadas 6 eyebrows, 8 grids, 9 cards, 6 heros, 4 escalas de padding-block divergentes. Documento de auditoria em `research/css-audit-2026-05-22.md`.
+- **Onda 2**: eyebrow unificado (base + 3 modificadores `.on-dark/.on-color/.pill`); section-head global com H2 token `--fs-h3`; padding-block 16/24/32 em todas as seções; `.section.dark .eyebrow` cascata; navy `--bg-deep`.
+- **Onda 3**: `.card` primitivo (padding/border/radius/hover via base); modificadores `.accent-top` e `.accent-side` para borda colorida; cards específicos (pillar-card, pp-offer-card, cm-mode, case-card, post-card, cm-expect-item) viraram wrappers com delta zero de visual base.
+- **Onda 4**: hero da home alinhado à escala 20/32/40 (sp-32 no breakpoint ≥1024).
+- **Onda 5**: pillar pages migraram `<div class="head">` → `<header class="section-head">` (9 seções); `.pp-trilha-grid` e `.pp-trilha-step` removidos — pillar usa o mesmo `.trilha`/`.trilha-step` do home; `.trust-strip`/`.trust-item` e `.pp-stats .container`/`.pp-stat` unificados em `.stats-strip`/`.stat`; 8 classes de grid (`pillars-grid`, `cases-grid`, `blog-grid`, `blog-list`, `cm-modes`, `cm-expect`, `pp-posts-grid`, `pp-offers .grid`) → `.grid-cards` com modificadores `.cols-2`, `.cols-3`, `.cols-2-3`.
+- **Onda 6**: hero class names mantidos (têm max-width específico no H1 — não é duplicação real); escopo enxuto e justificado.
+- **Onda 7**: auditoria de classes órfãs + criação de **`DESIGN.md`** (catálogo de primitivos, modificadores, tokens, anti-padrões, decisões de copy). Atualização de `blog/posts/README.md` apontando para o design system.
+
+CSS reduzido de 1651 → 1536 linhas. ~3000 caracteres de regras duplicadas eliminados.
+
+### 4.6. Infraestrutura — entregue
 
 - Favicon SVG + `og-image.png` renderizada por `@resvg/resvg-js` no build.
 - `sitemap.xml` + `robots.txt` + JSON-LD `Article` por post + `inLanguage` por variante.
@@ -148,10 +162,12 @@ Referências: **Apple**, **Google**, **Salesforce**.
 
 ## 5. Próximos passos imediatos
 
-- ⏳ Validar com calma o conteúdo das 3 pillar pages, glossário e página comercial em produção. Estrutura visual aprovada na quinta passada; tom, exemplos e calibração de copy a revisar.
+- ✅ Design system fechado e documentado em `/DESIGN.md`. Nova página/componente segue o padrão sem revisita.
+- ⏳ Validar conteúdo de pillar pages, glossário e comercial em produção (tom, exemplos, calibração de copy).
 - ⏳ Calibrar faixas de investimento em `/como-trabalhamos/` (números atuais são proposta minha — ajustar ao real).
-- ⏳ Acompanhar a routine continuar publicando 2 posts/semana. Posts #18+ esperados pelos dias úteis subsequentes.
+- ⏳ Acompanhar a routine continuar publicando 2 posts/semana.
 - ⏳ Resolver itens do parking lot (§8.1) conforme bloqueios externos destravarem.
+- ⏳ Refator do `styleguide.html` para usar o design system real (em vez de CSS inline isolado) — não bloqueante, mas vira showcase mais útil.
 
 ## 6. Roadmap SEO/Conteúdo
 
@@ -221,3 +237,6 @@ Rodar competitive-brief específico de SEO contra Indicium, Everymind e Sottelli
 - **2026-05-22 (segunda passada)** — Site grande implementado: nav, hero com mark Aperture, 3 pilares + 3 seções deep, Trilha, cases, confiança, blog teaser, contato, footer. Sistema de cor refinado (logo green sagrado vs UI green editorial; secundárias por pilar; navy resgatado). i18n real. Build MD→HTML multilíngue — 3 posts publicados. 34 temas mapeados. Routine ativada. Favicon + og-image.png + sitemap + robots + JSON-LD. Tipografia editorial calibrada. LinkedIn + WhatsApp adicionados.
 - **2026-05-22 (terceira passada)** — Lote de blog posts #01–#10 publicado (sf/data/ai em rotação). Todos PT/EN/ES com forward links. EDITORIAL.md criado. Diretriz de links internos formalizada. Audit SEO/GEO completo — quick wins aplicados. Roadmap §6 (era §9) criado. Vocabulário rebrand: descartar "boutique", "IA Aplicada", "agentes de IA". Headers de segurança endurecidos. Asset versioning hash-based.
 - **2026-05-22 (quarta passada)** — Validação geral do PLAN. Reorganização: §3 ganhou subseções coerentes 3.1–3.6 (corrigido §3.4 duplicado); §4 consolidado em 4.1–4.4 (sequência inicial + site + blog + infra); §6 movido pra antes do histórico; §7 decisões fechadas com 10 itens; §8 técnicas + parking expandido; histórico no fim. Snapshot do estado real: 13 posts publicados, audit SEO concluído, routine rodando, próximo passo é executar §6.1.
+- **2026-05-22 (quinta passada)** — 3 pillar pages (Salesforce/Data/IA) com design colorido por pilar + cores secundárias do âmbar Data ajustadas pra contraste. Glossário (`/glossario/`) com 26 termos filtraveis. Página comercial (`/como-trabalhamos/`) com 3 modos de engajamento, faixas de investimento, FAQ schema, CTA. Home com links de pilar migrados pras pillar pages.
+- **2026-05-22 (sexta passada)** — Trilha 360 detalhada na página comercial em timeline vertical (5 verbos + entregáveis); FAQ mobile com mais respiro; consistência conteúdo (Trilha amarrada aos 3 modos); rebrand vocabulário aplicado.
+- **2026-05-22 (sétima passada)** — Design system fechado e documentado: 7 ondas de refator (eyebrow base + 3 modificadores; section-head global; padding-block 16/24/32 universal; `.card` base + accent-top/accent-side; trilha + stats consolidadas entre home e pillar; `.grid-cards` substitui 8 classes de grid; ~3000 chars de CSS deprecated removidos). **`DESIGN.md` na raiz** vira fonte única — catálogo de primitivos, modificadores, tokens, anti-padrões. `blog/posts/README.md` aponta pro DESIGN.md. CSS 1651 → 1536 linhas. Auditoria de classes órfãs em `research/css-audit-2026-05-22.md`. Dívida de design = zero.
