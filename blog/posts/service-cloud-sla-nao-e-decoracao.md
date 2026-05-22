@@ -1,5 +1,5 @@
 ---
-title: "Service Cloud: SLA não é decoração — como medir capacidade real antes de prometer prazo"
+title: "Service Cloud: SLA não é decoração — medir capacidade antes de prometer"
 slug: "service-cloud-sla-nao-e-decoracao"
 pillar: "sf"
 date: "2026-01-27"

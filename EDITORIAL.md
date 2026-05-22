@@ -15,12 +15,12 @@ Cadência: terça **ou** quarta, pulando feriados (ver `blog/posts/README.md` §
 | # | Data | Dia | Pilar | Tema | Ângulo | Status |
 |---|---|---|---|---|---|---|
 | 01 | 2026-01-06 | ter | sf | [Mapear processos antes do Salesforce: o checklist que economiza meses](blog/posts/mapear-processos-antes-do-salesforce.md) | O checklist que economiza meses no projeto | [x] |
-| 02 | 2026-01-07 | qua | data | [Dado limpo é um mito: como conviver com qualidade imperfeita sem travar o roadmap](blog/posts/dado-limpo-e-um-mito.md) | Como conviver com qualidade imperfeita sem travar o roadmap | [x] |
+| 02 | 2026-01-07 | qua | data | [Dado limpo é um mito: convivendo com qualidade imperfeita](blog/posts/dado-limpo-e-um-mito.md) | Como conviver com qualidade imperfeita sem travar o roadmap | [x] |
 | 03 | 2026-01-13 | ter | ai | [RAG na prática: a recuperação é o gargalo, não o LLM](blog/posts/rag-na-pratica.md) | Por que recuperar é mais difícil que gerar | [x] |
 | 04 | 2026-01-14 | qua | sf | [Sales Cloud: cinco antipadrões que separam rollout caro de rollout que rende](blog/posts/sales-cloud-cinco-antipadroes.md) | O que separa rollout caro de rollout que rende | [x] |
 | 05 | 2026-01-20 | ter | data | [dbt na prática: o pulo do gato é a documentação, não o modelo](blog/posts/dbt-na-pratica.md) | O pulo do gato é a documentação, não o modelo | [x] |
 | 06 | 2026-01-21 | qua | ai | [LLM como agente interno: três casos onde funciona, dois onde fracassa](blog/posts/llm-como-agente-interno.md) | Três casos onde funciona, dois onde fracassa | [x] |
-| 07 | 2026-01-27 | ter | sf | [Service Cloud: SLA não é decoração — como medir capacidade real antes de prometer prazo](blog/posts/service-cloud-sla-nao-e-decoracao.md) | Como medir capacidade real antes de prometer prazo | [x] |
+| 07 | 2026-01-27 | ter | sf | [Service Cloud: SLA não é decoração — medir capacidade antes de prometer](blog/posts/service-cloud-sla-nao-e-decoracao.md) | Como medir capacidade real antes de prometer prazo | [x] |
 | 08 | 2026-01-28 | qua | data | [ELT vs ETL: por que a moda mudou e o que importa de fato](blog/posts/elt-vs-etl.md) | Por que a moda mudou e o que importa de fato | [x] |
 | 09 | 2026-02-03 | ter | ai | [Avaliação de agentes: a métrica que ninguém quer publicar](blog/posts/avaliacao-de-agentes.md) | A métrica que ninguém quer publicar | [x] |
 | 10 | 2026-02-04 | qua | sf | [Customer 360 vs CDP: diferenças que mudam o roadmap de dados](blog/posts/customer-360-vs-cdp.md) | Diferenças que mudam o roadmap de dados | [x] |

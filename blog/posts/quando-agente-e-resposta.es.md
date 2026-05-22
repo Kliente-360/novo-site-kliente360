@@ -36,7 +36,7 @@ Antes de aprobar cualquier proyecto de agente, pasamos por cinco verificaciones.
 
 1. **¿El proceso está escrito?** No basta con existir en la cabeza. Necesita estar en un flujo legible por humano no iniciado y por LLM.
 2. **¿Los datos que el agente va a consultar existen, son confiables y accesibles vía API?** No hay magia — agente sin datos es palpito confiado. Cuando el conocimiento vive en documentos y no en sistemas, entrás en [territorio RAG — y ahí la recuperación se vuelve el cuello de botella, no el LLM](/blog/es/rag-na-pratica.html).
-3. **¿Hay KPI de operación actual?** Tiempo medio, tasa de resolución, NPS, costo por contacto. Sin baseline, no se puede probar valor después.
+3. **¿Hay KPI de operación actual?** Tiempo medio, tasa de resolución, NPS, costo por contacto. Sin baseline, no se puede probar valor después — y [la evaluación seria de un agente exige métricas propias más allá de las del canal](/blog/es/avaliacao-de-agentes.html).
 4. **¿Hay un humano dueño del proceso?** No el "patrocinador ejecutivo" — el operador sénior que sabe dónde duele. Sin esa persona el proyecto se vuelve teatro.
 5. **¿El riesgo de que el agente se equivoque es tolerable?** En atención, sí. En escalamiento legal, tal vez no. En decisión de crédito, ciertamente no sin gobernanza específica.
 

@@ -59,7 +59,7 @@ Tableau is excellent at three things: rapid visual exploration over modeled data
 
 It does not replace:
 
-- **Data modeling.** A bad model makes Tableau pretty and imprecise. Invest in the warehouse/dbt before Tableau.
+- **Data modeling.** A bad model makes Tableau pretty and imprecise. [Invest in the warehouse/dbt — where documentation is the real win](/blog/en/dbt-na-pratica.html) — before Tableau.
 - **Business conversation.** The view only helps if there was serious discovery with whoever will decide.
 - **Automated recommendation.** For that, ML/AI enters — Tableau visualizes, doesn't think.
 

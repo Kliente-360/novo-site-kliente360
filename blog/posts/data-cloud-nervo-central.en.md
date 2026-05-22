@@ -22,7 +22,7 @@ A classic CDP solves three things: ingestion, identity unification and activatio
 - **Universal activation layer** — not just martech: it feeds Service Cloud, Sales Cloud, Commerce, Marketing, and whatever else shows up.
 - **Context for agents** — this is where Agentforce pulls what it needs to decide in real time.
 
-The difference is architectural, not commercial. A CDP is a system; Data Cloud is a foundation.
+The difference is architectural, not commercial. A CDP is a system; Data Cloud is a foundation. [The "Customer 360 vs CDP" debate became a vendor question](/blog/en/customer-360-vs-cdp.html) — the real decision is which layer of customer data your operation needs first.
 
 > Treating Data Cloud as a CDP is like using a data warehouse only to run reports. It works, but it costs you the future.
 

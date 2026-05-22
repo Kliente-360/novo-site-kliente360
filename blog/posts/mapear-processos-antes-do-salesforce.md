@@ -35,7 +35,7 @@ A régua que aplicamos em todo kickoff. Se a resposta a três ou mais é "não t
 6. **Quais sistemas alimentam ou consomem esse processo?** ERP, billing, marketing automation, planilha do financeiro. Integração mal mapeada é a causa #1 de atraso no go-live. Em arquiteturas Salesforce modernas, [Data Cloud entra como camada de contexto que unifica parte desses sistemas](/blog/data-cloud-nervo-central.html) — mas só funciona se o processo abaixo dela estiver desenhado.
 7. **Quem vai usar isso no dia a dia, e o que essa pessoa faz em 5 minutos?** O processo precisa caber no fluxo de trabalho real do usuário, não no fluxo ideal do consultor. Se a vendedora abre Salesforce 20 vezes por dia, cada tela tem que servir aos 20 momentos — não aos 20 estágios.
 
-Quem responde os sete sem hesitação está pronto pra configurar. Quem hesita em três ou mais ainda está em discovery, mesmo que o cronograma diga o contrário.
+Quem responde os sete sem hesitação está pronto pra configurar. Quem hesita em três ou mais ainda está em discovery, mesmo que o cronograma diga o contrário — e tende a cair em [um dos cinco antipadrões clássicos de Sales Cloud](/blog/sales-cloud-cinco-antipadroes.html) na fase seguinte.
 
 ## Os três artefatos que valem a pena produzir
 

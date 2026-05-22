@@ -59,7 +59,7 @@ Tableau é excelente em três coisas: exploração visual rápida sobre dados mo
 
 Não substitui:
 
-- **Modelagem de dados.** Modelo ruim faz Tableau bonito e impreciso. Invista no warehouse/dbt antes do Tableau.
+- **Modelagem de dados.** Modelo ruim faz Tableau bonito e impreciso. [Invista no warehouse/dbt — onde a documentação é o pulo do gato](/blog/dbt-na-pratica.html) — antes do Tableau.
 - **Conversa de negócio.** A view só ajuda se houve discovery sério com quem vai decidir.
 - **Recomendação automatizada.** Para isso entra ML/IA — Tableau visualiza, não pensa.
 

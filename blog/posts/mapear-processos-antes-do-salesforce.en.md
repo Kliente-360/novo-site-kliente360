@@ -35,7 +35,7 @@ The ruler we apply at every kickoff. If the answer to three or more is "we don't
 6. **Which systems feed or consume this process?** ERP, billing, marketing automation, the finance team's spreadsheet. Badly mapped integrations are the #1 cause of go-live slippage. In modern Salesforce architectures, [Data Cloud comes in as the context layer that unifies part of those systems](/blog/en/data-cloud-nervo-central.html) — but only works if the process underneath is designed.
 7. **Who's going to use this day-to-day, and what does that person do in 5 minutes?** The process has to fit the user's real workflow, not the consultant's ideal one. If the rep opens Salesforce 20 times a day, every screen has to serve those 20 moments — not the 20 stages.
 
-Whoever answers the seven without hesitating is ready to configure. Whoever hesitates on three or more is still in discovery, no matter what the project plan says.
+Whoever answers the seven without hesitating is ready to configure. Whoever hesitates on three or more is still in discovery, no matter what the project plan says — and tends to fall into [one of the five classic Sales Cloud antipatterns](/blog/en/sales-cloud-cinco-antipadroes.html) in the next phase.
 
 ## The three artifacts worth producing
 
