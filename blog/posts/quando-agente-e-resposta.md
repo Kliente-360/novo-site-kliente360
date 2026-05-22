@@ -35,7 +35,7 @@ Implantar agente antes de cuidar disso é o equivalente a colocar piloto automá
 Antes de aprovar qualquer projeto de agente, passamos por cinco verificações. Se três ou mais falham, agente não é a próxima decisão.
 
 1. **O processo está escrito?** Não basta existir na cabeça. Precisa estar num fluxo legível por humano não-iniciado e por LLM.
-2. **Os dados que o agente vai consultar existem, são confiáveis e acessíveis via API?** Não há mágica — agente sem dado é palpite confiante.
+2. **Os dados que o agente vai consultar existem, são confiáveis e acessíveis via API?** Não há mágica — agente sem dado é palpite confiante. Quando o conhecimento vive em documento e não em sistema, entra [RAG — e aí a recuperação vira o gargalo, não o LLM](/blog/rag-na-pratica.html).
 3. **Tem KPI de operação atual?** Tempo médio, taxa de resolução, NPS, custo por contato. Sem baseline, não dá pra provar valor depois.
 4. **Há um humano dono do processo?** Não o "patrocinador executivo" — o operador sênior que sabe onde dói. Sem essa pessoa o projeto vira teatro.
 5. **O risco do agente errar é tolerável?** Em atendimento, sim. Em escalonamento jurídico, talvez não. Em decisão de crédito, certamente não sem governança específica.
