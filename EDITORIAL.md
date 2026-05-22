@@ -39,7 +39,7 @@ Cadência: terça **ou** quarta, pulando feriados (ver `blog/posts/README.md` §
 | 23 | 2026-03-31 | ter | data | [Data Catalog que ninguém usa: sintoma do problema real (não é a ferramenta)](blog/posts/data-catalog-ninguem-usa.md) | Sintoma do problema real (não é a ferramenta) | [x] |
 | 24 | 2026-04-01 | qua | ai | [Privacidade de dados em LLMs: a checklist de governança que falta no piloto](blog/posts/privacidade-dados-llms.md) | A checklist de governança que falta no piloto | [x] |
 | 25 | 2026-04-07 | ter | sf | [Marketing Cloud + Data Cloud: a stack que devia ter nascido junta](blog/posts/marketing-cloud-data-cloud.md) | A stack que devia ter nascido junta | [x] |
-| 26 | 2026-04-08 | qua | data | Engenharia de prompts pra analytics | O pipeline esquecido entre dado e relatório | [ ] |
+| 26 | 2026-04-08 | qua | data | [Engenharia de prompts pra analytics: o pipeline esquecido entre dado e relatório](blog/posts/prompts-pra-analytics.md) | O pipeline esquecido entre dado e relatório | [x] |
 | 27 | 2026-04-14 | ter | ai | IA generativa para vendas | Além do "ChatGPT de respostas" — onde gera receita | [ ] |
 | 28 | 2026-04-15 | qua | sf | CPQ em SaaS B2B | A diferença entre cotação e proposta de fato | [ ] |
 | 29 | 2026-04-22 | qua | data | Modelagem dimensional ainda vale em 2026? | Sim, e por isto — defesa contra o lakehouse-pra-tudo | [ ] |
