@@ -66,6 +66,72 @@
     }
   },
   {
+    "slug": "ia-generativa-vendas",
+    "pillar": "ai",
+    "date": "2026-04-14",
+    "translations": {
+      "pt": {
+        "title": "IA generativa para vendas: além do \"ChatGPT de respostas\" — onde gera receita",
+        "url": "/blog/ia-generativa-vendas.html",
+        "date": "14 abr 2026"
+      },
+      "en": {
+        "title": "Generative AI in sales: beyond \"ChatGPT for replies\" — where it makes revenue",
+        "url": "/blog/en/ia-generativa-vendas.html",
+        "date": "14 Apr 2026"
+      },
+      "es": {
+        "title": "IA generativa para ventas: más allá del \"ChatGPT de respuestas\" — donde genera ingreso",
+        "url": "/blog/es/ia-generativa-vendas.html",
+        "date": "14 abr 2026"
+      }
+    }
+  },
+  {
+    "slug": "prompts-pra-analytics",
+    "pillar": "data",
+    "date": "2026-04-08",
+    "translations": {
+      "pt": {
+        "title": "Engenharia de prompts pra analytics: o pipeline esquecido entre dado e relatório",
+        "url": "/blog/prompts-pra-analytics.html",
+        "date": "8 abr 2026"
+      },
+      "en": {
+        "title": "Prompt engineering for analytics: the forgotten pipeline between data and report",
+        "url": "/blog/en/prompts-pra-analytics.html",
+        "date": "8 Apr 2026"
+      },
+      "es": {
+        "title": "Ingeniería de prompts para analytics: el pipeline olvidado entre dato y reporte",
+        "url": "/blog/es/prompts-pra-analytics.html",
+        "date": "8 abr 2026"
+      }
+    }
+  },
+  {
+    "slug": "marketing-cloud-data-cloud",
+    "pillar": "sf",
+    "date": "2026-04-07",
+    "translations": {
+      "pt": {
+        "title": "Marketing Cloud + Data Cloud: a stack que devia ter nascido junta",
+        "url": "/blog/marketing-cloud-data-cloud.html",
+        "date": "7 abr 2026"
+      },
+      "en": {
+        "title": "Marketing Cloud + Data Cloud: the stack that should have been born together",
+        "url": "/blog/en/marketing-cloud-data-cloud.html",
+        "date": "7 Apr 2026"
+      },
+      "es": {
+        "title": "Marketing Cloud + Data Cloud: el stack que debería haber nacido junto",
+        "url": "/blog/es/marketing-cloud-data-cloud.html",
+        "date": "7 abr 2026"
+      }
+    }
+  },
+  {
     "slug": "privacidade-dados-llms",
     "pillar": "ai",
     "date": "2026-04-01",

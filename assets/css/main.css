@@ -79,6 +79,44 @@ body {
 }
 .section.dark .eyebrow.pill::before { background: var(--c-pillar-on-dark, var(--c-pillar)); }
 
+/* --- CARD — primitivo unificado ---
+ * Base visual de todo cartão do site: padding, fundo, borda, hover.
+ * Use sempre <... class="card ..."> junto com a classe específica.
+ *
+ * Modificadores:
+ *   .card.accent-top   → borda superior de 4px na cor do pilar (data-pillar do ancestral)
+ *   .card.accent-side  → borda esquerda de 3px na cor do pilar/accent
+ *   .card.linked       → cursor pointer (use em <a class="card linked">)
+ *   .card.compact      → padding reduzido (sp-6 sempre)
+ *
+ * Cards de pilar (data-pillar) herdam --c-pillar do ancestral.
+ */
+.card {
+  display: flex; flex-direction: column;
+  padding: var(--sp-6);
+  background: var(--bg);
+  border: 1px solid var(--color-line);
+  border-radius: var(--r-lg);
+  transition: transform var(--dur-base) var(--ease-out),
+              border-color var(--dur-base) var(--ease-out),
+              box-shadow var(--dur-base) var(--ease-out);
+}
+@media (min-width: 768px) { .card:not(.compact) { padding: var(--sp-8); } }
+
+a.card:hover, .card.linked:hover {
+  transform: translateY(-2px);
+  border-color: var(--line-strong);
+  box-shadow: var(--shadow-md);
+}
+
+.card.accent-top { border-top: 4px solid var(--c-pillar, var(--color-accent)); }
+.card.accent-side {
+  border: 0; background: var(--color-bg-alt);
+  border-left: 3px solid var(--c-pillar, var(--color-accent));
+  border-radius: var(--r-md);
+  padding: var(--sp-6);
+}
+
 /* Headings */
 .display { font-size: var(--fs-h1); line-height: var(--lh-tight); letter-spacing: var(--ls-tighter); font-weight: var(--fw-bold); }
 .h2 { font-size: var(--fs-h2); line-height: var(--lh-tight); letter-spacing: var(--ls-tight); font-weight: var(--fw-bold); }
@@ -271,11 +309,12 @@ body {
 
 /* ============ HERO ============ */
 .hero {
-  padding-block: var(--sp-16) var(--sp-20);
+  padding-block: var(--sp-20) var(--sp-16);
   position: relative;
   overflow: hidden;
 }
-@media (min-width: 768px) { .hero { padding-block: var(--sp-24) var(--sp-32); } }
+@media (min-width: 768px)  { .hero { padding-block: var(--sp-32) var(--sp-24); } }
+@media (min-width: 1024px) { .hero { padding-block: var(--sp-40) var(--sp-32); } }
 
 .hero .badges { display: flex; flex-wrap: wrap; gap: var(--sp-2); margin-bottom: var(--sp-6); }
 .hero h1 {
@@ -353,16 +392,8 @@ body {
 }
 @media (min-width: 768px) { .pillars-grid { grid-template-columns: repeat(3, 1fr); gap: var(--sp-6); } }
 
-.pillar-card {
-  display: flex; flex-direction: column;
-  padding: var(--sp-8);
-  background: var(--bg);
-  border: 1px solid var(--color-line);
-  border-radius: var(--r-lg);
-  transition: transform var(--dur-base) var(--ease-out),
-              border-color var(--dur-base) var(--ease-out),
-              box-shadow var(--dur-base) var(--ease-out);
-}
+/* .pillar-card herda base de .card; só seu delta (cor por pilar, lista) fica aqui. */
+.pillar-card { /* visual base no .card */ }
 .pillar-card:hover {
   transform: translateY(-2px);
   border-color: var(--line-strong);
@@ -538,16 +569,8 @@ body {
 .cases-grid { display: grid; gap: var(--sp-4); grid-template-columns: 1fr; }
 @media (min-width: 768px) { .cases-grid { grid-template-columns: repeat(2, 1fr); gap: var(--sp-6); } }
 
-.case-card {
-  display: flex; flex-direction: column;
-  padding: var(--sp-8);
-  background: var(--bg);
-  border: 1px solid var(--color-line);
-  border-radius: var(--r-lg);
-  min-height: 240px;
-  transition: transform var(--dur-base) var(--ease-out),
-              border-color var(--dur-base) var(--ease-out);
-}
+/* .case-card herda base de .card; só seu delta (min-height, client, metric) fica aqui. */
+.case-card { min-height: 240px; }
 .case-card:hover { transform: translateY(-2px); border-color: var(--line-strong); }
 .case-card .client {
   font-family: var(--font-mono);
@@ -615,16 +638,8 @@ body {
 .blog-grid { display: grid; gap: var(--sp-4); grid-template-columns: 1fr; }
 @media (min-width: 768px) { .blog-grid { grid-template-columns: repeat(3, 1fr); gap: var(--sp-6); } }
 
-.post-card {
-  display: flex; flex-direction: column;
-  padding: var(--sp-6);
-  background: var(--bg);
-  border: 1px solid var(--color-line);
-  border-radius: var(--r-lg);
-  min-height: 220px;
-  transition: transform var(--dur-base) var(--ease-out),
-              border-color var(--dur-base) var(--ease-out);
-}
+/* .post-card herda base de .card; só seu delta (min-height, post-meta, read) fica aqui. */
+.post-card { min-height: 220px; }
 .post-card:hover { transform: translateY(-2px); border-color: var(--line-strong); }
 .post-card .post-meta {
   display: flex; align-items: center; gap: var(--sp-3);
@@ -1099,14 +1114,8 @@ body {
 }
 @media (min-width: 768px) { .pp-offers .grid { grid-template-columns: repeat(3, 1fr); gap: var(--sp-6); } }
 
-.pp-offer-card {
-  background: var(--bg);
-  border: 1px solid var(--color-line);
-  border-top: 4px solid var(--pp-color);
-  border-radius: var(--r-lg);
-  padding: var(--sp-8);
-  display: flex; flex-direction: column;
-}
+/* .pp-offer-card herda base de .card.accent-top; só conteúdo específico aqui. */
+.pp-offer-card { border-top: 4px solid var(--pp-color); }
 .pp-offer-card .num {
   font-family: var(--font-mono);
   font-size: var(--fs-12);
@@ -1328,11 +1337,7 @@ body {
   grid-template-columns: 1fr;
 }
 @media (min-width: 768px) { .cm-modes { grid-template-columns: repeat(3, 1fr); gap: var(--sp-6); } }
-.cm-mode {
-  padding: var(--sp-8); background: var(--bg);
-  border: 1px solid var(--color-line); border-radius: var(--r-lg);
-  display: flex; flex-direction: column;
-}
+/* .cm-mode herda base de .card; conteúdo específico abaixo. */
 .cm-mode .num { font-family: var(--font-mono); font-size: var(--fs-12); color: var(--color-fg-muted); margin-bottom: var(--sp-3); }
 .cm-mode h3 { font-size: var(--fs-h4); font-weight: var(--fw-semibold); letter-spacing: var(--ls-tight); margin-bottom: var(--sp-2); }
 .cm-mode .duration { font-family: var(--font-mono); font-size: var(--fs-12); color: var(--color-accent); margin-bottom: var(--sp-4); }
@@ -1364,7 +1369,7 @@ body {
   grid-template-columns: 1fr;
 }
 @media (min-width: 768px) { .cm-expect { grid-template-columns: repeat(3, 1fr); } }
-.cm-expect-item { padding: var(--sp-6); background: var(--bg); border-radius: var(--r-md); border-left: 3px solid var(--color-accent); }
+/* .cm-expect-item herda base de .card.accent-side; conteúdo específico abaixo. */
 .cm-expect-item h3 { font-size: var(--fs-18); font-weight: var(--fw-semibold); margin-bottom: var(--sp-2); }
 .cm-expect-item p { font-size: var(--fs-14); color: var(--ink-600); line-height: var(--lh-snug); }
 

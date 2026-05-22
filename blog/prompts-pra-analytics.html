@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Engenharia de prompts pra analytics: o pipeline esquecido entre dado e relatório | Kliente 360</title>
+  <meta name="description" content="Analista joga pergunta no ChatGPT, recebe SQL, roda no warehouse, manda gráfico pro diretor. Em metade dos casos, o número está errado — e ninguém percebe." />
+  <meta name="theme-color" content="#0a0a0a" />
+  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+
+  <link rel="canonical" href="/blog/prompts-pra-analytics.html" />
+  <link rel="alternate" hreflang="pt-BR" href="/blog/prompts-pra-analytics.html" />
+  <link rel="alternate" hreflang="en-US" href="/blog/en/prompts-pra-analytics.html" />
+  <link rel="alternate" hreflang="es-ES" href="/blog/es/prompts-pra-analytics.html" />
+  <link rel="alternate" hreflang="x-default" href="/blog/prompts-pra-analytics.html" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Kliente 360" />
+  <meta property="og:title" content="Engenharia de prompts pra analytics: o pipeline esquecido entre dado e relatório | Kliente 360" />
+  <meta property="og:description" content="Analista joga pergunta no ChatGPT, recebe SQL, roda no warehouse, manda gráfico pro diretor. Em metade dos casos, o número está errado — e ninguém percebe." />
+  <meta property="og:image" content="/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="article:published_time" content="2026-04-08" />
+  <meta property="article:section" content="Data &amp; Analytics" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Engenharia de prompts pra analytics: o pipeline esquecido entre dado e relatório | Kliente 360" />
+  <meta name="twitter:description" content="Analista joga pergunta no ChatGPT, recebe SQL, roda no warehouse, manda gráfico pro diretor. Em metade dos casos, o número está errado — e ninguém percebe." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="/assets/css/tokens.css?v=685f49c055" />
+  <link rel="stylesheet" href="/assets/css/reset.css?v=685f49c055" />
+  <link rel="stylesheet" href="/assets/css/main.css?v=685f49c055" />
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Engenharia de prompts pra analytics: o pipeline esquecido entre dado e relatório",
+  "description": "Analista joga pergunta no ChatGPT, recebe SQL, roda no warehouse, manda gráfico pro diretor. Em metade dos casos, o número está errado — e ninguém percebe.",
+  "datePublished": "2026-04-08",
+  "inLanguage": "pt-BR",
+  "author": {
+    "@type": "Organization",
+    "name": "Kliente 360"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Kliente 360"
+  },
+  "articleSection": "Data & Analytics",
+  "keywords": [
+    "LLM analytics",
+    "engenharia de prompts",
+    "SQL generation",
+    "validação de dados",
+    "IA"
+  ]
+}
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Pular para o conteúdo</a>
+
+  <header class="nav" role="banner">
+    <div class="container nav-inner">
+      <a class="nav-brand" href="/" aria-label="Kliente 360 — início">
+        <svg class="mark-aperture" viewBox="0 0 80 80" aria-hidden="true">
+          <circle cx="40" cy="22" r="11"/>
+          <circle cx="58" cy="40" r="11"/>
+          <circle cx="40" cy="58" r="11"/>
+          <circle cx="22" cy="40" r="11"/>
+        </svg>
+        <span>kliente 360</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Principal">
+        <a href="/#pilares" data-i18n="nav.pillars">Pilares</a>
+        <a href="/#trilha" data-i18n="nav.trilha">Trilha 360</a>
+        <a href="/#cases" data-i18n="nav.cases">Cases</a>
+        <a href="/blog/" data-i18n="nav.blog" aria-current="page">Blog</a>
+        <a href="/#contato" data-i18n="nav.contact">Contato</a>
+      </nav>
+
+      <div class="nav-right">
+        <div class="lang-switch" role="group" aria-label="Idioma">
+          <button type="button" data-lang="pt" aria-current="true">PT</button>
+          <button type="button" data-lang="en">EN</button>
+          <button type="button" data-lang="es">ES</button>
+        </div>
+        <button class="nav-toggle" type="button" aria-controls="nav-menu" aria-expanded="false" data-nav-toggle data-i18n-attr="aria-label:nav.menu" aria-label="Abrir menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="nav-menu" id="nav-menu" data-open="false">
+      <div class="group">
+        <div class="group-label" data-i18n="nav.mobile.pillars">Pilares</div>
+        <a href="/pilares/salesforce/" data-i18n="nav.mobile.salesforce">Salesforce</a>
+        <a href="/pilares/data/" data-i18n="nav.mobile.data">Data &amp; Analytics</a>
+        <a href="/pilares/ia/" data-i18n="nav.mobile.ai">IA Aplicada</a>
+      </div>
+      <div class="group">
+        <div class="group-label" data-i18n="nav.mobile.empresa">Empresa</div>
+        <a href="/#trilha" data-i18n="nav.mobile.trilha">Trilha 360</a>
+        <a href="/#cases" data-i18n="nav.mobile.cases">Cases</a>
+        <a href="/blog/" data-i18n="nav.mobile.blog">Blog</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="/#contato" data-i18n="nav.cta">Falar com um sócio</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <article class="post-article" data-pillar="data">
+
+      <header class="post-header">
+        <div class="container container-narrow">
+          <div class="post-header-top">
+            <span class="pill-pillar">Pilar 02 · Data</span>
+            <a class="post-back" href="/blog/">Blog</a>
+          </div>
+          <h1>Engenharia de prompts pra analytics: o pipeline esquecido entre dado e relatório</h1>
+          <div class="post-meta-line">
+            <time datetime="2026-04-08">8 abr 2026</time>
+            <span class="sep">·</span>
+            <span>6 min de leitura</span>
+            <span class="sep">·</span>
+            <span>Por Kliente 360</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="container">
+        <div class="post-body">
+          <aside class="post-tldr">
+            <div class="label">TL;DR</div>
+            <p>LLM virou parte do pipeline de analytics em quase toda empresa em 2026 — e quase ninguém trata como pipeline. Sem disciplina de prompt, validação de output e ciclo de revisão, dado certo vira insight errado. Cinco práticas que separam analytics aumentado por IA de teatro de produtividade.</p>
+          </aside>
+
+          <p class="post-intro">A cena nova em sala de reunião de 2026: diretor pergunta sobre métrica, analista pergunta pro ChatGPT como buscar, ChatGPT entrega SQL, analista roda no warehouse, slide vai pra reunião. Tempo total de &quot;pergunta&quot; a &quot;slide&quot;: 15 minutos. Em 2022 esse fluxo levava 2 dias. Ganho enorme — e perigo igual.</p>
+<p>Porque em pelo menos metade dos casos, o SQL gerado pelo LLM tem erro sutil: filtro errado, JOIN incompleto, métrica calculada com lógica que parece certa e não é. O número sai com cara de oficial, vira decisão, e ninguém percebe que está errado por semanas. Esse texto é sobre como tratar LLM em analytics como parte do pipeline — com a disciplina equivalente. Sem isso, o ganho de velocidade vira passivo silencioso.</p>
+<h2>O problema do &quot;ChatGPT que escreve SQL&quot;</h2>
+<p>LLM ficou bom em gerar SQL em 2025–2026. Bom o suficiente pra parecer útil sempre. Não bom o suficiente pra parecer útil <em>sempre que parece útil</em>. Três modos de falha aparecem com regularidade:</p>
+<p><strong>Falha 1: erro de schema sutil.</strong> LLM acha que <code>orders.total</code> existe quando na verdade é <code>orders.amount_total</code>. O SQL roda em outra tabela parecida, retorna número que faz sentido, mas mede coisa errada.</p>
+<p><strong>Falha 2: lógica de negócio embutida no prompt.</strong> Analista pergunta &quot;quantos clientes ativos?&quot;. LLM gera SQL com sua própria definição de &quot;ativo&quot; (logou em 30 dias). A empresa define ativo como &quot;fez transação em 90 dias&quot;. Número sai 3× maior.</p>
+<p><strong>Falha 3: aggregation incorreta com JOIN.</strong> LLM gera SQL com JOIN entre fato e dimensão, mas dimensão tem duplicidade. Agregação inflate. Ninguém percebe porque o número não está absurdo — só está errado em ~15%.</p>
+<p>Esses três combinados produzem o que eu chamo de &quot;número parece certo, decisão sai errada&quot;. E como o LLM apresenta SQL com confiança, o analista valida menos do que validaria um SQL escrito por colega. Confiança sintética vence revisão crítica.</p>
+<blockquote>
+<p>Em analytics aumentado por LLM, a velocidade vem com risco escondido: SQL parece certo porque foi gerado com confiança. Sem disciplina de validação, &quot;vou perguntar pro ChatGPT&quot; vira &quot;vou tomar decisão em cima de número não verificado&quot;.</p>
+</blockquote>
+<h2>As cinco práticas que separam ganho de teatro</h2>
+<p>A disciplina que empresa séria adota quando incorpora LLM em pipeline analítico. Sem essas cinco, o ganho de velocidade vira passivo silencioso.</p>
+<ol>
+<li><strong>Contexto schema-aware no prompt.</strong> Não joga pergunta crua no LLM. Constrói prompt com schema do warehouse, descrição das tabelas-chave, definições de métricas oficiais. <a href="/blog/dbt-na-pratica.html">dbt docs como camada semântica</a> alimenta isso bem. Sem contexto, LLM inventa colunas.</li>
+<li><strong>Definições de negócio injetadas no system prompt.</strong> &quot;Cliente ativo = transação em 90 dias. Receita = subtotal antes de imposto e desconto. Churn = ausência de transação em 90 dias&quot;. 5–10 definições core como parte do prompt fixo. Sem isso, LLM usa definição genérica e o número diverge.</li>
+<li><strong>Validação automática de output antes do uso.</strong> SQL gerado roda em sandbox, validado contra eval set conhecido. &quot;Pergunta X retorna número Y entre 1000 e 1500?&quot;. Sem validação, drift no LLM degrada output sem aviso. Mesmo princípio do <a href="/blog/avaliacao-de-agentes.html">eval set pra avaliar agentes</a>.</li>
+<li><strong>Restrição a query read-only com governança.</strong> LLM não escreve em produção. Conexão usada é read-only, com permissão restrita a tabelas analíticas. Sem isso, prompt malicioso ou erro pode causar dano real.</li>
+<li><strong>Log de toda interação prompt → SQL → resultado.</strong> Pra auditoria, pra entender drift, pra debugar incidente. Quem usou o quê, quando, com qual resposta. Sem log, governança de IA em analytics não existe.</li>
+</ol>
+<p>Implementar os cinco transforma &quot;ChatGPT pra SQL&quot; em pipeline de analytics aumentado. Sem eles, é improvisação que vira incidente em 3–6 meses.</p>
+<h2>Onde LLM em analytics realmente acelera</h2>
+<p>Não confundir o argumento. Há três contextos onde LLM bem implementado economiza tempo enorme com risco controlado:</p>
+<p><strong>Tradução de pergunta de negócio em SQL.</strong> Quem não é analista pode formular pergunta em linguagem natural, LLM gera SQL, sistema executa, devolve resposta. <a href="/blog/llm-como-agente-interno.html">Como argumentei sobre LLM como agente interno</a>, esse caso é um dos mais consistentes em ROI. Funciona bem com schema-aware prompt + validação.</p>
+<p><strong>Geração de documentação de modelo.</strong> dbt model novo precisa de description em 30 colunas? LLM gera primeiro draft baseado em SQL e dado de exemplo. Analista revisa. 80% do trabalho automatizado.</p>
+<p><strong>Análise exploratória rápida.</strong> Dataset novo chegou, time precisa entender estrutura, distribuição, outliers. LLM com Code Interpreter ou equivalente faz EDA em minutos. Não substitui análise séria, mas acelera entender o terreno.</p>
+<p>Esses três casos compartilham característica: erro é tolerável e detectável, output é revisado por humano antes de virar decisão. Onde o output vira decisão sem revisão (como o caso de SQL pra slide direto), a disciplina dos cinco itens vira obrigatória.</p>
+<h2>A armadilha do &quot;ele entende meu negócio&quot;</h2>
+<p>Erro mais frequente em equipes que adotam LLM em analytics: depois de 2–3 perguntas que o LLM responde bem, analista para de validar. &quot;Ele entende como medimos receita&quot;. Mentira. Ele entende como medimos receita <em>nesse contexto específico, nessa formulação específica</em>. Mudou o prompt, mudou a tabela, mudou o trimestre — pode estar errado de novo.</p>
+<p>A confiança que se constrói com LLM em analytics é diferente da confiança que se constrói com colega. Colega aprende com o erro. LLM não aprende — ele performa bem em conjuntos parecidos com o treino, mal em fronteiras. Tratar com a mesma confiança gera o pior dos cenários: velocidade alta + revisão baixa.</p>
+<h2>Como medir se está rendendo</h2>
+<p>Quatro métricas dizem se LLM em analytics está sendo bem aproveitado:</p>
+<p><strong>Taxa de SQL gerado que precisa correção manual.</strong> Acima de 30%, schema-aware prompt está fraco ou eval set é insuficiente. Abaixo de 10%, o pipeline está maduro.</p>
+<p><strong>Tempo médio de validação por query.</strong> Se passa de 5 minutos, ferramenta perdeu propósito. Validação automatizada precisa cobrir 80% dos casos pra valer a pena.</p>
+<p><strong>Incidentes de &quot;número errado descoberto depois&quot;.</strong> Conta os casos onde decisão foi tomada em SQL gerado e depois descobriu-se erro. Acima de 1/mês, governança está quebrada.</p>
+<p><strong>Adoção por persona.</strong> Analista usa? Diretor usa? Quem usa qual interface? Se só engenheiro de dados usa, a democratização não aconteceu — virou ferramenta especializada.</p>
+<h2>A decisão pra 2026</h2>
+<p>Se sua empresa tem analistas usando ChatGPT/Claude pra gerar SQL sem governança, três movimentos:</p>
+<p><strong>Crie interface controlada.</strong> Não &quot;abre o ChatGPT&quot;. Mas tool interna com schema-aware prompt + definições de negócio embutidas + execução em sandbox + log automático. Equivalente a &quot;ChatGPT pra analytics&quot; da empresa. Custos altos no início, ROI claro em 6 meses.</p>
+<p><strong>Treine o time pra desconfiar.</strong> Sessão de 1 hora mostrando os três modos de falha (schema, definição, JOIN). Quando o time entende como o LLM erra, o uso fica mais cuidadoso.</p>
+<p><strong>Integre com camada semântica.</strong> <a href="/blog/dbt-na-pratica.html">dbt mart ou semantic layer</a> define métricas; LLM consulta a camada, não o warehouse cru. Reduz erro de definição em 80%.</p>
+<p>LLM em analytics em 2026 é uma das oportunidades mais claras de produtividade — e uma das mais perigosas sem disciplina. A diferença entre as duas posturas não está em qual modelo é escolhido. Está no pipeline construído em volta, com validação, contexto e log que tratam LLM como ferramenta crítica — não como assistente confiável por inércia.</p>
+
+        </div>
+      </div>
+
+      <section class="post-end">
+        <div class="container">
+          <div class="post-end-cta">
+            <div class="label">Continuar a conversa</div>
+            <h3>Quer discutir esse tema com um sócio?</h3>
+            <p>Diagnóstico inicial sem compromisso. Levamos uma primeira leitura do seu cenário em uma semana e devolvemos um relatório.</p>
+            <a class="btn-link" href="/#contato">Conversar com um sócio</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="post-related">
+        <div class="container">
+          <h2>Próximas leituras</h2>
+          <div class="blog-list">
+            <a class="card post-card" data-pillar="data" href="/blog/tableau-linguagem-executiva.html">
+              <div class="post-meta">
+                <span class="pill-pillar">Pilar 02 · Data</span>
+                <span class="post-date">13 mai 2026</span>
+              </div>
+              <h3>Tableau como linguagem executiva: matando o dashboard de vaidade</h3>
+              <div class="read">Ler →</div>
+            </a>
+            <a class="card post-card" data-pillar="data" href="/blog/data-catalog-ninguem-usa.html">
+              <div class="post-meta">
+                <span class="pill-pillar">Pilar 02 · Data</span>
+                <span class="post-date">31 mar 2026</span>
+              </div>
+              <h3>Data Catalog que ninguém usa: sintoma do problema real (não é a ferramenta)</h3>
+              <div class="read">Ler →</div>
+            </a>
+            <a class="card post-card" data-pillar="data" href="/blog/self-service-bi.html">
+              <div class="post-meta">
+                <span class="pill-pillar">Pilar 02 · Data</span>
+                <span class="post-date">18 mar 2026</span>
+              </div>
+              <h3>Self-service BI: por que cada departamento tem seu &quot;rascunho final&quot;</h3>
+              <div class="read">Ler →</div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <a class="footer-brand" href="/" aria-label="Kliente 360">
+            <svg viewBox="0 0 80 80" aria-hidden="true">
+              <circle cx="40" cy="22" r="11" opacity="0.45"/>
+              <circle cx="58" cy="40" r="11" opacity="0.65"/>
+              <circle cx="40" cy="58" r="11" opacity="0.85"/>
+              <circle cx="22" cy="40" r="11"/>
+            </svg>
+            <span>kliente 360</span>
+          </a>
+          <p data-i18n="footer.tagline">Consultoria especializada em CRM, dados e IA. Conhecimento aplicado, como serviço.</p>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.pillarsTitle">Pilares</h4>
+          <ul>
+            <li><a href="/pilares/salesforce/" data-i18n="nav.mobile.salesforce">Salesforce</a></li>
+            <li><a href="/pilares/data/" data-i18n="nav.mobile.data">Data &amp; Analytics</a></li>
+            <li><a href="/pilares/ia/" data-i18n="nav.mobile.ai">IA Aplicada</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.empresaTitle">Empresa</h4>
+          <ul>
+            <li><a href="/#trilha" data-i18n="nav.trilha">Trilha 360</a></li>
+            <li><a href="/#cases" data-i18n="nav.cases">Cases</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Blog</a></li>
+            <li><a href="/como-trabalhamos/">Como trabalhamos</a></li>
+            <li><a href="/glossario/">Glossário</a></li>
+            <li><a href="/#contato" data-i18n="nav.contact">Contato</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.contactTitle">Contato</h4>
+          <ul>
+            <li><a href="mailto:contato@kliente360.com">contato@kliente360.com</a></li>
+            <li><a href="https://www.linkedin.com/company/kliente360/" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="http://wa.me/5511961875594" target="_blank" rel="noopener">WhatsApp</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div data-i18n="footer.rights">© 2026 Kliente 360. Todos os direitos reservados.</div>
+        <div class="mono">v0.1 · CRM · dados · IA</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/i18n.js?v=685f49c055"></script>
+  <script src="/assets/js/main.js?v=685f49c055" type="module"></script>
+</body>
+</html>

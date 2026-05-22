@@ -389,7 +389,7 @@ ${navHtml('/blog/' + post.slug)}
         <div class="container">
           <h2>${escapeHtml(S.relatedTitle)}</h2>
           <div class="blog-list">
-${related.map(r => `            <a class="post-card" data-pillar="${r.pillar}" href="${postUrl(r.slug, lang)}">
+${related.map(r => `            <a class="card post-card" data-pillar="${r.pillar}" href="${postUrl(r.slug, lang)}">
               <div class="post-meta">
                 <span class="pill-pillar">${escapeHtml(S.pillars[r.pillar])}</span>
                 <span class="post-date">${formatDate(r.date, lang)}</span>
@@ -455,7 +455,7 @@ ${navHtml(listingUrl(lang))}
     <section class="section" style="padding-top: 0;">
       <div class="container">
         <div class="blog-list">
-${posts.map(p => `          <a class="post-card" data-pillar="${p.pillar}" href="${postUrl(p.slug, lang)}">
+${posts.map(p => `          <a class="card post-card" data-pillar="${p.pillar}" href="${postUrl(p.slug, lang)}">
             <div class="post-meta">
               <span class="pill-pillar">${escapeHtml(S.pillars[p.pillar])}</span>
               <span class="post-date">${formatDate(p.date, lang)}</span>
