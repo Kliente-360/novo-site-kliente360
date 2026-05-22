@@ -61,6 +61,16 @@
       .grid-3, .grid-4, .grid-5 { grid-template-columns: repeat(2, 1fr); }
       .grid-2 { grid-template-columns: 1fr; }
     }
+    @media (max-width: 480px) {
+      .grid-3, .grid-4, .grid-5 { grid-template-columns: 1fr; }
+      section.sg { padding: var(--sp-12) 0; }
+      .sg-cover { padding: var(--sp-16) 0 var(--sp-12); }
+      .hero-mock { padding: var(--sp-16) var(--sp-6) var(--sp-12) !important; }
+    }
+    @media (max-width: 640px) {
+      .sg-nav-links { display: none; }
+      .sg-nav-brand span:last-child { display: none; }
+    }
 
     /* ====== LOGO MOCK ====== */
     .logo {
@@ -164,6 +174,7 @@
     .radius-row .box { width: 100px; height: 100px; background: var(--bg-alt); border: 1px solid var(--color-line); display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: var(--fs-12); color: var(--color-fg-muted); }
 
     .shadow-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-6); }
+    @media (max-width: 640px) { .shadow-row { grid-template-columns: repeat(2, 1fr); } }
     .shadow-row .box { aspect-ratio: 16/10; background: var(--bg); border-radius: var(--r-md); display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: var(--fs-12); color: var(--color-fg-muted); }
 
     /* ====== TOM DE VOZ ====== */
