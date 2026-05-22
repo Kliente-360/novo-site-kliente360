@@ -256,10 +256,9 @@ body {
 }
 @media (min-width: 768px) { .hero .cta-row { margin-top: var(--sp-12); } }
 
-/* No mobile, CTAs empilhados ficam com a mesma largura — igual à do botão maior, não a tela inteira. */
+/* No mobile, CTAs do hero empilhados ficam com a mesma largura — igual à do botão maior, não a tela inteira. */
 @media (max-width: 640px) {
-  .hero .cta-row,
-  .pillar-deep .pillar-copy .actions {
+  .hero .cta-row {
     display: inline-grid;
     grid-template-columns: max-content;
     gap: var(--sp-3);
@@ -399,7 +398,8 @@ body {
 
 .pillar-deep .pillar-copy h2 { font-size: var(--fs-h3); letter-spacing: var(--ls-tight); line-height: var(--lh-snug); font-weight: var(--fw-semibold); }
 .pillar-deep .pillar-copy .lead { margin-top: var(--sp-4); }
-.pillar-deep .pillar-copy .actions { margin-top: var(--sp-8); display: flex; gap: var(--sp-4); flex-wrap: wrap; align-items: center; }
+.pillar-deep .pillar-copy .actions { margin-top: var(--sp-8); display: flex; gap: var(--sp-6); flex-wrap: wrap; align-items: center; row-gap: var(--sp-4); }
+.pillar-deep .pillar-copy .actions .btn-link { padding-block: 6px; }
 
 .offer-list {
   display: flex; flex-direction: column;
