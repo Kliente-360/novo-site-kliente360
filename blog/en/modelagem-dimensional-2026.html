@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Does dimensional modeling still matter in 2026? Yes — a defense against lakehouse-for-everything | Kliente 360</title>
+  <meta name="description" content="Lakehouse became the standard of the moment. But dimensional modeling (Kimball) hasn&#39;t died — it&#39;s more relevant than ever. Where it beats raw lakehouse." />
+  <meta name="theme-color" content="#0a0a0a" />
+  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+
+  <link rel="canonical" href="/blog/en/modelagem-dimensional-2026.html" />
+  <link rel="alternate" hreflang="pt-BR" href="/blog/modelagem-dimensional-2026.html" />
+  <link rel="alternate" hreflang="en-US" href="/blog/en/modelagem-dimensional-2026.html" />
+  <link rel="alternate" hreflang="es-ES" href="/blog/es/modelagem-dimensional-2026.html" />
+  <link rel="alternate" hreflang="x-default" href="/blog/modelagem-dimensional-2026.html" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Kliente 360" />
+  <meta property="og:title" content="Does dimensional modeling still matter in 2026? Yes — a defense against lakehouse-for-everything | Kliente 360" />
+  <meta property="og:description" content="Lakehouse became the standard of the moment. But dimensional modeling (Kimball) hasn&#39;t died — it&#39;s more relevant than ever. Where it beats raw lakehouse." />
+  <meta property="og:image" content="/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="article:published_time" content="2026-04-22" />
+  <meta property="article:section" content="Data &amp; Analytics" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Does dimensional modeling still matter in 2026? Yes — a defense against lakehouse-for-everything | Kliente 360" />
+  <meta name="twitter:description" content="Lakehouse became the standard of the moment. But dimensional modeling (Kimball) hasn&#39;t died — it&#39;s more relevant than ever. Where it beats raw lakehouse." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="/assets/css/tokens.css?v=63fc9dab0e" />
+  <link rel="stylesheet" href="/assets/css/reset.css?v=63fc9dab0e" />
+  <link rel="stylesheet" href="/assets/css/main.css?v=63fc9dab0e" />
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Does dimensional modeling still matter in 2026? Yes — a defense against lakehouse-for-everything",
+  "description": "Lakehouse became the standard of the moment. But dimensional modeling (Kimball) hasn't died — it's more relevant than ever. Where it beats raw lakehouse.",
+  "datePublished": "2026-04-22",
+  "inLanguage": "en-US",
+  "author": {
+    "@type": "Organization",
+    "name": "Kliente 360"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Kliente 360"
+  },
+  "articleSection": "Data & Analytics",
+  "keywords": [
+    "dimensional modeling",
+    "Kimball",
+    "lakehouse",
+    "data warehouse",
+    "dimensional"
+  ]
+}
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Pular para o conteúdo</a>
+
+  <header class="nav" role="banner">
+    <div class="container nav-inner">
+      <a class="nav-brand" href="/" aria-label="Kliente 360 — início">
+        <svg class="mark-aperture" viewBox="0 0 80 80" aria-hidden="true">
+          <circle cx="40" cy="22" r="11"/>
+          <circle cx="58" cy="40" r="11"/>
+          <circle cx="40" cy="58" r="11"/>
+          <circle cx="22" cy="40" r="11"/>
+        </svg>
+        <span>kliente 360</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Principal">
+        <a href="/#pilares" data-i18n="nav.pillars">Pilares</a>
+        <a href="/#trilha" data-i18n="nav.trilha">Trilha 360</a>
+        <a href="/#cases" data-i18n="nav.cases">Cases</a>
+        <a href="/blog/" data-i18n="nav.blog" aria-current="page">Blog</a>
+        <a href="/#contato" data-i18n="nav.contact">Contato</a>
+      </nav>
+
+      <div class="nav-right">
+        <div class="lang-switch" role="group" aria-label="Idioma">
+          <button type="button" data-lang="pt" aria-current="true">PT</button>
+          <button type="button" data-lang="en">EN</button>
+          <button type="button" data-lang="es">ES</button>
+        </div>
+        <button class="nav-toggle" type="button" aria-controls="nav-menu" aria-expanded="false" data-nav-toggle data-i18n-attr="aria-label:nav.menu" aria-label="Abrir menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="nav-menu" id="nav-menu" data-open="false">
+      <div class="group">
+        <div class="group-label" data-i18n="nav.mobile.pillars">Pilares</div>
+        <a href="/pilares/salesforce/" data-i18n="nav.mobile.salesforce">Salesforce</a>
+        <a href="/pilares/data/" data-i18n="nav.mobile.data">Data &amp; Analytics</a>
+        <a href="/pilares/ia/" data-i18n="nav.mobile.ai">IA Aplicada</a>
+      </div>
+      <div class="group">
+        <div class="group-label" data-i18n="nav.mobile.empresa">Empresa</div>
+        <a href="/#trilha" data-i18n="nav.mobile.trilha">Trilha 360</a>
+        <a href="/#cases" data-i18n="nav.mobile.cases">Cases</a>
+        <a href="/blog/" data-i18n="nav.mobile.blog">Blog</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="/#contato" data-i18n="nav.cta">Falar com um sócio</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <article class="post-article" data-pillar="data">
+
+      <header class="post-header">
+        <div class="container container-narrow">
+          <div class="post-header-top">
+            <span class="pill-pillar">Practice 02 · Data</span>
+            <a class="post-back" href="/blog/en/">Blog</a>
+          </div>
+          <h1>Does dimensional modeling still matter in 2026? Yes — a defense against lakehouse-for-everything</h1>
+          <div class="post-meta-line">
+            <time datetime="2026-04-22">22 Apr 2026</time>
+            <span class="sep">·</span>
+            <span>6 min read</span>
+            <span class="sep">·</span>
+            <span>By Kliente 360</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="container">
+        <div class="post-body">
+          <aside class="post-tldr">
+            <div class="label">TL;DR</div>
+            <p>Lakehouse solves storage and flexibility. It doesn&#39;t solve semantic modeling. Dimensional modeling is still the best way to organize data for analytical consumption — in 2026 too. Four situations where dimensional beats lakehouse-for-everything, and why the anti-modeling fashion costs dearly in 18 months.</p>
+          </aside>
+
+          <p class="post-intro">The question showing up in data committees in 2026: &quot;is dimensional modeling still worth it? doesn&#39;t lakehouse solve everything?&quot;. The honest answer — yes, it&#39;s still worth it — goes against some of the fashion. But the fashion is wrong, or at least selling lakehouse for a problem that isn&#39;t a lakehouse one. Dimensional modeling (Kimball, star schema, fact + dimension) continues to be the best way to organize data for analytical consumption — and confusing &quot;store data anyhow&quot; with &quot;model for use&quot; costs dearly for companies that haven&#39;t lived the full cycle yet.</p>
+<p>This text is the defense of dimensional modeling in 2026. It&#39;s not nostalgia — it&#39;s a practical argument about where the approach still wins and why abandoning it has a strong rework comeback.</p>
+<h2>What changed and what didn&#39;t</h2>
+<p>In 2018, dimensional modeling was the undisputed standard. In 2022, lakehouse (Databricks Delta, Snowflake Iceberg, Apache Iceberg on any storage) became a serious alternative. In 2026, part of the market declared &quot;modeling is dead&quot; — and that declaration is wrong because it confuses two separate problems.</p>
+<p><strong>What changed: storage and format.</strong> Lakehouse allows storing raw, semi-structured data in open parquet. Storage cost dropped. Schema-on-read replaces schema-on-write in many cases. Heavy ETL to organize storage became unnecessary.</p>
+<p><strong>What did NOT change: the need for semantic modeling.</strong> Even in lakehouse, at some point someone needs to decide: what&#39;s an &quot;active customer&quot;? How do you count revenue? How does the &quot;product&quot; dimension relate to the &quot;sale&quot; fact? That decision is semantic — it doesn&#39;t go away by changing storage format.</p>
+<p>Whoever confuses the two thinks lakehouse replaces modeling. It doesn&#39;t. It just delays. And delaying semantic modeling is the most expensive way to discover in 18 months that you needed it.</p>
+<blockquote>
+<p>Lakehouse solved storage. It didn&#39;t solve semantic modeling — and no technology will, because modeling is a business decision. Companies confusing the two buy lakehouse and find the gap in production.</p>
+</blockquote>
+<h2>Where dimensional modeling wins in 2026</h2>
+<p>Four specific situations where dimensional (even on top of lakehouse) is still the right approach.</p>
+<p><strong>1. Executive BI with metrics reused across N dashboards.</strong> When 20 different dashboards compute &quot;quarterly revenue&quot;, that logic needs to live in a single model — sales fact × time dim × product dim, with pre-computed aggregates. Without it, <a href="/blog/en/self-service-bi.html">each dashboard has its own version of the metric</a>, and leadership loses confidence. Dimensional solves it.</p>
+<p><strong>2. Predictable performance on analytical queries.</strong> Raw lakehouse with schema-on-read works well for ad-hoc exploration. For recurring analytical queries (dashboard, report, executive dashboard), pre-aggregated dimensional is 5–50× faster. Predictable performance matters when 100 users hit the same dashboard at noon.</p>
+<p><strong>3. Dimension change history (SCD).</strong> &quot;Customer John moved from Premium to Enterprise segment in March&quot;. You need a sales report for Q1 considering the segment at the time — not the current one. SCD Type 2 in dimensional solves this elegantly. Raw lakehouse without modeling forces custom code in every query. In 18 months of operation, that becomes a nightmare.</p>
+<p><strong>4. Institutionalized semantic governance.</strong> Dimensional model forces documentation (<a href="/blog/en/dbt-na-pratica.html">dbt mart is the modern expression</a>). Whoever maintains the dimensional model maintains the company&#39;s semantic glossary. Raw lakehouse without semantic modeling invites &quot;each one with their interpretation&quot; — and <a href="/blog/en/data-catalog-ninguem-usa.html">data catalog doesn&#39;t solve it</a>, it only amplifies what exists.</p>
+<p>These four are well covered by dimensional modeling. Lakehouse covers 60–70% of them partially, but with governance cost that becomes liability.</p>
+<h2>The &quot;lakehouse-for-everything&quot; trap</h2>
+<p>The thesis sold by some players: &quot;store everything raw, modeling is overhead, analysts model when they need to&quot;. Sounds modern. In practice, three problems show up in 12–18 months.</p>
+<p><strong>Problem 1: every analyst becomes an architect.</strong> Without central modeling, each one decides how to join fact and dimension. Result: 10 different versions of the same analysis, chronic divergence. Equivalent to what <a href="/blog/en/self-service-bi.html">badly governed self-service BI produces</a>, at a deeper layer.</p>
+<p><strong>Problem 2: performance degrades silently.</strong> Query that ran in a second on dimensional warehouse becomes 30 seconds on raw lakehouse. The team tries to optimize with cache, materialized view, partition — and reinvents dimensional modeling case by case, without the fancy name.</p>
+<p><strong>Problem 3: history becomes spaghetti.</strong> Without well-designed SCD, &quot;customer in March&quot; and &quot;customer today&quot; get confused. Historical analysis becomes incorrect. The team finds out at audit, at the worst time.</p>
+<p>These three combined produce the same effect: a company that skipped dimensional modeling to &quot;go faster&quot; spends the next year reconstructing dimensional modeling inside the lakehouse, with different names but same structure. The shortcut wasn&#39;t a shortcut.</p>
+<h2>The approach that works in 2026</h2>
+<p>It isn&#39;t &quot;lakehouse vs dimensional&quot;. It&#39;s <strong>lakehouse as storage, dimensional as semantics</strong>. Layered:</p>
+<ul>
+<li><strong>Bronze (raw lakehouse).</strong> Data ingested without modeling, in open format. Cheap storage, flexible schema, source of truth for reprocessing.</li>
+<li><strong>Silver (modeled lakehouse, still flexible).</strong> Cleansing, deduplication, basic conforming. Still flexible, but with defined schema.</li>
+<li><strong>Gold (dimensional, dbt mart, semantic layer).</strong> Fact + dimension, pre-computed metrics, strong governance. Where dashboards and executive BI consume.</li>
+</ul>
+<p>That pattern (medallion architecture popularized by Databricks) is the consensus today among those who operated both worlds. Lakehouse doesn&#39;t replace dimensional — they complement.</p>
+<p>Companies implementing only bronze + silver have a chaotic warehouse masked as modern lakehouse. Companies implementing bronze + silver + gold have the best of both worlds.</p>
+<h2>The rule before dropping dimensional modeling</h2>
+<p>Five questions to answer before accepting the &quot;let&#39;s go lakehouse and no modeling&quot; thesis:</p>
+<ol>
+<li><strong>How many executive dashboards does the company have?</strong> Above 20, dimensional modeling in the gold layer is almost mandatory. Without it, chronic divergence.</li>
+<li><strong>Do you need dimension change history?</strong> Customer who changed segment, product that changed category, rep who changed team. If yes, SCD in dimensional is cleaner than custom code.</li>
+<li><strong>How many technical users will model?</strong> If above 10 people modeling, central semantic governance is necessary. Otherwise, each one invents.</li>
+<li><strong>Does the company already have <a href="/blog/en/dbt-na-pratica.html">dbt running</a>?</strong> If yes, dimensional modeling via dbt mart is the natural path. Doesn&#39;t require new tech — just discipline.</li>
+<li><strong>Is query performance critical in any case?</strong> Dashboard with 100 concurrent users, real-time operational report. If yes, dimensional pre-aggregation beats raw schema-on-read.</li>
+</ol>
+<p>Answering the five with yes or &quot;it depends&quot;, dimensional modeling still pays off. Refusing the rule is entering the 18-month cycle to rediscover what it would solve.</p>
+<h2>The decision for 2026</h2>
+<p>If your company is debating &quot;lakehouse and modeling is overhead&quot;, three honest moves:</p>
+<p><strong>Adopt medallion architecture.</strong> Bronze + silver in lakehouse, gold in dimensional via dbt mart. Not trade-off — complementary.</p>
+<p><strong>Identify the 10 critical gold models.</strong> Central metrics (revenue, churn, activation, conversion) deserve careful dimensional modeling, with SCD where applicable, serious documentation. Others can stay lighter.</p>
+<p><strong>Resist &quot;let&#39;s model later&quot;.</strong> <a href="/blog/en/dado-limpo-e-um-mito.html">Same mistake as clean data later</a>. Modeling when the problem explodes is 5× more expensive than modeling when use begins.</p>
+<p>Dimensional modeling in 2026 isn&#39;t nostalgia. It&#39;s the method tested for 30 years to organize data for analytical consumption — and no storage evolution made it obsolete. Lakehouse is a new piece; dimensional is still the method. Whoever combines the two delivers a solid platform. Whoever tries to substitute one for the other finds the gap in 18 months, usually in a hard meeting about a diverging number.</p>
+
+        </div>
+      </div>
+
+      <section class="post-end">
+        <div class="container">
+          <div class="post-end-cta">
+            <div class="label">Keep the conversation going</div>
+            <h3>Want to discuss this topic with a partner?</h3>
+            <p>Initial diagnostic with no commitment. We assess your scenario in a week and send back a report.</p>
+            <a class="btn-link" href="/#contato">Talk to a partner</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="post-related">
+        <div class="container">
+          <h2>Further reading</h2>
+          <div class="blog-list">
+            <a class="card post-card" data-pillar="data" href="/blog/en/tableau-linguagem-executiva.html">
+              <div class="post-meta">
+                <span class="pill-pillar">Practice 02 · Data</span>
+                <span class="post-date">13 May 2026</span>
+              </div>
+              <h3>Tableau as an executive language: killing the vanity dashboard</h3>
+              <div class="read">Read →</div>
+            </a>
+            <a class="card post-card" data-pillar="data" href="/blog/en/prompts-pra-analytics.html">
+              <div class="post-meta">
+                <span class="pill-pillar">Practice 02 · Data</span>
+                <span class="post-date">8 Apr 2026</span>
+              </div>
+              <h3>Prompt engineering for analytics: the forgotten pipeline between data and report</h3>
+              <div class="read">Read →</div>
+            </a>
+            <a class="card post-card" data-pillar="data" href="/blog/en/data-catalog-ninguem-usa.html">
+              <div class="post-meta">
+                <span class="pill-pillar">Practice 02 · Data</span>
+                <span class="post-date">31 Mar 2026</span>
+              </div>
+              <h3>The Data Catalog nobody uses: a symptom of the real problem (not the tool)</h3>
+              <div class="read">Read →</div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <a class="footer-brand" href="/" aria-label="Kliente 360">
+            <svg viewBox="0 0 80 80" aria-hidden="true">
+              <circle cx="40" cy="22" r="11" opacity="0.45"/>
+              <circle cx="58" cy="40" r="11" opacity="0.65"/>
+              <circle cx="40" cy="58" r="11" opacity="0.85"/>
+              <circle cx="22" cy="40" r="11"/>
+            </svg>
+            <span>kliente 360</span>
+          </a>
+          <p data-i18n="footer.tagline">Consultoria especializada em CRM, dados e IA. Conhecimento aplicado, como serviço.</p>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.pillarsTitle">Pilares</h4>
+          <ul>
+            <li><a href="/pilares/salesforce/" data-i18n="nav.mobile.salesforce">Salesforce</a></li>
+            <li><a href="/pilares/data/" data-i18n="nav.mobile.data">Data &amp; Analytics</a></li>
+            <li><a href="/pilares/ia/" data-i18n="nav.mobile.ai">IA Aplicada</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.empresaTitle">Empresa</h4>
+          <ul>
+            <li><a href="/#trilha" data-i18n="nav.trilha">Trilha 360</a></li>
+            <li><a href="/#cases" data-i18n="nav.cases">Cases</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Blog</a></li>
+            <li><a href="/como-trabalhamos/">Como trabalhamos</a></li>
+            <li><a href="/glossario/">Glossário</a></li>
+            <li><a href="/#contato" data-i18n="nav.contact">Contato</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.contactTitle">Contato</h4>
+          <ul>
+            <li><a href="mailto:contato@kliente360.com">contato@kliente360.com</a></li>
+            <li><a href="https://www.linkedin.com/company/kliente360/" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="http://wa.me/5511961875594" target="_blank" rel="noopener">WhatsApp</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div data-i18n="footer.rights">© 2026 Kliente 360. Todos os direitos reservados.</div>
+        <div class="mono">v0.1 · CRM · dados · IA</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/i18n.js?v=63fc9dab0e"></script>
+  <script src="/assets/js/main.js?v=63fc9dab0e" type="module"></script>
+</body>
+</html>

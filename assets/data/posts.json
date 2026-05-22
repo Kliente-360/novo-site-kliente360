@@ -66,6 +66,94 @@
     }
   },
   {
+    "slug": "salesforce-industries-vlocity",
+    "pillar": "sf",
+    "date": "2026-04-29",
+    "translations": {
+      "pt": {
+        "title": "Salesforce Industries (Vlocity): vale a pena para empresas brasileiras de médio porte?",
+        "url": "/blog/salesforce-industries-vlocity.html",
+        "date": "29 abr 2026"
+      },
+      "en": {
+        "title": "Salesforce Industries (Vlocity): worth it for Brazilian mid-market companies?",
+        "url": "/blog/en/salesforce-industries-vlocity.html",
+        "date": "29 Apr 2026"
+      },
+      "es": {
+        "title": "Salesforce Industries (Vlocity): ¿vale la pena para empresas brasileñas de tamaño medio?",
+        "url": "/blog/es/salesforce-industries-vlocity.html",
+        "date": "29 abr 2026"
+      }
+    }
+  },
+  {
+    "slug": "open-source-vs-proprietary-llms",
+    "pillar": "ai",
+    "date": "2026-04-28",
+    "translations": {
+      "pt": {
+        "title": "Open source vs proprietary LLMs: critérios honestos pra escolher sem ideologia",
+        "url": "/blog/open-source-vs-proprietary-llms.html",
+        "date": "28 abr 2026"
+      },
+      "en": {
+        "title": "Open source vs proprietary LLMs: honest criteria to choose without ideology",
+        "url": "/blog/en/open-source-vs-proprietary-llms.html",
+        "date": "28 Apr 2026"
+      },
+      "es": {
+        "title": "Open source vs proprietary LLMs: criterios honestos para elegir sin ideología",
+        "url": "/blog/es/open-source-vs-proprietary-llms.html",
+        "date": "28 abr 2026"
+      }
+    }
+  },
+  {
+    "slug": "modelagem-dimensional-2026",
+    "pillar": "data",
+    "date": "2026-04-22",
+    "translations": {
+      "pt": {
+        "title": "Modelagem dimensional ainda vale em 2026? Sim — defesa contra o lakehouse-pra-tudo",
+        "url": "/blog/modelagem-dimensional-2026.html",
+        "date": "22 abr 2026"
+      },
+      "en": {
+        "title": "Does dimensional modeling still matter in 2026? Yes — a defense against lakehouse-for-everything",
+        "url": "/blog/en/modelagem-dimensional-2026.html",
+        "date": "22 Apr 2026"
+      },
+      "es": {
+        "title": "¿Modelado dimensional todavía vale en 2026? Sí — defensa contra el lakehouse-para-todo",
+        "url": "/blog/es/modelagem-dimensional-2026.html",
+        "date": "22 abr 2026"
+      }
+    }
+  },
+  {
+    "slug": "cpq-saas-b2b",
+    "pillar": "sf",
+    "date": "2026-04-15",
+    "translations": {
+      "pt": {
+        "title": "CPQ em SaaS B2B: a diferença entre cotação e proposta de fato",
+        "url": "/blog/cpq-saas-b2b.html",
+        "date": "15 abr 2026"
+      },
+      "en": {
+        "title": "CPQ in B2B SaaS: the difference between a quote and an actual proposal",
+        "url": "/blog/en/cpq-saas-b2b.html",
+        "date": "15 Apr 2026"
+      },
+      "es": {
+        "title": "CPQ en SaaS B2B: la diferencia entre cotización y propuesta de verdad",
+        "url": "/blog/es/cpq-saas-b2b.html",
+        "date": "15 abr 2026"
+      }
+    }
+  },
+  {
     "slug": "ia-generativa-vendas",
     "pillar": "ai",
     "date": "2026-04-14",

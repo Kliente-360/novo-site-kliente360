@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Open source vs proprietary LLMs: critérios honestos pra escolher sem ideologia | Kliente 360</title>
+  <meta name="description" content="Time defende Llama &quot;porque é open&quot;. Outro defende GPT &quot;porque é melhor&quot;. Os dois estão certos em parte — e errados em medir só uma dimensão. Como decidir pela necessidade, não pela ideologia." />
+  <meta name="theme-color" content="#0a0a0a" />
+  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+
+  <link rel="canonical" href="/blog/open-source-vs-proprietary-llms.html" />
+  <link rel="alternate" hreflang="pt-BR" href="/blog/open-source-vs-proprietary-llms.html" />
+  <link rel="alternate" hreflang="en-US" href="/blog/en/open-source-vs-proprietary-llms.html" />
+  <link rel="alternate" hreflang="es-ES" href="/blog/es/open-source-vs-proprietary-llms.html" />
+  <link rel="alternate" hreflang="x-default" href="/blog/open-source-vs-proprietary-llms.html" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Kliente 360" />
+  <meta property="og:title" content="Open source vs proprietary LLMs: critérios honestos pra escolher sem ideologia | Kliente 360" />
+  <meta property="og:description" content="Time defende Llama &quot;porque é open&quot;. Outro defende GPT &quot;porque é melhor&quot;. Os dois estão certos em parte — e errados em medir só uma dimensão. Como decidir pela necessidade, não pela ideologia." />
+  <meta property="og:image" content="/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="article:published_time" content="2026-04-28" />
+  <meta property="article:section" content="IA Aplicada" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Open source vs proprietary LLMs: critérios honestos pra escolher sem ideologia | Kliente 360" />
+  <meta name="twitter:description" content="Time defende Llama &quot;porque é open&quot;. Outro defende GPT &quot;porque é melhor&quot;. Os dois estão certos em parte — e errados em medir só uma dimensão. Como decidir pela necessidade, não pela ideologia." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="/assets/css/tokens.css?v=63fc9dab0e" />
+  <link rel="stylesheet" href="/assets/css/reset.css?v=63fc9dab0e" />
+  <link rel="stylesheet" href="/assets/css/main.css?v=63fc9dab0e" />
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Open source vs proprietary LLMs: critérios honestos pra escolher sem ideologia",
+  "description": "Time defende Llama \"porque é open\". Outro defende GPT \"porque é melhor\". Os dois estão certos em parte — e errados em medir só uma dimensão. Como decidir pela necessidade, não pela ideologia.",
+  "datePublished": "2026-04-28",
+  "inLanguage": "pt-BR",
+  "author": {
+    "@type": "Organization",
+    "name": "Kliente 360"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Kliente 360"
+  },
+  "articleSection": "IA Aplicada",
+  "keywords": [
+    "LLM open source",
+    "Llama",
+    "Mistral",
+    "GPT",
+    "Claude",
+    "infraestrutura de IA"
+  ]
+}
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Pular para o conteúdo</a>
+
+  <header class="nav" role="banner">
+    <div class="container nav-inner">
+      <a class="nav-brand" href="/" aria-label="Kliente 360 — início">
+        <svg class="mark-aperture" viewBox="0 0 80 80" aria-hidden="true">
+          <circle cx="40" cy="22" r="11"/>
+          <circle cx="58" cy="40" r="11"/>
+          <circle cx="40" cy="58" r="11"/>
+          <circle cx="22" cy="40" r="11"/>
+        </svg>
+        <span>kliente 360</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Principal">
+        <a href="/#pilares" data-i18n="nav.pillars">Pilares</a>
+        <a href="/#trilha" data-i18n="nav.trilha">Trilha 360</a>
+        <a href="/#cases" data-i18n="nav.cases">Cases</a>
+        <a href="/blog/" data-i18n="nav.blog" aria-current="page">Blog</a>
+        <a href="/#contato" data-i18n="nav.contact">Contato</a>
+      </nav>
+
+      <div class="nav-right">
+        <div class="lang-switch" role="group" aria-label="Idioma">
+          <button type="button" data-lang="pt" aria-current="true">PT</button>
+          <button type="button" data-lang="en">EN</button>
+          <button type="button" data-lang="es">ES</button>
+        </div>
+        <button class="nav-toggle" type="button" aria-controls="nav-menu" aria-expanded="false" data-nav-toggle data-i18n-attr="aria-label:nav.menu" aria-label="Abrir menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="nav-menu" id="nav-menu" data-open="false">
+      <div class="group">
+        <div class="group-label" data-i18n="nav.mobile.pillars">Pilares</div>
+        <a href="/pilares/salesforce/" data-i18n="nav.mobile.salesforce">Salesforce</a>
+        <a href="/pilares/data/" data-i18n="nav.mobile.data">Data &amp; Analytics</a>
+        <a href="/pilares/ia/" data-i18n="nav.mobile.ai">IA Aplicada</a>
+      </div>
+      <div class="group">
+        <div class="group-label" data-i18n="nav.mobile.empresa">Empresa</div>
+        <a href="/#trilha" data-i18n="nav.mobile.trilha">Trilha 360</a>
+        <a href="/#cases" data-i18n="nav.mobile.cases">Cases</a>
+        <a href="/blog/" data-i18n="nav.mobile.blog">Blog</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="/#contato" data-i18n="nav.cta">Falar com um sócio</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <article class="post-article" data-pillar="ai">
+
+      <header class="post-header">
+        <div class="container container-narrow">
+          <div class="post-header-top">
+            <span class="pill-pillar">Pilar 03 · IA</span>
+            <a class="post-back" href="/blog/">Blog</a>
+          </div>
+          <h1>Open source vs proprietary LLMs: critérios honestos pra escolher sem ideologia</h1>
+          <div class="post-meta-line">
+            <time datetime="2026-04-28">28 abr 2026</time>
+            <span class="sep">·</span>
+            <span>6 min de leitura</span>
+            <span class="sep">·</span>
+            <span>Por Kliente 360</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="container">
+        <div class="post-body">
+          <aside class="post-tldr">
+            <div class="label">TL;DR</div>
+            <p>Open source LLMs alcançaram qualidade competitiva em 2026. Mas &quot;open vs proprietary&quot; não é binário moral — é trade-off em quatro dimensões: qualidade, custo, controle e operação. Empresa que escolhe ideologicamente paga em qualidade ou operação. Empresa que escolhe por necessidade combina os dois.</p>
+          </aside>
+
+          <p class="post-intro">A reunião que aparece toda vez que o time discute escolha de LLM em 2026: defensor de open source argumenta soberania, transparência, custo controlado. Defensor de proprietary argumenta qualidade, suporte, ecosistema maduro. Os dois apresentam argumento sólido — e quase nunca convergem, porque a discussão fica em dimensão única. A escolha real depende de quatro dimensões, e cada empresa pesa cada uma diferente.</p>
+<p>Esse texto é a régua honesta pra escolher entre open source (Llama, Mistral, Qwen) e proprietary (GPT, Claude, Gemini) em 2026. Não é debate filosófico — é decisão de produto que define stack pelos próximos 2 anos.</p>
+<h2>Onde open source chegou em 2026</h2>
+<p>O argumento &quot;proprietary é objetivamente melhor&quot; não vale mais. Em 2026:</p>
+<ul>
+<li><strong>Llama 3.x e Llama 4</strong> competem com GPT-4 e Claude em muitos benchmarks. Empate técnico em conversação, raciocínio médio, tradução, summarização.</li>
+<li><strong>Mistral Large</strong> entrega qualidade similar com licença comercial permissiva e custos de hosting controlados.</li>
+<li><strong>Qwen e DeepSeek</strong> quebraram a hegemonia ocidental — modelos chineses com qualidade competitiva e custos mais baixos ainda.</li>
+</ul>
+<p>O gap restante: tarefas de fronteira (raciocínio complexo, código de alta qualidade, multimodal avançado) onde proprietary ainda lidera por 6–12 meses. Mas pra 70–80% dos casos de uso empresarial, open source resolve com qualidade equivalente.</p>
+<blockquote>
+<p>Open source LLM em 2026 não é mais &quot;alternativa barata&quot;. É opção legítima de qualidade. Mas qualidade é só uma das quatro dimensões — quem decide só por qualidade ignora as outras três.</p>
+</blockquote>
+<h2>As quatro dimensões da decisão</h2>
+<p>A régua que separa decisão técnica de decisão ideológica. Cada uma pesa diferente em cada empresa.</p>
+<p><strong>1. Qualidade no caso de uso específico.</strong> Não qualidade em benchmark genérico. Qualidade no que sua empresa faz: classificação, extração, geração, raciocínio. Open source recente compete em 70–80% dos casos. Para os outros 20%, proprietary ainda lidera. Como saber? <a href="/blog/avaliacao-de-agentes.html">Eval set próprio rodado contra cada candidato</a>. Demora 2 semanas, vale 2 anos de decisão.</p>
+<p><strong>2. Custo real — não preço por token.</strong> Open source self-hosted: custo de GPU + ops + energia + manutenção. Proprietary: preço por token + sem ops. A virada acontece em volume: abaixo de ~1M chamadas/mês, proprietary é mais barato. Acima de ~10M/mês, self-hosted vence. Entre os dois, depende de caso. <a href="/blog/custos-reais-de-inferencia.html">Custo unitário real precisa ser calculado</a>, não estimado.</p>
+<p><strong>3. Controle e soberania.</strong> Empresa precisa rodar dado em sua própria infra? Tem requisito regulatório de não enviar pra terceiros? <a href="/blog/privacidade-dados-llms.html">Privacidade exige determinada arquitetura</a>? Sim em qualquer um desses = open source self-hosted (ou instância dedicada de proprietary, mas raro). Em mercados regulados (saúde, financeiro, governo), essa dimensão pesa mais que qualidade.</p>
+<p><strong>4. Capacidade operacional do time.</strong> Open source self-hosted exige expertise em ML ops, dimensionamento de GPU, monitoramento, otimização de inferência. Proprietary entrega tudo isso embutido. Empresa com time de 3 pessoas em IA não deveria assumir self-hosted. Empresa com 30+ engenheiros em ML pode. Não é vergonha pagar proprietary porque não tem time — é vergonha tentar self-hosted sem time e gerar custo de oportunidade.</p>
+<p>Quem pondera as quatro chega em resposta sólida. Quem decide só por uma (geralmente ideologia ou benchmark) descobre as outras três custando caro depois.</p>
+<h2>Onde open source faz mais sentido</h2>
+<p>Quatro contextos onde a balança claramente pende pra open source self-hosted:</p>
+<p><strong>Volume alto previsível.</strong> SaaS com 50M+ inferências/mês. A diferença de custo justifica investimento em infra própria — payback em 6–12 meses.</p>
+<p><strong>Dado sensível que não pode sair.</strong> Saúde, dado financeiro regulado, dado pessoal sob jurisdição estrita. Não tem como fazer com proprietary que envia pra cloud externa.</p>
+<p><strong>Necessidade de fine-tuning customizado e barato.</strong> Open source permite <a href="/blog/fine-tuning-vs-rag-vs-prompt.html">fine-tuning sério com controle total</a> — útil quando o caso de uso exige especialização. Proprietary tem fine-tuning, mas mais restrito e caro.</p>
+<p><strong>Pesquisa e experimentação.</strong> Time que precisa testar variantes, modificar arquitetura, experimentar com hiperparâmetros. Open source dá acesso. Proprietary é caixa preta.</p>
+<p>Esses quatro casos justificam o investimento em capacidade operacional. Fora deles, proprietary vence em time-to-value.</p>
+<h2>Onde proprietary continua sendo melhor</h2>
+<p>Quatro contextos onde proprietary é a escolha racional, sem ideologia:</p>
+<p><strong>Casos que exigem qualidade de fronteira.</strong> Geração de código de alta qualidade, raciocínio complexo multi-step, multimodal sofisticado. Proprietary mantém 6–12 meses de vantagem aqui. Pra produto que depende dessa qualidade, open source ainda não é opção.</p>
+<p><strong>Time pequeno em IA.</strong> Empresa com 1–5 pessoas focadas em IA não deveria gastar 30% do tempo operando GPUs. Proprietary entrega &quot;modelo + ops&quot; como pacote.</p>
+<p><strong>Volume baixo ou variável.</strong> Abaixo de 1M chamadas/mês, ou com picos imprevisíveis, custo de GPU ociosa de self-hosted supera economia de token. Proprietary com pay-as-you-go vence.</p>
+<p><strong>Time-to-market crítico.</strong> Setup de proprietary é dias. Setup de self-hosted é semanas. Quando o ciclo de produto importa mais que custo unitário, proprietary acelera.</p>
+<p>Esses contextos cobrem maioria das empresas brasileiras de médio porte em 2026.</p>
+<h2>A solução híbrida que muitos não consideram</h2>
+<p>A decisão raramente é binária. A arquitetura que tem funcionado em empresas maduras: <strong>proprietary pra qualidade de fronteira, open source pra volume</strong>.</p>
+<ul>
+<li><strong>Tarefas de alta qualidade, baixo volume:</strong> Claude ou GPT (raciocínio crítico, geração de proposta executiva, análise complexa).</li>
+<li><strong>Tarefas de média qualidade, alto volume:</strong> Llama ou Mistral self-hosted (classificação, extração, sumarização em larga escala).</li>
+<li><strong>Tarefas regulatórias:</strong> Open source self-hosted obrigatório.</li>
+<li><strong>Experimentação:</strong> Proprietary (mais rápido pra prototipar).</li>
+</ul>
+<p>Essa combinação entrega 70–80% da economia de open source com 95% da qualidade de proprietary. Exige routing inteligente — mas isso é resolvível com gateway de LLM (LiteLLM, OpenRouter, próprio).</p>
+<p>Quem força arquitetura única (só open ou só proprietary) paga em uma das dimensões. Quem aceita hybrid otimiza por contexto.</p>
+<h2>A régua antes de decidir</h2>
+<p>Cinco perguntas pra responder antes da arquitetura:</p>
+<ol>
+<li><strong>Qual o volume estimado em 18 meses?</strong> Define se self-hosted vale.</li>
+<li><strong>O que diz o eval set próprio rodado contra 3–4 candidatos?</strong> Sem isso, qualidade é palpite.</li>
+<li><strong>Tem requisito regulatório ou de soberania?</strong> Resposta sim → open source self-hosted no escopo coberto.</li>
+<li><strong>Qual a capacidade operacional do time em ML ops?</strong> Honestamente, não otimisticamente.</li>
+<li><strong>Time-to-market vs. custo unitário — qual pesa mais?</strong> Define a primeira escolha; pode evoluir depois.</li>
+</ol>
+<p>Quem responde as cinco com clareza tem decisão fundamentada. Quem responde ideologicamente está debatendo, não decidindo.</p>
+<h2>A decisão pra 2026</h2>
+<p>Três movimentos honestos antes de assinar contrato anual com proprietary ou de investir em GPU pra self-hosted:</p>
+<p><strong>Rode eval próprio em 3–4 candidatos.</strong> Llama 3 ou 4, Mistral Large, Claude Sonnet, GPT-4o. Mesma tarefa real, mesmo eval set. Diferenças aparecem que benchmark genérico não mostra.</p>
+<p><strong>Calcule TCO de 24 meses por arquitetura.</strong> Proprietary, self-hosted, híbrido. Inclua ops, GPU, dev, manutenção. Diferenças costumam ser de 2–5×.</p>
+<p><strong>Considere híbrido seriamente.</strong> Não é compromisso preguiçoso — é otimização por contexto. Stack moderno permite isso sem complexidade absurda.</p>
+<p>Open source vs proprietary em 2026 não é mais debate filosófico — é decisão operacional com critérios mensuráveis. Empresa que escolhe ideologicamente perde nas dimensões que não considerou. Empresa que escolhe por necessidade combina os dois mundos onde faz sentido, sem se prender a religião de stack.</p>
+
+        </div>
+      </div>
+
+      <section class="post-end">
+        <div class="container">
+          <div class="post-end-cta">
+            <div class="label">Continuar a conversa</div>
+            <h3>Quer discutir esse tema com um sócio?</h3>
+            <p>Diagnóstico inicial sem compromisso. Levamos uma primeira leitura do seu cenário em uma semana e devolvemos um relatório.</p>
+            <a class="btn-link" href="/#contato">Conversar com um sócio</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="post-related">
+        <div class="container">
+          <h2>Próximas leituras</h2>
+          <div class="blog-list">
+            <a class="card post-card" data-pillar="ai" href="/blog/quando-agente-e-resposta.html">
+              <div class="post-meta">
+                <span class="pill-pillar">Pilar 03 · IA</span>
+                <span class="post-date">20 mai 2026</span>
+              </div>
+              <h3>Quando um agente é a resposta — e quando ele é fuga de problema mal modelado</h3>
+              <div class="read">Ler →</div>
+            </a>
+            <a class="card post-card" data-pillar="ai" href="/blog/ia-generativa-vendas.html">
+              <div class="post-meta">
+                <span class="pill-pillar">Pilar 03 · IA</span>
+                <span class="post-date">14 abr 2026</span>
+              </div>
+              <h3>IA generativa para vendas: além do &quot;ChatGPT de respostas&quot; — onde gera receita</h3>
+              <div class="read">Ler →</div>
+            </a>
+            <a class="card post-card" data-pillar="ai" href="/blog/privacidade-dados-llms.html">
+              <div class="post-meta">
+                <span class="pill-pillar">Pilar 03 · IA</span>
+                <span class="post-date">1 abr 2026</span>
+              </div>
+              <h3>Privacidade de dados em LLMs: a checklist de governança que falta no piloto</h3>
+              <div class="read">Ler →</div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <a class="footer-brand" href="/" aria-label="Kliente 360">
+            <svg viewBox="0 0 80 80" aria-hidden="true">
+              <circle cx="40" cy="22" r="11" opacity="0.45"/>
+              <circle cx="58" cy="40" r="11" opacity="0.65"/>
+              <circle cx="40" cy="58" r="11" opacity="0.85"/>
+              <circle cx="22" cy="40" r="11"/>
+            </svg>
+            <span>kliente 360</span>
+          </a>
+          <p data-i18n="footer.tagline">Consultoria especializada em CRM, dados e IA. Conhecimento aplicado, como serviço.</p>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.pillarsTitle">Pilares</h4>
+          <ul>
+            <li><a href="/pilares/salesforce/" data-i18n="nav.mobile.salesforce">Salesforce</a></li>
+            <li><a href="/pilares/data/" data-i18n="nav.mobile.data">Data &amp; Analytics</a></li>
+            <li><a href="/pilares/ia/" data-i18n="nav.mobile.ai">IA Aplicada</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.empresaTitle">Empresa</h4>
+          <ul>
+            <li><a href="/#trilha" data-i18n="nav.trilha">Trilha 360</a></li>
+            <li><a href="/#cases" data-i18n="nav.cases">Cases</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Blog</a></li>
+            <li><a href="/como-trabalhamos/">Como trabalhamos</a></li>
+            <li><a href="/glossario/">Glossário</a></li>
+            <li><a href="/#contato" data-i18n="nav.contact">Contato</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.contactTitle">Contato</h4>
+          <ul>
+            <li><a href="mailto:contato@kliente360.com">contato@kliente360.com</a></li>
+            <li><a href="https://www.linkedin.com/company/kliente360/" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="http://wa.me/5511961875594" target="_blank" rel="noopener">WhatsApp</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div data-i18n="footer.rights">© 2026 Kliente 360. Todos os direitos reservados.</div>
+        <div class="mono">v0.1 · CRM · dados · IA</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/i18n.js?v=63fc9dab0e"></script>
+  <script src="/assets/js/main.js?v=63fc9dab0e" type="module"></script>
+</body>
+</html>
