@@ -23,7 +23,7 @@ Tudo isso já justifica adoção. Mas é o piso, não o teto. Time que para ness
 
 Toda empresa de médio porte tem o mesmo problema com warehouse: ninguém sabe o que cada tabela significa. A coluna `status` na tabela `orders` quer dizer o quê — fluxo logístico, financeiro, comercial? Pode ter três significados em três schemas, e o analista escolhe um por intuição. Resultado: relatórios que parecem certos mas medem coisas diferentes, métricas que divergem entre áreas, e seis meses por ano gasto em "por que esse número é diferente naquele dashboard".
 
-dbt não resolve esse problema sozinho — ele oferece a *infraestrutura* pra resolver. Cada modelo tem um arquivo `.yml` com descrição do modelo, descrição de cada coluna, testes associados, owner. Cada coluna pode ter `meta` com tags de domínio, sensibilidade, fonte. O `dbt docs` gera um site navegável com lineage visual + descrições + testes + freshness. Quando preenchido, esse site vira o **dicionário canônico** do warehouse.
+dbt não resolve esse problema sozinho — ele oferece a *infraestrutura* pra resolver. Cada modelo tem um arquivo `.yml` com descrição do modelo, descrição de cada coluna, testes associados, owner. Cada coluna pode ter `meta` com tags de domínio, sensibilidade, fonte. O `dbt docs` gera um site navegável com lineage visual + descrições + testes + freshness. Quando preenchido, esse site vira o **dicionário canônico** do warehouse — [resolvendo 80% do que um Data Catalog premium tentaria entregar](/blog/data-catalog-ninguem-usa.html), sem a licença anual.
 
 > dbt sem documentação é ETL com sintaxe nova. dbt com documentação é o sistema operacional do warehouse — o lugar onde a empresa concorda sobre o que cada número significa.
 

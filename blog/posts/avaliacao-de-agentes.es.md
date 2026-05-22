@@ -65,4 +65,4 @@ Suponé que mediste y el resultado fue 65% de acertividad. Ni bueno ni terrible.
 
 La combinación que funciona: medición rigurosa + iteración enfocada + transparencia ante la dirección sobre el número y el camino. Ese trío es lo que separa proyecto de IA que prospera de proyecto que entra en el tercer plan de gobernanza en 2027.
 
-La métrica incómoda no es el problema. Es la única herramienta para salir de él.
+La métrica incómoda no es el problema. Es la única herramienta para salir de él. (Combinada con [control riguroso del costo de inferencia](/blog/es/custos-reais-de-inferencia.html), entrega la ecuación completa de IA económica en producción.)

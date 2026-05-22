@@ -11,7 +11,7 @@ keywords: ["Tableau", "BI", "dashboards", "data-driven", "decision"]
 
 The opening question of almost every BI meeting: "which dashboard do you want?". Wrong. The right question is: "which decision do you need to make?". A dashboard is a means — decision is the end. But the BI industry spent 20 years selling the means as if it were the end, and the result is on every C-level wall: televisions with colored charts that no one looks at anymore.
 
-This piece is about how Tableau (or Power BI, or Looker — the tool matters less than it seems) can become **a language of executive decision**, not a showcase.
+This piece is about how Tableau (or Power BI, or Looker — the tool matters less than it seems) can become **a language of executive decision**, not a showcase. And when it becomes [badly-governed self-service, it produces the opposite problem](/blog/en/self-service-bi.html): each team with its own version of the same number.
 
 ## The invisible cost of the vanity dashboard
 

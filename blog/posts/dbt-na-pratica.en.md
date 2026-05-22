@@ -23,7 +23,7 @@ All of that already justifies adoption. But it's the floor, not the ceiling. A t
 
 Every mid-market company has the same warehouse problem: nobody knows what each table means. The `status` column on `orders` means what — logistical, financial, sales flow? It can have three meanings across three schemas, and the analyst picks one by intuition. Result: reports that look right but measure different things, metrics that diverge between teams, and six months a year spent on "why is this number different in that dashboard".
 
-dbt doesn't solve this problem alone — it provides the *infrastructure* to solve it. Each model has a `.yml` file with model description, column descriptions, associated tests, owner. Each column can have `meta` with domain tags, sensitivity, source. `dbt docs` generates a navigable site with visual lineage + descriptions + tests + freshness. When filled out, this site becomes the **canonical dictionary** of the warehouse.
+dbt doesn't solve this problem alone — it provides the *infrastructure* to solve it. Each model has a `.yml` file with model description, column descriptions, associated tests, owner. Each column can have `meta` with domain tags, sensitivity, source. `dbt docs` generates a navigable site with visual lineage + descriptions + tests + freshness. When filled out, this site becomes the **canonical dictionary** of the warehouse — [solving 80% of what a premium Data Catalog would try to deliver](/blog/en/data-catalog-ninguem-usa.html), without the annual license.
 
 > dbt without documentation is ETL with new syntax. dbt with documentation is the warehouse's operating system — the place where the company agrees on what each number means.
 

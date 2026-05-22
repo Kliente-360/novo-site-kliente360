@@ -41,7 +41,7 @@ La razón es simple: el conocimiento sénior real depende de contexto que no est
 
 ## Dónde fracasa — caso 2: decisión que necesita contexto no escrito
 
-La segunda frontera es gerencial. "Pedile al agente que decida entre los dos proveedores", "dejá que el agente priorice el backlog", "el agente puede elegir qué cliente atender primero". Suena eficiente. En producción, el agente decide con el 60% del contexto — porque el otro 40% vive en conversación de pasillo, política interna, relación con el proveedor.
+La segunda frontera es gerencial. "Pedile al agente que decida entre los dos proveedores", "dejá que el agente priorice el backlog", "el agente puede elegir qué cliente atender primero". Suena eficiente. En producción, el agente decide con el 60% del contexto — porque el otro 40% vive en conversación de pasillo, política interna, relación con el proveedor. Y cuando la tentación es resolverlo con [arquitectura multi-agent](/blog/es/multi-agent-systems.html), el costo de coordinación suele exceder la ganancia.
 
 [Como argumenté sobre cuándo tiene sentido un agente](/blog/es/quando-agente-e-resposta.html), la frontera es el dato: si la decisión depende solo de dato escrito, el agente puede. Si depende de dato vivido, no. Forzar decisión automatizada en contexto que necesita humano es el camino más rápido a un incidente — y un incidente en IA tiene peso político mayor que un incidente en sistema tradicional.
 

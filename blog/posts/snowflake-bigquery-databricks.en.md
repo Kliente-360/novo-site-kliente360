@@ -64,4 +64,4 @@ For a mid-market company in real warehouse decision-making, three practical move
 
 **Conversations with 2 customers of each one at your size.** The vendor connects you. If they don't, terrible sign. A peer at similar size tells you in 30 minutes what the brochure hides in 100 pages.
 
-The three warehouses are mature products from serious companies. The worst decision is signing based on the best pitch. The second worst is not deciding for six months out of fear of being wrong. The best is to understand that [the warehouse acronym matters less than how the modeling is versioned on top of it](/blog/en/dbt-na-pratica.html) — regardless of the choice, that's the real gain.
+The three warehouses are mature products from serious companies. The worst decision is signing based on the best pitch. The second worst is not deciding for six months out of fear of being wrong. The best is to understand that [the warehouse acronym matters less than how the modeling is versioned on top of it](/blog/en/dbt-na-pratica.html) — and that [well-done dimensional modeling still pays off in 2026](/blog/en/modelagem-dimensional-2026.html), regardless of stack choice.

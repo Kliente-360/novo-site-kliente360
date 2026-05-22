@@ -65,4 +65,4 @@ Suponha que você mediu e o resultado foi 65% de acurácia. Não bom; não terr�
 
 A combinação que funciona: medição rigorosa + iteração focada + transparência pra diretoria sobre o número e o caminho. Esse trio é o que separa projeto de IA que vinga de projeto que entra no terceiro plano de governança em 2027.
 
-A métrica desconfortável não é o problema. É a única ferramenta pra sair dele.
+A métrica desconfortável não é o problema. É a única ferramenta pra sair dele. (Combinada com [controle rigoroso de custo de inferência](/blog/custos-reais-de-inferencia.html), entrega a equação completa de IA econômica em produção.)

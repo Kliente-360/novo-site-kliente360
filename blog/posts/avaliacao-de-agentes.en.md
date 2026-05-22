@@ -65,4 +65,4 @@ Suppose you measured and got 65% accuracy. Not good; not terrible. Three practic
 
 The combination that works: rigorous measurement + focused iteration + transparency with leadership on the number and the path. That trio separates an AI project that ships from one that lands in the third governance plan in 2027.
 
-The uncomfortable metric isn't the problem. It's the only tool for getting out of it.
+The uncomfortable metric isn't the problem. It's the only tool for getting out of it. (Combined with [rigorous inference-cost control](/blog/en/custos-reais-de-inferencia.html), it delivers the complete equation of economic AI in production.)

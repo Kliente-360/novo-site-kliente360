@@ -73,4 +73,4 @@ Se sua empresa tem north star e ninguém olha mais, a opção certa não é troc
 3. Quando a métrica degrada, existe playbook de ação? Se não, escreva o primeiro — mesmo que rascunho.
 4. As decisões de produto da última quarter citaram explicitamente a métrica? Se sim, está viva. Se não, está moribunda.
 
-Respondendo as quatro com sinceridade, fica claro se o problema é a métrica (raro) ou o sistema em volta dela (quase sempre). Empresa que aceita essa lógica gasta menos tempo escolhendo a próxima north star perfeita e mais tempo construindo o músculo de operar por métrica — que é o que de fato move o ponteiro.
+Respondendo as quatro com sinceridade, fica claro se o problema é a métrica (raro) ou o sistema em volta dela (quase sempre). Empresa que aceita essa lógica gasta menos tempo escolhendo a próxima north star perfeita e mais tempo construindo o músculo de operar por métrica — que é o que de fato move o ponteiro. [O mesmo princípio vale pra análise de churn](/blog/analise-de-churn.html): definição antes de modelo, sistema em volta antes de dashboard.

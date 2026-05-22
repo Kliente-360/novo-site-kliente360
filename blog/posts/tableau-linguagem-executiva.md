@@ -11,7 +11,7 @@ keywords: ["Tableau", "BI", "dashboards", "data-driven", "decisão"]
 
 A pergunta que abre quase toda reunião de BI: "qual dashboard você quer?". Errado. A pergunta certa é: "qual decisão você precisa tomar?". Dashboard é meio — decisão é fim. Mas a indústria de BI passou 20 anos vendendo o meio como se fosse o fim, e o resultado está nas paredes de todo C-level: televisões com gráficos coloridos que ninguém mais olha.
 
-Esse texto é sobre como o Tableau (ou Power BI, ou Looker — a ferramenta é menos importante do que parece) pode virar **linguagem de decisão executiva**, não vitrine.
+Esse texto é sobre como o Tableau (ou Power BI, ou Looker — a ferramenta é menos importante do que parece) pode virar **linguagem de decisão executiva**, não vitrine. E quando vira [self-service mal governado, gera o problema oposto](/blog/self-service-bi.html): cada área com sua versão do mesmo número.
 
 ## O custo invisível do dashboard de vaidade
 

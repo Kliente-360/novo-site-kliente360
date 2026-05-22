@@ -54,7 +54,7 @@ Antes de aprobar cualquier proyecto de agente, pasamos por cinco verificaciones.
 
 ## Por qué IA sin gobernanza se vuelve pasivo
 
-Última observación. Aun cuando el agente funciona, necesita gobernanza desde el día 1 — no como proyecto futuro. Logs de toda interacción, auditoría de decisiones, kill switch, definición clara de cuándo escalar a humano, política de retención de datos, proceso de incidente.
+Última observación. Aun cuando el agente funciona, necesita gobernanza desde el día 1 — no como proyecto futuro. Logs de toda interacción, auditoría de decisiones, kill switch, definición clara de cuándo escalar a humano, [política de privacidad aplicada antes del primer prompt](/blog/es/privacidade-dados-llms.html), proceso de incidente.
 
 Sin eso, lo que parecía ganancia de eficiencia se vuelve riesgo operacional silencioso. Las ganancias desaparecen en los primeros meses; el pasivo aparece en el primer incidente — generalmente público.
 

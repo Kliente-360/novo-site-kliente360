@@ -54,7 +54,7 @@ Passou nas cinco? Aqui é o que entregamos. Quatro semanas, custo controlado, KP
 
 ## Por que IA sem governança vira passivo
 
-Última observação. Mesmo quando o agente funciona, ele precisa de governança desde o dia 1 — não como projeto futuro. Logs de toda interação, auditoria de decisões, kill switch, definição clara de quando escalonar pra humano, política de retenção de dados, processo de incidente.
+Última observação. Mesmo quando o agente funciona, ele precisa de governança desde o dia 1 — não como projeto futuro. Logs de toda interação, auditoria de decisões, kill switch, definição clara de quando escalonar pra humano, [política de privacidade aplicada antes do primeiro prompt](/blog/privacidade-dados-llms.html), processo de incidente.
 
 Sem isso, o que parecia ganho de eficiência vira risco operacional silencioso. Os ganhos somem nos primeiros meses; o passivo aparece no primeiro incidente — geralmente público.
 

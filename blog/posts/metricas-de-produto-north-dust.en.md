@@ -73,4 +73,4 @@ If your company has a north star and nobody looks at it anymore, the right optio
 3. When the metric degrades, is there an action playbook? If not, write the first one — even as a draft.
 4. Did the last quarter's product decisions explicitly cite the metric? If yes, it's alive. If no, it's dying.
 
-Answering the four honestly clarifies whether the problem is the metric (rare) or the system around it (almost always). A company that accepts this logic spends less time choosing the next perfect north star and more time building the muscle of operating by metric — which is what actually moves the needle.
+Answering the four honestly clarifies whether the problem is the metric (rare) or the system around it (almost always). A company that accepts this logic spends less time choosing the next perfect north star and more time building the muscle of operating by metric — which is what actually moves the needle. [The same principle applies to churn analysis](/blog/en/analise-de-churn.html): definition before model, system around it before dashboard.

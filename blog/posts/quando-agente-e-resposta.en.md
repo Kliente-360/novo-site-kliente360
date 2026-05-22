@@ -54,7 +54,7 @@ Passed all five? Here's what we deliver. Four weeks, controlled cost, KPI at the
 
 ## Why AI without governance becomes liability
 
-One last observation. Even when the agent works, it needs governance from day 1 — not as a future project. Logs of every interaction, audit of decisions, kill switch, clear definition of when to escalate to human, data retention policy, incident process.
+One last observation. Even when the agent works, it needs governance from day 1 — not as a future project. Logs of every interaction, audit of decisions, kill switch, clear definition of when to escalate to human, [privacy policy applied before the first prompt](/blog/en/privacidade-dados-llms.html), incident process.
 
 Without that, what seemed like efficiency gain becomes silent operational risk. Gains disappear in the first months; liability shows up in the first incident — usually public.
 

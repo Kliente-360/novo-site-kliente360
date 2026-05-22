@@ -19,7 +19,7 @@ A classic CDP solves three things: ingestion, identity unification and activatio
 
 - **Harmonized data models** (Customer 360 Data Model) — not only profiles, but orders, cases, contacts, products, devices, conversations.
 - **Embedded analytical pipeline** — capability to compute metrics, model features, train models on the live data.
-- **Universal activation layer** — not just martech: it feeds Service Cloud, Sales Cloud, Commerce, Marketing, and whatever else shows up.
+- **Universal activation layer** — not just martech: it feeds Service Cloud, Sales Cloud, Commerce, [Marketing Cloud in natural pairing](/blog/en/marketing-cloud-data-cloud.html), and whatever else shows up.
 - **Context for agents** — this is where Agentforce pulls what it needs to decide in real time.
 
 The difference is architectural, not commercial. A CDP is a system; Data Cloud is a foundation. [The "Customer 360 vs CDP" debate became a vendor question](/blog/en/customer-360-vs-cdp.html) — the real decision is which layer of customer data your operation needs first.

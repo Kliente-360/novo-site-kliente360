@@ -41,7 +41,7 @@ The reason is simple: real senior knowledge depends on context that isn't writte
 
 ## Where it fails — case 2: decisions that need unwritten context
 
-The second boundary is managerial. "Ask the agent to decide between the two vendors", "let the agent prioritize the backlog", "the agent can choose which customer to attend first". Sounds efficient. In production, the agent decides with 60% of the context — because the other 40% lives in hallway conversation, internal politics, vendor relationship.
+The second boundary is managerial. "Ask the agent to decide between the two vendors", "let the agent prioritize the backlog", "the agent can choose which customer to attend first". Sounds efficient. In production, the agent decides with 60% of the context — because the other 40% lives in hallway conversation, internal politics, vendor relationship. And when the temptation is to solve this with [multi-agent architecture](/blog/en/multi-agent-systems.html), the coordination cost usually exceeds the gain.
 
 [As I argued about when an agent makes sense](/blog/en/quando-agente-e-resposta.html), the boundary is data: if the decision depends only on written data, the agent can. If it depends on lived data, it can't. Forcing automated decision in contexts that need humans is the fastest path to an incident — and AI incidents carry more political weight than traditional system incidents.
 

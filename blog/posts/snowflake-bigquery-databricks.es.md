@@ -64,4 +64,4 @@ Para una empresa de tamaño medio en decisión real sobre warehouse, tres movimi
 
 **Conversación con 2 clientes de cada uno, del mismo tamaño que vos.** El vendor te conecta. Si no conecta, pésima señal. Empresa de tamaño similar te dice en 30 minutos lo que el folleto esconde en 100 páginas.
 
-Los tres warehouses son producto maduro de empresa seria. La peor decisión es firmar por el mejor pitch. La segunda peor es no decidir por seis meses por miedo a equivocarse. La mejor es entender que [la sigla del warehouse importa menos que cómo la modelación está versionada arriba](/blog/es/dbt-na-pratica.html) — independiente de la elección, esa es la ganancia real.
+Los tres warehouses son producto maduro de empresa seria. La peor decisión es firmar por el mejor pitch. La segunda peor es no decidir por seis meses por miedo a equivocarse. La mejor es entender que [la sigla del warehouse importa menos que cómo la modelación está versionada arriba](/blog/es/dbt-na-pratica.html) — y que [el modelado dimensional bien hecho sigue valiendo en 2026](/blog/es/modelagem-dimensional-2026.html), independiente de la elección de stack.
