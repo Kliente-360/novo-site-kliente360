@@ -32,7 +32,7 @@ Cadência: terça **ou** quarta, pulando feriados (ver `blog/posts/README.md` §
 | 16 | 2026-03-04 | qua | sf | [Salesforce Flow vs Apex: quando código vale mais que clique](blog/posts/flow-vs-apex.md) | Quando código vale mais que clique | [x] |
 | 17 | 2026-03-10 | ter | data | [Métricas de produto: por que north star vira "north dust" em 6 meses](blog/posts/metricas-de-produto-north-dust.md) | Por que north star vira "north dust" em 6 meses | [x] |
 | 18 | 2026-03-11 | qua | ai | [Multi-agent systems: quando vale orquestrar versus consolidar tudo num agente](blog/posts/multi-agent-systems.md) | Quando vale orquestrar versus consolidar tudo num agente | [x] |
-| 19 | 2026-03-17 | ter | sf | Integração Salesforce ↔ ERP | Por que projetos travam no contrato, não na arquitetura | [ ] |
+| 19 | 2026-03-17 | ter | sf | [Integração Salesforce ↔ ERP: por que projetos travam no contrato, não na arquitetura](blog/posts/integracao-salesforce-erp.md) | Por que projetos travam no contrato, não na arquitetura | [x] |
 | 20 | 2026-03-18 | qua | data | Self-service BI | Por que cada departamento tem seu "rascunho final" | [ ] |
 | 21 | 2026-03-24 | ter | ai | Custos reais de inferência | Como evitar surpresa de US$ no fim do mês | [ ] |
 | 22 | 2026-03-25 | qua | sf | Sandbox strategy | Como evitar "a última sandbox foi há 4 meses" | [ ] |
