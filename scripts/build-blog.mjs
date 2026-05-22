@@ -378,7 +378,10 @@ ${footerHtml}
 const main = () => {
   if (!existsSync(POSTS_DIR)) mkdirSync(POSTS_DIR, { recursive: true });
 
-  const files = readdirSync(POSTS_DIR).filter(f => f.endsWith('.md'));
+  const files = readdirSync(POSTS_DIR)
+    .filter(f => f.endsWith('.md'))
+    .filter(f => !f.startsWith('_'))      // _template.md, _draft.md, etc.
+    .filter(f => f.toLowerCase() !== 'readme.md');
   console.log(`📚 ${files.length} posts encontrados em ${POSTS_DIR}`);
 
   const posts = files.map(file => {
