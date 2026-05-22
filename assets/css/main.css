@@ -729,14 +729,9 @@ body {
   .post-body p { font-size: 19px; line-height: 1.75; }
 }
 
-/* Drop cap criativo na primeira letra do primeiro parágrafo após o TL;DR */
+/* Primeira letra do primeiro parágrafo: só negrito + cor do pilar. */
 .post-body .post-intro::first-letter {
-  float: left;
-  font-family: 'Fraunces', Georgia, serif;
-  font-size: 4.5em;
-  line-height: 0.85;
-  font-weight: 600;
-  padding: 8px 12px 0 0;
+  font-weight: var(--fw-bold);
   color: var(--c-pillar);
 }
 
