@@ -2,7 +2,7 @@
 
 Documento mantido em main. Registra contexto, decisões tomadas e próximos passos. Atualizar a cada sessão.
 
-Última atualização: 2026-05-22 (quarta passada — validação e reorganização).
+Última atualização: 2026-05-22 (quinta passada — pillar pages + glossário + comercial entregues).
 
 ---
 
@@ -122,16 +122,23 @@ Referências: **Apple**, **Google**, **Salesforce**.
 
 - Build MD→HTML em `scripts/build-blog.mjs` gera `/blog/`, `/blog/en/`, `/blog/es/` + listings + manifest JSON.
 - i18n real: dicionário em `assets/js/i18n.js`, redirect inteligente entre variantes no toggle.
-- **13 posts publicados** com cadência Tue/Wed (13–20 mai + lote retroativo):
-  - sf: mapear-processos-antes-do-salesforce, data-cloud-nervo-central, sales-cloud-cinco-antipadroes, service-cloud-sla-nao-e-decoracao, customer-360-vs-cdp
-  - data: tableau-linguagem-executiva, dado-limpo-e-um-mito, dbt-na-pratica, elt-vs-etl
-  - ai: quando-agente-e-resposta, rag-na-pratica, llm-como-agente-interno, avaliacao-de-agentes
+- **24 posts publicados** com cadência Tue/Wed (lote retroativo + routine rodando):
+  - sf: mapear-processos-antes-do-salesforce, data-cloud-nervo-central, sales-cloud-cinco-antipadroes, service-cloud-sla-nao-e-decoracao, customer-360-vs-cdp, flow-vs-apex, agentforce-atendimento-humano, integracao-salesforce-erp
+  - data: tableau-linguagem-executiva, dado-limpo-e-um-mito, dbt-na-pratica, elt-vs-etl, data-contracts, metricas-de-produto-north-dust, self-service-bi
+  - ai: quando-agente-e-resposta, rag-na-pratica, llm-como-agente-interno, avaliacao-de-agentes, vector-databases-comparados, fine-tuning-vs-rag-vs-prompt, multi-agent-systems, custos-reais-de-inferencia
 - Backlinks contextuais entre posts (estratégia documentada em `blog/posts/README.md`).
 - Audit SEO/GEO rodado — quick wins aplicados (títulos #02 e #07 encurtados, links internos balanceados).
-- Routine de publicação ativada (prompt em GitHub MCP, cadência Tue/Wed pulando feriados, rotação de pilares).
-- 34 temas de back-catálogo mapeados (em `EDITORIAL.md`).
+- Routine de publicação ativa (prompt em GitHub MCP, cadência Tue/Wed pulando feriados, rotação de pilares).
+- 34 temas de back-catálogo mapeados em `EDITORIAL.md`.
 
-### 4.4. Infraestrutura — entregue
+### 4.4. Páginas estratégicas — entregue (2026-05-22, quinta passada)
+
+- **3 pillar pages** em `/pilares/<slug>/` (Salesforce, Data, IA Aplicada) com design colorido pelo pilar: hero full-bleed, strip de stats, manifesto editorial em Fraunces serif, 3 cards de oferta, Trilha 360 aplicada ao pilar, grid de posts auto-populado por filtro de pilar, CTA final em fundo preto. Mobile-first em todas as quebras.
+- **Glossário** em `/glossario/` com 26 termos definidos em 1 parágrafo cada, agrupados por pilar, com filtro chip e link pro post canônico. Layout 2 colunas no desktop, 1 no mobile.
+- **Página comercial** em `/como-trabalhamos/` com 3 modos de engajamento (Sprint, Projeto, AMS), faixas de investimento ordem-de-grandeza, links pros 3 pilares, "o que esperamos do cliente", FAQ com 9 perguntas (com `FAQPage` JSON-LD), CTA final escuro.
+- Footer global ganhou seção "Empresa" expandida com links pra "Como trabalhamos" e "Glossário".
+
+### 4.5. Infraestrutura — entregue
 
 - Favicon SVG + `og-image.png` renderizada por `@resvg/resvg-js` no build.
 - `sitemap.xml` + `robots.txt` + JSON-LD `Article` por post + `inLanguage` por variante.
@@ -141,9 +148,10 @@ Referências: **Apple**, **Google**, **Salesforce**.
 
 ## 5. Próximos passos imediatos
 
-- ⏳ Acompanhar a routine de blog rodar e ajustar prompt se necessário (1ª publicação automática esperada: Tue 26/05).
-- ⏳ Executar o roadmap SEO/Conteúdo (§6).
-- ⏳ Resolver itens do parking lot (§8.1) conforme bloqueios destravarem.
+- ⏳ Validar com calma o conteúdo das 3 pillar pages, glossário e página comercial em produção. Estrutura visual aprovada na quinta passada; tom, exemplos e calibração de copy a revisar.
+- ⏳ Calibrar faixas de investimento em `/como-trabalhamos/` (números atuais são proposta minha — ajustar ao real).
+- ⏳ Acompanhar a routine continuar publicando 2 posts/semana. Posts #18+ esperados pelos dias úteis subsequentes.
+- ⏳ Resolver itens do parking lot (§8.1) conforme bloqueios externos destravarem.
 
 ## 6. Roadmap SEO/Conteúdo
 
