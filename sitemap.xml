@@ -73,6 +73,24 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>/blog/rag-na-pratica.html</loc>
+    <lastmod>2026-01-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>/blog/en/rag-na-pratica.html</loc>
+    <lastmod>2026-01-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>/blog/es/rag-na-pratica.html</loc>
+    <lastmod>2026-01-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>/blog/dado-limpo-e-um-mito.html</loc>
     <lastmod>2026-01-07</lastmod>
     <changefreq>yearly</changefreq>

@@ -29,7 +29,7 @@ El mito sobrevive porque es cómodo. Posterga la decisión difícil, terceriza r
 
 ## Tres reglas para convivir con la imperfección
 
-La boutique de datos decente trabaja así. Sin magia, sin herramienta nueva.
+Una consultoría de datos decente trabaja así. Sin magia, sin herramienta nueva.
 
 1. **Definí el "suficientemente bueno" para cada caso de uso.** Antes de cualquier proyecto, escribí: para esta decisión, ¿qué campos tienen que estar correctos en qué porcentaje de registros? Para [un dashboard ejecutivo que activa decisión](/blog/es/tableau-linguagem-executiva.html), 98% en `monto` y `fecha de cierre` alcanza. Para una campaña de e-mail, 90% en `e-mail principal` alcanza. Para un modelo de churn, depende — pero necesitás el número antes de arrancar.
 2. **Usá dato real sucio en paralelo con la limpieza.** No trabes el caso de uso esperando limpieza. Corré el reporte, armá el agente, publicá la campaña — con lo que hay. La primera ejecución va a mostrar exactamente dónde el ruido molesta. *Ahí* limpiás. Es diez veces más barato que limpiar a ciegas.

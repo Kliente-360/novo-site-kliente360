@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>RAG na prática: a recuperação é o gargalo, não o LLM | Kliente 360</title>
+  <meta name="description" content="Times gastam meses afinando prompt e modelo enquanto o retrieval entrega o documento errado. Por que recuperar é mais difícil que gerar — e o que medir." />
+  <meta name="theme-color" content="#0a0a0a" />
+  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+
+  <link rel="canonical" href="/blog/rag-na-pratica.html" />
+  <link rel="alternate" hreflang="pt-BR" href="/blog/rag-na-pratica.html" />
+  <link rel="alternate" hreflang="en-US" href="/blog/en/rag-na-pratica.html" />
+  <link rel="alternate" hreflang="es-ES" href="/blog/es/rag-na-pratica.html" />
+  <link rel="alternate" hreflang="x-default" href="/blog/rag-na-pratica.html" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Kliente 360" />
+  <meta property="og:title" content="RAG na prática: a recuperação é o gargalo, não o LLM | Kliente 360" />
+  <meta property="og:description" content="Times gastam meses afinando prompt e modelo enquanto o retrieval entrega o documento errado. Por que recuperar é mais difícil que gerar — e o que medir." />
+  <meta property="og:image" content="/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="article:published_time" content="2026-01-13" />
+  <meta property="article:section" content="IA Aplicada" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="RAG na prática: a recuperação é o gargalo, não o LLM | Kliente 360" />
+  <meta name="twitter:description" content="Times gastam meses afinando prompt e modelo enquanto o retrieval entrega o documento errado. Por que recuperar é mais difícil que gerar — e o que medir." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="/assets/css/tokens.css?v=322c530e2d" />
+  <link rel="stylesheet" href="/assets/css/reset.css?v=322c530e2d" />
+  <link rel="stylesheet" href="/assets/css/main.css?v=322c530e2d" />
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "RAG na prática: a recuperação é o gargalo, não o LLM",
+  "description": "Times gastam meses afinando prompt e modelo enquanto o retrieval entrega o documento errado. Por que recuperar é mais difícil que gerar — e o que medir.",
+  "datePublished": "2026-01-13",
+  "inLanguage": "pt-BR",
+  "author": {
+    "@type": "Organization",
+    "name": "Kliente 360"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Kliente 360"
+  },
+  "articleSection": "IA Aplicada",
+  "keywords": [
+    "RAG",
+    "retrieval",
+    "recuperação",
+    "embeddings",
+    "LLM"
+  ]
+}
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Pular para o conteúdo</a>
+
+  <header class="nav" role="banner">
+    <div class="container nav-inner">
+      <a class="nav-brand" href="/" aria-label="Kliente 360 — início">
+        <svg class="mark-aperture" viewBox="0 0 80 80" aria-hidden="true">
+          <circle cx="40" cy="22" r="11"/>
+          <circle cx="58" cy="40" r="11"/>
+          <circle cx="40" cy="58" r="11"/>
+          <circle cx="22" cy="40" r="11"/>
+        </svg>
+        <span>kliente 360</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Principal">
+        <a href="/#pilares" data-i18n="nav.pillars">Pilares</a>
+        <a href="/#trilha" data-i18n="nav.trilha">Trilha 360</a>
+        <a href="/#cases" data-i18n="nav.cases">Cases</a>
+        <a href="/blog/" data-i18n="nav.blog" aria-current="page">Blog</a>
+        <a href="/#contato" data-i18n="nav.contact">Contato</a>
+      </nav>
+
+      <div class="nav-right">
+        <div class="lang-switch" role="group" aria-label="Idioma">
+          <button type="button" data-lang="pt" aria-current="true">PT</button>
+          <button type="button" data-lang="en">EN</button>
+          <button type="button" data-lang="es">ES</button>
+        </div>
+        <button class="nav-toggle" type="button" aria-controls="nav-menu" aria-expanded="false" data-nav-toggle data-i18n-attr="aria-label:nav.menu" aria-label="Abrir menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="nav-menu" id="nav-menu" data-open="false">
+      <div class="group">
+        <div class="group-label" data-i18n="nav.mobile.pillars">Pilares</div>
+        <a href="/#salesforce" data-i18n="nav.mobile.salesforce">Salesforce</a>
+        <a href="/#data" data-i18n="nav.mobile.data">Data &amp; Analytics</a>
+        <a href="/#ia" data-i18n="nav.mobile.ai">IA Aplicada</a>
+      </div>
+      <div class="group">
+        <div class="group-label" data-i18n="nav.mobile.empresa">Empresa</div>
+        <a href="/#trilha" data-i18n="nav.mobile.trilha">Trilha 360</a>
+        <a href="/#cases" data-i18n="nav.mobile.cases">Cases</a>
+        <a href="/blog/" data-i18n="nav.mobile.blog">Blog</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="/#contato" data-i18n="nav.cta">Falar com um sócio</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <article class="post-article" data-pillar="ai">
+
+      <header class="post-header">
+        <div class="container container-narrow">
+          <div class="post-header-top">
+            <span class="pill-pillar">Pilar 03 · IA</span>
+            <a class="post-back" href="/blog/">Blog</a>
+          </div>
+          <h1>RAG na prática: a recuperação é o gargalo, não o LLM</h1>
+          <div class="post-meta-line">
+            <time datetime="2026-01-13">13 jan 2026</time>
+            <span class="sep">·</span>
+            <span>7 min de leitura</span>
+            <span class="sep">·</span>
+            <span>Por Kliente 360</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="container">
+        <div class="post-body">
+          <aside class="post-tldr">
+            <div class="label">TL;DR</div>
+            <p>Quase todo projeto de RAG que falha não falha no LLM: falha em recuperar o trecho certo no momento certo. A geração tornou-se commodity; a recuperação não. Cinco razões pelas quais o retrieval quebra, três métricas para medir o que importa, e um padrão de avaliação que evita o piloto eterno.</p>
+          </aside>
+
+          <p class="post-intro">A frase que se repete no piloto de RAG quando o resultado decepciona é &quot;o modelo errou&quot;. Quase nunca é verdade. O modelo gerou exatamente o que o contexto pedia — só que o contexto era o documento errado, o trecho errado, ou os dois certos sem o terceiro que muda a resposta. A culpa não é da geração; é da recuperação. E como retrieval é menos sexy que LLM, o time gasta semanas afinando prompt e trocando modelo enquanto o problema mora no <code>top-k</code>.</p>
+<p>Esse texto é sobre por que RAG é difícil onde ninguém olha. Não contra RAG — é a arquitetura certa pra colocar conhecimento próprio dentro de respostas de modelo. Mas o desbalanço entre quanto se fala de geração e quanto se fala de recuperação está custando projetos.</p>
+<h2>A geração virou commodity, a recuperação não</h2>
+<p>Em 2023 escolher LLM era decisão estratégica. Em 2026 é commodity: Claude, GPT, Gemini, Llama — todos respondem bem se o contexto for bom. A fronteira do que diferencia projeto bom de projeto medíocre saiu do modelo e foi pra <strong>o que entra no contexto</strong>.</p>
+<p>Recuperação parece simples no slide: usuário pergunta, sistema busca documentos similares por embedding, top-k vai pro LLM, LLM responde. Cada uma dessas etapas tem armadilha. Cada armadilha individual perdoa 5–10% de qualidade. Empilhadas, o sistema entrega resposta certa em 60% dos casos e ninguém entende por quê.</p>
+<p>Pior: o LLM esconde o problema. Ele <em>parece</em> certo quando responde sobre o documento errado, porque a geração é fluente e confiante. O usuário só percebe que algo está mal calibrado quando bate uma resposta contra a realidade — e aí já está em produção há três meses.</p>
+<blockquote>
+<p>Em RAG, gerar é a parte fácil. Recuperar o trecho certo, no momento certo, na ordem certa, com o contexto adicional certo — é onde o sistema quebra.</p>
+</blockquote>
+<p>A consequência prática: time que aborda RAG como &quot;problema de LLM&quot; otimiza o que dá menos retorno. Time que aborda como &quot;problema de retrieval&quot; investe onde dói.</p>
+<h2>Cinco razões pelas quais retrieval quebra na produção</h2>
+<p>São os modos de falha que aparecem em quase todo projeto. Vale catalogar antes de começar.</p>
+<ol>
+<li><strong>Chunking ingênuo.</strong> Quebrar documento em pedaços de 500 tokens por janela deslizante é o default e raramente o certo. Pedaço corta no meio da definição, perde o título da seção, separa pergunta da resposta. Chunking precisa respeitar a estrutura semântica do documento — capítulos, seções, blocos lógicos — não o relógio de tokens.</li>
+<li><strong>Embeddings genéricos sobre vocabulário específico.</strong> Modelos de embedding pré-treinados são bons em linguagem geral. Em domínio técnico (jurídico, médico, financeiro, código), a distância vetorial entre &quot;rescisão&quot; e &quot;encerramento&quot; pode não capturar a nuance que muda a resposta. Sem fine-tuning ou modelos de domínio, o ranking sai enviesado.</li>
+<li><strong>Top-k cego.</strong> Pegar os 5 ou 10 trechos mais próximos por similaridade vetorial parece razoável, mas ignora dois fatos: trechos podem ser quase idênticos (redundância) e o trecho que importa pode estar em 12º lugar (perda). Sem reranking, top-k vira loteria.</li>
+<li><strong>Falta de query rewriting.</strong> A pergunta que o usuário faz raramente é a pergunta que recupera bem. &quot;O que mudou no contrato?&quot; é vago, pequeno, sem termos técnicos. O sistema precisa reformular a query — expandir, decompor, reescrever em vocabulário do corpus — antes de buscar. Pular essa etapa é entregar busca ruim por design.</li>
+<li><strong>Avaliação só na geração.</strong> Time mede qualidade pela resposta final do LLM e tenta otimizar o sistema inteiro pelo output. É como medir um carro inteiro só pela cor: você nunca descobre se o motor é bom. Retrieval precisa ser avaliado <em>separadamente</em> da geração — com métricas próprias.</li>
+</ol>
+<p>Esses cinco modos respondem por 80% dos pilotos de RAG que ficam presos em &quot;quase funciona&quot;. Não tem solução única; tem disciplina de medir cada camada.</p>
+<h2>O que medir, em três métricas que importam</h2>
+<p>Discussão de métrica em RAG é onde a maturidade do time aparece. Três métricas resolvem 90% dos casos.</p>
+<p><strong>Recall@k.</strong> Dos documentos que <em>deveriam</em> aparecer no top-k pra responder bem, quantos apareceram. Se você tem um conjunto de perguntas com gabarito (10–50 perguntas com os documentos corretos marcados), recall@10 abaixo de 80% significa que o sistema deixa contexto crítico de fora. Subir modelo ou ajustar prompt não resolve — é problema de busca.</p>
+<p><strong>MRR (Mean Reciprocal Rank).</strong> Em que posição, na média, o trecho certo aparece no ranking. Se MRR está em 0.3, o trecho certo geralmente está em terceiro ou quarto lugar — o LLM lê primeiro o contexto errado e contamina a resposta. Reranking sobe MRR mais do que trocar embedding.</p>
+<p><strong>Faithfulness da resposta ao contexto recuperado.</strong> Mesmo com retrieval bom, o LLM pode alucinar ou inferir além do que o contexto suporta. Métrica: percentual de afirmações na resposta que têm suporte direto no contexto. Abaixo de 90%, o sistema está gerando além da evidência — risco alto em domínios regulados.</p>
+<p>Essas três têm que aparecer no dashboard antes de qualquer ajuste fino de prompt. Quem mede só &quot;satisfação do usuário&quot; otimiza no escuro.</p>
+<h2>Anatomia de uma pipeline que funciona</h2>
+<p>A consultoria decente monta RAG em camadas, não como uma chamada de API. O esqueleto que entregamos em projeto sério tem cinco passos, cada um instrumentado.</p>
+<p><strong>Chunking informado pela estrutura.</strong> Quebrar respeitando headings, parágrafos, blocos lógicos. Sobreposição de 10–20% entre chunks adjacentes pra evitar perda de contexto na fronteira. Metadados embutidos: título da seção, hierarquia, fonte, data.</p>
+<p><strong>Indexação híbrida.</strong> Vetor (embedding) + texto (BM25 ou similar). Vetor pega semântica; texto pega termos exatos (nome de produto, código, número de cláusula). Top-k combinado de ambos cobre mais que cada um isolado.</p>
+<p><strong>Query rewriting antes da busca.</strong> Mesmo LLM que vai gerar a resposta — ou um modelo menor dedicado — reformula a pergunta do usuário em 2–3 variantes, expande termos, decompõe pergunta composta. Cada variante busca; resultados se combinam.</p>
+<p><strong>Reranking sobre o top-k expandido.</strong> Pegar top-30 da busca inicial e rodar um reranker (cross-encoder ou LLM com prompt de scoring) que reordena pelos 5–10 mais relevantes pra essa pergunta específica. Esse passo sobe MRR de 0.3 pra 0.6+ na maioria dos domínios. É o melhor retorno por hora de engenharia.</p>
+<p><strong>Geração com citação de fonte.</strong> O LLM responde <em>e cita o trecho exato</em> que sustenta cada afirmação. Não é só UX — é o que permite medir faithfulness depois. Sem citação, não há auditoria.</p>
+<p><a href="/blog/quando-agente-e-resposta.html">Como já argumentei sobre quando faz sentido implantar agente</a>, nada disso elimina a necessidade de processo desenhado. RAG amplifica conhecimento existente; não inventa conhecimento que não foi escrito. Se o corpus está vazio, ruim ou desatualizado, o sistema só amplifica essa pobreza.</p>
+<h2>Onde a qualidade do corpus entra</h2>
+<p>E aqui mora a tensão honesta. RAG depende de corpus, e <a href="/blog/dado-limpo-e-um-mito.html">corpus perfeito não existe</a> — o mesmo princípio que se aplica a dados estruturados se aplica a documentos não estruturados. A pergunta certa não é &quot;o nosso corpus está limpo?&quot;, é &quot;o nosso corpus é bom o suficiente pra responder <em>esse conjunto de perguntas</em>?&quot;.</p>
+<p>Operacionalmente, isso significa: comece com o caso de uso, monte o conjunto de avaliação (50 perguntas com gabarito), rode retrieval e veja o gap. Se recall@10 está em 50%, o problema pode ser duas coisas: o corpus não tem a resposta (problema de conteúdo, não de RAG) ou o corpus tem mas não recupera (problema de retrieval). Sem essa separação, o time fica otimizando o sistema errado.</p>
+<h2>Para o sponsor que pergunta &quot;por que tão complicado?&quot;</h2>
+<p>Porque parece simples na demo. Na demo o usuário pergunta o que o engenheiro testou; o sistema acerta. Em produção, a distribuição de perguntas é mais ampla, os documentos são mais sujos, e cada modo de falha aparece. RAG bem feito não é mais caro que RAG mal feito — só é distribuído diferente no tempo. Time que investe duas a três semanas em retrieval evita seis meses de &quot;por que essa resposta tá errada?&quot;.</p>
+<p>A boa notícia: as cinco razões de falha são conhecidas, as três métricas são padrão, a pipeline em cinco camadas cabe em qualquer projeto sério. O que separa quem entrega de quem fica em piloto é tratar retrieval como produto, não como detalhe de implementação.</p>
+
+        </div>
+      </div>
+
+      <section class="post-end">
+        <div class="container">
+          <div class="post-end-cta">
+            <div class="label">Continuar a conversa</div>
+            <h3>Quer discutir esse tema com um sócio?</h3>
+            <p>Diagnóstico inicial sem compromisso. Levamos uma primeira leitura do seu cenário em uma semana e devolvemos um relatório.</p>
+            <a class="btn-link" href="/#contato">Conversar com um sócio</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="post-related">
+        <div class="container">
+          <h2>Próximas leituras</h2>
+          <div class="blog-list">
+            <a class="post-card" data-pillar="ai" href="/blog/quando-agente-e-resposta.html">
+              <div class="post-meta">
+                <span class="pill-pillar">Pilar 03 · IA</span>
+                <span class="post-date">20 mai 2026</span>
+              </div>
+              <h3>Quando um agente é a resposta — e quando ele é fuga de problema mal modelado</h3>
+              <div class="read">Ler →</div>
+            </a>
+            <a class="post-card" data-pillar="sf" href="/blog/data-cloud-nervo-central.html">
+              <div class="post-meta">
+                <span class="pill-pillar">Pilar 01 · Salesforce</span>
+                <span class="post-date">19 mai 2026</span>
+              </div>
+              <h3>Data Cloud não é mais CDP — é o nervo central do Salesforce</h3>
+              <div class="read">Ler →</div>
+            </a>
+            <a class="post-card" data-pillar="data" href="/blog/tableau-linguagem-executiva.html">
+              <div class="post-meta">
+                <span class="pill-pillar">Pilar 02 · Data</span>
+                <span class="post-date">13 mai 2026</span>
+              </div>
+              <h3>Tableau como linguagem executiva: matando o dashboard de vaidade</h3>
+              <div class="read">Ler →</div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <a class="footer-brand" href="/" aria-label="Kliente 360">
+            <svg viewBox="0 0 80 80" aria-hidden="true">
+              <circle cx="40" cy="22" r="11" opacity="0.45"/>
+              <circle cx="58" cy="40" r="11" opacity="0.65"/>
+              <circle cx="40" cy="58" r="11" opacity="0.85"/>
+              <circle cx="22" cy="40" r="11"/>
+            </svg>
+            <span>kliente 360</span>
+          </a>
+          <p data-i18n="footer.tagline">Consultoria especializada em CRM, dados e IA. Conhecimento aplicado, como serviço.</p>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.pillarsTitle">Pilares</h4>
+          <ul>
+            <li><a href="/#salesforce" data-i18n="nav.mobile.salesforce">Salesforce</a></li>
+            <li><a href="/#data" data-i18n="nav.mobile.data">Data &amp; Analytics</a></li>
+            <li><a href="/#ia" data-i18n="nav.mobile.ai">IA Aplicada</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.empresaTitle">Empresa</h4>
+          <ul>
+            <li><a href="/#trilha" data-i18n="nav.trilha">Trilha 360</a></li>
+            <li><a href="/#cases" data-i18n="nav.cases">Cases</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Blog</a></li>
+            <li><a href="/#contato" data-i18n="nav.contact">Contato</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.contactTitle">Contato</h4>
+          <ul>
+            <li><a href="mailto:contato@kliente360.com">contato@kliente360.com</a></li>
+            <li><a href="https://www.linkedin.com/company/kliente360/" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="http://wa.me/5511961875594" target="_blank" rel="noopener">WhatsApp</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div data-i18n="footer.rights">© 2026 Kliente 360. Todos os direitos reservados.</div>
+        <div class="mono">v0.1 · CRM · dados · IA</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/i18n.js?v=322c530e2d"></script>
+  <script src="/assets/js/main.js?v=322c530e2d" type="module"></script>
+</body>
+</html>

@@ -100,7 +100,7 @@ Cada post pertence a **um pilar primário**. O pilar define a cor temática (pí
 |----------|---------------------|-----------|
 | `sf`     | Salesforce          | `#0B5394` |
 | `data`   | Data & Analytics    | `#C9A227` |
-| `ai`     | IA & Aplicações     | `#6D28D9` |
+| `ai`     | IA Aplicada         | `#6D28D9` |
 
 ## Traduções (multi-idioma)
 
@@ -164,7 +164,7 @@ A próxima publicação esperada é **terça 26/05/2026** (próximo Tue), seguid
 
 ## Tom de voz
 
-Boutique informada falando com decisor informado. Direto, técnico, sem clichês.
+Consultoria informada falando com decisor informado. Direto, técnico, sem clichês.
 
 **Usar**: "uma prática única", "agentes onde já existe dado", "conversa direta com quem entrega", nomes próprios (Salesforce, Tableau, Agentforce, Data Cloud).
 
@@ -229,7 +229,7 @@ LLMs (ChatGPT, Claude, Perplexity, Gemini, AI Overviews do Google) **citam e res
 
 7. **Estrutura previsível** — abertura (tese) → diagnóstico → argumento → prática → fechamento. LLMs identificam padrão e extraem o que pediram.
 
-8. **Vocabulário consistente** — não troque entre "agente" e "copilot" no mesmo post se ambos significam a mesma coisa. Cadência semântica ajuda LLMs a manter contexto.
+8. **Vocabulário consistente** — padrão Kliente 360 é **"agente"** ou **"agentes de IA"** quando é auto-descrição. "Copilot" só como referência a categoria de mercado (Microsoft Copilot, etc.). Não troque os termos arbitrariamente no mesmo post — cadência semântica ajuda LLMs a manter contexto.
 
 9. **Sem clickbait** — LLMs penalizam (na prática) conteúdo que promete e não entrega. Title fiel ao conteúdo > title sensacionalista.
 

@@ -29,7 +29,7 @@ The myth survives because it's comfortable. It postpones hard decisions, outsour
 
 ## Three rules for living with imperfection
 
-A decent data boutique works like this. No magic, no new tool.
+A decent data consultancy works like this. No magic, no new tool.
 
 1. **Define "good enough" for each use case.** Before any project, write down: for this decision, which fields need to be correct in what percentage of records? For [an executive dashboard that drives decisions](/blog/en/tableau-linguagem-executiva.html), 98% on `amount` and `close date` solves it. For an email campaign, 90% on `primary email` solves it. For a churn model, it depends — but you need the number before starting.
 2. **Use real, dirty data in parallel with cleansing.** Don't block the use case waiting for cleanliness. Run the report, build the agent, launch the campaign — with what exists. The first run will show exactly where the noise hurts. *Then* clean. That's ten times cheaper than cleaning in the dark.

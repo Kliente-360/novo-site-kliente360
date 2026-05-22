@@ -114,7 +114,7 @@ Use [texto descritivo do link](https://exemplo.com), nunca "clique aqui". Links 
 
 ## Tom de voz Kliente 360
 
-Boutique informada falando com decisor informado. Direto, técnico, sem ladainha.
+Consultoria informada falando com decisor informado. Direto, técnico, sem ladainha.
 
 **Usar:**
 - "CRM, dados e IA como uma prática única."

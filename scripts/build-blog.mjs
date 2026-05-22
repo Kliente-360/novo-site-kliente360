@@ -61,7 +61,7 @@ const SITE_LANG = { pt: 'pt', en: 'en', es: 'es' };
 const STRINGS = {
   pt: {
     pillars: { sf: 'Pilar 01 · Salesforce', data: 'Pilar 02 · Data', ai: 'Pilar 03 · IA' },
-    sections: { sf: 'Salesforce', data: 'Data & Analytics', ai: 'IA & Aplicações' },
+    sections: { sf: 'Salesforce', data: 'Data & Analytics', ai: 'IA Aplicada' },
     blogBack: 'Blog',
     by: 'Por Kliente 360',
     readMin: 'min de leitura',
@@ -79,7 +79,7 @@ const STRINGS = {
   },
   en: {
     pillars: { sf: 'Practice 01 · Salesforce', data: 'Practice 02 · Data', ai: 'Practice 03 · AI' },
-    sections: { sf: 'Salesforce', data: 'Data & Analytics', ai: 'AI & Applications' },
+    sections: { sf: 'Salesforce', data: 'Data & Analytics', ai: 'Applied AI' },
     blogBack: 'Blog',
     by: 'By Kliente 360',
     readMin: 'min read',
@@ -97,7 +97,7 @@ const STRINGS = {
   },
   es: {
     pillars: { sf: 'Pilar 01 · Salesforce', data: 'Pilar 02 · Data', ai: 'Pilar 03 · IA' },
-    sections: { sf: 'Salesforce', data: 'Data & Analytics', ai: 'IA & Aplicaciones' },
+    sections: { sf: 'Salesforce', data: 'Data & Analytics', ai: 'IA Aplicada' },
     blogBack: 'Blog',
     by: 'Por Kliente 360',
     readMin: 'min de lectura',
@@ -180,7 +180,7 @@ const navHtml = (currentPath = '') => `
         <div class="group-label" data-i18n="nav.mobile.pillars">Pilares</div>
         <a href="/#salesforce" data-i18n="nav.mobile.salesforce">Salesforce</a>
         <a href="/#data" data-i18n="nav.mobile.data">Data &amp; Analytics</a>
-        <a href="/#ia" data-i18n="nav.mobile.ai">IA &amp; Aplicações</a>
+        <a href="/#ia" data-i18n="nav.mobile.ai">IA Aplicada</a>
       </div>
       <div class="group">
         <div class="group-label" data-i18n="nav.mobile.empresa">Empresa</div>
@@ -208,14 +208,14 @@ const footerHtml = `
             </svg>
             <span>kliente 360</span>
           </a>
-          <p data-i18n="footer.tagline">Boutique de CRM, dados e IA. Conhecimento aplicado, como serviço.</p>
+          <p data-i18n="footer.tagline">Consultoria especializada em CRM, dados e IA. Conhecimento aplicado, como serviço.</p>
         </div>
         <div class="footer-col">
           <h4 data-i18n="footer.pillarsTitle">Pilares</h4>
           <ul>
             <li><a href="/#salesforce" data-i18n="nav.mobile.salesforce">Salesforce</a></li>
             <li><a href="/#data" data-i18n="nav.mobile.data">Data &amp; Analytics</a></li>
-            <li><a href="/#ia" data-i18n="nav.mobile.ai">IA &amp; Aplicações</a></li>
+            <li><a href="/#ia" data-i18n="nav.mobile.ai">IA Aplicada</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -238,7 +238,7 @@ const footerHtml = `
       </div>
       <div class="footer-bottom">
         <div data-i18n="footer.rights">© 2026 Kliente 360. Todos os direitos reservados.</div>
-        <div class="mono">v0.1 · boutique CRM · dados · IA</div>
+        <div class="mono">v0.1 · CRM · dados · IA</div>
       </div>
     </div>
   </footer>`;

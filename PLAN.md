@@ -42,18 +42,18 @@ Levantado do arquivo Figma "Kliente 360" (autora Bruna Slongo, 2022).
 ## 3.1. Três pilares do novo portfólio (definidos 2026-05-22)
 
 1. **Salesforce — core CRM.** Sales Cloud, Service Cloud, Data Cloud, Agentforce. Reforça a herança/parceria.
-2. **Data & Analytics — agnóstico de marca.** Engenharia de dados + analytics avançado / data science. Viés de ferramenta de visualização: **Tableau**.
-3. **IA & Aplicações — pilar novo.** Aplicações práticas de IA em empresas de segmentos diversos. Pegada de **software house / produtos SaaS**.
+2. **Data & Analytics — agnóstico de marca.** Engenharia de dados + analytics avançado / data science. **Expertise interna em Tableau (não declarada como viés ao mercado — decisão 2026-05-22).**
+3. **IA Aplicada — pilar novo.** Aplicações práticas de IA em empresas de segmentos diversos. Pegada de **software house / produtos SaaS**. Vocabulário: "agentes de IA" (não "copilots").
 
 ## 3.2. Shortlist competitiva (para o brief)
 
 Dois concorrentes por pilar, mistura de boutique + mid/enterprise:
 
-| Pilar | Boutique (espelho) | Mid/Enterprise (teto aspiracional) |
+| Pilar | Especializada (espelho) | Mid/Enterprise (teto aspiracional) |
 |---|---|---|
 | Salesforce | Sottelli | Everymind |
 | Data & Analytics | Somativa | Indicium |
-| IA & Aplicações | Mind Group | CI&T |
+| IA Aplicada | Mind Group | CI&T |
 
 Referências secundárias mapeadas, fora do recorte: WeUse, Valtech, Capgemini, beAnalytic, Active BI, BDA Solutions, Aquarela, Zup, Slalom Build, Thoughtworks.
 
@@ -64,9 +64,9 @@ Referências secundárias mapeadas, fora do recorte: WeUse, Valtech, Capgemini, 
 - **Cores secundárias por pilar** (aparecem só dentro da seção do respectivo pilar):
   - Salesforce → azul profundo `#0B5394`
   - Data & Analytics → âmbar `#C9A227`
-  - IA & Aplicações → violeta `#6D28D9`
+  - IA Aplicada → violeta `#6D28D9`
 - **Navy `#06073E`** reaproveitado da paleta antiga como `--bg-deep` — fundo escuro alternativo opcional para hero/seção de IA. Não usar como acento.
-- **Yellow `#F8DF61` e Cyan `#0093FA` da paleta antiga**: descartados. Não combinam com o posicionamento boutique premium.
+- **Yellow `#F8DF61` e Cyan `#0093FA` da paleta antiga**: descartados. Não combinam com o posicionamento de consultoria especializada premium.
 
 ## 3.5. Atributo de marca — sócios na operação (2026-05-22)
 
@@ -78,7 +78,7 @@ Decidido **não fazer propaganda explícita** ("sócios na linha de frente" como
 
 ## 3.3. Marca e posicionamento (definidos 2026-05-22)
 
-- **Posicionamento**: boutique premium. Altíssima expertise, alta personalização, time enxuto, poucos clientes estratégicos. Os 3 pilares costurados como diferencial único no mercado local.
+- **Posicionamento**: consultoria especializada premium. Altíssima expertise, alta personalização, time enxuto, poucos clientes estratégicos. Os 3 pilares costurados como diferencial único no mercado local. **Decisão de copy 2026-05-22**: a palavra "boutique" não é usada externamente (interna ou competitivamente pode ser categoria); externamente usa-se "consultoria especializada".
 - **Tagline**: **"Conhecimento aplicado, como serviço."** *(evolução sutil de "Conhecimento como serviço")*
 - **Metodologia própria**: **Trilha 360** — narrativa de jornada do cliente ao longo dos pilares. Detalhamento das etapas a definir.
 - **Cases para o site** (conteúdo a alimentar depois — placeholders no HTML):
@@ -102,7 +102,7 @@ Referências: **Apple**, **Google**, **Salesforce**. Síntese aplicada:
 | # | Etapa | Status |
 |---|---|---|
 | 1 | Levantamento da marca antiga (Figma) | ✅ |
-| 2 | Direção visual macro (boutique premium, verde como acento) | ✅ |
+| 2 | Direção visual macro (consultoria especializada premium, verde como acento) | ✅ |
 | 3 | Portfólio repensado — três pilares + competitive-brief (`research/competitive-brief.md`) | ✅ |
 | 4 | Arquitetura do site (single-page, 10 seções, pilares com cor secundária) | ✅ |
 | 5 | Sistema visual definitivo — tokens, paleta, tipografia (§3.4) | ✅ |
@@ -159,5 +159,5 @@ Referências: **Apple**, **Google**, **Salesforce**. Síntese aplicada:
 ## 8. Histórico de sessões
 
 - **2026-05-21** — Scaffold criado. Levantamento Figma feito. Direção visual macro acordada. Portfólio entrou em revisão (competitive-brief). Documento PLAN.md criado em main.
-- **2026-05-22** — Três pilares do portfólio definidos (Salesforce / Data & Analytics / IA & Aplicações). Shortlist de 6 concorrentes consolidada. Brief competitivo rodado — resultados em `research/competitive-brief.md`. Marca consolidada: tagline "Conhecimento aplicado, como serviço.", metodologia "Trilha 360", posicionamento boutique premium. Cases-âncora: Sem Parar, Bodytech (métricas a alimentar). Produtos SaaS placeholders: agente RH, analytics contábil PME. Inspirações de design definidas: Apple (base), Google (acento), Salesforce (confiança). Arquitetura da home decidida (single-page, 10 seções, pilares na home). Idiomas: PT/EN/ES. Trilha 360 definida: Mapear → Prototipar → Validar → Implantar → Sustentar. Styleguide v0.1 publicado em `styleguide.html` para validação antes do site grande.
+- **2026-05-22** — Três pilares do portfólio definidos (Salesforce / Data & Analytics / IA Aplicada — pilar 3 renomeado de "IA & Aplicações" em 2026-05-22). Shortlist de 6 concorrentes consolidada. Brief competitivo rodado — resultados em `research/competitive-brief.md`. Marca consolidada: tagline "Conhecimento aplicado, como serviço.", metodologia "Trilha 360", posicionamento de **consultoria especializada premium** (decisão 2026-05-22: descartar "boutique" como label externa). Cases-âncora: Sem Parar, Bodytech (métricas a alimentar). Produtos SaaS placeholders: agente RH, analytics contábil PME. Inspirações de design definidas: Apple (base), Google (acento), Salesforce (confiança). Arquitetura da home decidida (single-page, 10 seções, pilares na home). Idiomas: PT/EN/ES. Trilha 360 definida: Mapear → Prototipar → Validar → Implantar → Sustentar. Styleguide v0.1 publicado em `styleguide.html` para validação antes do site grande.
 - **2026-05-22 (segunda passada)** — Site grande implementado e refinado: nav sticky com blur, hero com mark Aperture, 3 pilares + 3 seções deep, Trilha 360 horizontal, cases, confiança, blog teaser, contato, footer. Sistema de cor refinado (logo green sagrado vs UI green editorial; secundárias por pilar; navy resgatado como `--bg-deep`). i18n real PT/EN/ES com redirect inteligente. Build MD→HTML multilíngue (`scripts/build-blog.mjs`) — 3 posts publicados em PT/EN/ES com cadência Tue/Wed (13, 19, 20 mai). 34 temas mapeados para back-catálogo 2026. Routine de blog ativada. Favicon SVG + og-image.png gerado por `@resvg/resvg-js`. Sitemap + robots + JSON-LD `Article`. Cache invalidation robusto no Netlify. Tipografia do post editorial (escala suave, sem barra colorida, padrão bold-lead-in para subseções curtas). LinkedIn oficial + WhatsApp provisório adicionados (parking).

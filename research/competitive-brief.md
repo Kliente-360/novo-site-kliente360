@@ -6,7 +6,7 @@ Brief de posicionamento para apoiar a definição de portfólio, copy e arquitet
 
 - **Salesforce**: o mercado brasileiro tem polo claro de boutiques (Sottelli, ~180 pessoas, Campinas) e mid/enterprise (Everymind, ~500 pessoas, agora dentro do grupo Compasso/UOL). Todos correm para se reposicionar em torno de **Agentforce + Data Cloud**. Quem chegar tarde nessa narrativa fica genérico.
 - **Data & Analytics**: Somativa joga o cartão "boutique" explicitamente; Indicium é o teto local (fundiu com a inglesa Mesh-AI, virou global, R$ 6 bi de impacto declarado em projetos de IA). Distância grande entre os dois.
-- **IA & Aplicações**: ainda é pasto. Mind Group ocupa o discurso "AI-first software house" no mid-market; CI&T monopoliza o topo com **Flow** (plataforma própria de IA). Há espaço claro entre os dois — ninguém faz "produtos SaaS de IA verticais" com pegada consultiva no Brasil de forma destacada.
+- **IA Aplicada**: ainda é pasto. Mind Group ocupa o discurso "AI-first software house" no mid-market; CI&T monopoliza o topo com **Flow** (plataforma própria de IA). Há espaço claro entre os dois — ninguém faz "produtos SaaS de IA verticais" com pegada consultiva no Brasil de forma destacada.
 - **Padrão de copy** entre todos: termos genéricos (transformação, jornada, resultado). Diferenciação real vem de **proximidade ao negócio, metodologia nomeada e provas concretas (números, cases, certificações)**. Kliente 360 pode ganhar copy mais direta e cases nomeados.
 
 ## 2. Fichas por concorrente
@@ -35,7 +35,7 @@ Brief de posicionamento para apoiar a definição de portfólio, copy e arquitet
 - **Ofertas**: arquitetura e engenharia de dados, data science, ML, NLP, big data, visualização. Discurso forte de **cultura data-driven** e equipe multidisciplinar (técnico + negócio).
 - **Mensagem central**: "data-driven hub" — produtividade via troca de conhecimento, alocação de profissionais.
 - **Tom**: educado, didático (blog técnico forte), próximo. Pouca prova social externa visível.
-- **Leitura**: mesmo arquétipo de boutique que Kliente 360 quer no pilar 2. Diferenciar via **viés Tableau declarado + integração com pilar Salesforce + pilar IA** (eles não têm a ponta CRM).
+- **Leitura**: mesmo arquétipo de consultoria especializada que Kliente 360 quer no pilar 2. Diferenciar via **expertise Tableau interna (não declarada como viés ao mercado) + integração com pilar Salesforce + pilar IA Aplicada** (eles não têm a ponta CRM).
 
 #### Indicium (mid/global)
 - **Tagline atual**: "Data & AI partner" — após fusão com Mesh-AI, opera como Indicium AI globalmente.
@@ -44,7 +44,7 @@ Brief de posicionamento para apoiar a definição de portfólio, copy e arquitet
 - **Tom**: corporativo-técnico bilíngue, narrativa de "deep expertise + embedded training".
 - **Leitura**: teto aspiracional do pilar 2. Educação como ativo (Academy) é um movimento interessante — Kliente 360 pode considerar conteúdo/comunidade como vetor.
 
-### Pilar 3 — IA & Aplicações
+### Pilar 3 — IA Aplicada
 
 #### Mind Group (software house AI-first, Sorocaba/SP)
 - **Tagline implícita**: "Software house desde 2019" / "AI-first".
@@ -70,11 +70,11 @@ Data        Somativa                            Indicium
 IA          Mind Group                          CI&T
 ```
 
-Kliente 360 quer ficar **na coluna esquerda nos 3 pilares**, mas com uma vantagem que nenhum boutique tem hoje: **os três pilares conectados**. Sottelli é só Salesforce; Somativa não tem CRM; Mind Group não tem dados/Salesforce. A tese de marca é **"o boutique que costura CRM + dados + IA"**.
+Kliente 360 quer ficar **na coluna esquerda nos 3 pilares**, mas com uma vantagem que nenhum dos pares especializados tem hoje: **os três pilares conectados**. Sottelli é só Salesforce; Somativa não tem CRM; Mind Group não tem dados/Salesforce. A tese de marca é **"a consultoria especializada que costura CRM + dados + IA"**.
 
 ## 4. Gaps de mercado / oportunidades
 
-1. **Ponte Salesforce ↔ Data Cloud ↔ Agentforce com viés analítico Tableau.** Quase ninguém entrega isso integrado. Everymind faz, mas em escala enterprise.
+1. **Ponte Salesforce ↔ Data Cloud ↔ Agentforce, com expertise analítica robusta na ponta de consumo.** Quase ninguém entrega isso integrado. Everymind faz, mas em escala enterprise.
 2. **"Produtos SaaS de IA verticais" entregues com pegada consultiva.** Mind Group faz software sob medida; CI&T faz plataforma horizontal. Há espaço para "produtos pequenos + consultoria" — micro-SaaS vertical.
 3. **Metodologia nomeada.** Sottelli tem "Agile Methodology", CI&T tem "Flow", Indicium tem "framework próprio". Kliente 360 não tem ainda — vale criar (ex.: "Método K360" cobrindo discovery → data → ativação → IA).
 4. **Educação/comunidade como ativo.** Indicium AI Academy mostra que conteúdo gera demanda. Blog do site pode evoluir para hub de conteúdo, não só vitrine.
@@ -87,33 +87,33 @@ Kliente 360 quer ficar **na coluna esquerda nos 3 pilares**, mas com uma vantage
 **Salesforce — Core CRM**
 - Implementação Sales/Service Cloud
 - Data Cloud + ativação (CDP, integração com pipeline analítico)
-- Agentforce — agentes conversacionais e copilots
+- Agentforce — agentes conversacionais (vocabulário externo: "agentes", não "copilots")
 
 **Data & Analytics**
 - Engenharia de dados (modern stack, agnóstico de cloud)
 - Analytics avançado / Data Science (modelos preditivos, segmentação)
-- Visualização e self-service BI — **práctica certificada Tableau**
+- Visualização e self-service BI — **expertise Tableau interna, ferramenta escolhida pelo cenário**
 
-**IA & Aplicações**
+**IA Aplicada**
 - Produtos SaaS verticais (catálogo próprio — *a definir*)
-- Copilots e agentes sob medida
+- Agentes de IA sob medida
 - Discovery / sprint de IA (entrada de baixo compromisso)
 
 ### Tagline — direções para testar
 - "CRM, dados e IA — costurados como uma coisa só."
-- "A boutique que conecta Salesforce, dados e IA."
+- "A consultoria especializada que conecta Salesforce, dados e IA."
 - "Do dado ao agente. Sem emendas." *(curta, memorável)*
 - "Onde CRM, dados e IA convergem."
 
 ### Pistas para o tom de voz
 - Direto e técnico (estilo Sottelli/Indicium) — sem "transformação digital", "jornada", "experiência fluida".
 - Verbos de ação, números, nomes.
-- Inglês técnico OK (Agentforce, Data Cloud, copilots) — público é informado.
-- Posicionamento "premium boutique": menos vaidoso que enterprise, mais maduro que startup.
+- Inglês técnico OK (Agentforce, Data Cloud, agentes de IA) — público é informado. "Copilot" só como referência de categoria de mercado (Microsoft), não como auto-descrição.
+- Posicionamento "consultoria especializada premium": menos vaidoso que enterprise, mais maduro que startup.
 
 ## 6. Decisões a levar pro Felipe
 
-1. Aceita a tese **"boutique que costura os 3 pilares"** como posicionamento?
+1. Aceita a tese **"consultoria especializada que costura os 3 pilares"** como posicionamento? *(2026-05-22 — confirmado; "boutique" descartado como label externa)*
 2. Tem cases nomeados / com números que possam ir no site? (gap competitivo grande)
 3. Vale criar um nome de **metodologia própria** (ex.: "Método K360" / "K360 Way")?
 4. Algum **produto SaaS vertical** já em desenvolvimento ou ideia para nomear no pilar IA? Mesmo que como "em breve".

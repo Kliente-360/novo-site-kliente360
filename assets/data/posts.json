@@ -66,6 +66,28 @@
     }
   },
   {
+    "slug": "rag-na-pratica",
+    "pillar": "ai",
+    "date": "2026-01-13",
+    "translations": {
+      "pt": {
+        "title": "RAG na prática: a recuperação é o gargalo, não o LLM",
+        "url": "/blog/rag-na-pratica.html",
+        "date": "13 jan 2026"
+      },
+      "en": {
+        "title": "RAG in practice: retrieval is the bottleneck, not the LLM",
+        "url": "/blog/en/rag-na-pratica.html",
+        "date": "13 Jan 2026"
+      },
+      "es": {
+        "title": "RAG en la práctica: la recuperación es el cuello de botella, no el LLM",
+        "url": "/blog/es/rag-na-pratica.html",
+        "date": "13 ene 2026"
+      }
+    }
+  },
+  {
     "slug": "dado-limpo-e-um-mito",
     "pillar": "data",
     "date": "2026-01-07",

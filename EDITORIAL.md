@@ -2,7 +2,7 @@
 
 Tabela viva de posts planejados. Marcar `[x]` quando publicado. Atualizar sempre que um post for ao ar.
 
-Cadência: terça **ou** quarta, pulando feriados (ver `blog/posts/README.md` §"Cadência de publicação"). Pilares rotacionam: **sf** (Salesforce), **data** (Data & Analytics), **ai** (IA & Aplicações).
+Cadência: terça **ou** quarta, pulando feriados (ver `blog/posts/README.md` §"Cadência de publicação"). Pilares rotacionam: **sf** (Salesforce), **data** (Data & Analytics), **ai** (IA Aplicada).
 
 ## Back-catálogo já publicado (fora do plano 2026)
 
@@ -19,7 +19,7 @@ Cadência: terça **ou** quarta, pulando feriados (ver `blog/posts/README.md` §
 | 03 | 2026-01-13 | ter | ai | [RAG na prática: a recuperação é o gargalo, não o LLM](blog/posts/rag-na-pratica.md) | Por que recuperar é mais difícil que gerar | [x] |
 | 04 | 2026-01-14 | qua | sf | Sales Cloud: 5 antipadrões de implementação | O que separa rollout caro de rollout que rende | [ ] |
 | 05 | 2026-01-20 | ter | data | dbt na prática | O pulo do gato é a documentação, não o modelo | [ ] |
-| 06 | 2026-01-21 | qua | ai | LLM como copilot interno | Três casos onde funciona, dois onde fracassa | [ ] |
+| 06 | 2026-01-21 | qua | ai | LLM como agente interno | Três casos onde funciona, dois onde fracassa | [ ] |
 | 07 | 2026-01-27 | ter | sf | Service Cloud: SLA não é decoração | Como medir capacidade real antes de prometer prazo | [ ] |
 | 08 | 2026-01-28 | qua | data | ELT vs ETL | Por que a moda mudou e o que importa de fato | [ ] |
 | 09 | 2026-02-03 | ter | ai | Avaliação de agentes | A métrica que ninguém quer publicar | [ ] |
@@ -61,6 +61,6 @@ Ao publicar um post:
 
 - **sf** (Salesforce): 12 posts
 - **data** (Data & Analytics): 11 posts
-- **ai** (IA & Aplicações): 11 posts
+- **ai** (IA Aplicada): 11 posts
 
 Total: 34 posts.

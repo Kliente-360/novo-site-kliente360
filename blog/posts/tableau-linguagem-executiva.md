@@ -69,4 +69,4 @@ A combinação que funciona: **warehouse limpo + modelo de negócio bem definido
 
 A melhor métrica de qualidade pra um dashboard: *quantas decisões reais saíram dele no último trimestre*. Não acessos, não tempo de tela. Decisões. Se zero, mata e refaz.
 
-Empresas que adotam essa régua reduzem 60–80% do número de dashboards e — não por acaso — passam a confiar no que sobrou. Boutique de dados decente entrega isso, não relatório.
+Empresas que adotam essa régua reduzem 60–80% do número de dashboards e — não por acaso — passam a confiar no que sobrou. Consultoria de dados decente entrega isso, não relatório.

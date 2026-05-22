@@ -69,4 +69,4 @@ The combination that works: **clean warehouse + well-defined business model + Ta
 
 The best quality metric for a dashboard: *how many real decisions came from it in the last quarter*. Not visits, not screen time. Decisions. If zero, kill it and rebuild.
 
-Companies adopting this rule cut 60–80% of their dashboard count and — not by chance — start trusting what's left. A decent data boutique delivers this, not a report.
+Companies adopting this rule cut 60–80% of their dashboard count and — not by chance — start trusting what's left. A decent data consultancy delivers this, not a report.
