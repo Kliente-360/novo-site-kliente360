@@ -559,7 +559,7 @@ body {
 }
 .section.dark .trust-item .lbl { color: var(--ink-300); }
 
-/* ============ BLOG TEASER ============ */
+/* ============ BLOG ============ */
 .blog-grid { display: grid; gap: var(--sp-4); grid-template-columns: 1fr; }
 @media (min-width: 768px) { .blog-grid { grid-template-columns: repeat(3, 1fr); gap: var(--sp-6); } }
 
@@ -569,17 +569,18 @@ body {
   background: var(--bg);
   border: 1px solid var(--color-line);
   border-radius: var(--r-lg);
-  min-height: 200px;
+  min-height: 220px;
   transition: transform var(--dur-base) var(--ease-out),
               border-color var(--dur-base) var(--ease-out);
 }
 .post-card:hover { transform: translateY(-2px); border-color: var(--line-strong); }
-.post-card .meta {
-  font-family: var(--font-mono);
+.post-card .post-meta {
+  display: flex; align-items: center; gap: var(--sp-3);
+  margin-bottom: var(--sp-4);
   font-size: var(--fs-12);
   color: var(--color-fg-muted);
-  margin-bottom: var(--sp-3);
 }
+.post-card .post-date { font-family: var(--font-mono); letter-spacing: 0; }
 .post-card h3 {
   font-size: var(--fs-18);
   font-weight: var(--fw-semibold);
@@ -587,11 +588,68 @@ body {
   line-height: var(--lh-snug);
 }
 .post-card .read {
-  margin-top: auto; padding-top: var(--sp-4);
+  margin-top: auto; padding-top: var(--sp-6);
   font-size: var(--fs-14);
   color: var(--color-accent);
   font-weight: var(--fw-medium);
 }
+
+/* Pill por pilar — reutilizável */
+.pill-pillar {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 4px 10px;
+  border-radius: var(--r-pill);
+  font-size: var(--fs-12);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-tight);
+  white-space: nowrap;
+}
+.pill-pillar::before {
+  content: ""; width: 6px; height: 6px; border-radius: 50%;
+  background: currentColor;
+}
+[data-pillar="sf"]   .pill-pillar { background: color-mix(in srgb, var(--c-salesforce) 12%, transparent); color: var(--c-salesforce); }
+[data-pillar="data"] .pill-pillar { background: color-mix(in srgb, var(--c-data) 16%, transparent); color: #8a6f15; }
+[data-pillar="ai"]   .pill-pillar { background: color-mix(in srgb, var(--c-ai) 12%, transparent); color: var(--c-ai); }
+.section.dark [data-pillar="ai"] .pill-pillar { background: rgba(167,139,250,0.18); color: #A78BFA; }
+
+/* ============ BLOG LANDING ============ */
+.blog-hero { padding-block: var(--sp-16) var(--sp-12); }
+@media (min-width: 768px) { .blog-hero { padding-block: var(--sp-24) var(--sp-16); } }
+.blog-hero h1 { font-size: var(--fs-h1); line-height: var(--lh-tight); letter-spacing: var(--ls-tighter); font-weight: var(--fw-bold); max-width: 14ch; }
+.blog-hero .lead { margin-top: var(--sp-6); }
+
+.blog-filter {
+  display: flex; gap: var(--sp-2);
+  margin: var(--sp-8) 0 var(--sp-12);
+  flex-wrap: wrap;
+}
+.blog-filter button {
+  padding: 8px 14px;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--color-line);
+  background: var(--bg);
+  font-size: var(--fs-14);
+  font-weight: var(--fw-medium);
+  color: var(--color-fg-muted);
+  cursor: pointer;
+  transition: all var(--dur-fast) var(--ease-out);
+}
+.blog-filter button:hover { color: var(--ink-900); border-color: var(--line-strong); }
+.blog-filter button[aria-pressed="true"] {
+  background: var(--ink-900);
+  color: #fff;
+  border-color: var(--ink-900);
+}
+.blog-filter button[data-filter="sf"][aria-pressed="true"]   { background: var(--c-salesforce); border-color: var(--c-salesforce); }
+.blog-filter button[data-filter="data"][aria-pressed="true"] { background: var(--c-data); border-color: var(--c-data); color: #1d1d1f; }
+.blog-filter button[data-filter="ai"][aria-pressed="true"]   { background: var(--c-ai); border-color: var(--c-ai); }
+
+.blog-list { display: grid; gap: var(--sp-6); grid-template-columns: 1fr; }
+@media (min-width: 768px) { .blog-list { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1100px) { .blog-list { grid-template-columns: repeat(3, 1fr); } }
+
+.post-card[data-hidden="true"] { display: none; }
 
 /* ============ CONTATO ============ */
 .contact-grid {

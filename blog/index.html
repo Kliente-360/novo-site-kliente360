@@ -2,11 +2,222 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Blog Kliente 360 — Estratégia, prática e crítica em CRM, dados e IA. Ensaios e análises para quem decide." />
+  <meta name="theme-color" content="#0a0a0a" />
   <title>Blog — Kliente 360</title>
-  <link rel="stylesheet" href="/assets/css/main.css" />
+  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Kliente 360" />
+  <meta property="og:title" content="Blog Kliente 360 — Estratégia, prática e crítica" />
+  <meta property="og:description" content="CRM, dados e IA — ensaios e análises para quem decide." />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="/assets/css/tokens.css?v=20260522-13" />
+  <link rel="stylesheet" href="/assets/css/reset.css?v=20260522-13" />
+  <link rel="stylesheet" href="/assets/css/main.css?v=20260522-13" />
 </head>
 <body>
-  <main id="blog"></main>
+  <a class="skip-link" href="#main">Pular para o conteúdo</a>
+
+  <header class="nav" role="banner">
+    <div class="container nav-inner">
+      <a class="nav-brand" href="/" aria-label="Kliente 360 — início">
+        <svg class="mark-aperture" viewBox="0 0 80 80" aria-hidden="true">
+          <circle cx="40" cy="22" r="11"/>
+          <circle cx="58" cy="40" r="11"/>
+          <circle cx="40" cy="58" r="11"/>
+          <circle cx="22" cy="40" r="11"/>
+        </svg>
+        <span>kliente 360</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Principal">
+        <a href="/#pilares">Pilares</a>
+        <a href="/#trilha">Trilha 360</a>
+        <a href="/#cases">Cases</a>
+        <a href="/blog/" aria-current="page">Blog</a>
+        <a href="/#contato">Contato</a>
+      </nav>
+
+      <div class="nav-right">
+        <div class="lang-switch" role="group" aria-label="Idioma">
+          <button type="button" aria-current="true">PT</button>
+          <button type="button">EN</button>
+          <button type="button">ES</button>
+        </div>
+        <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-controls="nav-menu" aria-expanded="false" data-nav-toggle>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="nav-menu" id="nav-menu" data-open="false">
+      <div class="group">
+        <div class="group-label">Pilares</div>
+        <a href="/#salesforce">Salesforce</a>
+        <a href="/#data">Data &amp; Analytics</a>
+        <a href="/#ia">IA &amp; Aplicações</a>
+      </div>
+      <div class="group">
+        <div class="group-label">Empresa</div>
+        <a href="/#trilha">Trilha 360</a>
+        <a href="/#cases">Cases</a>
+        <a href="/blog/">Blog</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="/#contato">Falar com um sócio</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="blog-hero">
+      <div class="container">
+        <span class="eyebrow">Blog</span>
+        <h1 style="margin-top: var(--sp-3);">Estratégia, prática e crítica.</h1>
+        <p class="lead">CRM, dados e IA — ensaios e análises para quem decide. Conteúdo técnico, sem clichês.</p>
+
+        <div class="blog-filter" role="group" aria-label="Filtrar por pilar">
+          <button type="button" data-filter="all" aria-pressed="true">Todos</button>
+          <button type="button" data-filter="sf"   aria-pressed="false">Salesforce</button>
+          <button type="button" data-filter="data" aria-pressed="false">Data &amp; Analytics</button>
+          <button type="button" data-filter="ai"   aria-pressed="false">IA &amp; Aplicações</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top: 0;">
+      <div class="container">
+        <div class="blog-list">
+
+          <a class="post-card" data-pillar="ai" href="/blog/quando-agente-e-resposta.html">
+            <div class="post-meta">
+              <span class="pill-pillar">Pilar 03 · IA</span>
+              <span class="post-date">14 mai 2026</span>
+            </div>
+            <h3>Quando um agente é a resposta — e quando ele é fuga de problema mal modelado.</h3>
+            <div class="read">Ler →</div>
+          </a>
+
+          <a class="post-card" data-pillar="sf" href="#">
+            <div class="post-meta">
+              <span class="pill-pillar">Pilar 01 · Salesforce</span>
+              <span class="post-date">Em breve</span>
+            </div>
+            <h3>Data Cloud não é mais CDP — é o nervo central do Salesforce.</h3>
+            <div class="read">Ler →</div>
+          </a>
+
+          <a class="post-card" data-pillar="data" href="#">
+            <div class="post-meta">
+              <span class="pill-pillar">Pilar 02 · Data</span>
+              <span class="post-date">Em breve</span>
+            </div>
+            <h3>Tableau como linguagem executiva: matando o dashboard de vaidade.</h3>
+            <div class="read">Ler →</div>
+          </a>
+
+          <a class="post-card" data-pillar="sf" href="#">
+            <div class="post-meta">
+              <span class="pill-pillar">Pilar 01 · Salesforce</span>
+              <span class="post-date">Em breve</span>
+            </div>
+            <h3>Agentforce em produção: o que muda na operação de atendimento.</h3>
+            <div class="read">Ler →</div>
+          </a>
+
+          <a class="post-card" data-pillar="data" href="#">
+            <div class="post-meta">
+              <span class="pill-pillar">Pilar 02 · Data</span>
+              <span class="post-date">Em breve</span>
+            </div>
+            <h3>Modern data stack em 2026: o que importa pra empresa brasileira de médio porte.</h3>
+            <div class="read">Ler →</div>
+          </a>
+
+          <a class="post-card" data-pillar="ai" href="#">
+            <div class="post-meta">
+              <span class="pill-pillar">Pilar 03 · IA</span>
+              <span class="post-date">Em breve</span>
+            </div>
+            <h3>Governança de IA: o passivo que ninguém vê até o primeiro incidente.</h3>
+            <div class="read">Ler →</div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <a class="footer-brand" href="/" aria-label="Kliente 360">
+            <svg viewBox="0 0 80 80" aria-hidden="true">
+              <circle cx="40" cy="22" r="11" opacity="0.45"/>
+              <circle cx="58" cy="40" r="11" opacity="0.65"/>
+              <circle cx="40" cy="58" r="11" opacity="0.85"/>
+              <circle cx="22" cy="40" r="11"/>
+            </svg>
+            <span>kliente 360</span>
+          </a>
+          <p>Boutique de CRM, dados e IA. Conhecimento aplicado, como serviço.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Pilares</h4>
+          <ul>
+            <li><a href="/#salesforce">Salesforce</a></li>
+            <li><a href="/#data">Data &amp; Analytics</a></li>
+            <li><a href="/#ia">IA &amp; Aplicações</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Empresa</h4>
+          <ul>
+            <li><a href="/#trilha">Trilha 360</a></li>
+            <li><a href="/#cases">Cases</a></li>
+            <li><a href="/blog/">Blog</a></li>
+            <li><a href="/#contato">Contato</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contato</h4>
+          <ul>
+            <li><a href="mailto:contato@kliente360.com">contato@kliente360.com</a></li>
+            <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 Kliente 360. Todos os direitos reservados.</div>
+        <div class="mono">v0.1 · boutique CRM · dados · IA</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/main.js?v=20260522-13" type="module"></script>
+  <script>
+    document.querySelectorAll('.blog-filter button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.dataset.filter;
+        document.querySelectorAll('.blog-filter button').forEach(b => b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'));
+        document.querySelectorAll('.post-card').forEach(card => {
+          const show = filter === 'all' || card.dataset.pillar === filter;
+          card.dataset.hidden = show ? 'false' : 'true';
+        });
+      });
+    });
+  </script>
 </body>
 </html>
