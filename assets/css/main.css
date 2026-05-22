@@ -1187,39 +1187,57 @@ body {
 @media (min-width: 768px) { .pp-posts-grid { grid-template-columns: repeat(2, 1fr); gap: var(--sp-6); } }
 @media (min-width: 1100px) { .pp-posts-grid { grid-template-columns: repeat(3, 1fr); } }
 
-/* CTA final */
-.pp-cta {
-  padding-block: var(--sp-20);
+/* CTA final (pp-cta = pillar pages, cm-cta = comercial — mesmo padrão) */
+.pp-cta, .cm-cta {
+  padding-block: var(--sp-24);
   background: var(--ink-900);
   color: #fff;
 }
-@media (min-width: 768px) { .pp-cta { padding-block: var(--sp-32); } }
-.pp-cta .container { text-align: center; }
-.pp-cta h2 {
+@media (min-width: 768px) { .pp-cta, .cm-cta { padding-block: var(--sp-40); } }
+
+.pp-cta .container, .cm-cta .container { text-align: center; }
+
+.pp-cta .eyebrow, .cm-cta .eyebrow {
+  color: var(--green-300);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  font-size: var(--fs-12);
+  display: inline-block;
+  margin-bottom: var(--sp-6);
+}
+
+.pp-cta h2, .cm-cta h2 {
+  margin-inline: auto;
+  margin-bottom: var(--sp-8);
+  max-width: 22ch;
   font-size: clamp(2rem, 1.5rem + 1.5vw, 3rem);
   font-weight: var(--fw-bold);
   letter-spacing: var(--ls-tighter);
   line-height: 1.1;
-  max-width: 22ch;
-  margin-inline: auto;
-  margin-bottom: var(--sp-6);
   color: #fff;
   text-align: center;
 }
-.pp-cta p {
+
+.pp-cta p, .cm-cta p {
+  margin-inline: auto;
+  margin-bottom: var(--sp-12);
+  max-width: 50ch;
   font-size: var(--fs-18);
   color: var(--ink-300);
-  max-width: 50ch;
-  margin-inline: auto;
-  margin-bottom: var(--sp-10);
   line-height: 1.5;
   text-align: center;
 }
-.pp-cta .cta-row {
+@media (min-width: 768px) {
+  .pp-cta h2, .cm-cta h2 { margin-bottom: var(--sp-10); }
+  .pp-cta p, .cm-cta p { margin-bottom: var(--sp-16); }
+}
+
+.pp-cta .cta-row, .cm-cta .cta-row {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: var(--sp-3);
+  gap: var(--sp-4);
   flex-wrap: wrap;
 }
 .pp-cta .btn-pillar { background: var(--pp-color); color: #fff; border-color: var(--pp-color); }
