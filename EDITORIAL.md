@@ -36,7 +36,7 @@ Cadência: terça **ou** quarta, pulando feriados (ver `blog/posts/README.md` §
 | 20 | 2026-03-18 | qua | data | [Self-service BI: por que cada departamento tem seu "rascunho final"](blog/posts/self-service-bi.md) | Por que cada departamento tem seu "rascunho final" | [x] |
 | 21 | 2026-03-24 | ter | ai | [Custos reais de inferência: como evitar surpresa de US$ no fim do mês](blog/posts/custos-reais-de-inferencia.md) | Como evitar surpresa de US$ no fim do mês | [x] |
 | 22 | 2026-03-25 | qua | sf | [Sandbox strategy: como evitar "a última sandbox foi há 4 meses"](blog/posts/sandbox-strategy.md) | Como evitar "a última sandbox foi há 4 meses" | [x] |
-| 23 | 2026-03-31 | ter | data | Data Catalog que ninguém usa | Sintoma do problema real (não é a ferramenta) | [ ] |
+| 23 | 2026-03-31 | ter | data | [Data Catalog que ninguém usa: sintoma do problema real (não é a ferramenta)](blog/posts/data-catalog-ninguem-usa.md) | Sintoma do problema real (não é a ferramenta) | [x] |
 | 24 | 2026-04-01 | qua | ai | Privacidade de dados em LLMs | A checklist de governança que falta no piloto | [ ] |
 | 25 | 2026-04-07 | ter | sf | Marketing Cloud + Data Cloud | A stack que devia ter nascido junta | [ ] |
 | 26 | 2026-04-08 | qua | data | Engenharia de prompts pra analytics | O pipeline esquecido entre dado e relatório | [ ] |
