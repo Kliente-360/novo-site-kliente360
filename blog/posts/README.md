@@ -64,6 +64,25 @@ Cada post pertence a **um pilar primário**. O pilar define:
 - `README.md` — esta documentação. Ignorada pelo build.
 - Qualquer arquivo iniciado por `_` é ignorado (use para rascunhos: `_draft-meu-post.md`).
 
+## Traduções (multi-idioma)
+
+Cada post pode ter variantes por idioma:
+
+```
+quando-agente-e-resposta.md       → PT (padrão, obrigatório)
+quando-agente-e-resposta.en.md    → EN (opcional)
+quando-agente-e-resposta.es.md    → ES (opcional)
+```
+
+Todos os arquivos do mesmo post compartilham o **mesmo `slug`** no frontmatter. Os campos a traduzir são `title`, `excerpt`, `tldr`, `keywords` e o corpo. O `pillar` e o `date` ficam no arquivo PT e valem para todas as variantes.
+
+URLs geradas:
+- `/blog/<slug>.html` (PT, sempre presente)
+- `/blog/en/<slug>.html` (somente se `<slug>.en.md` existir)
+- `/blog/es/<slug>.html` (somente se `<slug>.es.md` existir)
+
+A listagem `/blog/`, `/blog/en/` e `/blog/es/` mostra apenas posts com tradução para o idioma da página.
+
 ## Tom de voz
 
 Boutique informada falando com decisor informado. Direto, técnico, sem clichês.

@@ -281,6 +281,22 @@ document.addEventListener('DOMContentLoaded', () => {
   apply(initial);
 
   document.querySelectorAll('[data-lang]').forEach(btn => {
-    btn.addEventListener('click', () => apply(btn.dataset.lang));
+    btn.addEventListener('click', () => {
+      const lang = btn.dataset.lang;
+      // Em páginas de blog, redirecionar para a URL do idioma correspondente.
+      const path = location.pathname;
+      const isBlog = path.startsWith('/blog/');
+      if (isBlog) {
+        const m = path.match(/^\/blog\/(en|es)\/(.*)$/);
+        const rest = m ? m[2] : path.slice('/blog/'.length);
+        const newPath = lang === 'pt' ? `/blog/${rest}` : `/blog/${lang}/${rest}`;
+        if (newPath !== path) {
+          localStorage.setItem('k360.lang', lang);
+          location.href = newPath;
+          return;
+        }
+      }
+      apply(lang);
+    });
   });
 });

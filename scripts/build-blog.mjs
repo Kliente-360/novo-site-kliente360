@@ -1,28 +1,23 @@
 #!/usr/bin/env node
 /**
- * Kliente 360 — build do blog MD → HTML
+ * Kliente 360 — build do blog MD → HTML, multilíngue.
  *
- * Lê todos os posts em blog/posts/*.md, gera:
- *  - blog/<slug>.html para cada post
- *  - blog/index.html com listagem completa
+ * Convenção de arquivos em blog/posts/:
+ *   <slug>.md        → variante PT (padrão)
+ *   <slug>.en.md     → variante EN (opcional)
+ *   <slug>.es.md     → variante ES (opcional)
  *
- * Estrutura de um post (frontmatter YAML + corpo MD):
+ * Saída:
+ *   /blog/<slug>.html        (PT — padrão)
+ *   /blog/en/<slug>.html     (EN — se houver tradução)
+ *   /blog/es/<slug>.html     (ES — se houver tradução)
+ *   /blog/index.html         (PT)
+ *   /blog/en/index.html      (EN, posts com tradução EN)
+ *   /blog/es/index.html      (ES, posts com tradução ES)
+ *   /sitemap.xml             (inclui todas as variantes)
+ *   /og-image.png            (renderiza SVG → PNG)
  *
- *   ---
- *   title: "Título do post"
- *   slug: "titulo-do-post"
- *   pillar: "ai"          # sf | data | ai
- *   date: "2026-05-14"
- *   readMinutes: 6
- *   excerpt: "Resumo em uma linha."
- *   tldr: "Resumo de 2-3 linhas pra capa do post."
- *   keywords: ["IA", "agentes"]
- *   ---
- *
- *   Conteúdo em Markdown aqui...
- *
- * Pensado para automação: agentes podem produzir arquivos .md
- * sem tocar em HTML/CSS. O template é fixo, o conteúdo é livre.
+ * Arquivos ignorados: _*.md, README.md.
  */
 
 import { readFileSync, readdirSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
@@ -40,17 +35,79 @@ const BLOG_DIR   = join(ROOT, 'blog');
 
 const ASSET_VERSION = new Date().toISOString().slice(0, 10).replaceAll('-', '');
 
-const PILLARS = {
-  sf:   { id: 'sf',   label: 'Pilar 01 · Salesforce', sectionName: 'Salesforce' },
-  data: { id: 'data', label: 'Pilar 02 · Data',       sectionName: 'Data & Analytics' },
-  ai:   { id: 'ai',   label: 'Pilar 03 · IA',         sectionName: 'IA & Aplicações' },
+const LANGS = ['pt', 'en', 'es'];
+const HTML_LANG = { pt: 'pt-BR', en: 'en-US', es: 'es-ES' };
+const SITE_LANG = { pt: 'pt', en: 'en', es: 'es' };
+
+// Labels de UI por idioma — usados na geração estática (chrome do post).
+const STRINGS = {
+  pt: {
+    pillars: { sf: 'Pilar 01 · Salesforce', data: 'Pilar 02 · Data', ai: 'Pilar 03 · IA' },
+    sections: { sf: 'Salesforce', data: 'Data & Analytics', ai: 'IA & Aplicações' },
+    blogBack: 'Blog',
+    by: 'Por Kliente 360',
+    readMin: 'min de leitura',
+    tldr: 'TL;DR',
+    endLabel: 'Continuar a conversa',
+    endTitle: 'Quer discutir esse tema com um sócio?',
+    endText: 'Diagnóstico inicial sem compromisso. Levamos uma primeira leitura do seu cenário em uma semana e devolvemos um relatório.',
+    endLink: 'Conversar com um sócio',
+    relatedTitle: 'Próximas leituras',
+    listingTitle: 'Estratégia, prática e crítica.',
+    listingLead: 'CRM, dados e IA — ensaios e análises para quem decide. Conteúdo técnico, sem clichês.',
+    listingMeta: 'Blog Kliente 360 — Estratégia, prática e crítica em CRM, dados e IA. Ensaios e análises para quem decide.',
+    filterAll: 'Todos',
+    readLink: 'Ler →',
+  },
+  en: {
+    pillars: { sf: 'Practice 01 · Salesforce', data: 'Practice 02 · Data', ai: 'Practice 03 · AI' },
+    sections: { sf: 'Salesforce', data: 'Data & Analytics', ai: 'AI & Applications' },
+    blogBack: 'Blog',
+    by: 'By Kliente 360',
+    readMin: 'min read',
+    tldr: 'TL;DR',
+    endLabel: 'Keep the conversation going',
+    endTitle: 'Want to discuss this topic with a partner?',
+    endText: 'Initial diagnostic with no commitment. We assess your scenario in a week and send back a report.',
+    endLink: 'Talk to a partner',
+    relatedTitle: 'Further reading',
+    listingTitle: 'Strategy, practice and critique.',
+    listingLead: 'CRM, data and AI — essays and analysis for decision-makers. Technical content, no buzzwords.',
+    listingMeta: 'Kliente 360 Blog — Strategy, practice and critique in CRM, data and AI. Essays for decision-makers.',
+    filterAll: 'All',
+    readLink: 'Read →',
+  },
+  es: {
+    pillars: { sf: 'Pilar 01 · Salesforce', data: 'Pilar 02 · Data', ai: 'Pilar 03 · IA' },
+    sections: { sf: 'Salesforce', data: 'Data & Analytics', ai: 'IA & Aplicaciones' },
+    blogBack: 'Blog',
+    by: 'Por Kliente 360',
+    readMin: 'min de lectura',
+    tldr: 'TL;DR',
+    endLabel: 'Continuar la conversación',
+    endTitle: '¿Quieres discutir este tema con un socio?',
+    endText: 'Diagnóstico inicial sin compromiso. Hacemos una primera lectura de tu escenario en una semana y devolvemos un informe.',
+    endLink: 'Hablar con un socio',
+    relatedTitle: 'Próximas lecturas',
+    listingTitle: 'Estrategia, práctica y crítica.',
+    listingLead: 'CRM, datos e IA — ensayos y análisis para quien decide. Contenido técnico, sin clichés.',
+    listingMeta: 'Blog Kliente 360 — Estrategia, práctica y crítica en CRM, datos e IA. Ensayos para quien decide.',
+    filterAll: 'Todos',
+    readLink: 'Leer →',
+  },
 };
 
+const PILLARS_DATA = { sf: {}, data: {}, ai: {} };
+
 // ---------- helpers ----------
-const formatDate = (iso) => {
+const formatDate = (iso, lang = 'pt') => {
   const d = new Date(iso + 'T00:00:00');
-  const months = ['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
-  return `${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`;
+  const months = {
+    pt: ['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'],
+    en: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
+    es: ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'],
+  };
+  return `${d.getDate()} ${months[lang][d.getMonth()]} ${d.getFullYear()}`;
 };
 
 const escapeHtml = (s) => String(s)
@@ -58,10 +115,13 @@ const escapeHtml = (s) => String(s)
   .replaceAll('"','&quot;').replaceAll("'", '&#39;');
 
 const renderMarkdown = (md) => {
-  // Marca o primeiro parágrafo do corpo para receber o drop-cap.
   const html = marked.parse(md, { breaks: false, gfm: true });
   return html.replace('<p>', '<p class="post-intro">');
 };
+
+// Caminho relativo de um asset CSS/JS (sempre absoluto a partir da raiz).
+const postUrl = (slug, lang) => lang === 'pt' ? `/blog/${slug}.html` : `/blog/${lang}/${slug}.html`;
+const listingUrl = (lang) => lang === 'pt' ? '/blog/' : `/blog/${lang}/`;
 
 // ---------- shared chunks ----------
 const navHtml = (currentPath = '') => `
@@ -164,7 +224,7 @@ const footerHtml = `
     </div>
   </footer>`;
 
-const headCommon = ({ title, description, canonical, ogType = 'article', pubDate, section }) => `
+const headCommon = ({ title, description, canonical, ogType = 'article', pubDate, section, htmlLang = 'pt-BR' }) => `
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>${escapeHtml(title)}</title>
@@ -176,7 +236,6 @@ const headCommon = ({ title, description, canonical, ogType = 'article', pubDate
 
   <link rel="canonical" href="${canonical}" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="alternate icon" href="/favicon.ico" />
 
   <meta property="og:type" content="${ogType}" />
   <meta property="og:site_name" content="Kliente 360" />
@@ -200,38 +259,45 @@ const headCommon = ({ title, description, canonical, ogType = 'article', pubDate
   <link rel="stylesheet" href="/assets/css/main.css?v=${ASSET_VERSION}" />`;
 
 // ---------- post template ----------
-const renderPost = (post, posts) => {
-  const pillar = PILLARS[post.pillar];
-  if (!pillar) throw new Error(`Post ${post.slug}: pillar inválido '${post.pillar}'`);
+const renderPost = (post, lang, allPosts) => {
+  const t = post.translations[lang];
+  if (!t) return null;
+  const S = STRINGS[lang];
+  const pillarLabel = S.pillars[post.pillar];
+  const sectionLabel = S.sections[post.pillar];
 
-  // Próximas leituras: 3 outros posts (preferindo o mesmo pilar)
   const related = [
-    ...posts.filter(p => p.slug !== post.slug && p.pillar === post.pillar),
-    ...posts.filter(p => p.slug !== post.slug && p.pillar !== post.pillar),
+    ...allPosts.filter(p => p.slug !== post.slug && p.pillar === post.pillar && p.translations[lang]),
+    ...allPosts.filter(p => p.slug !== post.slug && p.pillar !== post.pillar && p.translations[lang]),
   ].slice(0, 3);
+
+  const canonical = postUrl(post.slug, lang);
+  const blogHref = listingUrl(lang);
 
   const ldJson = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: post.title,
-    description: post.excerpt,
+    headline: t.title,
+    description: t.excerpt,
     datePublished: post.date,
+    inLanguage: HTML_LANG[lang],
     author:    { '@type': 'Organization', name: 'Kliente 360' },
     publisher: { '@type': 'Organization', name: 'Kliente 360' },
-    articleSection: pillar.sectionName,
-    keywords: post.keywords || [],
+    articleSection: sectionLabel,
+    keywords: t.keywords || [],
   };
 
   return `<!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="${HTML_LANG[lang]}">
 <head>
 ${headCommon({
-  title: `${post.title} | Kliente 360`,
-  description: post.excerpt,
-  canonical: `/blog/${post.slug}.html`,
+  title: `${t.title} | Kliente 360`,
+  description: t.excerpt,
+  canonical,
   ogType: 'article',
   pubDate: post.date,
-  section: pillar.sectionName,
+  section: sectionLabel,
+  htmlLang: HTML_LANG[lang],
 })}
 
   <script type="application/ld+json">
@@ -243,56 +309,56 @@ ${JSON.stringify(ldJson, null, 2)}
 ${navHtml('/blog/' + post.slug)}
 
   <main id="main">
-    <article class="post-article" data-pillar="${pillar.id}">
+    <article class="post-article" data-pillar="${post.pillar}">
 
       <header class="post-header">
         <div class="container container-narrow">
-          <a class="post-back" href="/blog/">Blog</a>
-          <span class="pill-pillar">${escapeHtml(pillar.label)}</span>
-          <h1>${escapeHtml(post.title)}</h1>
+          <a class="post-back" href="${blogHref}">${escapeHtml(S.blogBack)}</a>
+          <span class="pill-pillar">${escapeHtml(pillarLabel)}</span>
+          <h1>${escapeHtml(t.title)}</h1>
           <div class="post-meta-line">
-            <time datetime="${post.date}">${formatDate(post.date)}</time>
+            <time datetime="${post.date}">${formatDate(post.date, lang)}</time>
             <span class="sep">·</span>
-            <span>${post.readMinutes} min de leitura</span>
+            <span>${t.readMinutes} ${escapeHtml(S.readMin)}</span>
             <span class="sep">·</span>
-            <span>Por Kliente 360</span>
+            <span>${escapeHtml(S.by)}</span>
           </div>
         </div>
       </header>
 
       <div class="container">
         <div class="post-body">
-          ${post.tldr ? `<aside class="post-tldr">
-            <div class="label">TL;DR</div>
-            <p>${escapeHtml(post.tldr)}</p>
+          ${t.tldr ? `<aside class="post-tldr">
+            <div class="label">${escapeHtml(S.tldr)}</div>
+            <p>${escapeHtml(t.tldr)}</p>
           </aside>` : ''}
 
-          ${renderMarkdown(post.body)}
+          ${renderMarkdown(t.body)}
         </div>
       </div>
 
       <section class="post-end">
         <div class="container">
           <div class="post-end-cta">
-            <div class="label">Continuar a conversa</div>
-            <h3>Quer discutir esse tema com um sócio?</h3>
-            <p>Diagnóstico inicial sem compromisso. Levamos uma primeira leitura do seu cenário em uma semana e devolvemos um relatório.</p>
-            <a class="btn-link" href="/#contato">Conversar com um sócio</a>
+            <div class="label">${escapeHtml(S.endLabel)}</div>
+            <h3>${escapeHtml(S.endTitle)}</h3>
+            <p>${escapeHtml(S.endText)}</p>
+            <a class="btn-link" href="/#contato">${escapeHtml(S.endLink)}</a>
           </div>
         </div>
       </section>
 
       ${related.length ? `<section class="post-related">
         <div class="container">
-          <h2>Próximas leituras</h2>
+          <h2>${escapeHtml(S.relatedTitle)}</h2>
           <div class="blog-list">
-${related.map(r => `            <a class="post-card" data-pillar="${r.pillar}" href="/blog/${r.slug}.html">
+${related.map(r => `            <a class="post-card" data-pillar="${r.pillar}" href="${postUrl(r.slug, lang)}">
               <div class="post-meta">
-                <span class="pill-pillar">${escapeHtml(PILLARS[r.pillar].label)}</span>
-                <span class="post-date">${formatDate(r.date)}</span>
+                <span class="pill-pillar">${escapeHtml(S.pillars[r.pillar])}</span>
+                <span class="post-date">${formatDate(r.date, lang)}</span>
               </div>
-              <h3>${escapeHtml(r.title)}</h3>
-              <div class="read" data-i18n="blog.read">Ler →</div>
+              <h3>${escapeHtml(r.translations[lang].title)}</h3>
+              <div class="read">${escapeHtml(S.readLink)}</div>
             </a>`).join('\n')}
           </div>
         </div>
@@ -310,32 +376,37 @@ ${footerHtml}
 };
 
 // ---------- listing template ----------
-const renderListing = (posts) => `<!DOCTYPE html>
-<html lang="pt-BR">
+const renderListing = (lang, allPosts) => {
+  const S = STRINGS[lang];
+  const posts = allPosts.filter(p => p.translations[lang]);
+
+  return `<!DOCTYPE html>
+<html lang="${HTML_LANG[lang]}">
 <head>
 ${headCommon({
   title: 'Blog — Kliente 360',
-  description: 'Blog Kliente 360 — Estratégia, prática e crítica em CRM, dados e IA. Ensaios e análises para quem decide.',
-  canonical: '/blog/',
+  description: S.listingMeta,
+  canonical: listingUrl(lang),
   ogType: 'website',
+  htmlLang: HTML_LANG[lang],
 })}
 </head>
 <body>
   <a class="skip-link" href="#main">Pular para o conteúdo</a>
-${navHtml('/blog/')}
+${navHtml(listingUrl(lang))}
 
   <main id="main">
     <section class="blog-hero">
       <div class="container">
         <span class="eyebrow" data-i18n="blog.eyebrow">Blog</span>
-        <h1 style="margin-top: var(--sp-3);" data-i18n="blog.title">Estratégia, prática e crítica.</h1>
-        <p class="lead" data-i18n="blog.lead">CRM, dados e IA — ensaios e análises para quem decide. Conteúdo técnico, sem clichês.</p>
+        <h1 style="margin-top: var(--sp-3);">${escapeHtml(S.listingTitle)}</h1>
+        <p class="lead">${escapeHtml(S.listingLead)}</p>
 
-        <div class="blog-filter" role="group" aria-label="Filtrar por pilar">
-          <button type="button" data-filter="all" aria-pressed="true" data-i18n="blog.filterAll">Todos</button>
-          <button type="button" data-filter="sf"   aria-pressed="false" data-i18n="nav.mobile.salesforce">Salesforce</button>
-          <button type="button" data-filter="data" aria-pressed="false" data-i18n="nav.mobile.data">Data &amp; Analytics</button>
-          <button type="button" data-filter="ai"   aria-pressed="false" data-i18n="nav.mobile.ai">IA &amp; Aplicações</button>
+        <div class="blog-filter" role="group" aria-label="Filter">
+          <button type="button" data-filter="all" aria-pressed="true">${escapeHtml(S.filterAll)}</button>
+          <button type="button" data-filter="sf"   aria-pressed="false">${escapeHtml(S.sections.sf)}</button>
+          <button type="button" data-filter="data" aria-pressed="false">${escapeHtml(S.sections.data)}</button>
+          <button type="button" data-filter="ai"   aria-pressed="false">${escapeHtml(S.sections.ai)}</button>
         </div>
       </div>
     </section>
@@ -343,13 +414,13 @@ ${navHtml('/blog/')}
     <section class="section" style="padding-top: 0;">
       <div class="container">
         <div class="blog-list">
-${posts.map(p => `          <a class="post-card" data-pillar="${p.pillar}" href="/blog/${p.slug}.html">
+${posts.map(p => `          <a class="post-card" data-pillar="${p.pillar}" href="${postUrl(p.slug, lang)}">
             <div class="post-meta">
-              <span class="pill-pillar">${escapeHtml(PILLARS[p.pillar].label)}</span>
-              <span class="post-date">${formatDate(p.date)}</span>
+              <span class="pill-pillar">${escapeHtml(S.pillars[p.pillar])}</span>
+              <span class="post-date">${formatDate(p.date, lang)}</span>
             </div>
-            <h3>${escapeHtml(p.title)}</h3>
-            <div class="read" data-i18n="blog.read">Ler →</div>
+            <h3>${escapeHtml(p.translations[lang].title)}</h3>
+            <div class="read">${escapeHtml(S.readLink)}</div>
           </a>`).join('\n')}
         </div>
       </div>
@@ -374,52 +445,107 @@ ${footerHtml}
   </script>
 </body>
 </html>`;
+};
 
-// ---------- build ----------
-const main = () => {
+// ---------- collect posts by base slug + lang ----------
+const collectPosts = () => {
   if (!existsSync(POSTS_DIR)) mkdirSync(POSTS_DIR, { recursive: true });
 
   const files = readdirSync(POSTS_DIR)
     .filter(f => f.endsWith('.md'))
-    .filter(f => !f.startsWith('_'))      // _template.md, _draft.md, etc.
+    .filter(f => !f.startsWith('_'))
     .filter(f => f.toLowerCase() !== 'readme.md');
-  console.log(`📚 ${files.length} posts encontrados em ${POSTS_DIR}`);
 
-  const posts = files.map(file => {
+  const bySlug = new Map();
+
+  for (const file of files) {
+    // Pattern: <slug>.md (PT) or <slug>.<lang>.md (EN/ES)
+    const m = file.match(/^(.+?)(?:\.(en|es))?\.md$/);
+    if (!m) continue;
+    const baseSlug = m[1];
+    const lang = m[2] || 'pt';
+
     const raw = readFileSync(join(POSTS_DIR, file), 'utf-8');
     const { data, content } = matter(raw);
-    return {
-      slug: data.slug || file.replace(/\.md$/, ''),
+
+    if (!bySlug.has(baseSlug)) {
+      bySlug.set(baseSlug, {
+        slug: baseSlug,
+        pillar: data.pillar,
+        date: data.date,
+        translations: {},
+      });
+    }
+    const post = bySlug.get(baseSlug);
+
+    // Pillar e date vêm sempre do PT — outros podem omitir.
+    if (lang === 'pt') {
+      post.pillar = data.pillar;
+      post.date = data.date;
+    }
+
+    post.translations[lang] = {
       title: data.title,
-      pillar: data.pillar,
-      date: data.date,
-      readMinutes: data.readMinutes || Math.max(2, Math.round(content.split(/\s+/).length / 220)),
       excerpt: data.excerpt || '',
       tldr: data.tldr || '',
+      readMinutes: data.readMinutes || Math.max(2, Math.round(content.split(/\s+/).length / 220)),
       keywords: data.keywords || [],
       body: content,
     };
-  }).sort((a, b) => b.date.localeCompare(a.date));
-
-  // Gera HTML de cada post
-  for (const post of posts) {
-    const html = renderPost(post, posts);
-    const target = join(BLOG_DIR, `${post.slug}.html`);
-    writeFileSync(target, html);
-    console.log(`   ✓ ${post.slug}.html`);
   }
 
-  // Gera a listagem
-  writeFileSync(join(BLOG_DIR, 'index.html'), renderListing(posts));
-  console.log(`   ✓ index.html (listing)`);
+  // Ordena do mais recente pro mais antigo.
+  return [...bySlug.values()].sort((a, b) => b.date.localeCompare(a.date));
+};
 
-  // Gera sitemap.xml
+// ---------- write helper ----------
+const writeOut = (relPath, html) => {
+  const target = join(ROOT, relPath);
+  const dir = dirname(target);
+  if (!existsSync(dir)) mkdirSync(dir, { recursive: true });
+  writeFileSync(target, html);
+  console.log(`   ✓ ${relPath}`);
+};
+
+// ---------- build ----------
+const main = () => {
+  const posts = collectPosts();
+  console.log(`📚 ${posts.length} posts (base slug) coletados`);
+
+  // Posts por idioma
+  for (const post of posts) {
+    for (const lang of LANGS) {
+      const html = renderPost(post, lang, posts);
+      if (!html) continue;
+      const relPath = lang === 'pt'
+        ? `blog/${post.slug}.html`
+        : `blog/${lang}/${post.slug}.html`;
+      writeOut(relPath, html);
+    }
+  }
+
+  // Listagens
+  for (const lang of LANGS) {
+    const relPath = lang === 'pt' ? 'blog/index.html' : `blog/${lang}/index.html`;
+    writeOut(relPath, renderListing(lang, posts));
+  }
+
+  // Sitemap
   const today = new Date().toISOString().slice(0, 10);
   const staticUrls = ['/', '/blog/', '/styleguide.html'];
   const allUrls = [
     ...staticUrls.map(u => ({ loc: u, lastmod: today, changefreq: 'monthly', priority: u === '/' ? '1.0' : '0.7' })),
-    ...posts.map(p => ({ loc: `/blog/${p.slug}.html`, lastmod: p.date, changefreq: 'yearly', priority: '0.6' })),
   ];
+  for (const post of posts) {
+    for (const lang of LANGS) {
+      if (!post.translations[lang]) continue;
+      allUrls.push({ loc: postUrl(post.slug, lang), lastmod: post.date, changefreq: 'yearly', priority: '0.6' });
+    }
+    // Listings em EN/ES
+  }
+  for (const lang of ['en', 'es']) {
+    allUrls.push({ loc: listingUrl(lang), lastmod: today, changefreq: 'monthly', priority: '0.6' });
+  }
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${allUrls.map(u => `  <url>
@@ -433,8 +559,7 @@ ${allUrls.map(u => `  <url>
   writeFileSync(join(ROOT, 'sitemap.xml'), sitemap);
   console.log(`   ✓ sitemap.xml (${allUrls.length} URLs)`);
 
-  // Converte og-image.svg → og-image.png para compatibilidade
-  // com WhatsApp, Facebook Messenger e Slack (que não renderizam SVG).
+  // OG image PNG
   const ogSvgPath = join(ROOT, 'og-image.svg');
   if (existsSync(ogSvgPath)) {
     const svg = readFileSync(ogSvgPath, 'utf-8');
