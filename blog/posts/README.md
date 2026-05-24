@@ -294,6 +294,38 @@ O blog cresce em rede, não em lista. Cada post deve aumentar a densidade de lig
 
 6. **Commit de backlink: separado.** Backlinks em posts antigos vão em commit próprio, mensagem: `blog: backlink <slug-antigo> → <slug-novo>`. Não misturar com o commit do post novo — facilita reverter caso o link envelheça mal.
 
+### Routine de backlink-pass
+
+Posts novos entram com **forward links** (1–3 links pra posts publicados antes). Mas o caminho inverso — posts antigos recebendo links pros novos — exige um pass editorial separado. Senão posts antigos viram "ilhas" SEO sem receber authority dos novos.
+
+**Cadência**: a cada 2 semanas (lote de ~4 posts publicados na quinzena). Roda toda 2ª e 4ª quinta-feira do mês — uma semana depois da publicação Tue/Wed pra dar tempo do Google indexar o novo.
+
+**Estado**: coluna `Backlink pass` no `EDITORIAL.md` marca `[x]` quando o post novo já foi processado pra receber links contextuais dos posts publicados depois dele.
+
+**Operação** (cada execução):
+
+1. Listar os 4 posts mais recentes com `Status = [x]` e `Backlink pass = [ ]` no EDITORIAL.md.
+2. Pra cada post novo, identificar 2–5 posts antigos onde o tema cruza naturalmente (grep por keywords/conceitos do post novo no corpo dos antigos).
+3. Em cada post antigo identificado, adicionar **1** link inline na prosa pro post novo. Texto-âncora descritivo (nunca "leia mais"/"saiba sobre").
+4. Aplicar nas 3 variantes (PT/EN/ES). Se o post antigo não tem tradução em algum idioma, linkar só onde existe.
+5. **1 commit separado por post antigo**, mensagem `blog: backlink <slug-antigo> → <slug-novo>`. Facilita reverter se um link envelhecer mal.
+6. Após processar os 4 posts novos, marcar `Backlink pass = [x]` no EDITORIAL.md em commit final `editorial: backlink-pass lote <YYYY-MM-DD>`.
+
+**Guardrails (críticos pra não virar spam)**:
+
+- **Cruzamento natural obrigatório**: só linkar se o post antigo já MENCIONA o conceito específico do post novo. "Tem a ver" não basta. Exemplo bom: post novo sobre "FinOps de IA" → post antigo sobre "custos de inferência" (ambos discutem custos/orçamento). Exemplo ruim: mesmo post novo → post antigo sobre "Sales Cloud antipadrões" (ambos são empresariais — não basta).
+- **Cap 1 link por post antigo por execução**. Não transformar parágrafos em mar de links.
+- **Cap 3 backlinks abertos por post novo**. Se só 1–2 posts antigos cruzam, fica em 1–2. Forçar 3 é spam.
+- **Pular post antigo com 5+ backlinks acumulados** (já saturado).
+- **Pular post novo se nenhum antigo cruza naturalmente**. Marca `Backlink pass = [x]` mesmo assim (foi processado, só não rendeu).
+- **Não tocar posts com `no-backlink: true` no frontmatter** — escape hatch pra congelar.
+
+**Edge cases**:
+
+- **Lote incompleto** (publicou só 3 na quinzena por feriado): processa os 3.
+- **Lote zero**: pula a execução, não roda.
+- **Conflito com routine de publicação no mesmo dia**: backlink-pass roda DEPOIS (quinta), e pula commits do mesmo dia que ainda não estejam no `main`.
+
 ### Pré-flight de links
 
 Antes de marcar `[x]` no EDITORIAL, confirmar:
