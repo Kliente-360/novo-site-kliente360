@@ -51,4 +51,4 @@ The five share something: they confuse *configuring Salesforce* with *deploying 
 
 Same rule as before the project applies in the middle of it: if you can't say in one sentence which decision each part of Sales Cloud supports, there's still work to do. It's not training that's missing — it's design.
 
-The good news is that these antipatterns are known. A company entering the project knowing what to avoid saves three to six months of rework — and discovers that Sales Cloud is one of the best sales tools on the market when deployed with discipline.
+The good news is that these antipatterns are known. A company entering the project knowing what to avoid saves three to six months of rework — and discovers that Sales Cloud is one of the best sales tools on the market when deployed with discipline. (Before the project starts, the other question is worth asking: [whether Sales Cloud is actually the right answer for this moment of the operation](/blog/en/quando-nao-usar-salesforce.html). The five antipatterns only appear if the decision to adopt has already been made.)

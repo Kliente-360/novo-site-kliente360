@@ -51,4 +51,4 @@ Os cinco têm uma coisa em comum: confundem *configurar Salesforce* com *implant
 
 Mesma régua de antes do projeto serve no meio dele: se você não consegue dizer em uma frase qual decisão cada parte do Sales Cloud apoia, ainda tem trabalho pra fazer. Não é treinamento que falta — é desenho.
 
-A boa notícia é que esses antipadrões são conhecidos. Empresa que entra no projeto sabendo o que evitar economiza três a seis meses de retrabalho — e descobre que Sales Cloud é uma das melhores ferramentas de venda do mercado quando implantada com disciplina.
+A boa notícia é que esses antipadrões são conhecidos. Empresa que entra no projeto sabendo o que evitar economiza três a seis meses de retrabalho — e descobre que Sales Cloud é uma das melhores ferramentas de venda do mercado quando implantada com disciplina. (Antes do projeto começar, vale a outra pergunta: [se Sales Cloud é mesmo a resposta certa pra esse momento da operação](/blog/quando-nao-usar-salesforce.html). Os cinco antipadrões só aparecem se a decisão de adotar já foi feita.)

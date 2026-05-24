@@ -51,4 +51,4 @@ Los cinco comparten algo: confunden *configurar Salesforce* con *implantar Sales
 
 La misma regla de antes del proyecto vale en el medio: si no podés decir en una frase qué decisión sustenta cada parte de Sales Cloud, todavía hay trabajo por hacer. No falta capacitación — falta diseño.
 
-La buena noticia es que esos antipatrones son conocidos. La empresa que entra al proyecto sabiendo qué evitar ahorra tres a seis meses de retrabajo — y descubre que Sales Cloud es una de las mejores herramientas de venta del mercado cuando se implanta con disciplina.
+La buena noticia es que esos antipatrones son conocidos. La empresa que entra al proyecto sabiendo qué evitar ahorra tres a seis meses de retrabajo — y descubre que Sales Cloud es una de las mejores herramientas de venta del mercado cuando se implanta con disciplina. (Antes de empezar el proyecto, vale la otra pregunta: [si Sales Cloud realmente es la respuesta correcta para ese momento de la operación](/blog/es/quando-nao-usar-salesforce.html). Los cinco antipatrones sólo aparecen si la decisión de adoptar ya fue tomada.)
