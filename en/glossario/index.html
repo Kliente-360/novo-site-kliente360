@@ -402,16 +402,18 @@
   <script src="/assets/js/i18n.js"></script>
   <script src="/assets/js/main.js" type="module"></script>
   <script>
-    document.querySelectorAll('.blog-filter button').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const filter = btn.dataset.filter;
-        document.querySelectorAll('.blog-filter button').forEach(b => b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'));
-        document.querySelectorAll('.gloss-term').forEach(term => {
-          const show = filter === 'all' || term.dataset.pillar === filter;
-          term.dataset.hidden = show ? 'false' : 'true';
-        });
+    const applyFilter = (filter) => {
+      document.querySelectorAll('.blog-filter button').forEach(b => b.setAttribute('aria-pressed', b.dataset.filter === filter ? 'true' : 'false'));
+      document.querySelectorAll('.gloss-term').forEach(term => {
+        const show = filter === 'all' || term.dataset.pillar === filter;
+        term.dataset.hidden = show ? 'false' : 'true';
       });
+    };
+    document.querySelectorAll('.blog-filter button').forEach(btn => {
+      btn.addEventListener('click', () => applyFilter(btn.dataset.filter));
     });
+    const initial = new URLSearchParams(window.location.search).get('pilar');
+    if (initial && ['sf','data','ai'].includes(initial)) applyFilter(initial);
   </script>
 </body>
 </html>

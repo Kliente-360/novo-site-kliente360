@@ -70,6 +70,13 @@ const STRINGS = {
     endTitle: 'Quer discutir esse tema com um sócio?',
     endText: 'Diagnóstico inicial sem compromisso. Levamos uma primeira leitura do seu cenário em uma semana e devolvemos um relatório.',
     endLink: 'Conversar com um sócio',
+    exploreLabel: 'Continue explorando',
+    explorePillar: (name) => `Pilar · ${name}`,
+    explorePillarDesc: (name) => `Como entregamos ${name} na prática — escopo, riscos típicos, sinais de saúde.`,
+    exploreGlossary: 'Glossário',
+    exploreGlossaryDesc: 'Vocabulário técnico calibrado de CRM, dados e IA. Sem clichês, sem jargão preguiçoso.',
+    exploreHow: 'Como trabalhamos',
+    exploreHowDesc: 'Trilha 360 — os cinco verbos da nossa prática: mapear, prototipar, validar, implantar, sustentar.',
     relatedTitle: 'Próximas leituras',
     listingTitle: 'Estratégia, prática e crítica.',
     listingLead: 'CRM, dados e IA — ensaios e análises para quem decide. Conteúdo técnico, sem clichês.',
@@ -88,6 +95,13 @@ const STRINGS = {
     endTitle: 'Want to discuss this topic with a partner?',
     endText: 'Initial diagnostic with no commitment. We assess your scenario in a week and send back a report.',
     endLink: 'Talk to a partner',
+    exploreLabel: 'Keep exploring',
+    explorePillar: (name) => `Practice · ${name}`,
+    explorePillarDesc: (name) => `How we deliver ${name} in practice — scope, common pitfalls, health signals.`,
+    exploreGlossary: 'Glossary',
+    exploreGlossaryDesc: 'Curated technical vocabulary for CRM, data and AI. No buzzwords, no lazy jargon.',
+    exploreHow: 'How we work',
+    exploreHowDesc: 'Trilha 360 — the five verbs of our practice: map, prototype, validate, deploy, sustain.',
     relatedTitle: 'Further reading',
     listingTitle: 'Strategy, practice and critique.',
     listingLead: 'CRM, data and AI — essays and analysis for decision-makers. Technical content, no buzzwords.',
@@ -106,6 +120,13 @@ const STRINGS = {
     endTitle: '¿Quieres discutir este tema con un socio?',
     endText: 'Diagnóstico inicial sin compromiso. Hacemos una primera lectura de tu escenario en una semana y devolvemos un informe.',
     endLink: 'Hablar con un socio',
+    exploreLabel: 'Sigue explorando',
+    explorePillar: (name) => `Pilar · ${name}`,
+    explorePillarDesc: (name) => `Cómo entregamos ${name} en la práctica — alcance, riesgos típicos, señales de salud.`,
+    exploreGlossary: 'Glosario',
+    exploreGlossaryDesc: 'Vocabulario técnico curado de CRM, datos e IA. Sin clichés, sin jerga perezosa.',
+    exploreHow: 'Cómo trabajamos',
+    exploreHowDesc: 'Trilha 360 — los cinco verbos de nuestra práctica: mapear, prototipar, validar, implantar, sostener.',
     relatedTitle: 'Próximas lecturas',
     listingTitle: 'Estrategia, práctica y crítica.',
     listingLead: 'CRM, datos e IA — ensayos y análisis para quien decide. Contenido técnico, sin clichés.',
@@ -128,6 +149,10 @@ const PILLAR_URL_ES = { sf: '/es/pilares/salesforce/', data: '/es/pilares/data/'
 const PILLAR_NAME = { pt: PILLAR_NAME_PT, en: PILLAR_NAME_EN, es: PILLAR_NAME_ES };
 const PILLAR_URL  = { pt: PILLAR_URL_PT,  en: PILLAR_URL_EN,  es: PILLAR_URL_ES };
 const BLOG_LABEL = { pt: 'Blog', en: 'Blog', es: 'Blog' };
+
+// Páginas estratégicas por idioma — usadas no bloco "Continue explorando".
+const GLOSSARY_URL = { pt: '/glossario/', en: '/en/glossario/', es: '/es/glossario/' };
+const HOWWE_URL    = { pt: '/como-trabalhamos/', en: '/en/como-trabalhamos/', es: '/es/como-trabalhamos/' };
 
 // ---------- helpers ----------
 const formatDate = (iso, lang = 'pt') => {
@@ -570,6 +595,26 @@ ${navHtml('/blog/' + post.slug)}
             <h3>${escapeHtml(S.endTitle)}</h3>
             <p>${escapeHtml(S.endText)}</p>
             <a class="btn-link" href="/#contato">${escapeHtml(S.endLink)}</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="post-explore">
+        <div class="container">
+          <div class="label">${escapeHtml(S.exploreLabel)}</div>
+          <div class="grid-cards cols-2-3">
+            <a class="card explore-card" data-pillar="${post.pillar}" href="${PILLAR_URL[lang][post.pillar]}">
+              <div class="explore-kind">${escapeHtml(S.explorePillar(PILLAR_NAME[lang][post.pillar]))}</div>
+              <p>${escapeHtml(S.explorePillarDesc(PILLAR_NAME[lang][post.pillar]))}</p>
+            </a>
+            <a class="card explore-card" href="${HOWWE_URL[lang]}">
+              <div class="explore-kind">${escapeHtml(S.exploreHow)}</div>
+              <p>${escapeHtml(S.exploreHowDesc)}</p>
+            </a>
+            <a class="card explore-card" href="${GLOSSARY_URL[lang]}?pilar=${post.pillar}">
+              <div class="explore-kind">${escapeHtml(S.exploreGlossary)}</div>
+              <p>${escapeHtml(S.exploreGlossaryDesc)}</p>
+            </a>
           </div>
         </div>
       </section>
