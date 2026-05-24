@@ -86,7 +86,7 @@ Padrão CommonMark + GFM. Suportado e estilizado:
 
 - Headings `##` e `###` (cada `##` ganha barra colorida no tom do pilar)
 - Listas `-` e `1.` (marcadores tomam a cor do pilar)
-- Blockquote `>` (vira pull quote em serif Fraunces, com barra lateral colorida)
+- Blockquote `>` (vira pull quote grande em Inter peso 500, com barra lateral colorida)
 - Ênfase `**negrito**` e `*itálico*`
 - Inline code `` `código` ``
 - Links `[texto](url)` (sublinhados na cor do pilar)
@@ -157,10 +157,7 @@ data mais recente em posts/  →  encontrar próxima Tue/Wed disponível
 
 ### Estado atual
 
-Os 3 primeiros posts foram backdated para criar o início do back-catálogo:
-- Quarta 13/05/2026 — `tableau-linguagem-executiva` (Data)
-- Terça 19/05/2026 — `data-cloud-nervo-central` (Salesforce)
-- Quarta 20/05/2026 — `quando-agente-e-resposta` (IA)
+Back-catálogo backdated estabelecido — **37 posts publicados** entre fev/2026 e mai/2026, com rotação balanceada entre os 3 pilares (sf/data/ai) e respeitando feriados. Última publicação: **2026-05-22**.
 
 A próxima publicação esperada é **terça 26/05/2026** (próximo Tue), seguida de **quarta 27/05/2026**.
 
@@ -203,7 +200,7 @@ Esses pontos saem de graça, o agente não precisa se preocupar:
 
 5. **Hierarquia de headings** — exatamente um `<h1>` (que vem do `title` automaticamente). H2 para seções principais, H3 para subseções. Não pule de H2 para H4.
 
-6. **Internal linking** — ver seção dedicada "Estratégia de links internos" mais abaixo. Em resumo: 1–3 forward links por post, embutidos na prosa, com texto descritivo (nunca "clique aqui"). O build já gera "Próximas leituras" no rodapé — links manuais são *contextuais*, não related-reading.
+6. **Internal linking** — ver seção dedicada "Estratégia de links internos" mais abaixo. Em resumo: 1–3 forward links por post, embutidos na prosa, com texto descritivo (nunca "clique aqui"). O build já gera dois blocos automáticos no rodapé ("Continue explorando" com pilar + comercial + glossário; "Próximas leituras" com 3 posts relacionados) — links manuais são *contextuais*, embutidos na prosa, e não substituem nenhum dos dois blocos.
 
 7. **Links externos** — para fontes autoritativas (documentação oficial, papers, dados de mercado). Reforça topical authority.
 
@@ -287,7 +284,11 @@ O blog cresce em rede, não em lista. Cada post deve aumentar a densidade de lig
 
    Em cada variante de idioma, linke para a variante do mesmo idioma. Se o post-alvo não tiver tradução no idioma da variante, linke o PT (fallback).
 
-5. **"Próximas leituras" do build não substitui links na prosa.** O bloco de 3 cards no rodapé é algorítmico (mesmo pilar, depois outros). Os links manuais são *contextuais* — aparecem onde o tema cruza, dentro da argumentação. Funções diferentes.
+5. **Blocos automáticos do rodapé não substituem links na prosa.** O build gera dois blocos no fim de todo post:
+   - **"Continue explorando"** — 3 cards fixos (pillar page do post, `/como-trabalhamos/`, `/glossario/?pilar=<pilar>`). Garante ligação mínima com as páginas estratégicas em todo post.
+   - **"Próximas leituras"** — 3 cards de posts (preferem mesmo pilar).
+
+   Esses blocos são algorítmicos. Os links manuais são *contextuais* — aparecem onde o tema cruza, dentro da argumentação, com texto-âncora descritivo. Funções diferentes; um não dispensa o outro.
 
 6. **Commit de backlink: separado.** Backlinks em posts antigos vão em commit próprio, mensagem: `blog: backlink <slug-antigo> → <slug-novo>`. Não misturar com o commit do post novo — facilita reverter caso o link envelheça mal.
 
@@ -348,7 +349,8 @@ Se você é um agente automatizado escrevendo um post:
 | H2                      | Tracking apertado + barra horizontal curta no tom do pilar     |
 | Lista (ul)              | Marcador = traço colorido                                      |
 | Lista (ol)              | Numeração mono `01`, `02`... no tom do pilar                   |
-| Blockquote              | Serif Fraunces grande + barra lateral colorida                 |
+| Blockquote              | Inter peso 500 grande + barra lateral colorida                 |
 | Links                   | Sublinhado fino no tom do pilar                                |
 | Card de CTA final       | Bloco com tint do pilar + link "Conversar com um sócio"        |
-| Próximas leituras       | 3 cards (preferem mesmo pilar, depois outros)                  |
+| Continue explorando     | 3 cards: pilar relacionado, /como-trabalhamos/, glossário (auto-gerado) |
+| Próximas leituras       | 3 cards de posts (preferem mesmo pilar, depois outros)         |
