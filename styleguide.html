@@ -8,19 +8,11 @@
   <link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="/assets/css/tokens.css?v=193339e2b7" />
   <link rel="stylesheet" href="/assets/css/reset.css?v=193339e2b7" />
+  <link rel="stylesheet" href="/assets/css/main.css?v=193339e2b7" />
   <style>
-    /* === Styleguide-only styles (vão migrar para main.css quando aprovado) === */
-    body {
-      font-family: var(--font-sans);
-      color: var(--color-fg);
-      background: var(--color-bg);
-      font-size: var(--fs-16);
-      line-height: var(--lh-normal);
-    }
-    .container { max-width: var(--container); margin: 0 auto; padding: 0 var(--gutter); }
-    .narrow { max-width: var(--container-narrow); }
+    /* === Styleguide-only ajustes (showcases que não existem em main.css) === */
 
-    /* Navegação topo do guide */
+    /* Nav específica do styleguide (mais simples que .nav do site) */
     .sg-nav {
       position: sticky; top: 0; z-index: 50;
       background: rgba(255,255,255,0.85);
@@ -32,45 +24,12 @@
     .sg-nav-brand { display: flex; align-items: center; gap: var(--sp-2); font-weight: var(--fw-semibold); letter-spacing: var(--ls-tight); }
     .sg-nav-links { display: flex; gap: var(--sp-6); font-size: var(--fs-14); color: var(--color-fg-muted); }
     .sg-nav-links a:hover { color: var(--color-fg); }
-
-    /* Cabeçalhos do guide */
-    .sg-cover { padding: var(--sp-32) 0 var(--sp-24); border-bottom: 1px solid var(--color-line); }
-    .sg-eyebrow { font-size: var(--fs-12); letter-spacing: var(--ls-wide); text-transform: uppercase; color: var(--color-accent); font-weight: var(--fw-semibold); margin-bottom: var(--sp-4); }
-    .sg-cover h1 { font-size: var(--fs-h1); line-height: var(--lh-tight); letter-spacing: var(--ls-tighter); font-weight: var(--fw-bold); }
-    .sg-cover p { margin-top: var(--sp-6); font-size: var(--fs-20); color: var(--color-fg-muted); max-width: 56ch; }
-
-    section.sg { padding: var(--sp-20) 0; border-bottom: 1px solid var(--color-line); }
-    section.sg.dark { background: var(--bg-dark); color: #fff; border-color: var(--ink-800); }
-    section.sg.dark .sg-h2 { color: #fff; }
-    section.sg.dark .sg-lead { color: var(--ink-300); }
-
-    .sg-h2 { font-size: var(--fs-h3); letter-spacing: var(--ls-tight); font-weight: var(--fw-semibold); line-height: var(--lh-snug); }
-    .sg-h3 { font-size: var(--fs-h4); letter-spacing: var(--ls-tight); font-weight: var(--fw-semibold); margin-top: var(--sp-8); margin-bottom: var(--sp-4); }
-    .sg-lead { font-size: var(--fs-18); color: var(--color-fg-muted); max-width: 60ch; margin-top: var(--sp-3); }
-    .sg-label { font-family: var(--font-mono); font-size: var(--fs-12); color: var(--color-fg-muted); letter-spacing: 0; }
-
-    /* Grid utilitário */
-    .grid { display: grid; gap: var(--sp-6); }
-    .grid-2 { grid-template-columns: repeat(2, 1fr); }
-    .grid-3 { grid-template-columns: repeat(3, 1fr); }
-    .grid-4 { grid-template-columns: repeat(4, 1fr); }
-    .grid-5 { grid-template-columns: repeat(5, 1fr); }
-    @media (max-width: 768px) {
-      .grid-3, .grid-4, .grid-5 { grid-template-columns: repeat(2, 1fr); }
-      .grid-2 { grid-template-columns: 1fr; }
-    }
-    @media (max-width: 480px) {
-      .grid-3, .grid-4, .grid-5 { grid-template-columns: 1fr; }
-      section.sg { padding: var(--sp-12) 0; }
-      .sg-cover { padding: var(--sp-16) 0 var(--sp-12); }
-      .hero-mock { padding: var(--sp-16) var(--sp-6) var(--sp-12) !important; }
-    }
     @media (max-width: 640px) {
       .sg-nav-links { display: none; }
       .sg-nav-brand span:last-child { display: none; }
     }
 
-    /* ====== LOGO MOCK ====== */
+    /* Logo mock (mock textual — substituído pelo PNG/SVG real quando aprovado) */
     .logo {
       display: inline-flex; align-items: baseline; gap: 6px;
       font-weight: var(--fw-bold); letter-spacing: var(--ls-tight);
@@ -89,51 +48,34 @@
     .logo-compact { letter-spacing: -0.05em; }
     .logo-pillars .dots span { opacity: 1 !important; }
 
-    .logo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-6); margin-top: var(--sp-12); }
-    @media (max-width: 768px) { .logo-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 480px) { .logo-grid { grid-template-columns: 1fr; } }
+    .logo-stage { aspect-ratio: 4/3; background: var(--bg-alt); border: 1px solid var(--color-line); border-radius: var(--r-lg); display: flex; align-items: center; justify-content: center; padding: var(--sp-6); }
+    .logo-stage.dark { background: var(--bg-dark); color: #fff; }
     .logo-cell { display: flex; flex-direction: column; gap: var(--sp-3); }
-    .logo-cell .logo-stage { aspect-ratio: 4/3; background: var(--bg-alt); border: 1px solid var(--color-line); border-radius: var(--r-lg); display: flex; align-items: center; justify-content: center; padding: var(--sp-6); }
     .logo-cell figcaption { font-size: var(--fs-14); color: var(--color-fg-muted); }
 
-    /* === Icon-mark explorations === */
-    .icon-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--sp-6); margin-top: var(--sp-12); }
-    @media (max-width: 640px) { .icon-grid { grid-template-columns: 1fr; } }
-    .icon-card { display: flex; flex-direction: column; gap: var(--sp-4); padding: var(--sp-6); border: 1px solid var(--color-line); border-radius: var(--r-lg); background: var(--bg); }
-    .icon-card h4 { font-size: var(--fs-18); font-weight: var(--fw-semibold); letter-spacing: var(--ls-tight); }
-    .icon-card p { font-size: var(--fs-14); color: var(--color-fg-muted); }
+    /* Icon mark — showcase específico (favicons, lockups, dark/light) */
     .icon-stage { aspect-ratio: 1; background: var(--bg-alt); border-radius: var(--r-md); display: flex; align-items: center; justify-content: center; min-height: 180px; }
-    .icon-stage.dark { background: var(--bg-dark); }
     .icon-lockup { display: flex; align-items: center; gap: 14px; padding: 14px 18px; background: var(--bg-alt); border-radius: var(--r-md); }
     .icon-lockup .wordmark { font-weight: var(--fw-bold); font-size: 22px; letter-spacing: var(--ls-tight); }
     .icon-favicon-row { display: flex; align-items: center; gap: var(--sp-4); font-family: var(--font-mono); font-size: var(--fs-12); color: var(--color-fg-muted); }
     .icon-favicon-row .bg-fake { background: #fff; border: 1px solid var(--color-line); border-radius: 6px; padding: 4px; display: flex; align-items: center; gap: 4px; }
     .icon-favicon-row .bg-fake.dark { background: var(--bg-dark); border-color: var(--ink-800); color: #fff; }
 
-    /* ====== PALETA ====== */
-    .swatch { border-radius: var(--r-md); overflow: hidden; border: 1px solid var(--color-line); background: var(--bg); }
-    .swatch .chip { aspect-ratio: 4/3; }
-    .swatch .meta { padding: var(--sp-3) var(--sp-4); font-size: var(--fs-14); }
-    .swatch .name { font-weight: var(--fw-medium); }
-    .swatch .hex { font-family: var(--font-mono); font-size: var(--fs-12); color: var(--color-fg-muted); margin-top: 2px; }
-
-    /* Strip de paleta — estilo "tirinha de escolha de tinta" */
+    /* Paleta — strip "tirinha de tinta" (showcase específico de cor) */
     .palette-strip { display: flex; border-radius: var(--r-md); overflow: hidden; border: 1px solid var(--color-line); box-shadow: var(--shadow-xs); }
-    .palette-strip .chip { flex: 1; min-width: 0; padding: var(--sp-4) var(--sp-3); display: flex; flex-direction: column; justify-content: flex-end; min-height: 120px; gap: 2px; }
+    .palette-strip .chip { flex: 1; min-width: 0; padding: var(--sp-4) var(--sp-3); display: flex; flex-direction: column; justify-content: flex-end; min-height: 120px; gap: 2px; position: relative; }
     @media (max-width: 480px) { .palette-strip .chip { min-height: 88px; padding: var(--sp-3) var(--sp-2); } }
     .palette-strip .chip .name { font-size: var(--fs-12); font-weight: var(--fw-medium); letter-spacing: var(--ls-tight); line-height: 1.15; }
     .palette-strip .chip .hex { font-family: var(--font-mono); font-size: 10px; opacity: 0.75; letter-spacing: 0; }
     .palette-strip .chip.light { color: #fff; }
     .palette-strip .chip.dark { color: #0a0a0a; }
     .palette-strip .chip.star::after { content: "★"; position: absolute; top: 6px; right: 8px; font-size: 11px; opacity: 0.7; }
-    .palette-strip .chip { position: relative; }
 
-    /* ====== TIPOGRAFIA ====== */
+    /* Tipografia — tabela de tokens (showcase) */
     .type-row { display: grid; grid-template-columns: 110px 1fr; gap: var(--sp-6); padding: var(--sp-4) 0; border-bottom: 1px dashed var(--color-line); align-items: baseline; }
     .type-row:last-child { border-bottom: 0; }
-    .type-row .sg-label { white-space: nowrap; }
-    .type-display { font-size: var(--fs-h1); line-height: var(--lh-tight); letter-spacing: var(--ls-tighter); font-weight: var(--fw-bold); }
-    .type-h1 { font-size: var(--fs-h1); line-height: var(--lh-tight); letter-spacing: var(--ls-tighter); font-weight: var(--fw-bold); }
+    .type-row .sg-label { white-space: nowrap; font-family: var(--font-mono); font-size: var(--fs-12); color: var(--color-fg-muted); }
+    .type-display, .type-h1 { font-size: var(--fs-h1); line-height: var(--lh-tight); letter-spacing: var(--ls-tighter); font-weight: var(--fw-bold); }
     .type-h2 { font-size: var(--fs-h2); line-height: var(--lh-tight); letter-spacing: var(--ls-tight); font-weight: var(--fw-semibold); }
     .type-h3 { font-size: var(--fs-h3); line-height: var(--lh-snug); letter-spacing: var(--ls-tight); font-weight: var(--fw-semibold); }
     .type-h4 { font-size: var(--fs-h4); line-height: var(--lh-snug); font-weight: var(--fw-semibold); }
@@ -141,64 +83,7 @@
     .type-small { font-size: var(--fs-14); color: var(--color-fg-muted); }
     .type-eyebrow { font-size: var(--fs-12); letter-spacing: var(--ls-wide); text-transform: uppercase; font-weight: var(--fw-semibold); color: var(--color-accent); }
 
-    /* ====== BOTÕES ====== */
-    .btn { display: inline-flex; align-items: center; gap: var(--sp-2); padding: 12px 22px; border-radius: var(--r-pill); font-weight: var(--fw-medium); font-size: var(--fs-16); letter-spacing: var(--ls-tight); transition: background var(--dur-base) var(--ease-out), color var(--dur-base) var(--ease-out), transform var(--dur-fast) var(--ease-out); }
-    .btn:hover { transform: translateY(-1px); }
-    .btn-primary { background: var(--color-fg); color: var(--color-bg); }
-    .btn-primary:hover { background: var(--ink-800); }
-    .btn-accent { background: var(--color-accent); color: #fff; }
-    .btn-accent:hover { background: var(--color-accent-hover); }
-    .btn-ghost { background: transparent; color: var(--color-fg); border: 1px solid var(--line-strong); }
-    .btn-ghost:hover { background: var(--bg-alt); }
-    .btn-link { padding: 0; color: var(--color-accent); font-weight: var(--fw-medium); }
-    .btn-link:hover { color: var(--color-accent-hover); }
-    .btn-link::after { content: "→"; transition: transform var(--dur-base) var(--ease-out); display: inline-block; margin-left: 6px; }
-    .btn-link:hover::after { transform: translateX(4px); }
-
-    /* ====== PILLS / BADGES ====== */
-    .pill { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: var(--r-pill); font-size: var(--fs-12); font-weight: var(--fw-medium); letter-spacing: var(--ls-tight); }
-    .pill-line { border: 1px solid var(--line-strong); color: var(--color-fg-muted); }
-    .pill-accent { background: var(--color-accent-soft); color: var(--green-700); }
-    .pill-dark { background: var(--ink-800); color: #fff; }
-    .pill-dot::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--color-accent); display: inline-block; }
-
-    /* ====== CARDS ====== */
-    .card { background: var(--bg); border: 1px solid var(--color-line); border-radius: var(--r-lg); padding: var(--sp-8); transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out); }
-    .card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); border-color: var(--line-strong); }
-    .card .card-eyebrow { font-family: var(--font-mono); font-size: var(--fs-12); color: var(--color-fg-muted); margin-bottom: var(--sp-3); letter-spacing: 0; }
-    .card h3 { font-size: var(--fs-h4); font-weight: var(--fw-semibold); letter-spacing: var(--ls-tight); margin-bottom: var(--sp-3); }
-    .card p { color: var(--color-fg-muted); font-size: var(--fs-16); line-height: var(--lh-normal); }
-    .card ul { margin-top: var(--sp-6); display: flex; flex-direction: column; gap: var(--sp-2); }
-    .card ul li { font-size: var(--fs-14); color: var(--color-fg-muted); padding-left: 18px; position: relative; }
-    .card ul li::before { content: ""; position: absolute; left: 0; top: 8px; width: 8px; height: 2px; background: var(--color-accent); }
-
-    /* ====== TRILHA 360 ====== */
-    .trilha { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; counter-reset: step; align-items: stretch; }
-    .trilha-step { padding: var(--sp-6); border-right: 1px solid var(--color-line); position: relative; }
-    .trilha-step:last-child { border-right: 0; }
-    .trilha-step .num { font-family: var(--font-mono); font-size: var(--fs-12); color: var(--color-fg-muted); margin-bottom: var(--sp-3); }
-    .trilha-step .verb { font-size: var(--fs-h4); font-weight: var(--fw-semibold); letter-spacing: var(--ls-tight); margin-bottom: var(--sp-2); }
-    .trilha-step .desc { font-size: var(--fs-14); color: var(--color-fg-muted); }
-    .trilha-step .verb::first-letter { color: var(--color-accent); }
-    @media (max-width: 768px) {
-      .trilha { grid-template-columns: 1fr; }
-      .trilha-step { border-right: 0; border-bottom: 1px solid var(--color-line); }
-      .trilha-step:last-child { border-bottom: 0; }
-    }
-
-    /* ====== HERO MOCK ====== */
-    .hero-mock {
-      padding: var(--sp-32) 0 var(--sp-24);
-      background: linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%);
-      border-radius: var(--r-xl);
-    }
-    .hero-mock .eyebrow { font-size: var(--fs-12); letter-spacing: var(--ls-wide); text-transform: uppercase; color: var(--color-accent); font-weight: var(--fw-semibold); margin-bottom: var(--sp-6); }
-    .hero-mock h1 { font-size: var(--fs-h1); letter-spacing: var(--ls-tighter); line-height: var(--lh-tight); font-weight: var(--fw-bold); max-width: 16ch; }
-    .hero-mock h1 em { font-style: normal; color: var(--color-accent); }
-    .hero-mock .sub { font-size: var(--fs-20); color: var(--color-fg-muted); max-width: 52ch; margin-top: var(--sp-8); line-height: var(--lh-snug); }
-    .hero-mock .cta-row { display: flex; gap: var(--sp-3); margin-top: var(--sp-12); flex-wrap: wrap; }
-
-    /* ====== SPACING / RADIUS / SHADOW PREVIEW ====== */
+    /* Escalas — espaçamento / raio / sombra (showcase de tokens) */
     .scale-row { display: flex; align-items: flex-end; gap: var(--sp-4); flex-wrap: wrap; }
     .scale-row .item { display: flex; flex-direction: column; align-items: center; gap: var(--sp-2); }
     .scale-row .box { background: var(--color-accent); border-radius: 4px; }
@@ -211,7 +96,7 @@
     @media (max-width: 640px) { .shadow-row { grid-template-columns: repeat(2, 1fr); } }
     .shadow-row .box { aspect-ratio: 16/10; background: var(--bg); border-radius: var(--r-md); display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: var(--fs-12); color: var(--color-fg-muted); }
 
-    /* ====== TOM DE VOZ ====== */
+    /* Tom de voz — usar/evitar (showcase específico) */
     .voice { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-8); }
     .voice .col { padding: var(--sp-6); border-radius: var(--r-md); }
     .voice .yes { background: var(--color-accent-soft); }
@@ -223,7 +108,21 @@
     .voice ul li:last-child { border-bottom: 0; }
     @media (max-width: 768px) { .voice { grid-template-columns: 1fr; } }
 
-    /* === footer === */
+    /* Hero mock — preview do hero da home dentro do styleguide */
+    .hero-mock {
+      padding: var(--sp-32) var(--sp-12) var(--sp-24);
+      background: linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%);
+      border-radius: var(--r-xl);
+    }
+    .hero-mock h1 { font-size: var(--fs-h1); letter-spacing: var(--ls-tighter); line-height: var(--lh-tight); font-weight: var(--fw-bold); max-width: 16ch; margin-top: var(--sp-6); }
+    .hero-mock h1 em { font-style: normal; color: var(--color-accent); }
+    .hero-mock .sub { font-size: var(--fs-20); color: var(--color-fg-muted); max-width: 52ch; margin-top: var(--sp-8); line-height: var(--lh-snug); }
+    .hero-mock .cta-row { display: flex; gap: var(--sp-3); margin-top: var(--sp-12); flex-wrap: wrap; }
+    @media (max-width: 480px) {
+      .hero-mock { padding: var(--sp-16) var(--sp-6) var(--sp-12); }
+    }
+
+    /* Footer do styleguide (minimal) */
     .sg-footer { padding: var(--sp-12) 0; text-align: center; font-size: var(--fs-14); color: var(--color-fg-muted); }
   </style>
 </head>
@@ -252,47 +151,51 @@
   </nav>
 
   <!-- Cover -->
-  <header class="sg-cover">
+  <header class="section hero">
     <div class="container">
-      <div class="sg-eyebrow">Brand Guide · v0.1 · 2026</div>
-      <h1>Conhecimento aplicado,<br>como serviço.</h1>
-      <p>Sistema visual da Kliente 360 — consultoria especializada em CRM, dados e IA. Apple como base, Google no acento, Salesforce na camada de confiança.</p>
+      <span class="eyebrow">Brand Guide · v0.1 · 2026</span>
+      <h1 class="h1" style="margin-top: var(--sp-4);">Conhecimento aplicado,<br>como serviço.</h1>
+      <p class="lead" style="margin-top: var(--sp-6);">Sistema visual da Kliente 360 — consultoria especializada em CRM, dados e IA. Apple como base, Google no acento, Salesforce na camada de confiança.</p>
     </div>
   </header>
 
   <!-- Logo -->
-  <section class="sg" id="logo">
+  <section class="section" id="logo">
     <div class="container">
-      <div class="sg-eyebrow" style="color: var(--color-fg-muted);">01 — Marca</div>
-      <h2 class="sg-h2">Logo</h2>
-      <p class="sg-lead">Wordmark em lowercase + quatro círculos (representam os 360°). Mantém o gestual herdado. Para o site, usamos o wordmark em todos os contextos; ícone curto só em favicon.</p>
+      <header class="section-head">
+        <span class="eyebrow" style="color: var(--color-fg-muted);">01 — Marca</span>
+        <h2>Logo</h2>
+        <p class="lead">Wordmark em lowercase + quatro círculos (representam os 360°). Mantém o gestual herdado. Para o site, usamos o wordmark em todos os contextos; ícone curto só em favicon.</p>
+      </header>
 
-      <div class="grid grid-2" style="margin-top: var(--sp-12); align-items: center;">
-        <div style="padding: var(--sp-16); background: var(--bg-alt); border-radius: var(--r-lg); display: flex; justify-content: center;">
+      <div class="grid-cards cols-2" style="align-items: center;">
+        <div class="logo-stage" style="aspect-ratio: auto; padding: var(--sp-16);">
           <span class="logo large">
             kliente 360
             <span class="dots"><span></span><span></span><span></span><span></span></span>
           </span>
         </div>
-        <div style="padding: var(--sp-16); background: var(--bg-dark); border-radius: var(--r-lg); display: flex; justify-content: center; color: #fff;">
+        <div class="logo-stage dark" style="aspect-ratio: auto; padding: var(--sp-16);">
           <span class="logo large" style="color: #fff;">
             kliente 360
             <span class="dots"><span></span><span></span><span></span><span></span></span>
           </span>
         </div>
       </div>
-      <p class="sg-label" style="margin-top: var(--sp-4);">Observação: o logo real (PNG do Felipe) substitui esse mock. As proporções e o tracking ficam.</p>
+      <p class="muted mono" style="margin-top: var(--sp-4); font-size: var(--fs-12);">Observação: o logo real (PNG do Felipe) substitui esse mock. As proporções e o tracking ficam.</p>
     </div>
   </section>
 
   <!-- Logo variações -->
-  <section class="sg" id="logo-vars">
+  <section class="section alt" id="logo-vars">
     <div class="container">
-      <div class="sg-eyebrow" style="color: var(--color-fg-muted);">01b — Variações de logo</div>
-      <h2 class="sg-h2">Lockups</h2>
-      <p class="sg-lead">Mesma marca, seis aplicações. Todos os mocks textuais — substituídos pelo PNG/SVG final do Felipe sem alterar proporção.</p>
+      <header class="section-head">
+        <span class="eyebrow" style="color: var(--color-fg-muted);">01b — Variações de logo</span>
+        <h2>Lockups</h2>
+        <p class="lead">Mesma marca, seis aplicações. Todos os mocks textuais — substituídos pelo PNG/SVG final do Felipe sem alterar proporção.</p>
+      </header>
 
-      <div class="logo-grid">
+      <div class="grid-cards cols-2-3">
         <!-- 1. Horizontal (canônico) -->
         <figure class="logo-cell">
           <div class="logo-stage">
@@ -365,25 +268,27 @@
           <figcaption>06 · Pilares — 4 pontos coloridos = Salesforce, Data, IA, K360. Use em manifesto/sobre.</figcaption>
         </figure>
       </div>
-      <p class="sg-label" style="margin-top: var(--sp-6);">Regra geral: o lockup canônico (01) é o padrão. Os demais resolvem contextos específicos.</p>
+      <p class="muted mono" style="margin-top: var(--sp-6); font-size: var(--fs-12);">Regra geral: o lockup canônico (01) é o padrão. Os demais resolvem contextos específicos.</p>
     </div>
   </section>
 
   <!-- Ideias de ícone de marca -->
-  <section class="sg" id="icon-marks">
+  <section class="section" id="icon-marks">
     <div class="container">
-      <div class="sg-eyebrow" style="color: var(--color-fg-muted);">01c — Ícone de marca (exploração)</div>
-      <h2 class="sg-h2">Quatro ideias de mark</h2>
-      <p class="sg-lead">O wordmark "kliente 360" sempre presente. Ao lado, um ícone que precisa funcionar sozinho em favicon, app icon e avatar social — virar marca mesmo sem o texto. Cada ideia abaixo: ícone grande, lockup, e teste em escala minúscula.</p>
+      <header class="section-head">
+        <span class="eyebrow" style="color: var(--color-fg-muted);">01c — Ícone de marca (exploração)</span>
+        <h2>Quatro ideias de mark</h2>
+        <p class="lead">O wordmark "kliente 360" sempre presente. Ao lado, um ícone que precisa funcionar sozinho em favicon, app icon e avatar social — virar marca mesmo sem o texto. Cada ideia abaixo: ícone grande, lockup, e teste em escala minúscula.</p>
+      </header>
 
-      <div class="icon-grid">
+      <div class="grid-cards cols-2">
 
-        <!-- A · Aperture (4 dots livres) -->
-        <div class="icon-card">
-          <h4>A · Aperture</h4>
-          <p>Quatro pontos nas posições cardeais — sem container. Forma pura. Lê "360°" como compasso/lente. Minimalismo Apple.</p>
+        <!-- A · Aperture -->
+        <article class="card">
+          <h4 class="h4">A · Aperture</h4>
+          <p class="muted" style="margin-top: var(--sp-2);">Quatro pontos nas posições cardeais — sem container. Forma pura. Lê "360°" como compasso/lente. Minimalismo Apple.</p>
 
-          <div class="icon-stage">
+          <div class="icon-stage" style="margin-top: var(--sp-4);">
             <svg viewBox="0 0 80 80" width="120" height="120" aria-label="Aperture mark">
               <circle cx="40" cy="22" r="11" fill="#009900" opacity="0.45"/>
               <circle cx="58" cy="40" r="11" fill="#009900" opacity="0.65"/>
@@ -392,7 +297,7 @@
             </svg>
           </div>
 
-          <div class="icon-lockup">
+          <div class="icon-lockup" style="margin-top: var(--sp-4);">
             <svg viewBox="0 0 80 80" width="36" height="36">
               <circle cx="40" cy="22" r="11" fill="#009900" opacity="0.45"/>
               <circle cx="58" cy="40" r="11" fill="#009900" opacity="0.65"/>
@@ -402,7 +307,7 @@
             <span class="wordmark">kliente 360</span>
           </div>
 
-          <div class="icon-favicon-row">
+          <div class="icon-favicon-row" style="margin-top: var(--sp-4);">
             <div class="bg-fake">
               <svg viewBox="0 0 80 80" width="16" height="16"><circle cx="40" cy="22" r="11" fill="#009900" opacity="0.45"/><circle cx="58" cy="40" r="11" fill="#009900" opacity="0.65"/><circle cx="40" cy="58" r="11" fill="#009900" opacity="0.85"/><circle cx="22" cy="40" r="11" fill="#009900"/></svg>
               <span>kliente360.com</span>
@@ -411,14 +316,14 @@
               <svg viewBox="0 0 80 80" width="16" height="16"><circle cx="40" cy="22" r="11" fill="#00B300" opacity="0.45"/><circle cx="58" cy="40" r="11" fill="#00B300" opacity="0.65"/><circle cx="40" cy="58" r="11" fill="#00B300" opacity="0.85"/><circle cx="22" cy="40" r="11" fill="#00B300"/></svg>
             </div>
           </div>
-        </div>
+        </article>
 
-        <!-- B · Tile (squircle preenchido) -->
-        <div class="icon-card">
-          <h4>B · Tile</h4>
-          <p>Os quatro pontos empacotados num squircle preto — vibe app icon iOS. Versão sólida, com peso visual. Reconhecível mesmo a 16px.</p>
+        <!-- B · Tile -->
+        <article class="card">
+          <h4 class="h4">B · Tile</h4>
+          <p class="muted" style="margin-top: var(--sp-2);">Os quatro pontos empacotados num squircle preto — vibe app icon iOS. Versão sólida, com peso visual. Reconhecível mesmo a 16px.</p>
 
-          <div class="icon-stage">
+          <div class="icon-stage" style="margin-top: var(--sp-4);">
             <svg viewBox="0 0 80 80" width="120" height="120" aria-label="Tile mark">
               <rect x="0" y="0" width="80" height="80" rx="18" fill="#0a0a0a"/>
               <circle cx="40" cy="18" r="6" fill="#009900" opacity="0.45"/>
@@ -428,7 +333,7 @@
             </svg>
           </div>
 
-          <div class="icon-lockup">
+          <div class="icon-lockup" style="margin-top: var(--sp-4);">
             <svg viewBox="0 0 80 80" width="36" height="36">
               <rect x="0" y="0" width="80" height="80" rx="18" fill="#0a0a0a"/>
               <circle cx="40" cy="18" r="6" fill="#009900" opacity="0.45"/>
@@ -439,7 +344,7 @@
             <span class="wordmark">kliente 360</span>
           </div>
 
-          <div class="icon-favicon-row">
+          <div class="icon-favicon-row" style="margin-top: var(--sp-4);">
             <div class="bg-fake">
               <svg viewBox="0 0 80 80" width="16" height="16"><rect width="80" height="80" rx="18" fill="#0a0a0a"/><circle cx="40" cy="18" r="6" fill="#009900" opacity="0.45"/><circle cx="62" cy="40" r="6" fill="#009900" opacity="0.65"/><circle cx="40" cy="62" r="6" fill="#009900" opacity="0.85"/><circle cx="18" cy="40" r="6" fill="#009900"/></svg>
               <span>kliente360.com</span>
@@ -448,14 +353,14 @@
               <svg viewBox="0 0 80 80" width="16" height="16"><rect width="80" height="80" rx="18" fill="#fff"/><circle cx="40" cy="18" r="6" fill="#009900" opacity="0.45"/><circle cx="62" cy="40" r="6" fill="#009900" opacity="0.65"/><circle cx="40" cy="62" r="6" fill="#009900" opacity="0.85"/><circle cx="18" cy="40" r="6" fill="#009900"/></svg>
             </div>
           </div>
-        </div>
+        </article>
 
         <!-- C · Orbit -->
-        <div class="icon-card">
-          <h4>C · Orbit</h4>
-          <p>Cliente no centro, 360° ao redor. Conta uma história: "você no meio, e tudo o que precisa ao redor". Conceito mais narrativo.</p>
+        <article class="card">
+          <h4 class="h4">C · Orbit</h4>
+          <p class="muted" style="margin-top: var(--sp-2);">Cliente no centro, 360° ao redor. Conta uma história: "você no meio, e tudo o que precisa ao redor". Conceito mais narrativo.</p>
 
-          <div class="icon-stage">
+          <div class="icon-stage" style="margin-top: var(--sp-4);">
             <svg viewBox="0 0 80 80" width="120" height="120" aria-label="Orbit mark">
               <circle cx="40" cy="40" r="38" fill="none" stroke="#009900" stroke-opacity="0.15" stroke-width="1"/>
               <circle cx="40" cy="40" r="10" fill="#0a0a0a"/>
@@ -466,7 +371,7 @@
             </svg>
           </div>
 
-          <div class="icon-lockup">
+          <div class="icon-lockup" style="margin-top: var(--sp-4);">
             <svg viewBox="0 0 80 80" width="36" height="36">
               <circle cx="40" cy="40" r="38" fill="none" stroke="#009900" stroke-opacity="0.15" stroke-width="1"/>
               <circle cx="40" cy="40" r="10" fill="#0a0a0a"/>
@@ -478,7 +383,7 @@
             <span class="wordmark">kliente 360</span>
           </div>
 
-          <div class="icon-favicon-row">
+          <div class="icon-favicon-row" style="margin-top: var(--sp-4);">
             <div class="bg-fake">
               <svg viewBox="0 0 80 80" width="16" height="16"><circle cx="40" cy="40" r="10" fill="#0a0a0a"/><circle cx="40" cy="8" r="5" fill="#009900" opacity="0.5"/><circle cx="72" cy="40" r="5" fill="#009900" opacity="0.7"/><circle cx="40" cy="72" r="5" fill="#009900" opacity="0.85"/><circle cx="8" cy="40" r="5" fill="#009900"/></svg>
               <span>kliente360.com</span>
@@ -487,14 +392,14 @@
               <svg viewBox="0 0 80 80" width="16" height="16"><circle cx="40" cy="40" r="10" fill="#fff"/><circle cx="40" cy="8" r="5" fill="#00B300" opacity="0.5"/><circle cx="72" cy="40" r="5" fill="#00B300" opacity="0.7"/><circle cx="40" cy="72" r="5" fill="#00B300" opacity="0.85"/><circle cx="8" cy="40" r="5" fill="#00B300"/></svg>
             </div>
           </div>
-        </div>
+        </article>
 
         <!-- D · Ring 360 -->
-        <div class="icon-card">
-          <h4>D · Ring 360</h4>
-          <p>Os quatro pontos conectados por um anel sutil — torna o "360°" literal, sem ser desenho de bola. Forma rítmica, lê em qualquer tamanho.</p>
+        <article class="card">
+          <h4 class="h4">D · Ring 360</h4>
+          <p class="muted" style="margin-top: var(--sp-2);">Os quatro pontos conectados por um anel sutil — torna o "360°" literal, sem ser desenho de bola. Forma rítmica, lê em qualquer tamanho.</p>
 
-          <div class="icon-stage">
+          <div class="icon-stage" style="margin-top: var(--sp-4);">
             <svg viewBox="0 0 80 80" width="120" height="120" aria-label="Ring 360 mark">
               <circle cx="40" cy="40" r="28" fill="none" stroke="#0a0a0a" stroke-width="2"/>
               <circle cx="40" cy="12" r="6" fill="#009900"/>
@@ -504,7 +409,7 @@
             </svg>
           </div>
 
-          <div class="icon-lockup">
+          <div class="icon-lockup" style="margin-top: var(--sp-4);">
             <svg viewBox="0 0 80 80" width="36" height="36">
               <circle cx="40" cy="40" r="28" fill="none" stroke="#0a0a0a" stroke-width="2"/>
               <circle cx="40" cy="12" r="6" fill="#009900"/>
@@ -515,7 +420,7 @@
             <span class="wordmark">kliente 360</span>
           </div>
 
-          <div class="icon-favicon-row">
+          <div class="icon-favicon-row" style="margin-top: var(--sp-4);">
             <div class="bg-fake">
               <svg viewBox="0 0 80 80" width="16" height="16"><circle cx="40" cy="40" r="28" fill="none" stroke="#0a0a0a" stroke-width="4"/><circle cx="40" cy="12" r="8" fill="#009900"/><circle cx="68" cy="40" r="8" fill="#009900"/><circle cx="40" cy="68" r="8" fill="#009900"/><circle cx="12" cy="40" r="8" fill="#009900"/></svg>
               <span>kliente360.com</span>
@@ -524,22 +429,24 @@
               <svg viewBox="0 0 80 80" width="16" height="16"><circle cx="40" cy="40" r="28" fill="none" stroke="#fff" stroke-width="4"/><circle cx="40" cy="12" r="8" fill="#00B300"/><circle cx="68" cy="40" r="8" fill="#00B300"/><circle cx="40" cy="68" r="8" fill="#00B300"/><circle cx="12" cy="40" r="8" fill="#00B300"/></svg>
             </div>
           </div>
-        </div>
+        </article>
 
       </div>
 
-      <p class="sg-label" style="margin-top: var(--sp-8);">Todos preservam o motif dos 4 círculos do logo original. A escolha define se a marca quer ser <strong>pura</strong> (A), <strong>sólida e moderna</strong> (B), <strong>narrativa</strong> (C) ou <strong>literal-360</strong> (D).</p>
+      <p class="muted mono" style="margin-top: var(--sp-8); font-size: var(--fs-12);">Todos preservam o motif dos 4 círculos do logo original. A escolha define se a marca quer ser <strong>pura</strong> (A), <strong>sólida e moderna</strong> (B), <strong>narrativa</strong> (C) ou <strong>literal-360</strong> (D).</p>
     </div>
   </section>
 
   <!-- Paleta -->
-  <section class="sg" id="cor">
+  <section class="section alt" id="cor">
     <div class="container">
-      <div class="sg-eyebrow" style="color: var(--color-fg-muted);">02 — Cor</div>
-      <h2 class="sg-h2">Paleta</h2>
-      <p class="sg-lead">Base neutra (preto/branco/cinzas Apple). Verde como acento pontual — CTAs, palavra-chave do hero, linhas decorativas. Nunca cobrindo blocos inteiros.</p>
+      <header class="section-head">
+        <span class="eyebrow" style="color: var(--color-fg-muted);">02 — Cor</span>
+        <h2>Paleta</h2>
+        <p class="lead">Base neutra (preto/branco/cinzas Apple). Verde como acento pontual — CTAs, palavra-chave do hero, linhas decorativas. Nunca cobrindo blocos inteiros.</p>
+      </header>
 
-      <h3 class="sg-h3">Tinta &amp; neutros</h3>
+      <h3 class="h4" style="margin-top: var(--sp-8); margin-bottom: var(--sp-4);">Tinta &amp; neutros</h3>
       <div class="palette-strip">
         <div class="chip light" style="background:#0a0a0a"><div class="name">Ink 900</div><div class="hex">#0A0A0A</div></div>
         <div class="chip light" style="background:#1d1d1f"><div class="name">Ink 800</div><div class="hex">#1D1D1F</div></div>
@@ -548,7 +455,7 @@
         <div class="chip light" style="background:#86868b"><div class="name">Ink 300</div><div class="hex">#86868B</div></div>
       </div>
 
-      <h3 class="sg-h3">Fundos &amp; linhas</h3>
+      <h3 class="h4" style="margin-top: var(--sp-8); margin-bottom: var(--sp-4);">Fundos &amp; linhas</h3>
       <div class="palette-strip">
         <div class="chip dark" style="background:#ffffff"><div class="name">BG</div><div class="hex">#FFFFFF</div></div>
         <div class="chip dark" style="background:#f5f5f7"><div class="name">BG alt</div><div class="hex">#F5F5F7</div></div>
@@ -557,8 +464,8 @@
         <div class="chip light" style="background:#1d1d1f"><div class="name">BG dark</div><div class="hex">#1D1D1F</div></div>
       </div>
 
-      <h3 class="sg-h3">Verde Kliente — duas funções</h3>
-      <p class="sg-lead" style="max-width: 70ch;">Estratégia adotada por marcas premium (Starbucks, Spotify, etc.): a cor do logo é sagrada, a cor da UI pode ser uma versão refinada. O <strong>#009900</strong> mora só no wordmark. A UI inteira (CTAs, eyebrows, links, hover) usa um verde editorial mais profundo — combina com o azul, para de vibrar contra o violeta.</p>
+      <h3 class="h4" style="margin-top: var(--sp-8); margin-bottom: var(--sp-4);">Verde Kliente — duas funções</h3>
+      <p class="lead" style="max-width: 70ch;">Estratégia adotada por marcas premium (Starbucks, Spotify, etc.): a cor do logo é sagrada, a cor da UI pode ser uma versão refinada. O <strong>#009900</strong> mora só no wordmark. A UI inteira (CTAs, eyebrows, links, hover) usa um verde editorial mais profundo — combina com o azul, para de vibrar contra o violeta.</p>
       <div class="palette-strip" style="margin-top: var(--sp-6);">
         <div class="chip light" style="background:#009900; min-height: 140px;">
           <div class="name">Logo green</div>
@@ -570,7 +477,7 @@
         </div>
       </div>
 
-      <h3 class="sg-h3">Escala completa do UI green</h3>
+      <h3 class="h4" style="margin-top: var(--sp-8); margin-bottom: var(--sp-4);">Escala completa do UI green</h3>
       <div class="palette-strip">
         <div class="chip dark" style="background:#e8f5ec"><div class="name">50</div><div class="hex">#E8F5EC</div></div>
         <div class="chip dark" style="background:#c8e6d0"><div class="name">100</div><div class="hex">#C8E6D0</div></div>
@@ -578,35 +485,37 @@
         <div class="chip light star" style="background:#007a3d"><div class="name">500</div><div class="hex">#007A3D</div></div>
         <div class="chip light" style="background:#005c32"><div class="name">700</div><div class="hex">#005C32</div></div>
       </div>
-      <p class="sg-label" style="margin-top: var(--sp-3);">★ UI canônico (editorial). 700 = hover/emphasis. 50 = pílulas e fundos suaves.</p>
+      <p class="muted mono" style="margin-top: var(--sp-3); font-size: var(--fs-12);">★ UI canônico (editorial). 700 = hover/emphasis. 50 = pílulas e fundos suaves.</p>
 
-      <h3 class="sg-h3">Fundo escuro alternativo — navy resgatado</h3>
+      <h3 class="h4" style="margin-top: var(--sp-8); margin-bottom: var(--sp-4);">Fundo escuro alternativo — navy resgatado</h3>
       <div class="palette-strip">
         <div class="chip light" style="background:#0a0a0a"><div class="name">Ink 900</div><div class="hex">#0A0A0A · default</div></div>
         <div class="chip light" style="background:#06073E"><div class="name">BG deep</div><div class="hex">#06073E · alt</div></div>
       </div>
-      <p class="sg-label" style="margin-top: var(--sp-3);">Navy resgatado da paleta antiga. Usar quando quisermos "alma corporativa" sem o gelado do preto puro — ex.: hero alternativo, seção de IA.</p>
+      <p class="muted mono" style="margin-top: var(--sp-3); font-size: var(--fs-12);">Navy resgatado da paleta antiga. Usar quando quisermos "alma corporativa" sem o gelado do preto puro — ex.: hero alternativo, seção de IA.</p>
 
-      <h3 class="sg-h3" style="margin-top: var(--sp-12);">Cores secundárias — uma por pilar (proposta)</h3>
-      <p class="sg-lead" style="max-width: 70ch;">Cada pilar ganha uma cor que só aparece dentro da sua seção (eyebrow, ícones, micro-acentos). No nível do site, dominam neutro + verde. É um sistema, não um arco-íris.</p>
+      <h3 class="h4" style="margin-top: var(--sp-12); margin-bottom: var(--sp-4);">Cores secundárias — uma por pilar (proposta)</h3>
+      <p class="lead" style="max-width: 70ch;">Cada pilar ganha uma cor que só aparece dentro da sua seção (eyebrow, ícones, micro-acentos). No nível do site, dominam neutro + verde. É um sistema, não um arco-íris.</p>
       <div class="palette-strip" style="margin-top: var(--sp-6);">
         <div class="chip light" style="background:#0B5394"><div class="name">Salesforce</div><div class="hex">#0B5394</div></div>
         <div class="chip dark" style="background:#C9A227"><div class="name">Data</div><div class="hex">#C9A227</div></div>
         <div class="chip light" style="background:#6D28D9"><div class="name">IA</div><div class="hex">#6D28D9</div></div>
       </div>
-      <p class="sg-label" style="margin-top: var(--sp-3);">Salesforce → azul natural sem cair em cyan. Data → âmbar lê "inteligência" sem virar startup. IA → violeta universal (OpenAI, Anthropic).</p>
+      <p class="muted mono" style="margin-top: var(--sp-3); font-size: var(--fs-12);">Salesforce → azul natural sem cair em cyan. Data → âmbar lê "inteligência" sem virar startup. IA → violeta universal (OpenAI, Anthropic).</p>
 
     </div>
   </section>
 
   <!-- Tipografia -->
-  <section class="sg" id="tipo">
+  <section class="section" id="tipo">
     <div class="container">
-      <div class="sg-eyebrow" style="color: var(--color-fg-muted);">03 — Tipografia</div>
-      <h2 class="sg-h2">Inter, um peso só de cada vez.</h2>
-      <p class="sg-lead">Sans humanista única. Regular para corpo, Medium para UI, Semibold/Bold para títulos. Tracking apertado nos titulões (estilo Apple).</p>
+      <header class="section-head">
+        <span class="eyebrow" style="color: var(--color-fg-muted);">03 — Tipografia</span>
+        <h2>Inter, um peso só de cada vez.</h2>
+        <p class="lead">Sans humanista única. Regular para corpo, Medium para UI, Semibold/Bold para títulos. Tracking apertado nos titulões (estilo Apple).</p>
+      </header>
 
-      <div style="margin-top: var(--sp-12);">
+      <div>
         <div class="type-row"><div class="sg-label">Display</div><div class="type-display">Aa 360</div></div>
         <div class="type-row"><div class="sg-label">H1</div><div class="type-h1">Conhecimento aplicado.</div></div>
         <div class="type-row"><div class="sg-label">H2</div><div class="type-h2">Costuramos CRM, dados e IA.</div></div>
@@ -620,12 +529,14 @@
   </section>
 
   <!-- Componentes -->
-  <section class="sg" id="componentes">
+  <section class="section alt" id="componentes">
     <div class="container">
-      <div class="sg-eyebrow" style="color: var(--color-fg-muted);">04 — Componentes</div>
-      <h2 class="sg-h2">Botões, pílulas, cards.</h2>
+      <header class="section-head">
+        <span class="eyebrow" style="color: var(--color-fg-muted);">04 — Componentes</span>
+        <h2>Botões, pílulas, cards.</h2>
+      </header>
 
-      <h3 class="sg-h3">Botões</h3>
+      <h3 class="h4" style="margin-bottom: var(--sp-4);">Botões</h3>
       <div style="display: flex; gap: var(--sp-3); flex-wrap: wrap; align-items: center;">
         <button class="btn btn-primary">Conversar com a gente</button>
         <button class="btn btn-accent">Começar a Trilha</button>
@@ -633,18 +544,17 @@
         <a href="#" class="btn-link">Conhecer o pilar</a>
       </div>
 
-      <h3 class="sg-h3">Pílulas / badges</h3>
+      <h3 class="h4" style="margin-top: var(--sp-8); margin-bottom: var(--sp-4);">Pílulas / badges</h3>
       <div style="display: flex; gap: var(--sp-3); flex-wrap: wrap; align-items: center;">
         <span class="pill pill-line">Salesforce Partner</span>
         <span class="pill pill-accent pill-dot">Agentforce ready</span>
-        <span class="pill pill-dark">v0.1</span>
         <span class="pill pill-line">Tableau Certified</span>
       </div>
 
-      <h3 class="sg-h3">Cards de pilar</h3>
-      <div class="grid grid-3" style="margin-top: var(--sp-6);">
-        <div class="card">
-          <div class="card-eyebrow">01 · Pilar</div>
+      <h3 class="h4" style="margin-top: var(--sp-8); margin-bottom: var(--sp-4);">Cards de pilar</h3>
+      <div class="grid-cards cols-3">
+        <article class="card pillar-card" data-pillar="sf">
+          <div class="num">01 · Pilar</div>
           <h3>Salesforce</h3>
           <p>Core CRM: Sales, Service, Data Cloud e Agentforce. Da implementação à evolução com agentes.</p>
           <ul>
@@ -652,9 +562,9 @@
             <li>Data Cloud + ativação</li>
             <li>Agentforce / agentes</li>
           </ul>
-        </div>
-        <div class="card">
-          <div class="card-eyebrow">02 · Pilar</div>
+        </article>
+        <article class="card pillar-card" data-pillar="data">
+          <div class="num">02 · Pilar</div>
           <h3>Data &amp; Analytics</h3>
           <p>Engenharia de dados, analytics avançado e data science. Agnóstico de stack — escolha guiada pelo cenário.</p>
           <ul>
@@ -662,9 +572,9 @@
             <li>Analytics avançado / DS</li>
             <li>Visualização e dashboards</li>
           </ul>
-        </div>
-        <div class="card">
-          <div class="card-eyebrow">03 · Pilar</div>
+        </article>
+        <article class="card pillar-card" data-pillar="ai">
+          <div class="num">03 · Pilar</div>
           <h3>IA Aplicada</h3>
           <p>Agentes de IA sob medida e produtos SaaS verticais. Pegada de software house com discovery rápido.</p>
           <ul>
@@ -672,57 +582,63 @@
             <li>Produtos SaaS verticais</li>
             <li>Sprint de IA</li>
           </ul>
-        </div>
+        </article>
       </div>
     </div>
   </section>
 
   <!-- Trilha 360 -->
-  <section class="sg" id="trilha">
+  <section class="section" id="trilha">
     <div class="container">
-      <div class="sg-eyebrow" style="color: var(--color-fg-muted);">05 — Metodologia</div>
-      <h2 class="sg-h2">Trilha 360</h2>
-      <p class="sg-lead">Cinco verbos. Híbrido entre consultoria, projeto de tecnologia e deploy rápido de IA.</p>
+      <header class="section-head">
+        <span class="eyebrow" style="color: var(--color-fg-muted);">05 — Metodologia</span>
+        <h2>Trilha 360</h2>
+        <p class="lead">Cinco verbos. Híbrido entre consultoria, projeto de tecnologia e deploy rápido de IA.</p>
+      </header>
 
-      <div class="trilha" style="margin-top: var(--sp-12); border: 1px solid var(--color-line); border-radius: var(--r-lg); overflow: hidden;">
-        <div class="trilha-step">
-          <div class="num">01</div>
-          <div class="verb">Mapear</div>
-          <div class="desc">Negócio, dados e processos. Onde a fricção mora.</div>
-        </div>
-        <div class="trilha-step">
-          <div class="num">02</div>
-          <div class="verb">Prototipar</div>
-          <div class="desc">Primeiro corte funcional. Baixo compromisso, alto aprendizado.</div>
-        </div>
-        <div class="trilha-step">
-          <div class="num">03</div>
-          <div class="verb">Validar</div>
-          <div class="desc">Prova de valor com KPI claro. Mata ou avança.</div>
-        </div>
-        <div class="trilha-step">
-          <div class="num">04</div>
-          <div class="verb">Implantar</div>
-          <div class="desc">Engenharia robusta, produção, integração.</div>
-        </div>
-        <div class="trilha-step">
-          <div class="num">05</div>
-          <div class="verb">Sustentar</div>
-          <div class="desc">AMS, evolução contínua, agentes vivos.</div>
+      <div class="trilha-wrap">
+        <div class="trilha">
+          <div class="trilha-step">
+            <div class="num">01</div>
+            <div class="verb">Mapear</div>
+            <div class="desc">Negócio, dados e processos. Onde a fricção mora.</div>
+          </div>
+          <div class="trilha-step">
+            <div class="num">02</div>
+            <div class="verb">Prototipar</div>
+            <div class="desc">Primeiro corte funcional. Baixo compromisso, alto aprendizado.</div>
+          </div>
+          <div class="trilha-step">
+            <div class="num">03</div>
+            <div class="verb">Validar</div>
+            <div class="desc">Prova de valor com KPI claro. Mata ou avança.</div>
+          </div>
+          <div class="trilha-step">
+            <div class="num">04</div>
+            <div class="verb">Implantar</div>
+            <div class="desc">Engenharia robusta, produção, integração.</div>
+          </div>
+          <div class="trilha-step">
+            <div class="num">05</div>
+            <div class="verb">Sustentar</div>
+            <div class="desc">AMS, evolução contínua, agentes vivos.</div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Hero mock -->
-  <section class="sg" id="hero">
+  <section class="section alt" id="hero">
     <div class="container">
-      <div class="sg-eyebrow" style="color: var(--color-fg-muted);">06 — Hero (preview)</div>
-      <h2 class="sg-h2">Hero da home</h2>
-      <p class="sg-lead">Aplicação dos tokens em uma seção real, para sentir o peso visual.</p>
+      <header class="section-head">
+        <span class="eyebrow" style="color: var(--color-fg-muted);">06 — Hero (preview)</span>
+        <h2>Hero da home</h2>
+        <p class="lead">Aplicação dos tokens em uma seção real, para sentir o peso visual.</p>
+      </header>
 
-      <div class="hero-mock" style="margin-top: var(--sp-12); padding-left: var(--sp-12); padding-right: var(--sp-12);">
-        <div class="eyebrow">Consultoria especializada em CRM, dados e IA · Salesforce Partner</div>
+      <div class="hero-mock">
+        <span class="eyebrow">Consultoria especializada em CRM, dados e IA · Salesforce Partner</span>
         <h1>Conhecimento aplicado, <em>como serviço</em>.</h1>
         <p class="sub">Costuramos CRM, dados e IA num só sistema. Poucos clientes estratégicos, atendidos por quem entrega.</p>
         <div class="cta-row">
@@ -734,29 +650,33 @@
   </section>
 
   <!-- Hero dark (alternativa) -->
-  <section class="sg dark" id="hero-dark">
+  <section class="section dark" id="hero-dark">
     <div class="container">
-      <div class="sg-eyebrow">06b — Hero (alternativa escura)</div>
-      <h2 class="sg-h2">Mesma estrutura, base escura</h2>
-      <p class="sg-lead">Opcional. Use para a seção de IA / produtos, ou como hero alternativo. Aplica o verde com mais força sobre preto.</p>
+      <header class="section-head">
+        <span class="eyebrow">06b — Hero (alternativa escura)</span>
+        <h2 style="color: #fff;">Mesma estrutura, base escura</h2>
+        <p class="lead">Opcional. Use para a seção de IA / produtos, ou como hero alternativo. Aplica o verde com mais força sobre preto.</p>
+      </header>
 
-      <div style="margin-top: var(--sp-12); padding: var(--sp-16) 0;">
-        <div style="font-size: var(--fs-12); letter-spacing: var(--ls-wide); text-transform: uppercase; color: var(--green-300); font-weight: var(--fw-semibold); margin-bottom: var(--sp-6);">Pilar 03 · IA Aplicada</div>
-        <h1 style="font-size: var(--fs-h1); letter-spacing: var(--ls-tighter); line-height: var(--lh-tight); font-weight: var(--fw-bold); max-width: 18ch;">
+      <div style="padding: var(--sp-16) 0;">
+        <span class="eyebrow">Pilar 03 · IA Aplicada</span>
+        <h1 class="h1" style="margin-top: var(--sp-6); max-width: 18ch;">
           Do <span style="color: var(--green-300);">dado</span> ao <span style="color: var(--green-300);">agente</span>. Sem emendas.
         </h1>
-        <p style="font-size: var(--fs-20); color: var(--ink-300); max-width: 52ch; margin-top: var(--sp-8); line-height: var(--lh-snug);">Agentes de IA sob medida e produtos SaaS verticais. A IA entra onde já existe dado e processo — não antes.</p>
+        <p class="lead" style="margin-top: var(--sp-8); max-width: 52ch;">Agentes de IA sob medida e produtos SaaS verticais. A IA entra onde já existe dado e processo — não antes.</p>
       </div>
     </div>
   </section>
 
   <!-- Escalas -->
-  <section class="sg">
+  <section class="section">
     <div class="container">
-      <div class="sg-eyebrow" style="color: var(--color-fg-muted);">07 — Sistema</div>
-      <h2 class="sg-h2">Espaço, raio, sombra.</h2>
+      <header class="section-head">
+        <span class="eyebrow" style="color: var(--color-fg-muted);">07 — Sistema</span>
+        <h2>Espaço, raio, sombra.</h2>
+      </header>
 
-      <h3 class="sg-h3">Espaçamento (escala 4)</h3>
+      <h3 class="h4" style="margin-bottom: var(--sp-4);">Espaçamento (escala 4)</h3>
       <div class="scale-row">
         <div class="item"><div class="box" style="width:4px; height:4px;"></div><div class="label">4</div></div>
         <div class="item"><div class="box" style="width:8px; height:8px;"></div><div class="label">8</div></div>
@@ -769,7 +689,7 @@
         <div class="item"><div class="box" style="width:128px; height:128px;"></div><div class="label">128</div></div>
       </div>
 
-      <h3 class="sg-h3">Raio</h3>
+      <h3 class="h4" style="margin-top: var(--sp-8); margin-bottom: var(--sp-4);">Raio</h3>
       <div class="radius-row">
         <div class="box" style="border-radius: 6px;">6</div>
         <div class="box" style="border-radius: 10px;">10</div>
@@ -778,7 +698,7 @@
         <div class="box" style="border-radius: 999px;">pill</div>
       </div>
 
-      <h3 class="sg-h3">Sombras</h3>
+      <h3 class="h4" style="margin-top: var(--sp-8); margin-bottom: var(--sp-4);">Sombras</h3>
       <div class="shadow-row">
         <div class="box" style="box-shadow: var(--shadow-xs);">xs</div>
         <div class="box" style="box-shadow: var(--shadow-sm);">sm</div>
@@ -789,13 +709,15 @@
   </section>
 
   <!-- Tom de voz -->
-  <section class="sg">
+  <section class="section alt">
     <div class="container">
-      <div class="sg-eyebrow" style="color: var(--color-fg-muted);">08 — Tom de voz</div>
-      <h2 class="sg-h2">Direto. Técnico. Sem jargão.</h2>
-      <p class="sg-lead">Consultoria informada falando com decisor informado. Sem "transformação digital", sem "jornada", sem "experiência fluida".</p>
+      <header class="section-head">
+        <span class="eyebrow" style="color: var(--color-fg-muted);">08 — Tom de voz</span>
+        <h2>Direto. Técnico. Sem jargão.</h2>
+        <p class="lead">Consultoria informada falando com decisor informado. Sem "transformação digital", sem "jornada", sem "experiência fluida".</p>
+      </header>
 
-      <div class="voice" style="margin-top: var(--sp-12);">
+      <div class="voice">
         <div class="col yes">
           <h4>Usar</h4>
           <ul>
