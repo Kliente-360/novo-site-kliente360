@@ -149,9 +149,13 @@ const renderMarkdown = (md) => {
   return html.replace('<p>', '<p class="post-intro">');
 };
 
-// Caminho relativo de um asset CSS/JS (sempre absoluto a partir da raiz).
-const postUrl = (slug, lang) => lang === 'pt' ? `/blog/${slug}.html` : `/blog/${lang}/${slug}.html`;
-const listingUrl = (lang) => lang === 'pt' ? '/blog/' : `/blog/${lang}/`;
+// Domínio canônico de produção — usado em canonical, hreflang, og:url, sitemap.
+const SITE_URL = 'https://kliente360.com';
+const abs = (path) => path.startsWith('http') ? path : `${SITE_URL}${path}`;
+const postPath = (slug, lang) => lang === 'pt' ? `/blog/${slug}.html` : `/blog/${lang}/${slug}.html`;
+const listingPath = (lang) => lang === 'pt' ? '/blog/' : `/blog/${lang}/`;
+const postUrl = (slug, lang) => abs(postPath(slug, lang));
+const listingUrl = (lang) => abs(listingPath(lang));
 
 // ---------- shared chunks ----------
 const navHtml = (currentPath = '') => `
@@ -280,7 +284,8 @@ ${renderAlternates(alternates)}
   <meta property="og:site_name" content="Kliente 360" />
   <meta property="og:title" content="${escapeHtml(title)}" />
   <meta property="og:description" content="${escapeHtml(description)}" />
-  <meta property="og:image" content="${ogImage}" />
+  <meta property="og:url" content="${canonical}" />
+  <meta property="og:image" content="${abs(ogImage)}" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   ${pubDate ? `<meta property="article:published_time" content="${pubDate}" />` : ''}
@@ -337,7 +342,7 @@ const faqPageSchema = (faqs, lang) => ({
 
 const breadcrumbSchema = (post, lang) => {
   const blogHref = listingUrl(lang);
-  const pillarHref = PILLAR_URL[lang][post.pillar];
+  const pillarHref = abs(PILLAR_URL[lang][post.pillar]);
   const postHref = postUrl(post.slug, lang);
   const title = post.translations[lang].title;
   return {
@@ -483,7 +488,8 @@ const renderPost = (post, lang, allPosts) => {
     description: t.excerpt,
     datePublished: post.date,
     inLanguage: HTML_LANG[lang],
-    image: ogImage,
+    image: abs(ogImage),
+    mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
     author:    { '@type': 'Organization', name: 'Kliente 360' },
     publisher: { '@type': 'Organization', name: 'Kliente 360' },
     articleSection: sectionLabel,
@@ -572,7 +578,7 @@ ${navHtml('/blog/' + post.slug)}
         <div class="container">
           <h2>${escapeHtml(S.relatedTitle)}</h2>
           <div class="grid-cards cols-2-3">
-${related.map(r => `            <a class="card post-card" data-pillar="${r.pillar}" href="${postUrl(r.slug, lang)}">
+${related.map(r => `            <a class="card post-card" data-pillar="${r.pillar}" href="${postPath(r.slug, lang)}">
               <div class="post-meta">
                 <span class="pill-pillar">${escapeHtml(S.pillars[r.pillar])}</span>
                 <span class="post-date">${formatDate(r.date, lang)}</span>
@@ -617,7 +623,7 @@ ${headCommon({
 </head>
 <body>
   <a class="skip-link" href="#main">Pular para o conteúdo</a>
-${navHtml(listingUrl(lang))}
+${navHtml(listingPath(lang))}
 
   <main id="main">
     <section class="blog-hero">
@@ -638,7 +644,7 @@ ${navHtml(listingUrl(lang))}
     <section class="section" style="padding-top: 0;">
       <div class="container">
         <div class="grid-cards cols-2-3">
-${posts.map(p => `          <a class="card post-card" data-pillar="${p.pillar}" href="${postUrl(p.slug, lang)}">
+${posts.map(p => `          <a class="card post-card" data-pillar="${p.pillar}" href="${postPath(p.slug, lang)}">
             <div class="post-meta">
               <span class="pill-pillar">${escapeHtml(S.pillars[p.pillar])}</span>
               <span class="post-date">${formatDate(p.date, lang)}</span>
@@ -772,9 +778,27 @@ const main = () => {
 
   // Sitemap
   const today = new Date().toISOString().slice(0, 10);
-  const staticUrls = ['/', '/blog/', '/styleguide.html'];
+  const staticUrls = [
+    { path: '/', priority: '1.0' },
+    { path: '/blog/', priority: '0.8' },
+    { path: '/pilares/salesforce/', priority: '0.9' },
+    { path: '/pilares/data/', priority: '0.9' },
+    { path: '/pilares/ia/', priority: '0.9' },
+    { path: '/como-trabalhamos/', priority: '0.8' },
+    { path: '/glossario/', priority: '0.6' },
+    { path: '/en/pilares/salesforce/', priority: '0.7' },
+    { path: '/en/pilares/data/', priority: '0.7' },
+    { path: '/en/pilares/ia/', priority: '0.7' },
+    { path: '/en/como-trabalhamos/', priority: '0.6' },
+    { path: '/en/glossario/', priority: '0.5' },
+    { path: '/es/pilares/salesforce/', priority: '0.7' },
+    { path: '/es/pilares/data/', priority: '0.7' },
+    { path: '/es/pilares/ia/', priority: '0.7' },
+    { path: '/es/como-trabalhamos/', priority: '0.6' },
+    { path: '/es/glossario/', priority: '0.5' },
+  ];
   const allUrls = [
-    ...staticUrls.map(u => ({ loc: u, lastmod: today, changefreq: 'monthly', priority: u === '/' ? '1.0' : '0.7' })),
+    ...staticUrls.map(u => ({ loc: abs(u.path), lastmod: today, changefreq: 'monthly', priority: u.priority })),
   ];
   for (const post of posts) {
     for (const lang of LANGS) {
@@ -805,7 +829,7 @@ ${allUrls.map(u => `  <url>
     date: p.date,
     translations: Object.fromEntries(LANGS.filter(l => p.translations[l]).map(l => [l, {
       title: p.translations[l].title,
-      url: postUrl(p.slug, l),
+      url: postPath(p.slug, l),
       date: formatDate(p.date, l),
     }])),
   }));
