@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Modern Data Stack em 2026: o que sobreviveu, o que morreu, o que virou commodity | Kliente 360</title>
+  <meta name="description" content="Modern Data Stack tinha 40 ferramentas em 2021. Hoje, três camadas viraram commodity, uma morreu silenciosamente, e uma sobreviveu como tese — não como rótulo." />
+  <meta name="theme-color" content="#0a0a0a" />
+
+  <link rel="canonical" href="https://kliente360.com/blog/modern-data-stack-2026.html" />
+  <link rel="alternate" hreflang="pt-BR" href="https://kliente360.com/blog/modern-data-stack-2026.html" />
+  <link rel="alternate" hreflang="en-US" href="https://kliente360.com/blog/en/modern-data-stack-2026.html" />
+  <link rel="alternate" hreflang="es-ES" href="https://kliente360.com/blog/es/modern-data-stack-2026.html" />
+  <link rel="alternate" hreflang="x-default" href="https://kliente360.com/blog/modern-data-stack-2026.html" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Kliente 360" />
+  <meta property="og:title" content="Modern Data Stack em 2026: o que sobreviveu, o que morreu, o que virou commodity | Kliente 360" />
+  <meta property="og:description" content="Modern Data Stack tinha 40 ferramentas em 2021. Hoje, três camadas viraram commodity, uma morreu silenciosamente, e uma sobreviveu como tese — não como rótulo." />
+  <meta property="og:url" content="https://kliente360.com/blog/modern-data-stack-2026.html" />
+  <meta property="og:image" content="https://kliente360.com/assets/img/og/modern-data-stack-2026-pt.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="article:published_time" content="2026-05-13" />
+  <meta property="article:section" content="Data &amp; Analytics" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Modern Data Stack em 2026: o que sobreviveu, o que morreu, o que virou commodity | Kliente 360" />
+  <meta name="twitter:description" content="Modern Data Stack tinha 40 ferramentas em 2021. Hoje, três camadas viraram commodity, uma morreu silenciosamente, e uma sobreviveu como tese — não como rótulo." />
+
+  <link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+
+  <link rel="stylesheet" href="/assets/css/tokens.css?v=abbfb6dc0e" />
+  <link rel="stylesheet" href="/assets/css/reset.css?v=abbfb6dc0e" />
+  <link rel="stylesheet" href="/assets/css/main.css?v=abbfb6dc0e" />
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Modern Data Stack em 2026: o que sobreviveu, o que morreu, o que virou commodity",
+  "description": "Modern Data Stack tinha 40 ferramentas em 2021. Hoje, três camadas viraram commodity, uma morreu silenciosamente, e uma sobreviveu como tese — não como rótulo.",
+  "datePublished": "2026-05-13",
+  "inLanguage": "pt-BR",
+  "image": "https://kliente360.com/assets/img/og/modern-data-stack-2026-pt.png",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://kliente360.com/blog/modern-data-stack-2026.html"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Kliente 360"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Kliente 360"
+  },
+  "articleSection": "Data & Analytics",
+  "keywords": [
+    "modern data stack",
+    "data engineering",
+    "warehouse moderno",
+    "dbt",
+    "camada semântica"
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Blog",
+      "item": "https://kliente360.com/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Data & Analytics",
+      "item": "https://kliente360.com/pilares/data/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Modern Data Stack em 2026: o que sobreviveu, o que morreu, o que virou commodity",
+      "item": "https://kliente360.com/blog/modern-data-stack-2026.html"
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Pular para o conteúdo</a>
+
+  <header class="nav" role="banner">
+    <div class="container nav-inner">
+      <a class="nav-brand" href="/" aria-label="Kliente 360 — início">
+        <svg class="mark-aperture" viewBox="0 0 80 80" aria-hidden="true">
+          <circle cx="40" cy="22" r="11"/>
+          <circle cx="58" cy="40" r="11"/>
+          <circle cx="40" cy="58" r="11"/>
+          <circle cx="22" cy="40" r="11"/>
+        </svg>
+        <span>kliente 360</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Principal">
+        <a href="/#pilares" data-i18n="nav.pillars">Pilares</a>
+        <a href="/#trilha" data-i18n="nav.trilha">Trilha 360</a>
+        <a href="/#cases" data-i18n="nav.cases">Cases</a>
+        <a href="/blog/" data-i18n="nav.blog" aria-current="page">Blog</a>
+        <a href="/#contato" data-i18n="nav.contact">Contato</a>
+      </nav>
+
+      <div class="nav-right">
+        <div class="lang-switch" role="group" aria-label="Idioma">
+          <button type="button" data-lang="pt" aria-current="true">PT</button>
+          <button type="button" data-lang="en">EN</button>
+          <button type="button" data-lang="es">ES</button>
+        </div>
+        <button class="nav-toggle" type="button" aria-controls="nav-menu" aria-expanded="false" data-nav-toggle data-i18n-attr="aria-label:nav.menu" aria-label="Abrir menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="nav-menu" id="nav-menu" data-open="false">
+      <div class="group">
+        <div class="group-label" data-i18n="nav.mobile.pillars">Pilares</div>
+        <a href="/pilares/salesforce/" data-i18n="nav.mobile.salesforce">Salesforce</a>
+        <a href="/pilares/data/" data-i18n="nav.mobile.data">Data &amp; Analytics</a>
+        <a href="/pilares/ia/" data-i18n="nav.mobile.ai">IA Aplicada</a>
+      </div>
+      <div class="group">
+        <div class="group-label" data-i18n="nav.mobile.empresa">Empresa</div>
+        <a href="/#trilha" data-i18n="nav.mobile.trilha">Trilha 360</a>
+        <a href="/#cases" data-i18n="nav.mobile.cases">Cases</a>
+        <a href="/blog/" data-i18n="nav.mobile.blog">Blog</a>
+        <a href="/como-trabalhamos/">Como trabalhamos</a>
+        <a href="/glossario/">Glossário</a>
+        <a href="/#contato" data-i18n="nav.contact">Contato</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="/#contato" data-i18n="nav.cta">Falar com um sócio</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <article class="post-article" data-pillar="data" data-pagefind-body data-pagefind-meta="title:Modern Data Stack em 2026: o que sobreviveu, o que morreu, o que virou commodity" data-pagefind-meta="pillar_label:Data &amp; Analytics" data-pagefind-filter="pillar:data">
+
+      <header class="post-header">
+        <div class="container container-narrow">
+          <div class="post-header-top">
+            <span class="pill-pillar">Pilar 02 · Data</span>
+            <a class="post-back" href="https://kliente360.com/blog/">Blog</a>
+          </div>
+          <h1>Modern Data Stack em 2026: o que sobreviveu, o que morreu, o que virou commodity</h1>
+          <div class="post-meta-line">
+            <time datetime="2026-05-13">13 mai 2026</time>
+            <span class="sep">·</span>
+            <span>8 min de leitura</span>
+            <span class="sep">·</span>
+            <span>Por Kliente 360</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="container">
+        <div class="post-body">
+          <aside class="post-tldr">
+            <div class="label">TL;DR</div>
+            <p>O termo Modern Data Stack era ferramenta de marketing pra um arranjo específico — warehouse cloud + ELT + dbt + BI moderno + reverse ETL. Em 2026, o warehouse e o ELT viraram commodity, o reverse ETL está morrendo como categoria isolada, e a única peça com tese viva é a camada semântica. O que sobrou é arquitetura, não brand.</p>
+          </aside>
+
+          <p class="post-intro"><strong>O</strong> termo <em>Modern Data Stack</em> foi inventado em 2017 por marketing de uma combinação específica de ferramentas: warehouse cloud (Snowflake, BigQuery, Redshift), ELT (Fivetran, Stitch), transformação em SQL (dbt), BI moderno (Looker, Mode), reverse ETL (Hightouch, Census). Em 2021, esse arranjo era a vanguarda. Em 2026, três dessas camadas viraram commodity, uma está morrendo silenciosamente, e uma sobreviveu como tese técnica — não como rótulo de mercado.</p>
+<p>Esse texto faz a leitura crítica: o que sobrou de fato, o que foi reabsorvido pelos próprios warehouses, e o que ficou no marketing dos fornecedores enquanto a arquitetura mudou. Quem está montando stack de dados em 2026 não compra Modern Data Stack — compra peças, e o critério deveria ser técnico, não de tendência.</p>
+<h2>O que sobreviveu (e por quê)</h2>
+<p>Três coisas resistiram ao teste de mercado.</p>
+<p><strong>Warehouse separado do banco transacional.</strong> A tese central — &quot;OLAP não vive no OLTP&quot; — venceu. Toda operação séria de dados em 2026 tem warehouse dedicado (Snowflake, BigQuery, Databricks SQL, Redshift, Synapse). Não é mais Modern Data Stack; é o default arquitetural. Quem ainda roda BI direto no Postgres de produção está perdendo dinheiro em performance, contenção, e custo cognitivo do time.</p>
+<p><strong>Transformação como código versionado.</strong> dbt provou que SQL versionado em Git, com testes, lineage automático e documentação gerada, é superior a Pentaho/Informatica/SSIS clicaveis. Em 2026, dbt não é mais a única ferramenta — SQLMesh, Coalesce, e os próprios warehouses (Databricks Workflows, Snowflake Dynamic Tables) competem. Mas a abordagem (transformação versionada como código) é canônica. <a href="/blog/dbt-na-pratica.html">O truque sempre foi documentação, não modelagem</a> — e isso o mercado finalmente entendeu.</p>
+<p><strong>Camada semântica.</strong> Aqui mora a única peça com tese viva em 2026. dbt Semantic Layer, Cube, MetricFlow, dbt mesh — todos tentam resolver o mesmo problema: &quot;qual é a definição canônica de &#39;cliente ativo&#39; que sales, marketing e finance usam?&quot;. A resposta não pode estar no Looker, no Tableau e na planilha do CFO ao mesmo tempo. A camada semântica é a única invenção genuinamente nova da década — e a única em que vale investir pensamento arquitetural sério em 2026.</p>
+<h2>O que morreu (silenciosamente)</h2>
+<p>Algumas categorias inteiras evaporaram, e o mercado não fez velório.</p>
+<p><strong>Reverse ETL como categoria isolada.</strong> Em 2022, Hightouch e Census eram darlings — operacionalizar dados do warehouse de volta nos sistemas operacionais (CRM, marketing, finance). Em 2026, a função existe mas a categoria está dissolvida. Salesforce Data Cloud absorveu a parte de CRM. Customer.io, Braze e Iterable absorveram a parte de marketing. Quem ainda usa reverse ETL standalone está geralmente em arquitetura legacy onde Salesforce não chegou — ou onde o time de dados não conversa com o time de produto.</p>
+<p><strong>ETL clássico empacotado.</strong> Talend, Informatica PowerCenter, IBM DataStage — saíram do mainstream pra nichos específicos. Empresas com data lake on-premises pesado ainda usam, mas nenhum projeto novo em 2026 inicia com ETL clássico. <a href="/blog/elt-vs-etl.html">ELT venceu o ETL</a> na arquitetura mainstream, e o que era ETL virou ou ELT ou processamento stream específico.</p>
+<p><strong>Data catalog standalone.</strong> Alation, Collibra e similares sobreviveram como produto, mas a tese de &quot;uma ferramenta de catálogo separada pra documentar tudo&quot; perdeu. Em 2026, descoberta de dados acontece principalmente dentro do warehouse (Snowflake Horizon, Databricks Unity Catalog, BigQuery Dataplex) ou via lineage automático do dbt. <a href="/blog/data-catalog-ninguem-usa.html">Data catalog que ninguém usa</a> descreve a regra, não a exceção.</p>
+<h2>O que virou commodity</h2>
+<p>Três camadas sofreram compressão de margem brutal e perderam diferenciação.</p>
+<p><strong>ELT.</strong> Fivetran, Stitch, Airbyte, Meltano — fazem essencialmente a mesma coisa. Catálogo de conectores idêntico (Salesforce, HubSpot, Postgres, Stripe), preço caiu ~60% desde 2022, e a diferença técnica entre opções pagas e self-hosted (Airbyte/Meltano) está em suporte e gestão, não em capacidade. Em 2026, escolher ELT é exercício de TCO, não de arquitetura. Quem ainda compara Fivetran vs Stitch como decisão estratégica está três anos atrasado.</p>
+<p><strong>Warehouse cloud.</strong> Snowflake, BigQuery, Databricks SQL, Redshift estão em paridade competitiva ampla. Performance comparável, preço comparável, ecossistema comparável. A escolha em 2026 quase sempre é por contexto: já é cliente Azure? Synapse ou Databricks. Já é Google Cloud? BigQuery. Já tem Salesforce + AWS? Snowflake. <a href="/blog/snowflake-bigquery-databricks.html">O comparativo real é mais sobre fit organizacional que técnica</a>.</p>
+<p><strong>BI moderno.</strong> Looker, Tableau, Power BI, Metabase, Sigma — todos servem. Looker tem LookML (vantagem na camada semântica), Tableau tem flexibilidade visual, Power BI tem incentivo de Microsoft licensing, Metabase tem open-source. Decisão é organizacional: que ferramenta o time consegue operar bem? Não há mais &quot;BI moderno&quot; como categoria diferenciada — há &quot;BI que todo mundo usa&quot;.</p>
+<h2>O que está acontecendo de fato em 2026</h2>
+<p>Cinco movimentos arquiteturais reais — não mais relacionados ao rótulo Modern Data Stack, mas que definem stack de dados sério hoje.</p>
+<ol>
+<li><strong>Lakehouse virou default.</strong> Databricks consolidou a tese (storage aberto + SQL/Spark/ML no mesmo lugar). Snowflake respondeu (Iceberg). BigQuery respondeu (BigLake). Em 2026, separar &quot;warehouse&quot; de &quot;lake&quot; é arquitetura legacy.</li>
+<li><strong>Camada semântica é onde a disputa está.</strong> dbt Semantic Layer, Cube, MetricFlow disputam por ser o &quot;MetricStore&quot; canônico. Sem ela, métricas brigam entre BI tools. Com ela, mais um motor de governança que afeta produto.</li>
+<li><strong>Real-time deixou de ser categoria à parte.</strong> Materialize, RisingWave, ClickHouse e Iceberg streaming reduziram o gap entre batch e stream. Em 2026, escolher batch ou stream é decisão de SLA, não de stack diferente.</li>
+<li><strong>Governança virou camada do warehouse.</strong> Unity Catalog (Databricks), Horizon (Snowflake), Dataplex (BigQuery) absorveram parte da função de catálogo e lineage. Ferramenta separada só sobrevive em casos complexos multi-warehouse.</li>
+<li><strong>IA generativa virou consumidor de dados, não substituto.</strong> GPT/Claude/Gemini pra análise ad-hoc, geração de SQL natural, descoberta de insight. Esse é o caso onde a camada semântica fica ainda mais crítica — LLM precisa de definição canônica pra não inventar métrica.</li>
+</ol>
+<blockquote>
+<p>Modern Data Stack era brand. Stack de dados em 2026 é arquitetura. Quem ainda vende a etiqueta está vendendo 2021.</p>
+</blockquote>
+<h2>Como decidir o stack em 2026</h2>
+<p>Cinco perguntas que orientam decisão.</p>
+<ol>
+<li><strong>Onde já mora o resto da operação?</strong> Cloud principal define warehouse natural. Não brigue contra gravidade organizacional.</li>
+<li><strong>Qual o volume real, não projetado?</strong> Dimensionar pra 10TB quando se tem 200GB é desperdício; o contrário também.</li>
+<li><strong>Time tem músculo de operação contínua?</strong> Lakehouse mais sofisticado (Databricks com Spark customizado) exige squad dedicado; Snowflake puro exige menos.</li>
+<li><strong>Camada semântica é tratada como cidadão de primeira classe?</strong> Se não, a stack vai entregar dashboards conflitantes em 18 meses, independente das outras escolhas.</li>
+<li><strong>Quem responde por governança em 2 anos?</strong> Pessoa, não ferramenta. Sem dono claro, qualquer stack vira pântano em 24 meses.</li>
+</ol>
+<h2>O que NÃO comprar em 2026</h2>
+<p>Três coisas que ainda aparecem em pitch de fornecedor e não fazem sentido investir:</p>
+<p><strong>Reverse ETL standalone</strong>, exceto em arquitetura legacy sem Salesforce/HubSpot/Customer.io.</p>
+<p><strong>Data catalog separado</strong>, exceto em ambiente multi-cloud com vários warehouses (raro). O catálogo do warehouse cobre 80% do uso real.</p>
+<p><strong>&quot;Modern Data Stack consultancy&quot;</strong> que vende a etiqueta. Em 2026, ou o consultor entende a arquitetura técnica peça por peça, ou está vendendo brand morta.</p>
+<p>Quem monta stack de dados em 2026 escolhe pelo encaixe organizacional, custo total e capacidade de operação contínua. O termo Modern Data Stack pode aparecer no slide do pitch, mas a decisão acontece num nível abaixo — e quem decide bem nesse nível abaixo entrega projeto que vinga; quem compra o slide entrega projeto que vira mais um item no catálogo de ferramentas pagas e subutilizadas.</p>
+
+        </div>
+      </div>
+
+      <section class="post-end">
+        <div class="container">
+          <div class="post-end-cta">
+            <div class="label">Continuar a conversa</div>
+            <h3>Quer discutir esse tema com um sócio?</h3>
+            <p>Diagnóstico inicial sem compromisso. Levamos uma primeira leitura do seu cenário em uma semana e devolvemos um relatório.</p>
+            <a class="btn-link" href="/#contato">Conversar com um sócio</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="post-explore">
+        <div class="container">
+          <div class="label">Continue explorando</div>
+          <div class="grid-cards cols-2-3">
+            <a class="card explore-card" data-pillar="data" href="/pilares/data/">
+              <div class="explore-kind">Pilar · Data &amp; Analytics</div>
+              <p>Como entregamos Data &amp; Analytics na prática — escopo, riscos típicos, sinais de saúde.</p>
+            </a>
+            <a class="card explore-card" href="/como-trabalhamos/">
+              <div class="explore-kind">Como trabalhamos</div>
+              <p>Trilha 360 — os cinco verbos da nossa prática: mapear, prototipar, validar, implantar, sustentar.</p>
+            </a>
+            <a class="card explore-card" href="/glossario/?pilar=data">
+              <div class="explore-kind">Glossário</div>
+              <p>Vocabulário técnico calibrado de CRM, dados e IA. Sem clichês, sem jargão preguiçoso.</p>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="post-related">
+        <div class="container">
+          <h2>Próximas leituras</h2>
+          <div class="grid-cards cols-2-3">
+            <a class="card post-card" data-pillar="data" href="/blog/tableau-linguagem-executiva.html">
+              <div class="post-meta">
+                <span class="pill-pillar">Pilar 02 · Data</span>
+                <span class="post-date">13 mai 2026</span>
+              </div>
+              <h3>Tableau como linguagem executiva: matando o dashboard de vaidade</h3>
+              <div class="read">Ler →</div>
+            </a>
+            <a class="card post-card" data-pillar="data" href="/blog/databricks-snowflake-bigquery-lock-in.html">
+              <div class="post-meta">
+                <span class="pill-pillar">Pilar 02 · Data</span>
+                <span class="post-date">6 mai 2026</span>
+              </div>
+              <h3>Databricks vs Snowflake vs BigQuery: lock-in, custos de saída e o que o parceiro oficial não fala</h3>
+              <div class="read">Ler →</div>
+            </a>
+            <a class="card post-card" data-pillar="data" href="/blog/analise-de-churn.html">
+              <div class="post-meta">
+                <span class="pill-pillar">Pilar 02 · Data</span>
+                <span class="post-date">5 mai 2026</span>
+              </div>
+              <h3>Análise de churn: o erro de definir &quot;perda&quot; antes da estratégia</h3>
+              <div class="read">Ler →</div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <a class="footer-brand" href="/" aria-label="Kliente 360">
+            <svg viewBox="0 0 80 80" aria-hidden="true">
+              <circle cx="40" cy="22" r="11" opacity="0.45"/>
+              <circle cx="58" cy="40" r="11" opacity="0.65"/>
+              <circle cx="40" cy="58" r="11" opacity="0.85"/>
+              <circle cx="22" cy="40" r="11"/>
+            </svg>
+            <span>kliente 360</span>
+          </a>
+          <p data-i18n="footer.tagline">Consultoria especializada em CRM, dados e IA. Conhecimento aplicado, como serviço.</p>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.pillarsTitle">Pilares</h4>
+          <ul>
+            <li><a href="/pilares/salesforce/" data-i18n="nav.mobile.salesforce">Salesforce</a></li>
+            <li><a href="/pilares/data/" data-i18n="nav.mobile.data">Data &amp; Analytics</a></li>
+            <li><a href="/pilares/ia/" data-i18n="nav.mobile.ai">IA Aplicada</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.empresaTitle">Empresa</h4>
+          <ul>
+            <li><a href="/#trilha" data-i18n="nav.trilha">Trilha 360</a></li>
+            <li><a href="/#cases" data-i18n="nav.cases">Cases</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Blog</a></li>
+            <li><a href="/como-trabalhamos/">Como trabalhamos</a></li>
+            <li><a href="/glossario/">Glossário</a></li>
+            <li><a href="/#contato" data-i18n="nav.contact">Contato</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.contactTitle">Contato</h4>
+          <ul>
+            <li><a href="mailto:contato@kliente360.com">contato@kliente360.com</a></li>
+            <li><a href="https://www.linkedin.com/company/kliente360/" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="http://wa.me/5511961875594" target="_blank" rel="noopener">WhatsApp</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div data-i18n="footer.rights">© 2026 Kliente 360. Todos os direitos reservados.</div>
+        <div class="mono">v0.1 · CRM · dados · IA</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/i18n.js?v=abbfb6dc0e"></script>
+  <script src="/assets/js/main.js?v=abbfb6dc0e" type="module"></script>
+</body>
+</html>

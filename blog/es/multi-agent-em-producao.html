@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Multi-agent en producción: qué aprendimos corriendo 5 agentes por 90 días | Kliente 360</title>
+  <meta name="description" content="Diario de campo de 90 días con 5 agentes corriendo en producción. Qué funcionó, qué se rompió, y el costo real de mantener vivo un sistema multi-agent." />
+  <meta name="theme-color" content="#0a0a0a" />
+
+  <link rel="canonical" href="https://kliente360.com/blog/es/multi-agent-em-producao.html" />
+  <link rel="alternate" hreflang="pt-BR" href="https://kliente360.com/blog/multi-agent-em-producao.html" />
+  <link rel="alternate" hreflang="en-US" href="https://kliente360.com/blog/en/multi-agent-em-producao.html" />
+  <link rel="alternate" hreflang="es-ES" href="https://kliente360.com/blog/es/multi-agent-em-producao.html" />
+  <link rel="alternate" hreflang="x-default" href="https://kliente360.com/blog/multi-agent-em-producao.html" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Kliente 360" />
+  <meta property="og:title" content="Multi-agent en producción: qué aprendimos corriendo 5 agentes por 90 días | Kliente 360" />
+  <meta property="og:description" content="Diario de campo de 90 días con 5 agentes corriendo en producción. Qué funcionó, qué se rompió, y el costo real de mantener vivo un sistema multi-agent." />
+  <meta property="og:url" content="https://kliente360.com/blog/es/multi-agent-em-producao.html" />
+  <meta property="og:image" content="https://kliente360.com/assets/img/og/multi-agent-em-producao-es.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="article:published_time" content="2026-05-05" />
+  <meta property="article:section" content="IA Aplicada" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Multi-agent en producción: qué aprendimos corriendo 5 agentes por 90 días | Kliente 360" />
+  <meta name="twitter:description" content="Diario de campo de 90 días con 5 agentes corriendo en producción. Qué funcionó, qué se rompió, y el costo real de mantener vivo un sistema multi-agent." />
+
+  <link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+
+  <link rel="stylesheet" href="/assets/css/tokens.css?v=abbfb6dc0e" />
+  <link rel="stylesheet" href="/assets/css/reset.css?v=abbfb6dc0e" />
+  <link rel="stylesheet" href="/assets/css/main.css?v=abbfb6dc0e" />
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Multi-agent en producción: qué aprendimos corriendo 5 agentes por 90 días",
+  "description": "Diario de campo de 90 días con 5 agentes corriendo en producción. Qué funcionó, qué se rompió, y el costo real de mantener vivo un sistema multi-agent.",
+  "datePublished": "2026-05-05",
+  "inLanguage": "es-ES",
+  "image": "https://kliente360.com/assets/img/og/multi-agent-em-producao-es.png",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://kliente360.com/blog/es/multi-agent-em-producao.html"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Kliente 360"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Kliente 360"
+  },
+  "articleSection": "IA Aplicada",
+  "keywords": [
+    "multi-agent",
+    "agentes de IA",
+    "producción",
+    "LLM",
+    "orquestación de agentes"
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Blog",
+      "item": "https://kliente360.com/blog/es/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "IA Aplicada",
+      "item": "https://kliente360.com/es/pilares/ia/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Multi-agent en producción: qué aprendimos corriendo 5 agentes por 90 días",
+      "item": "https://kliente360.com/blog/es/multi-agent-em-producao.html"
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Pular para o conteúdo</a>
+
+  <header class="nav" role="banner">
+    <div class="container nav-inner">
+      <a class="nav-brand" href="/" aria-label="Kliente 360 — início">
+        <svg class="mark-aperture" viewBox="0 0 80 80" aria-hidden="true">
+          <circle cx="40" cy="22" r="11"/>
+          <circle cx="58" cy="40" r="11"/>
+          <circle cx="40" cy="58" r="11"/>
+          <circle cx="22" cy="40" r="11"/>
+        </svg>
+        <span>kliente 360</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Principal">
+        <a href="/#pilares" data-i18n="nav.pillars">Pilares</a>
+        <a href="/#trilha" data-i18n="nav.trilha">Trilha 360</a>
+        <a href="/#cases" data-i18n="nav.cases">Cases</a>
+        <a href="/blog/" data-i18n="nav.blog" aria-current="page">Blog</a>
+        <a href="/#contato" data-i18n="nav.contact">Contato</a>
+      </nav>
+
+      <div class="nav-right">
+        <div class="lang-switch" role="group" aria-label="Idioma">
+          <button type="button" data-lang="pt" aria-current="true">PT</button>
+          <button type="button" data-lang="en">EN</button>
+          <button type="button" data-lang="es">ES</button>
+        </div>
+        <button class="nav-toggle" type="button" aria-controls="nav-menu" aria-expanded="false" data-nav-toggle data-i18n-attr="aria-label:nav.menu" aria-label="Abrir menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="nav-menu" id="nav-menu" data-open="false">
+      <div class="group">
+        <div class="group-label" data-i18n="nav.mobile.pillars">Pilares</div>
+        <a href="/pilares/salesforce/" data-i18n="nav.mobile.salesforce">Salesforce</a>
+        <a href="/pilares/data/" data-i18n="nav.mobile.data">Data &amp; Analytics</a>
+        <a href="/pilares/ia/" data-i18n="nav.mobile.ai">IA Aplicada</a>
+      </div>
+      <div class="group">
+        <div class="group-label" data-i18n="nav.mobile.empresa">Empresa</div>
+        <a href="/#trilha" data-i18n="nav.mobile.trilha">Trilha 360</a>
+        <a href="/#cases" data-i18n="nav.mobile.cases">Cases</a>
+        <a href="/blog/" data-i18n="nav.mobile.blog">Blog</a>
+        <a href="/como-trabalhamos/">Como trabalhamos</a>
+        <a href="/glossario/">Glossário</a>
+        <a href="/#contato" data-i18n="nav.contact">Contato</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="/#contato" data-i18n="nav.cta">Falar com um sócio</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <article class="post-article" data-pillar="ai" data-pagefind-body data-pagefind-meta="title:Multi-agent en producción: qué aprendimos corriendo 5 agentes por 90 días" data-pagefind-meta="pillar_label:IA Aplicada" data-pagefind-filter="pillar:ai">
+
+      <header class="post-header">
+        <div class="container container-narrow">
+          <div class="post-header-top">
+            <span class="pill-pillar">Pilar 03 · IA</span>
+            <a class="post-back" href="https://kliente360.com/blog/es/">Blog</a>
+          </div>
+          <h1>Multi-agent en producción: qué aprendimos corriendo 5 agentes por 90 días</h1>
+          <div class="post-meta-line">
+            <time datetime="2026-05-05">5 may 2026</time>
+            <span class="sep">·</span>
+            <span>9 min de lectura</span>
+            <span class="sep">·</span>
+            <span>Por Kliente 360</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="container">
+        <div class="post-body">
+          <aside class="post-tldr">
+            <div class="label">TL;DR</div>
+            <p>Multi-agent se vende como arquitectura inevitable. En la operación real, es frágil, caro y exige musculatura organizacional que nadie anticipa. Cinco agentes corriendo juntos por 90 días nos enseñaron que coordinación, observabilidad y definición rigurosa de dominio son más críticas que la elección de framework. Este texto es el diario, con los errores nombrados.</p>
+          </aside>
+
+          <p class="post-intro"><strong>E</strong>n febrero de 2026, pusimos cinco agentes a trabajar juntos en un caso de uso real — no piloto, no demo, producción con SLA. En mayo, completamos 90 días de esa operación. Este texto es el diario de lo que aprendimos. No tiene moraleja triunfal — tiene el reporte de errores nombrados, decisiones revertidas, y la factura técnica que ningún white-paper de framework menciona.</p>
+<p>El escenario: empresa B2B usando los 5 agentes para flujo de pre-venta. Un agente extrae contexto de e-mail recibido. Otro investiga la empresa del remitente en fuentes externas. Otro clasifica intención. Otro propone próxima acción. Otro escribe borrador de respuesta. Volumen real: cerca de 3.000 interacciones/mes. Modelos usados: Claude Sonnet para los 4 primeros, GPT-4o-mini para el último. Orquestación: framework propio en Python (probamos LangGraph y CrewAI antes — volvimos a solución custom).</p>
+<h2>Semana 1 — La ilusión de la independencia</h2>
+<p>Empezamos creyendo que cada agente sería un microservicio independiente, comunicando por contratos JSON simples. El primer problema apareció en el día 3: el agente de extracción de contexto producía output que el de clasificación de intención interpretaba mal en ~15% de los casos. No por bug — por diferencia sutil entre lo que uno consideraba &quot;campo de asunto&quot; y lo otro consideraba &quot;tópico principal&quot;.</p>
+<p>La lección: contratos de datos entre agentes no son triviales. Cada agente tiene modelo mental propio del mundo (que viene del prompt + entrenamiento + contexto de la llamada). Cuando dos agentes operan sobre el mismo concepto sin definición rigurosa compartida, divergen silenciosamente. Ese problema no aparece en demo (volumen pequeño, cherry-picking) — aparece en producción.</p>
+<p>Solución adoptada en la semana 2: cada agente pasó a emitir output en schema JSON estricto (Pydantic en Python), con validador explícito y fallback documentado. Costo: 30% más tokens por llamada (output más verboso). Beneficio: errores silenciosos cayeron de 15% a &lt;2%. No eliminó — redujo al punto de volverse manejable.</p>
+<h2>Semana 3 — El costo escondido de la coordinación</h2>
+<p>Cuando tienes 5 agentes en serie, la latencia es la suma de las latencias. Cuando los tienes en paralelo, la latencia es la del más lento. En las dos configuraciones, costo es la suma de los costos. Eso es trivial en el papel. No es trivial cuando el usuario final espera respuesta en &lt; 5s y el sistema demora 22s.</p>
+<p>Invertimos la semana 3 entera en optimización: prefetch agresivo (agentes que pueden correr antes de la requisición final), cache local con clave por hash del input, reducción de prompt en 40% vía embedding pre-computado de contexto fijo. Latencia cayó a 7s. Aún alta. La solución real vino en la semana 4 — repensar la arquitectura.</p>
+<blockquote>
+<p>Multi-agent en serie es secuencia de latencias y secuencia de costos. Cada agente nuevo multiplica los dos. Quien propone sistema multi-agent sin considerar eso está vendiendo arquitectura sin tocar la factura.</p>
+</blockquote>
+<h2>Semana 4 — Lo que matamos</h2>
+<p>En la semana 4, matamos un agente. El de &quot;clasificación de intención&quot; estaba produciendo output que el agente siguiente (propuesta de acción) consumía pero raramente usaba de forma diferenciada. Era costo sin entrega de valor. Removimos el agente, inlinamos la función en el agente de propuesta de acción como instrucción en el prompt, y la precisión final del sistema subió marginalmente. Redujimos costo 22% y latencia 4s.</p>
+<p>Aprendizaje caro: agentes especializados parecen correcto en la arquitectura (principio de separación de responsabilidades), pero frecuentemente son lujo organizacional. En casos donde dos agentes contiguos tienen misma &quot;perspectiva mental&quot; (mismo modelo, prompts similares, output de uno entra directo en el otro), fúndelos. Cada agente extra es presupuesto — sólo vale si la especialización realmente paga.</p>
+<h2>Semana 6 — Observabilidad era el cuello de botella real</h2>
+<p>En cualquier proyecto serio, observabilidad entra en el roadmap como &quot;ah, después&quot;. Aquí se volvió la cosa más importante. Sin rastrear cada llamada (input, output, tiempo, costo, modelo, decisión), nada del diagnóstico de arriba habría sido hecho. Invertimos en <a href="/blog/es/avaliacao-de-agentes.html">evals y observabilidad</a> tanto como en la lógica de los propios agentes.</p>
+<p>En práctica, decidimos invertir en tres capas:</p>
+<ol>
+<li><strong>Log estructurado en warehouse.</strong> Cada llamada loguea: timestamp, agente, modelo, input (truncado en 1000 chars), output (truncado), tokens IN/OUT, costo en USD, latencia, decisión final. Sobre esa base sale dashboard de <a href="/blog/es/custos-reais-de-inferencia.html">costo real de inferencia</a> por agente.</li>
+<li><strong>Tracing distribuido.</strong> OpenTelemetry con cada llamada de agente siendo un span. Da para ver dónde se gastó el tiempo. Sin eso, optimización se vuelve adivinanza.</li>
+<li><strong>Eval set por agente.</strong> 50–80 casos con gabarito. Corre en cada release. Sin eso, cambiar prompt se vuelve lotería.</li>
+</ol>
+<p>Sin esas tres capas, el sistema habría parado de funcionar bien en algún momento entre las semanas 5 y 7 y nadie sabría exactamente por qué. Con ellas, logramos diagnosticar regresión dentro de 1 día.</p>
+<h2>Semana 8 — El problema cultural</h2>
+<p>La sorpresa de medio del proyecto: el cuello de botella no era técnico. Era cultural. Los usuarios internos (vendedores) empezaron a confiar demasiado en el borrador generado por el último agente. Empezaron a aprobar respuesta sin leer. En ~6% de los casos, eso generó e-mail enviado con hecho equivocado (alucinación no detectada, o contexto extraído incorrectamente de la etapa 1).</p>
+<p>La solución no fue mejorar el agente — fue cambiar la UI. Cambiamos para exhibir el borrador con cinco campos marcados en amarillo (entidades extraídas — nombre, empresa, valor, fecha, acción propuesta) que el vendedor tenía que confirmar individualmente antes de aprobar. Latencia humana subió (de 10s a 45s para revisar y aprobar), pero errores cayeron a &lt;1%.</p>
+<p>La lección más cara: agentes en producción cambian comportamiento humano. Antes de medir la métrica del agente, hay que medir la métrica del usuario usando el agente. Sistemas multi-agent que parecen óptimos en el benchmark interno fallan porque cambian lo que humano hace con el output.</p>
+<h2>Semana 12 — La cuenta total</h2>
+<p>A los 90 días, el costo total de la operación:</p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>USD/mes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Inferencia (5 agentes × 3.000 interacciones × 5 llamadas/interacción)</td>
+<td>~2.400</td>
+</tr>
+<tr>
+<td>Infraestructura (gateway, orquestación, observabilidad)</td>
+<td>~600</td>
+</tr>
+<tr>
+<td>Sostenimiento técnico (1 ingeniero 30% del tiempo)</td>
+<td>~3.500</td>
+</tr>
+<tr>
+<td>Gobierno (revisión semanal de evals, calibración)</td>
+<td>~1.200</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td><strong>~7.700</strong></td>
+</tr>
+</tbody></table>
+<p>Ese número no cabía en el presupuesto inicial. Cabía el ROI mensual estimado (USD ~12k en horas economizadas + deals mejor priorizados), entonces cerró la ecuación. Pero el presupuesto inicial de &quot;unos USD 3k/mes de inferencia&quot; estaba equivocado por más de 2× — sostenimiento y gobierno son las líneas que nadie anticipa.</p>
+<h2>Qué haríamos diferente</h2>
+<p>Si volviéramos a la semana 1 con el conocimiento de 90 días, haríamos 5 cosas diferente.</p>
+<p><strong>Empezaríamos con menos agentes.</strong> 3 en vez de 5. Cada agente extra cuesta coordinación. Empieza minimal, agrega sólo cuando el caso de uso pruebe que sin el agente extra no funciona.</p>
+<p><strong>Schema estricto desde el día cero.</strong> Pydantic + validador entre cada agente, output en JSON con schema versionado. Cuesta 30% más tokens, evita 80% de los bugs.</p>
+<p><strong>Observabilidad antes de la lógica.</strong> Log estructurado, tracing y eval set deben existir antes del primer agente subir a producción. Construir agente sin eso es construir sistema ciego.</p>
+<p><strong>Invertir en la UI tanto como en el agente.</strong> Respuesta generada por agente necesita UI que fuerce revisión humana. Sin eso, <a href="/blog/es/quando-agente-e-resposta.html">la tesis de &quot;cuándo agente es respuesta&quot; se invierte</a> — el agente pasa a ser problema enmascarado.</p>
+<p><strong>Presupuestar 3× el costo inicial estimado.</strong> Inferencia es parte. Sostenimiento, gobierno, observabilidad y costos de cloud suman el resto. Presentar la cuenta llena desde el día 1 es lo que evita renegociación amarga en el mes 6.</p>
+<h2>La pregunta que desbloquea</h2>
+<p>Multi-agent funciona. Pero funciona caro, con fragilidad real, y exigiendo equipo con músculo de operación continua. Antes de proponer sistema multi-agent a un cliente, la pregunta que desbloquea la decisión es: ¿tienes equipo que va a cuidar de esto por 12 meses sin reclamar? Si la respuesta es no, la recomendación honesta es simplificar — quizás un agente único bien diseñado entregue 70% del valor con 30% de la complejidad.</p>
+<p>Casos donde multi-agent compensa: volumen alto (&gt; 5.000 interacciones/mes), valor por interacción alto (cada error es caro), y existencia de equipo técnico dedicado. Fuera de eso, es arquitectura de paper — bonita, citable y cara de mantener.</p>
+<p>90 días después, mantenemos los 4 agentes restantes en producción, con costo previsible y métricas confiables. Pero la versión honesta de la historia no es &quot;salió bien&quot; — es &quot;salió bien después de revisar arquitectura 3 veces, matar 1 agente, e invertir en observabilidad que nadie vendió como prioridad&quot;. Esa es la manera real de sistemas multi-agent salir adelante.</p>
+
+        </div>
+      </div>
+
+      <section class="post-end">
+        <div class="container">
+          <div class="post-end-cta">
+            <div class="label">Continuar la conversación</div>
+            <h3>¿Quieres discutir este tema con un socio?</h3>
+            <p>Diagnóstico inicial sin compromiso. Hacemos una primera lectura de tu escenario en una semana y devolvemos un informe.</p>
+            <a class="btn-link" href="/#contato">Hablar con un socio</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="post-explore">
+        <div class="container">
+          <div class="label">Sigue explorando</div>
+          <div class="grid-cards cols-2-3">
+            <a class="card explore-card" data-pillar="ai" href="/es/pilares/ia/">
+              <div class="explore-kind">Pilar · IA Aplicada</div>
+              <p>Cómo entregamos IA Aplicada en la práctica — alcance, riesgos típicos, señales de salud.</p>
+            </a>
+            <a class="card explore-card" href="/es/como-trabalhamos/">
+              <div class="explore-kind">Cómo trabajamos</div>
+              <p>Trilha 360 — los cinco verbos de nuestra práctica: mapear, prototipar, validar, implantar, sostener.</p>
+            </a>
+            <a class="card explore-card" href="/es/glossario/?pilar=ai">
+              <div class="explore-kind">Glosario</div>
+              <p>Vocabulario técnico curado de CRM, datos e IA. Sin clichés, sin jerga perezosa.</p>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="post-related">
+        <div class="container">
+          <h2>Próximas lecturas</h2>
+          <div class="grid-cards cols-2-3">
+            <a class="card post-card" data-pillar="ai" href="/blog/es/finops-de-ia.html">
+              <div class="post-meta">
+                <span class="pill-pillar">Pilar 03 · IA</span>
+                <span class="post-date">24 may 2026</span>
+              </div>
+              <h3>FinOps de IA: cómo cobrar inferencia de LLM al cliente interno sin pelear con TI</h3>
+              <div class="read">Leer →</div>
+            </a>
+            <a class="card post-card" data-pillar="ai" href="/blog/es/quando-agente-e-resposta.html">
+              <div class="post-meta">
+                <span class="pill-pillar">Pilar 03 · IA</span>
+                <span class="post-date">20 may 2026</span>
+              </div>
+              <h3>Cuándo un agente es la respuesta — y cuándo es huida de un problema mal modelado</h3>
+              <div class="read">Leer →</div>
+            </a>
+            <a class="card post-card" data-pillar="ai" href="/blog/es/ia-para-rh.html">
+              <div class="post-meta">
+                <span class="pill-pillar">Pilar 03 · IA</span>
+                <span class="post-date">6 may 2026</span>
+              </div>
+              <h3>IA para RH: caso práctico del agente de triage interno</h3>
+              <div class="read">Leer →</div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <a class="footer-brand" href="/" aria-label="Kliente 360">
+            <svg viewBox="0 0 80 80" aria-hidden="true">
+              <circle cx="40" cy="22" r="11" opacity="0.45"/>
+              <circle cx="58" cy="40" r="11" opacity="0.65"/>
+              <circle cx="40" cy="58" r="11" opacity="0.85"/>
+              <circle cx="22" cy="40" r="11"/>
+            </svg>
+            <span>kliente 360</span>
+          </a>
+          <p data-i18n="footer.tagline">Consultoria especializada em CRM, dados e IA. Conhecimento aplicado, como serviço.</p>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.pillarsTitle">Pilares</h4>
+          <ul>
+            <li><a href="/pilares/salesforce/" data-i18n="nav.mobile.salesforce">Salesforce</a></li>
+            <li><a href="/pilares/data/" data-i18n="nav.mobile.data">Data &amp; Analytics</a></li>
+            <li><a href="/pilares/ia/" data-i18n="nav.mobile.ai">IA Aplicada</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.empresaTitle">Empresa</h4>
+          <ul>
+            <li><a href="/#trilha" data-i18n="nav.trilha">Trilha 360</a></li>
+            <li><a href="/#cases" data-i18n="nav.cases">Cases</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Blog</a></li>
+            <li><a href="/como-trabalhamos/">Como trabalhamos</a></li>
+            <li><a href="/glossario/">Glossário</a></li>
+            <li><a href="/#contato" data-i18n="nav.contact">Contato</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.contactTitle">Contato</h4>
+          <ul>
+            <li><a href="mailto:contato@kliente360.com">contato@kliente360.com</a></li>
+            <li><a href="https://www.linkedin.com/company/kliente360/" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="http://wa.me/5511961875594" target="_blank" rel="noopener">WhatsApp</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div data-i18n="footer.rights">© 2026 Kliente 360. Todos os direitos reservados.</div>
+        <div class="mono">v0.1 · CRM · dados · IA</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/i18n.js?v=abbfb6dc0e"></script>
+  <script src="/assets/js/main.js?v=abbfb6dc0e" type="module"></script>
+</body>
+</html>

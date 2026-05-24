@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>When NOT to use Salesforce: 4 scenarios where license cost beats ROI | Kliente 360</title>
+  <meta name="description" content="Salesforce solves a lot. It doesn&#39;t solve everything. Four scenarios where the license consumes more value than it returns — and what to use instead." />
+  <meta name="theme-color" content="#0a0a0a" />
+
+  <link rel="canonical" href="https://kliente360.com/blog/en/quando-nao-usar-salesforce.html" />
+  <link rel="alternate" hreflang="pt-BR" href="https://kliente360.com/blog/quando-nao-usar-salesforce.html" />
+  <link rel="alternate" hreflang="en-US" href="https://kliente360.com/blog/en/quando-nao-usar-salesforce.html" />
+  <link rel="alternate" hreflang="es-ES" href="https://kliente360.com/blog/es/quando-nao-usar-salesforce.html" />
+  <link rel="alternate" hreflang="x-default" href="https://kliente360.com/blog/quando-nao-usar-salesforce.html" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Kliente 360" />
+  <meta property="og:title" content="When NOT to use Salesforce: 4 scenarios where license cost beats ROI | Kliente 360" />
+  <meta property="og:description" content="Salesforce solves a lot. It doesn&#39;t solve everything. Four scenarios where the license consumes more value than it returns — and what to use instead." />
+  <meta property="og:url" content="https://kliente360.com/blog/en/quando-nao-usar-salesforce.html" />
+  <meta property="og:image" content="https://kliente360.com/assets/img/og/quando-nao-usar-salesforce-en.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="article:published_time" content="2026-05-24" />
+  <meta property="article:section" content="Salesforce" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="When NOT to use Salesforce: 4 scenarios where license cost beats ROI | Kliente 360" />
+  <meta name="twitter:description" content="Salesforce solves a lot. It doesn&#39;t solve everything. Four scenarios where the license consumes more value than it returns — and what to use instead." />
+
+  <link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+
+  <link rel="stylesheet" href="/assets/css/tokens.css?v=abbfb6dc0e" />
+  <link rel="stylesheet" href="/assets/css/reset.css?v=abbfb6dc0e" />
+  <link rel="stylesheet" href="/assets/css/main.css?v=abbfb6dc0e" />
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "When NOT to use Salesforce: 4 scenarios where license cost beats ROI",
+  "description": "Salesforce solves a lot. It doesn't solve everything. Four scenarios where the license consumes more value than it returns — and what to use instead.",
+  "datePublished": "2026-05-24",
+  "inLanguage": "en-US",
+  "image": "https://kliente360.com/assets/img/og/quando-nao-usar-salesforce-en.png",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://kliente360.com/blog/en/quando-nao-usar-salesforce.html"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Kliente 360"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Kliente 360"
+  },
+  "articleSection": "Salesforce",
+  "keywords": [
+    "Salesforce",
+    "CRM",
+    "ROI",
+    "CRM implementation",
+    "Salesforce alternatives"
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Blog",
+      "item": "https://kliente360.com/blog/en/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Salesforce",
+      "item": "https://kliente360.com/en/pilares/salesforce/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "When NOT to use Salesforce: 4 scenarios where license cost beats ROI",
+      "item": "https://kliente360.com/blog/en/quando-nao-usar-salesforce.html"
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Pular para o conteúdo</a>
+
+  <header class="nav" role="banner">
+    <div class="container nav-inner">
+      <a class="nav-brand" href="/" aria-label="Kliente 360 — início">
+        <svg class="mark-aperture" viewBox="0 0 80 80" aria-hidden="true">
+          <circle cx="40" cy="22" r="11"/>
+          <circle cx="58" cy="40" r="11"/>
+          <circle cx="40" cy="58" r="11"/>
+          <circle cx="22" cy="40" r="11"/>
+        </svg>
+        <span>kliente 360</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Principal">
+        <a href="/#pilares" data-i18n="nav.pillars">Pilares</a>
+        <a href="/#trilha" data-i18n="nav.trilha">Trilha 360</a>
+        <a href="/#cases" data-i18n="nav.cases">Cases</a>
+        <a href="/blog/" data-i18n="nav.blog" aria-current="page">Blog</a>
+        <a href="/#contato" data-i18n="nav.contact">Contato</a>
+      </nav>
+
+      <div class="nav-right">
+        <div class="lang-switch" role="group" aria-label="Idioma">
+          <button type="button" data-lang="pt" aria-current="true">PT</button>
+          <button type="button" data-lang="en">EN</button>
+          <button type="button" data-lang="es">ES</button>
+        </div>
+        <button class="nav-toggle" type="button" aria-controls="nav-menu" aria-expanded="false" data-nav-toggle data-i18n-attr="aria-label:nav.menu" aria-label="Abrir menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="nav-menu" id="nav-menu" data-open="false">
+      <div class="group">
+        <div class="group-label" data-i18n="nav.mobile.pillars">Pilares</div>
+        <a href="/pilares/salesforce/" data-i18n="nav.mobile.salesforce">Salesforce</a>
+        <a href="/pilares/data/" data-i18n="nav.mobile.data">Data &amp; Analytics</a>
+        <a href="/pilares/ia/" data-i18n="nav.mobile.ai">IA Aplicada</a>
+      </div>
+      <div class="group">
+        <div class="group-label" data-i18n="nav.mobile.empresa">Empresa</div>
+        <a href="/#trilha" data-i18n="nav.mobile.trilha">Trilha 360</a>
+        <a href="/#cases" data-i18n="nav.mobile.cases">Cases</a>
+        <a href="/blog/" data-i18n="nav.mobile.blog">Blog</a>
+        <a href="/como-trabalhamos/">Como trabalhamos</a>
+        <a href="/glossario/">Glossário</a>
+        <a href="/#contato" data-i18n="nav.contact">Contato</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="/#contato" data-i18n="nav.cta">Falar com um sócio</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <article class="post-article" data-pillar="sf" data-pagefind-body data-pagefind-meta="title:When NOT to use Salesforce: 4 scenarios where license cost beats ROI" data-pagefind-meta="pillar_label:Salesforce" data-pagefind-filter="pillar:sf">
+
+      <header class="post-header">
+        <div class="container container-narrow">
+          <div class="post-header-top">
+            <span class="pill-pillar">Practice 01 · Salesforce</span>
+            <a class="post-back" href="https://kliente360.com/blog/en/">Blog</a>
+          </div>
+          <h1>When NOT to use Salesforce: 4 scenarios where license cost beats ROI</h1>
+          <div class="post-meta-line">
+            <time datetime="2026-05-24">24 May 2026</time>
+            <span class="sep">·</span>
+            <span>7 min read</span>
+            <span class="sep">·</span>
+            <span>By Kliente 360</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="container">
+        <div class="post-body">
+          <aside class="post-tldr">
+            <div class="label">TL;DR</div>
+            <p>Salesforce is expensive by design: the platform delivers value proportional to the size of the business. When your ICP is low-ticket SMB, when the sales process fits in a spreadsheet, when the bottleneck is data and not CRM, or when the team is too small to absorb the adoption curve — the license becomes a liability, not an asset.</p>
+          </aside>
+
+          <p class="post-intro">Almost every client who comes to Kliente asking about Salesforce has already decided to use Salesforce. The real question is whether they should. As partners who implement the platform every day, we have a clear commercial interest in saying yes — and that&#39;s exactly why this post exists. Technical trust is built by saying &quot;no&quot; when &quot;no&quot; is the right answer.</p>
+<p>Salesforce is the best CRM platform on the market for a specific set of scenarios. Outside that set, the license cost consumes value faster than the product returns it. This post enumerates the four scenarios where the honest recommendation is to not buy Salesforce — and what to use instead.</p>
+<h2>Scenario 1 — ICP is low-ticket SMB</h2>
+<p>The math nobody runs at decision time: divide the annual cost of Salesforce (licenses + implementation + sustaining) by the margin per new customer the CRM helps convert. If the number doesn&#39;t fit in 6–10% of the average annual ticket, the platform is disproportionate.</p>
+<p>A B2B company selling SaaS at R$ 800/month with 200 customers cannot justify Sales Cloud Enterprise at US$ 165/user/month × 10 users × 12 months + implementation. Hubspot Sales Hub Starter, or even a well-configured Pipedrive, deliver 80% of the value at 20% of the cost. The operation will only miss Salesforce when the ticket grows.</p>
+<p>The clear signal: if LTV/CAC doesn&#39;t yet support investment in a dedicated RevOps team, Salesforce is at the wrong maturity stage of commercial operations. Switching later is expensive; switching too late is more expensive still — but adopting before the right time is waste that nobody notices because it&#39;s buried in the IT budget.</p>
+<h2>Scenario 2 — The sales process fits in a spreadsheet</h2>
+<p>This scenario appears when the client has 3–8 salespeople, short sales cycle (under 30 days), simple pipeline (1 product, 1 segment, 1 motion), and the manager can already keep all open deals in a single mental view. CRM here doesn&#39;t automate — it formalizes. And formalizing a simple process is usually overhead, not gain.</p>
+<p>The symptom we detect in diagnostic: salespeople do &quot;double entry&quot; — note the customer in WhatsApp/notebook and then transcribe to CRM because the manager requires it. Result: low-quality data in the CRM, real decisions still happen outside of it.</p>
+<p>The honest answer in this scenario: use collaborative spreadsheet for another 12 months, focus energy on defining the sales process well (stages, advance criteria, qualification gates), and migrate to CRM when growth makes the spreadsheet unviable — not before.</p>
+<blockquote>
+<p>Implementing CRM before having a process means perpetuating chaos with a nice interface. The spreadsheet that hurts forces definition; the CRM that hides indecision masks it.</p>
+</blockquote>
+<h2>Scenario 3 — The bottleneck is data, not CRM</h2>
+<p>Company with Salesforce installed for 5 years, fragmented data between Salesforce, ERP, marketing automation, Customer Success spreadsheets and e-commerce. The director arrives thinking &quot;the problem is the CRM&quot; — because their view of the customer is incomplete. Re-implementing Salesforce doesn&#39;t solve it.</p>
+<p>The real problem is data architecture: each system is source of truth for something, but nobody consolidated customer ID, nobody modeled the unique customer, nobody placed data contracts between teams. The CRM, however perfect, only shows the piece it has.</p>
+<p>The honest technical solution runs through <a href="/blog/en/customer-360-vs-cdp.html">Customer 360 and Data Cloud</a>, <a href="/blog/en/data-contracts.html">data contracts</a> and clean dimensional modeling — <em>before</em> touching Salesforce. Swapping Salesforce for Salesforce doesn&#39;t solve the root problem, and the client leaves the project with more tooling and the same gap. In some cases, the existing Salesforce is fine; what&#39;s missing is the data layer underneath. That diagnosis is uncomfortable to deliver but it&#39;s what moves the needle.</p>
+<h2>Scenario 4 — Team too small to absorb the curve</h2>
+<p>Salesforce rewards mature operations: certified admin, release process, custom field governance, Flow and Apex management. A company without that muscle enters the platform and 18 months later has 400 ownerless custom fields, 60 Flows nobody understands, and a sustaining contract outside the original budget.</p>
+<p>The blind spot: the total cost of Salesforce is not the license. It&#39;s the continuous operation. A team of 3 in sales and zero people dedicated to CRM doesn&#39;t have capacity to absorb the maintenance. The system becomes a source of growing technical debt, and the ROI vanishes inside the partner&#39;s monthly invoice.</p>
+<p>Before buying Salesforce, the honest partner asks: do you have (or will you hire) a certified admin in the next 6 months? If the answer is no and it&#39;s not even a priority, the recommendation is to defer the decision. There is productive life with <a href="/blog/en/flow-vs-apex.html">Flow vs Apex</a> configured by a senior admin — but there is no productive life without any admin at all.</p>
+<h2>What to use instead — honest choices</h2>
+<p>The answer is not one. It depends on the scenario:</p>
+<p><strong>For scenario 1 (low-ticket SMB):</strong> Hubspot Sales Hub (Starter or Professional), Pipedrive, Freshsales. For B2C with volume, RD Station or Zoho. Criterion: total cost fits in 6–10% of average annual ticket.</p>
+<p><strong>For scenario 2 (process in spreadsheet):</strong> Notion or Airtable with pipeline view + light automation (n8n, Make). Don&#39;t try to swap spreadsheet for CRM — formalize process first, tool later.</p>
+<p><strong>For scenario 3 (bottleneck is data):</strong> Before any new CRM, data unification project. Could be Customer 360 + Data Cloud (if you already have Salesforce), could be modern warehouse (Snowflake/Databricks/BigQuery) with semantic layer in dbt, could be open-source CDP.</p>
+<p><strong>For scenario 4 (no operational muscle):</strong> Defer Salesforce. Invest in simpler CRM + train first internal admin. When that admin has 12+ months of operation, reassess.</p>
+<h2>The question that separates good decisions from fashion decisions</h2>
+<p>The right question before buying Salesforce is not &quot;is Salesforce good?&quot; — it&#39;s &quot;does Salesforce solve my problem better than the 10%-cost alternative, considering that I&#39;ll pay for the difference for 5–10 years?&quot;. For much of mid-market and complex enterprise, the answer is yes, no debate. For many companies that arrive thinking they need it, the answer is no — and those who sell Salesforce professionally should say so first.</p>
+<p>Not selling Salesforce when it&#39;s not the answer is what builds long-term relationships. A client who bought the wrong tool never forgets who sold it. A client who heard &quot;not now&quot; comes back when the time comes — and they come back to whoever was honest in the first conversation.</p>
+
+        </div>
+      </div>
+
+      <section class="post-end">
+        <div class="container">
+          <div class="post-end-cta">
+            <div class="label">Keep the conversation going</div>
+            <h3>Want to discuss this topic with a partner?</h3>
+            <p>Initial diagnostic with no commitment. We assess your scenario in a week and send back a report.</p>
+            <a class="btn-link" href="/#contato">Talk to a partner</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="post-explore">
+        <div class="container">
+          <div class="label">Keep exploring</div>
+          <div class="grid-cards cols-2-3">
+            <a class="card explore-card" data-pillar="sf" href="/en/pilares/salesforce/">
+              <div class="explore-kind">Practice · Salesforce</div>
+              <p>How we deliver Salesforce in practice — scope, common pitfalls, health signals.</p>
+            </a>
+            <a class="card explore-card" href="/en/como-trabalhamos/">
+              <div class="explore-kind">How we work</div>
+              <p>Trilha 360 — the five verbs of our practice: map, prototype, validate, deploy, sustain.</p>
+            </a>
+            <a class="card explore-card" href="/en/glossario/?pilar=sf">
+              <div class="explore-kind">Glossary</div>
+              <p>Curated technical vocabulary for CRM, data and AI. No buzzwords, no lazy jargon.</p>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="post-related">
+        <div class="container">
+          <h2>Further reading</h2>
+          <div class="grid-cards cols-2-3">
+            <a class="card post-card" data-pillar="sf" href="/blog/en/data-cloud-nervo-central.html">
+              <div class="post-meta">
+                <span class="pill-pillar">Practice 01 · Salesforce</span>
+                <span class="post-date">19 May 2026</span>
+              </div>
+              <h3>Data Cloud is no longer a CDP — it&#39;s the central nervous system of Salesforce</h3>
+              <div class="read">Read →</div>
+            </a>
+            <a class="card post-card" data-pillar="sf" href="/blog/en/salesforce-partner-program.html">
+              <div class="post-meta">
+                <span class="pill-pillar">Practice 01 · Salesforce</span>
+                <span class="post-date">12 May 2026</span>
+              </div>
+              <h3>Salesforce Partner Program: what the client never tells you</h3>
+              <div class="read">Read →</div>
+            </a>
+            <a class="card post-card" data-pillar="sf" href="/blog/en/salesforce-industries-vlocity.html">
+              <div class="post-meta">
+                <span class="pill-pillar">Practice 01 · Salesforce</span>
+                <span class="post-date">29 Apr 2026</span>
+              </div>
+              <h3>Salesforce Industries (Vlocity): worth it for Brazilian mid-market companies?</h3>
+              <div class="read">Read →</div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <a class="footer-brand" href="/" aria-label="Kliente 360">
+            <svg viewBox="0 0 80 80" aria-hidden="true">
+              <circle cx="40" cy="22" r="11" opacity="0.45"/>
+              <circle cx="58" cy="40" r="11" opacity="0.65"/>
+              <circle cx="40" cy="58" r="11" opacity="0.85"/>
+              <circle cx="22" cy="40" r="11"/>
+            </svg>
+            <span>kliente 360</span>
+          </a>
+          <p data-i18n="footer.tagline">Consultoria especializada em CRM, dados e IA. Conhecimento aplicado, como serviço.</p>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.pillarsTitle">Pilares</h4>
+          <ul>
+            <li><a href="/pilares/salesforce/" data-i18n="nav.mobile.salesforce">Salesforce</a></li>
+            <li><a href="/pilares/data/" data-i18n="nav.mobile.data">Data &amp; Analytics</a></li>
+            <li><a href="/pilares/ia/" data-i18n="nav.mobile.ai">IA Aplicada</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.empresaTitle">Empresa</h4>
+          <ul>
+            <li><a href="/#trilha" data-i18n="nav.trilha">Trilha 360</a></li>
+            <li><a href="/#cases" data-i18n="nav.cases">Cases</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Blog</a></li>
+            <li><a href="/como-trabalhamos/">Como trabalhamos</a></li>
+            <li><a href="/glossario/">Glossário</a></li>
+            <li><a href="/#contato" data-i18n="nav.contact">Contato</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.contactTitle">Contato</h4>
+          <ul>
+            <li><a href="mailto:contato@kliente360.com">contato@kliente360.com</a></li>
+            <li><a href="https://www.linkedin.com/company/kliente360/" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="http://wa.me/5511961875594" target="_blank" rel="noopener">WhatsApp</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div data-i18n="footer.rights">© 2026 Kliente 360. Todos os direitos reservados.</div>
+        <div class="mono">v0.1 · CRM · dados · IA</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/i18n.js?v=abbfb6dc0e"></script>
+  <script src="/assets/js/main.js?v=abbfb6dc0e" type="module"></script>
+</body>
+</html>

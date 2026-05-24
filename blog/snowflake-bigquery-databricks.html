@@ -31,9 +31,9 @@
 
   <link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
 
-  <link rel="stylesheet" href="/assets/css/tokens.css?v=193339e2b7" />
-  <link rel="stylesheet" href="/assets/css/reset.css?v=193339e2b7" />
-  <link rel="stylesheet" href="/assets/css/main.css?v=193339e2b7" />
+  <link rel="stylesheet" href="/assets/css/tokens.css?v=abbfb6dc0e" />
+  <link rel="stylesheet" href="/assets/css/reset.css?v=abbfb6dc0e" />
+  <link rel="stylesheet" href="/assets/css/main.css?v=abbfb6dc0e" />
 
   <script type="application/ld+json">
 {
@@ -151,7 +151,7 @@
   </header>
 
   <main id="main">
-    <article class="post-article" data-pillar="data">
+    <article class="post-article" data-pillar="data" data-pagefind-body data-pagefind-meta="title:Snowflake vs BigQuery vs Databricks: comparação honesta pra médio porte" data-pagefind-meta="pillar_label:Data &amp; Analytics" data-pagefind-filter="pillar:data">
 
       <header class="post-header">
         <div class="container container-narrow">
@@ -210,7 +210,7 @@
 <p><strong>POC pago de 30 dias com dado real.</strong> Não a demo do vendor — POC interno, com 2–3 casos de uso seus, equipe sua, queries suas. Os três vendors aceitam crédito promocional pra isso. POC mede o que folheto não mede.</p>
 <p><strong>Cálculo de custo histórico simulado.</strong> Pegar uso real do último trimestre (volume scaneado, número de queries, picos) e simular cada um dos três no preço público. Diferenças costumam ser de 30–50%, e raramente o &quot;mais caro&quot; do papel é o mais caro na prática.</p>
 <p><strong>Conversa com 2 clientes de cada um, do mesmo porte que você.</strong> Vendor te conecta. Se não conecta, péssimo sinal. Empresa de porte similar te diz em 30 minutos o que folheto esconde em 100 páginas.</p>
-<p>Os três warehouses são produto maduro de empresa séria. A pior decisão é assinar pelo melhor pitch. A segunda pior é não decidir por seis meses por medo de errar. A melhor é entender que <a href="/blog/dbt-na-pratica.html">a sigla do warehouse importa menos do que como a modelagem é versionada em cima dele</a> — e que <a href="/blog/modelagem-dimensional-2026.html">modelagem dimensional bem feita continua valendo em 2026</a>, independente da escolha de stack.</p>
+<p>Os três warehouses são produto maduro de empresa séria. A pior decisão é assinar pelo melhor pitch. A segunda pior é não decidir por seis meses por medo de errar. A melhor é entender que <a href="/blog/dbt-na-pratica.html">a sigla do warehouse importa menos do que como a modelagem é versionada em cima dele</a> — e que <a href="/blog/modelagem-dimensional-2026.html">modelagem dimensional bem feita continua valendo em 2026</a>, independente da escolha de stack. (Pra quem quer o ângulo complementar — não qual é melhor, mas <a href="/blog/databricks-snowflake-bigquery-lock-in.html">qual é mais caro abandonar</a> — vale ler o exame de lock-in. E pra entender <a href="/blog/modern-data-stack-2026.html">onde cada warehouse se encaixa no mapa do que sobreviveu do Modern Data Stack</a>, a leitura complementa.)</p>
 
         </div>
       </div>
@@ -250,6 +250,14 @@
         <div class="container">
           <h2>Próximas leituras</h2>
           <div class="grid-cards cols-2-3">
+            <a class="card post-card" data-pillar="data" href="/blog/modern-data-stack-2026.html">
+              <div class="post-meta">
+                <span class="pill-pillar">Pilar 02 · Data</span>
+                <span class="post-date">13 mai 2026</span>
+              </div>
+              <h3>Modern Data Stack em 2026: o que sobreviveu, o que morreu, o que virou commodity</h3>
+              <div class="read">Ler →</div>
+            </a>
             <a class="card post-card" data-pillar="data" href="/blog/tableau-linguagem-executiva.html">
               <div class="post-meta">
                 <span class="pill-pillar">Pilar 02 · Data</span>
@@ -258,20 +266,12 @@
               <h3>Tableau como linguagem executiva: matando o dashboard de vaidade</h3>
               <div class="read">Ler →</div>
             </a>
-            <a class="card post-card" data-pillar="data" href="/blog/analise-de-churn.html">
+            <a class="card post-card" data-pillar="data" href="/blog/databricks-snowflake-bigquery-lock-in.html">
               <div class="post-meta">
                 <span class="pill-pillar">Pilar 02 · Data</span>
-                <span class="post-date">5 mai 2026</span>
+                <span class="post-date">6 mai 2026</span>
               </div>
-              <h3>Análise de churn: o erro de definir &quot;perda&quot; antes da estratégia</h3>
-              <div class="read">Ler →</div>
-            </a>
-            <a class="card post-card" data-pillar="data" href="/blog/modelagem-dimensional-2026.html">
-              <div class="post-meta">
-                <span class="pill-pillar">Pilar 02 · Data</span>
-                <span class="post-date">22 abr 2026</span>
-              </div>
-              <h3>Modelagem dimensional ainda vale em 2026? Sim — defesa contra o lakehouse-pra-tudo</h3>
+              <h3>Databricks vs Snowflake vs BigQuery: lock-in, custos de saída e o que o parceiro oficial não fala</h3>
               <div class="read">Ler →</div>
             </a>
           </div>
@@ -332,7 +332,7 @@
     </div>
   </footer>
 
-  <script src="/assets/js/i18n.js?v=193339e2b7"></script>
-  <script src="/assets/js/main.js?v=193339e2b7" type="module"></script>
+  <script src="/assets/js/i18n.js?v=abbfb6dc0e"></script>
+  <script src="/assets/js/main.js?v=abbfb6dc0e" type="module"></script>
 </body>
 </html>

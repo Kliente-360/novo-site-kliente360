@@ -95,11 +95,17 @@
         <h1 style="margin-top: var(--sp-3);">O vocabulário que usamos.</h1>
         <p class="lead">Em 1 parágrafo, sem clichês, com links para quem quer aprofundar. Os termos vivos no nosso trabalho de CRM, dados e IA aplicada.</p>
 
-        <div class="blog-filter" role="group" aria-label="Filtrar por pilar" style="margin-top: var(--sp-8);">
-          <button type="button" data-filter="all" aria-pressed="true">Todos</button>
-          <button type="button" data-filter="sf"   aria-pressed="false">Salesforce</button>
-          <button type="button" data-filter="data" aria-pressed="false">Data &amp; Analytics</button>
-          <button type="button" data-filter="ai"   aria-pressed="false">IA Aplicada</button>
+        <div class="blog-controls" style="margin-top: var(--sp-8);">
+          <label class="blog-search">
+            <svg class="blog-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+            <input type="search" data-gloss-search placeholder="Buscar termo ou definição" aria-label="Buscar termo ou definição" autocomplete="off" />
+          </label>
+          <div class="blog-filter" role="group" aria-label="Filtrar por pilar">
+            <button type="button" data-filter="all" aria-pressed="true">Todos</button>
+            <button type="button" data-filter="sf"   aria-pressed="false">Salesforce</button>
+            <button type="button" data-filter="data" aria-pressed="false">Data &amp; Analytics</button>
+            <button type="button" data-filter="ai"   aria-pressed="false">IA Aplicada</button>
+          </div>
         </div>
       </div>
     </section>
@@ -398,19 +404,30 @@
   <script src="/assets/js/i18n.js"></script>
   <script src="/assets/js/main.js" type="module"></script>
   <script>
-    // Filtro do glossário por pilar — clique + querystring (?pilar=sf|data|ai)
-    const applyFilter = (filter) => {
-      document.querySelectorAll('.blog-filter button').forEach(b => b.setAttribute('aria-pressed', b.dataset.filter === filter ? 'true' : 'false'));
-      document.querySelectorAll('.gloss-term').forEach(term => {
-        const show = filter === 'all' || term.dataset.pillar === filter;
-        term.dataset.hidden = show ? 'false' : 'true';
+    // Filtro do glossário — pilar (chips) + busca substring (todo conteúdo do termo).
+    // Os dois compõem: termo aparece se passa nos dois critérios.
+    const terms = Array.from(document.querySelectorAll('.gloss-term'));
+    const buttons = document.querySelectorAll('.blog-filter button');
+    const search = document.querySelector('[data-gloss-search]');
+    const norm = (s) => s.toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu, '');
+    const haystacks = new Map(terms.map(t => [t, norm(t.textContent)]));
+    let pillar = 'all';
+    let query = '';
+    const apply = () => {
+      buttons.forEach(b => b.setAttribute('aria-pressed', b.dataset.filter === pillar ? 'true' : 'false'));
+      const q = norm(query);
+      terms.forEach(t => {
+        const okPillar = pillar === 'all' || t.dataset.pillar === pillar;
+        const okQuery  = !q || haystacks.get(t).includes(q);
+        t.dataset.hidden = (okPillar && okQuery) ? 'false' : 'true';
       });
     };
-    document.querySelectorAll('.blog-filter button').forEach(btn => {
-      btn.addEventListener('click', () => applyFilter(btn.dataset.filter));
-    });
+    buttons.forEach(btn => btn.addEventListener('click', () => { pillar = btn.dataset.filter; apply(); }));
+    if (search) {
+      let t; search.addEventListener('input', () => { clearTimeout(t); t = setTimeout(() => { query = search.value.trim(); apply(); }, 80); });
+    }
     const initial = new URLSearchParams(window.location.search).get('pilar');
-    if (initial && ['sf','data','ai'].includes(initial)) applyFilter(initial);
+    if (initial && ['sf','data','ai'].includes(initial)) { pillar = initial; apply(); }
   </script>
 </body>
 </html>

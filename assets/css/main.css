@@ -846,6 +846,67 @@ a.card:hover, .card.linked:hover {
 .blog-hero h1 { font-size: var(--fs-h1); line-height: var(--lh-tight); letter-spacing: var(--ls-tighter); font-weight: var(--fw-bold); max-width: 14ch; }
 .blog-hero .lead { margin-top: var(--sp-6); }
 
+/* Controles do listing — busca + filtro de pilar lado a lado em desktop,
+ * empilhados em mobile. */
+.blog-controls {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  margin: var(--sp-8) 0 var(--sp-12);
+}
+@media (min-width: 768px) {
+  .blog-controls {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--sp-6);
+  }
+}
+.blog-controls .blog-filter { margin: 0; }
+
+.blog-search {
+  display: flex; align-items: center; gap: var(--sp-2);
+  padding: 0 var(--sp-3);
+  border: 1px solid var(--color-line);
+  border-radius: var(--r-pill);
+  background: var(--bg);
+  transition: border-color var(--dur-fast) var(--ease-out);
+  width: 100%;
+  max-width: 360px;
+}
+.blog-search:focus-within { border-color: var(--ink-900); }
+.blog-search-icon { width: 16px; height: 16px; color: var(--color-fg-muted); flex-shrink: 0; }
+.blog-search input {
+  flex: 1; min-width: 0;
+  border: 0; outline: none; background: transparent;
+  font-family: var(--font-sans); font-size: var(--fs-14);
+  color: var(--color-fg);
+  padding: 8px 0;
+}
+.blog-search input::placeholder { color: var(--color-fg-muted); }
+
+.blog-search-results { display: block; }
+.blog-search-status {
+  font-family: var(--font-mono);
+  font-size: var(--fs-12);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--color-fg-muted);
+  margin-bottom: var(--sp-6);
+}
+.blog-search-results .post-card .post-excerpt {
+  margin-top: var(--sp-3);
+  font-size: var(--fs-14);
+  color: var(--color-fg-muted);
+  line-height: var(--lh-normal);
+}
+.blog-search-results mark {
+  background: var(--green-50);
+  color: var(--ink-900);
+  padding: 0 2px;
+  border-radius: 2px;
+}
+
 .blog-filter {
   display: flex; gap: var(--sp-2);
   margin: var(--sp-8) 0 var(--sp-12);

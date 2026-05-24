@@ -103,6 +103,42 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://kliente360.com/blog/finops-de-ia.html</loc>
+    <lastmod>2026-05-24</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://kliente360.com/blog/en/finops-de-ia.html</loc>
+    <lastmod>2026-05-24</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://kliente360.com/blog/es/finops-de-ia.html</loc>
+    <lastmod>2026-05-24</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://kliente360.com/blog/quando-nao-usar-salesforce.html</loc>
+    <lastmod>2026-05-24</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://kliente360.com/blog/en/quando-nao-usar-salesforce.html</loc>
+    <lastmod>2026-05-24</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://kliente360.com/blog/es/quando-nao-usar-salesforce.html</loc>
+    <lastmod>2026-05-24</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://kliente360.com/blog/quando-agente-e-resposta.html</loc>
     <lastmod>2026-05-20</lastmod>
     <changefreq>yearly</changefreq>
@@ -135,6 +171,24 @@
   <url>
     <loc>https://kliente360.com/blog/es/data-cloud-nervo-central.html</loc>
     <lastmod>2026-05-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://kliente360.com/blog/modern-data-stack-2026.html</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://kliente360.com/blog/en/modern-data-stack-2026.html</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://kliente360.com/blog/es/modern-data-stack-2026.html</loc>
+    <lastmod>2026-05-13</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -175,6 +229,24 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://kliente360.com/blog/databricks-snowflake-bigquery-lock-in.html</loc>
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://kliente360.com/blog/en/databricks-snowflake-bigquery-lock-in.html</loc>
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://kliente360.com/blog/es/databricks-snowflake-bigquery-lock-in.html</loc>
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://kliente360.com/blog/ia-para-rh.html</loc>
     <lastmod>2026-05-06</lastmod>
     <changefreq>yearly</changefreq>
@@ -206,6 +278,24 @@
   </url>
   <url>
     <loc>https://kliente360.com/blog/es/analise-de-churn.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://kliente360.com/blog/multi-agent-em-producao.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://kliente360.com/blog/en/multi-agent-em-producao.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://kliente360.com/blog/es/multi-agent-em-producao.html</loc>
     <lastmod>2026-05-05</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>

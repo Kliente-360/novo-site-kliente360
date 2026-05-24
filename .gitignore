@@ -20,3 +20,6 @@ node_modules/
 dist/
 .cache/
 .tmp/
+# Pagefind — artefato de build gerado por `pagefind --site .` no `npm run build`.
+# Netlify regenera no deploy.
+pagefind/

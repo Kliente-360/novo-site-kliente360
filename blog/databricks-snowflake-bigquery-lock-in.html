@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Databricks vs Snowflake vs BigQuery: lock-in, custos de saída e o que o parceiro oficial não fala | Kliente 360</title>
+  <meta name="description" content="Os três warehouses entregam performance equivalente. A diferença real está no que cada um custa pra abandonar — e nenhum parceiro oficial vai te contar isso na proposta." />
+  <meta name="theme-color" content="#0a0a0a" />
+
+  <link rel="canonical" href="https://kliente360.com/blog/databricks-snowflake-bigquery-lock-in.html" />
+  <link rel="alternate" hreflang="pt-BR" href="https://kliente360.com/blog/databricks-snowflake-bigquery-lock-in.html" />
+  <link rel="alternate" hreflang="en-US" href="https://kliente360.com/blog/en/databricks-snowflake-bigquery-lock-in.html" />
+  <link rel="alternate" hreflang="es-ES" href="https://kliente360.com/blog/es/databricks-snowflake-bigquery-lock-in.html" />
+  <link rel="alternate" hreflang="x-default" href="https://kliente360.com/blog/databricks-snowflake-bigquery-lock-in.html" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Kliente 360" />
+  <meta property="og:title" content="Databricks vs Snowflake vs BigQuery: lock-in, custos de saída e o que o parceiro oficial não fala | Kliente 360" />
+  <meta property="og:description" content="Os três warehouses entregam performance equivalente. A diferença real está no que cada um custa pra abandonar — e nenhum parceiro oficial vai te contar isso na proposta." />
+  <meta property="og:url" content="https://kliente360.com/blog/databricks-snowflake-bigquery-lock-in.html" />
+  <meta property="og:image" content="https://kliente360.com/assets/img/og/databricks-snowflake-bigquery-lock-in-pt.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="article:published_time" content="2026-05-06" />
+  <meta property="article:section" content="Data &amp; Analytics" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Databricks vs Snowflake vs BigQuery: lock-in, custos de saída e o que o parceiro oficial não fala | Kliente 360" />
+  <meta name="twitter:description" content="Os três warehouses entregam performance equivalente. A diferença real está no que cada um custa pra abandonar — e nenhum parceiro oficial vai te contar isso na proposta." />
+
+  <link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+
+  <link rel="stylesheet" href="/assets/css/tokens.css?v=abbfb6dc0e" />
+  <link rel="stylesheet" href="/assets/css/reset.css?v=abbfb6dc0e" />
+  <link rel="stylesheet" href="/assets/css/main.css?v=abbfb6dc0e" />
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Databricks vs Snowflake vs BigQuery: lock-in, custos de saída e o que o parceiro oficial não fala",
+  "description": "Os três warehouses entregam performance equivalente. A diferença real está no que cada um custa pra abandonar — e nenhum parceiro oficial vai te contar isso na proposta.",
+  "datePublished": "2026-05-06",
+  "inLanguage": "pt-BR",
+  "image": "https://kliente360.com/assets/img/og/databricks-snowflake-bigquery-lock-in-pt.png",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://kliente360.com/blog/databricks-snowflake-bigquery-lock-in.html"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Kliente 360"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Kliente 360"
+  },
+  "articleSection": "Data & Analytics",
+  "keywords": [
+    "Databricks",
+    "Snowflake",
+    "BigQuery",
+    "lock-in",
+    "data warehouse"
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Blog",
+      "item": "https://kliente360.com/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Data & Analytics",
+      "item": "https://kliente360.com/pilares/data/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Databricks vs Snowflake vs BigQuery: lock-in, custos de saída e o que o parceiro oficial não fala",
+      "item": "https://kliente360.com/blog/databricks-snowflake-bigquery-lock-in.html"
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Pular para o conteúdo</a>
+
+  <header class="nav" role="banner">
+    <div class="container nav-inner">
+      <a class="nav-brand" href="/" aria-label="Kliente 360 — início">
+        <svg class="mark-aperture" viewBox="0 0 80 80" aria-hidden="true">
+          <circle cx="40" cy="22" r="11"/>
+          <circle cx="58" cy="40" r="11"/>
+          <circle cx="40" cy="58" r="11"/>
+          <circle cx="22" cy="40" r="11"/>
+        </svg>
+        <span>kliente 360</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Principal">
+        <a href="/#pilares" data-i18n="nav.pillars">Pilares</a>
+        <a href="/#trilha" data-i18n="nav.trilha">Trilha 360</a>
+        <a href="/#cases" data-i18n="nav.cases">Cases</a>
+        <a href="/blog/" data-i18n="nav.blog" aria-current="page">Blog</a>
+        <a href="/#contato" data-i18n="nav.contact">Contato</a>
+      </nav>
+
+      <div class="nav-right">
+        <div class="lang-switch" role="group" aria-label="Idioma">
+          <button type="button" data-lang="pt" aria-current="true">PT</button>
+          <button type="button" data-lang="en">EN</button>
+          <button type="button" data-lang="es">ES</button>
+        </div>
+        <button class="nav-toggle" type="button" aria-controls="nav-menu" aria-expanded="false" data-nav-toggle data-i18n-attr="aria-label:nav.menu" aria-label="Abrir menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="nav-menu" id="nav-menu" data-open="false">
+      <div class="group">
+        <div class="group-label" data-i18n="nav.mobile.pillars">Pilares</div>
+        <a href="/pilares/salesforce/" data-i18n="nav.mobile.salesforce">Salesforce</a>
+        <a href="/pilares/data/" data-i18n="nav.mobile.data">Data &amp; Analytics</a>
+        <a href="/pilares/ia/" data-i18n="nav.mobile.ai">IA Aplicada</a>
+      </div>
+      <div class="group">
+        <div class="group-label" data-i18n="nav.mobile.empresa">Empresa</div>
+        <a href="/#trilha" data-i18n="nav.mobile.trilha">Trilha 360</a>
+        <a href="/#cases" data-i18n="nav.mobile.cases">Cases</a>
+        <a href="/blog/" data-i18n="nav.mobile.blog">Blog</a>
+        <a href="/como-trabalhamos/">Como trabalhamos</a>
+        <a href="/glossario/">Glossário</a>
+        <a href="/#contato" data-i18n="nav.contact">Contato</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="/#contato" data-i18n="nav.cta">Falar com um sócio</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <article class="post-article" data-pillar="data" data-pagefind-body data-pagefind-meta="title:Databricks vs Snowflake vs BigQuery: lock-in, custos de saída e o que o parceiro oficial não fala" data-pagefind-meta="pillar_label:Data &amp; Analytics" data-pagefind-filter="pillar:data">
+
+      <header class="post-header">
+        <div class="container container-narrow">
+          <div class="post-header-top">
+            <span class="pill-pillar">Pilar 02 · Data</span>
+            <a class="post-back" href="https://kliente360.com/blog/">Blog</a>
+          </div>
+          <h1>Databricks vs Snowflake vs BigQuery: lock-in, custos de saída e o que o parceiro oficial não fala</h1>
+          <div class="post-meta-line">
+            <time datetime="2026-05-06">6 mai 2026</time>
+            <span class="sep">·</span>
+            <span>8 min de leitura</span>
+            <span class="sep">·</span>
+            <span>Por Kliente 360</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="container">
+        <div class="post-body">
+          <aside class="post-tldr">
+            <div class="label">TL;DR</div>
+            <p>Comparativos públicos de Databricks, Snowflake e BigQuery falam de performance, preço e features. Não falam do que importa em 5 anos: lock-in técnico, custo de migração reversa, dependências sutis (formato proprietário, UDFs específicos, integrações nativas). Três vetores de lock-in concretos, como medir antes de assinar, e por que um parceiro oficial nunca pode ser a fonte da resposta.</p>
+          </aside>
+
+          <p class="post-intro"><strong>A</strong> pergunta que toda empresa faz antes de escolher warehouse é &quot;qual é melhor?&quot;. A pergunta que ninguém faz, mas devia, é &quot;qual é mais caro de abandonar?&quot;. Em 2026, com Databricks, Snowflake e BigQuery em paridade técnica ampla, a diferença prática que vai pesar nos próximos 5–10 anos é lock-in — e cada um dos três tem padrão de aprisionamento diferente, com custo de saída diferente, e camada de marketing diferente pra obscurecer isso.</p>
+<p>Esse texto enumera os três vetores de lock-in que importam, mostra como cada warehouse pontua em cada um, e explica por que comparativo de parceiro oficial é, por definição, parcial. Não porque o parceiro mente — porque ele só consegue ver bem a tecnologia que entrega.</p>
+<h2>O viés estrutural do parceiro oficial</h2>
+<p>Antes de entrar nos vetores, vale entender por que comparativos de parceiros são problemáticos. Parceiro Databricks Gold ganha receita treinando time em Spark, otimizando Delta Lake, vendendo Unity Catalog. Parceiro Snowflake Premier ganha receita estruturando warehouses Snowflake, otimizando warehouses de cluster, vendendo Streamlit. Parceiro Google Cloud ganha receita em BigQuery + Looker + Vertex AI.</p>
+<p>Nenhum dos três pode honestamente recomendar que o cliente saia da sua plataforma — não por má-fé, mas porque a expertise está toda concentrada num lado da escolha. Pedir a um parceiro Databricks pra comparar com Snowflake é pedir a um treinador de futebol pra recomendar academia de natação. A resposta pode ser tecnicamente correta na superfície e estruturalmente enviesada na conclusão.</p>
+<p>Consultoria agnóstica — sem incentivo de revenda — é o único arranjo em que a comparação consegue ser honesta. Não é o caso geral do mercado. Daí esse texto.</p>
+<blockquote>
+<p>A pergunta &quot;qual warehouse é melhor?&quot; tem 80% da resposta no comparativo público. Os 20% que decidem são lock-in — e ninguém com incentivo de revenda vai te entregar esse pedaço.</p>
+</blockquote>
+<h2>Vetor 1 — Formato de armazenamento</h2>
+<p>Aqui mora o lock-in mais antigo e mais sério. Quando dado está em formato proprietário fechado, migrar exige reescrever, reprocessar, e validar tudo.</p>
+<p><strong>Snowflake</strong> usa formato proprietário interno (FDN — Flexible Data Network). Cliente Snowflake puro tem todos os dados num formato que só Snowflake lê. Recentemente, Snowflake passou a suportar Iceberg (formato aberto) como mesa externa, mas a operação default ainda é interna. Saída plena exige <code>COPY INTO</code> de todas as tabelas pra S3 em Parquet, depois reingestão em outro warehouse. Em volume de 50TB, projeto de migração reversa custa US$ 200k–500k em consultoria especializada.</p>
+<p><strong>Databricks</strong> com Delta Lake usa formato aberto (Delta) sobre storage do cliente (S3/ADLS/GCS). Dado fica no cloud storage do cliente, em formato que Spark, DuckDB, Trino e outros leem. Migração reversa pra outro engine processador é trivial — basta apontar engine novo pro mesmo bucket. Lock-in do Databricks está em outro lugar (próximo vetor), não no formato.</p>
+<p><strong>BigQuery</strong> usa formato proprietário (Capacitor). Suporta exportação pra Parquet em GCS, mas dado interno é fechado. Saída plena exige extração completa via export jobs, similar ao Snowflake. Diferença vs Snowflake: BigQuery Storage Read API permite leitura externa sem exportação intermediária — facilita stack híbrido, mas não elimina lock-in.</p>
+<p>Pontuação prática:</p>
+<ol>
+<li><strong>Databricks</strong>: lock-in baixo (formato aberto).</li>
+<li><strong>BigQuery</strong>: lock-in médio (proprietário, mas com API de leitura externa).</li>
+<li><strong>Snowflake</strong>: lock-in alto (proprietário, exportação custosa, embora Iceberg esteja entrando).</li>
+</ol>
+<h2>Vetor 2 — Camada de processamento e SQL específico</h2>
+<p>Mesmo com dado portável, a camada de compute e a sintaxe SQL criam dependências sutis.</p>
+<p><strong>Snowflake</strong> tem SQL ANSI bem aderente, com extensões proprietárias (Snowpark, JavaScript UDFs, Streamlit, Cortex AI) que não migram. Empresa que adota Cortex pra análise generativa fica presa nesse vendor pra essa função. Stored procedures em Snowflake JavaScript são reescrita total em outra plataforma.</p>
+<p><strong>Databricks</strong> tem múltiplos engines (Spark SQL, Photon, próprio SQL serverless). Spark é portável (qualquer cloud, OSS). Photon é proprietário mas, sendo otimização sob a hood, não cria lock-in sintático. UDFs em Python/Scala são portáveis (qualquer Spark roda). Lock-in real do Databricks: notebooks, MLflow, Unity Catalog, e Workflows — esses são caminho exclusivo. Equipe que se acostuma com Databricks Notebooks tem fricção alta em outra ferramenta.</p>
+<p><strong>BigQuery</strong> tem SQL standard próximo do ANSI, com extensões (ARRAY, STRUCT nativos, BQML, BigQuery ML). BQML pra modelos de machine learning é função poderosa mas exclusiva — migração pra outro engine exige reescrever modelos em Python/Spark. Geo functions e ARRAY/STRUCT são mais flexíveis que em Snowflake mas, ao mesmo tempo, criam código que não roda em outro lugar sem refatoração.</p>
+<p>Pontuação prática:</p>
+<ol>
+<li><strong>Databricks</strong>: lock-in médio (Spark portável, mas notebook/MLflow/Unity Catalog grudam).</li>
+<li><strong>Snowflake</strong>: lock-in médio-alto (SQL portável, UDFs e Cortex não).</li>
+<li><strong>BigQuery</strong>: lock-in médio-alto (SQL próximo do padrão, BQML e funções específicas não).</li>
+</ol>
+<h2>Vetor 3 — Integração com ecossistema da cloud</h2>
+<p>O lock-in mais subestimado: quanto o warehouse está costurado com outros serviços da mesma cloud.</p>
+<p><strong>BigQuery</strong> vive dentro do Google Cloud. Integração nativa com Looker, Vertex AI, Pub/Sub, Dataflow, Cloud Storage. Migração reversa não é só warehouse — é renegociar todo o stack de dados que ficou em torno. Empresa com Looker + BigQuery + Vertex AI tem que migrar três produtos juntos. Custo de saída cresce exponencialmente com tempo dentro do GCP.</p>
+<p><strong>Snowflake</strong> roda multi-cloud (AWS, Azure, GCP). Esse é o argumento de marketing principal — &quot;Snowflake é neutro entre clouds&quot;. É verdade no compute. Não é verdade em integrações: Snowflake Native Apps, Snowpark Container Services, Streamlit, Cortex são exclusivos. Time que adota essas camadas re-cria lock-in em outro nível.</p>
+<p><strong>Databricks</strong> roda em AWS, Azure e GCP nativamente. Tem integrações profundas com cada uma (especialmente Azure, via Microsoft partnership), mas o motor é portável entre clouds — workspace em AWS migra pra Azure com custo menor que outras opções. Lock-in real está em Unity Catalog (camada de governança) e Workflows (orquestração) — esses se migram com refatoração, não com simples export.</p>
+<p>Pontuação prática:</p>
+<ol>
+<li><strong>Databricks</strong>: lock-in baixo-médio em ecosistema (multi-cloud + motor portável).</li>
+<li><strong>Snowflake</strong>: lock-in médio (compute multi-cloud, mas features novas grudam).</li>
+<li><strong>BigQuery</strong>: lock-in alto (vive dentro do GCP, integrações nativas criam dependência composta).</li>
+</ol>
+<h2>Como medir antes de assinar</h2>
+<p>Quatro perguntas práticas pra fazer antes de fechar contrato anual.</p>
+<ol>
+<li><strong>Qual % dos dados ficam em formato aberto?</strong> Se &lt; 50%, lock-in técnico significativo. Negociar suporte explícito a Iceberg/Delta como tabelas externas.</li>
+<li><strong>Quanto código SQL é portável (ANSI puro)?</strong> Audita as 50 queries mais críticas. Se mais de 30% usa funções proprietárias, migração é refatoração, não export.</li>
+<li><strong>Quantas integrações nativas com outros produtos da mesma cloud?</strong> Se a stack inteira vive numa cloud só, mover warehouse é mover stack inteiro.</li>
+<li><strong>Qual o custo estimado de exportação completa?</strong> Pedir ao parceiro a estimativa de US$/TB pra <code>COPY INTO</code>/<code>EXPORT</code>. Se ele não souber ou desviar, é sinal vermelho.</li>
+</ol>
+<p>Empresa que faz essas 4 perguntas antes de assinar paga mais barato, negocia cláusulas melhores, e quase nunca precisa migrar. Empresa que não faz, paga 3 anos no warehouse errado e descobre o custo de saída quando o orçamento dobra.</p>
+<h2>A escolha honesta em 2026</h2>
+<p>Sem viés de revenda, a recomendação por contexto:</p>
+<p><strong>Greenfield com prioridade em portabilidade</strong>: Databricks com Delta Lake. Storage do próprio cliente, formato aberto, motor multi-cloud. Lock-in mínimo possível pra warehouse moderno.</p>
+<p><strong>Empresa já em Azure ou multi-cloud com cargas mistas</strong>: Databricks ou Snowflake. Decisão por força do time existente.</p>
+<p><strong>Empresa already-Google-cloud</strong>: BigQuery, sem hesitação — mas ciente de que está aceitando lock-in alto em troca de integração nativa profunda. Não é decisão errada, é decisão informada.</p>
+<p><strong>Caso de uso analytical puro, sem ML pesado, time pequeno</strong>: Snowflake. Operação mais simples, SQL puro, sem necessidade de gerir Spark.</p>
+<p><strong>Caso de uso analytical + ML em escala</strong>: Databricks (ou BigQuery + Vertex se já no Google). Snowflake com Snowpark resolve só parcialmente.</p>
+<p>Importante: nenhuma dessas recomendações vem de <a href="/blog/snowflake-bigquery-databricks.html">comparativo de mid-market</a> puro. Vem de lock-in específico. Pra cada caso, a pergunta &quot;quanto custa sair?&quot; é tão importante quanto &quot;quanto custa rodar?&quot;. Parceiros oficiais respondem a segunda. A primeira fica pro cliente pesquisar — ou pra consultor agnóstico responder. Há razão estrutural pra esse arranjo.</p>
+
+        </div>
+      </div>
+
+      <section class="post-end">
+        <div class="container">
+          <div class="post-end-cta">
+            <div class="label">Continuar a conversa</div>
+            <h3>Quer discutir esse tema com um sócio?</h3>
+            <p>Diagnóstico inicial sem compromisso. Levamos uma primeira leitura do seu cenário em uma semana e devolvemos um relatório.</p>
+            <a class="btn-link" href="/#contato">Conversar com um sócio</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="post-explore">
+        <div class="container">
+          <div class="label">Continue explorando</div>
+          <div class="grid-cards cols-2-3">
+            <a class="card explore-card" data-pillar="data" href="/pilares/data/">
+              <div class="explore-kind">Pilar · Data &amp; Analytics</div>
+              <p>Como entregamos Data &amp; Analytics na prática — escopo, riscos típicos, sinais de saúde.</p>
+            </a>
+            <a class="card explore-card" href="/como-trabalhamos/">
+              <div class="explore-kind">Como trabalhamos</div>
+              <p>Trilha 360 — os cinco verbos da nossa prática: mapear, prototipar, validar, implantar, sustentar.</p>
+            </a>
+            <a class="card explore-card" href="/glossario/?pilar=data">
+              <div class="explore-kind">Glossário</div>
+              <p>Vocabulário técnico calibrado de CRM, dados e IA. Sem clichês, sem jargão preguiçoso.</p>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="post-related">
+        <div class="container">
+          <h2>Próximas leituras</h2>
+          <div class="grid-cards cols-2-3">
+            <a class="card post-card" data-pillar="data" href="/blog/modern-data-stack-2026.html">
+              <div class="post-meta">
+                <span class="pill-pillar">Pilar 02 · Data</span>
+                <span class="post-date">13 mai 2026</span>
+              </div>
+              <h3>Modern Data Stack em 2026: o que sobreviveu, o que morreu, o que virou commodity</h3>
+              <div class="read">Ler →</div>
+            </a>
+            <a class="card post-card" data-pillar="data" href="/blog/tableau-linguagem-executiva.html">
+              <div class="post-meta">
+                <span class="pill-pillar">Pilar 02 · Data</span>
+                <span class="post-date">13 mai 2026</span>
+              </div>
+              <h3>Tableau como linguagem executiva: matando o dashboard de vaidade</h3>
+              <div class="read">Ler →</div>
+            </a>
+            <a class="card post-card" data-pillar="data" href="/blog/analise-de-churn.html">
+              <div class="post-meta">
+                <span class="pill-pillar">Pilar 02 · Data</span>
+                <span class="post-date">5 mai 2026</span>
+              </div>
+              <h3>Análise de churn: o erro de definir &quot;perda&quot; antes da estratégia</h3>
+              <div class="read">Ler →</div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <a class="footer-brand" href="/" aria-label="Kliente 360">
+            <svg viewBox="0 0 80 80" aria-hidden="true">
+              <circle cx="40" cy="22" r="11" opacity="0.45"/>
+              <circle cx="58" cy="40" r="11" opacity="0.65"/>
+              <circle cx="40" cy="58" r="11" opacity="0.85"/>
+              <circle cx="22" cy="40" r="11"/>
+            </svg>
+            <span>kliente 360</span>
+          </a>
+          <p data-i18n="footer.tagline">Consultoria especializada em CRM, dados e IA. Conhecimento aplicado, como serviço.</p>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.pillarsTitle">Pilares</h4>
+          <ul>
+            <li><a href="/pilares/salesforce/" data-i18n="nav.mobile.salesforce">Salesforce</a></li>
+            <li><a href="/pilares/data/" data-i18n="nav.mobile.data">Data &amp; Analytics</a></li>
+            <li><a href="/pilares/ia/" data-i18n="nav.mobile.ai">IA Aplicada</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.empresaTitle">Empresa</h4>
+          <ul>
+            <li><a href="/#trilha" data-i18n="nav.trilha">Trilha 360</a></li>
+            <li><a href="/#cases" data-i18n="nav.cases">Cases</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Blog</a></li>
+            <li><a href="/como-trabalhamos/">Como trabalhamos</a></li>
+            <li><a href="/glossario/">Glossário</a></li>
+            <li><a href="/#contato" data-i18n="nav.contact">Contato</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.contactTitle">Contato</h4>
+          <ul>
+            <li><a href="mailto:contato@kliente360.com">contato@kliente360.com</a></li>
+            <li><a href="https://www.linkedin.com/company/kliente360/" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="http://wa.me/5511961875594" target="_blank" rel="noopener">WhatsApp</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div data-i18n="footer.rights">© 2026 Kliente 360. Todos os direitos reservados.</div>
+        <div class="mono">v0.1 · CRM · dados · IA</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/i18n.js?v=abbfb6dc0e"></script>
+  <script src="/assets/js/main.js?v=abbfb6dc0e" type="module"></script>
+</body>
+</html>

@@ -1,5 +1,49 @@
 [
   {
+    "slug": "finops-de-ia",
+    "pillar": "ai",
+    "date": "2026-05-24",
+    "translations": {
+      "pt": {
+        "title": "FinOps de IA: como cobrar inferência de LLM do cliente interno sem brigar com a TI",
+        "url": "/blog/finops-de-ia.html",
+        "date": "24 mai 2026"
+      },
+      "en": {
+        "title": "AI FinOps: how to charge LLM inference back to internal customers without fighting IT",
+        "url": "/blog/en/finops-de-ia.html",
+        "date": "24 May 2026"
+      },
+      "es": {
+        "title": "FinOps de IA: cómo cobrar inferencia de LLM al cliente interno sin pelear con TI",
+        "url": "/blog/es/finops-de-ia.html",
+        "date": "24 may 2026"
+      }
+    }
+  },
+  {
+    "slug": "quando-nao-usar-salesforce",
+    "pillar": "sf",
+    "date": "2026-05-24",
+    "translations": {
+      "pt": {
+        "title": "Quando NÃO usar Salesforce: 4 cenários em que o custo de licença supera o ROI",
+        "url": "/blog/quando-nao-usar-salesforce.html",
+        "date": "24 mai 2026"
+      },
+      "en": {
+        "title": "When NOT to use Salesforce: 4 scenarios where license cost beats ROI",
+        "url": "/blog/en/quando-nao-usar-salesforce.html",
+        "date": "24 May 2026"
+      },
+      "es": {
+        "title": "Cuándo NO usar Salesforce: 4 escenarios en que el costo de licencia supera el ROI",
+        "url": "/blog/es/quando-nao-usar-salesforce.html",
+        "date": "24 may 2026"
+      }
+    }
+  },
+  {
     "slug": "quando-agente-e-resposta",
     "pillar": "ai",
     "date": "2026-05-20",
@@ -40,6 +84,28 @@
         "title": "Data Cloud ya no es CDP — es el nervio central de Salesforce",
         "url": "/blog/es/data-cloud-nervo-central.html",
         "date": "19 may 2026"
+      }
+    }
+  },
+  {
+    "slug": "modern-data-stack-2026",
+    "pillar": "data",
+    "date": "2026-05-13",
+    "translations": {
+      "pt": {
+        "title": "Modern Data Stack em 2026: o que sobreviveu, o que morreu, o que virou commodity",
+        "url": "/blog/modern-data-stack-2026.html",
+        "date": "13 mai 2026"
+      },
+      "en": {
+        "title": "Modern Data Stack in 2026: what survived, what died, what became commodity",
+        "url": "/blog/en/modern-data-stack-2026.html",
+        "date": "13 May 2026"
+      },
+      "es": {
+        "title": "Modern Data Stack en 2026: qué sobrevivió, qué murió, qué se volvió commodity",
+        "url": "/blog/es/modern-data-stack-2026.html",
+        "date": "13 may 2026"
       }
     }
   },
@@ -88,6 +154,28 @@
     }
   },
   {
+    "slug": "databricks-snowflake-bigquery-lock-in",
+    "pillar": "data",
+    "date": "2026-05-06",
+    "translations": {
+      "pt": {
+        "title": "Databricks vs Snowflake vs BigQuery: lock-in, custos de saída e o que o parceiro oficial não fala",
+        "url": "/blog/databricks-snowflake-bigquery-lock-in.html",
+        "date": "6 mai 2026"
+      },
+      "en": {
+        "title": "Databricks vs Snowflake vs BigQuery: lock-in, exit costs and what the official partner doesn't say",
+        "url": "/blog/en/databricks-snowflake-bigquery-lock-in.html",
+        "date": "6 May 2026"
+      },
+      "es": {
+        "title": "Databricks vs Snowflake vs BigQuery: lock-in, costos de salida y lo que el partner oficial no cuenta",
+        "url": "/blog/es/databricks-snowflake-bigquery-lock-in.html",
+        "date": "6 may 2026"
+      }
+    }
+  },
+  {
     "slug": "ia-para-rh",
     "pillar": "ai",
     "date": "2026-05-06",
@@ -127,6 +215,28 @@
       "es": {
         "title": "Análisis de churn: el error de definir \"pérdida\" antes de la estrategia",
         "url": "/blog/es/analise-de-churn.html",
+        "date": "5 may 2026"
+      }
+    }
+  },
+  {
+    "slug": "multi-agent-em-producao",
+    "pillar": "ai",
+    "date": "2026-05-05",
+    "translations": {
+      "pt": {
+        "title": "Multi-agent em produção: o que aprendemos rodando 5 agentes por 90 dias",
+        "url": "/blog/multi-agent-em-producao.html",
+        "date": "5 mai 2026"
+      },
+      "en": {
+        "title": "Multi-agent in production: what we learned running 5 agents for 90 days",
+        "url": "/blog/en/multi-agent-em-producao.html",
+        "date": "5 May 2026"
+      },
+      "es": {
+        "title": "Multi-agent en producción: qué aprendimos corriendo 5 agentes por 90 días",
+        "url": "/blog/es/multi-agent-em-producao.html",
         "date": "5 may 2026"
       }
     }

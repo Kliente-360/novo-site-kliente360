@@ -83,6 +83,9 @@ const STRINGS = {
     listingMeta: 'Blog Kliente 360 — Estratégia, prática e crítica em CRM, dados e IA. Ensaios e análises para quem decide.',
     filterAll: 'Todos',
     readLink: 'Ler →',
+    searchPlaceholder: 'Buscar no conteúdo',
+    searchEmpty: 'Nenhum post corresponde à busca.',
+    searchLoading: 'Buscando…',
   },
   en: {
     pillars: { sf: 'Practice 01 · Salesforce', data: 'Practice 02 · Data', ai: 'Practice 03 · AI' },
@@ -108,6 +111,9 @@ const STRINGS = {
     listingMeta: 'Kliente 360 Blog — Strategy, practice and critique in CRM, data and AI. Essays for decision-makers.',
     filterAll: 'All',
     readLink: 'Read →',
+    searchPlaceholder: 'Search content',
+    searchEmpty: 'No post matches the search.',
+    searchLoading: 'Searching…',
   },
   es: {
     pillars: { sf: 'Pilar 01 · Salesforce', data: 'Pilar 02 · Data', ai: 'Pilar 03 · IA' },
@@ -133,6 +139,9 @@ const STRINGS = {
     listingMeta: 'Blog Kliente 360 — Estrategia, práctica y crítica en CRM, datos e IA. Ensayos para quien decide.',
     filterAll: 'Todos',
     readLink: 'Leer →',
+    searchPlaceholder: 'Buscar contenido',
+    searchEmpty: 'Ningún post coincide con la búsqueda.',
+    searchLoading: 'Buscando…',
   },
 };
 
@@ -558,7 +567,7 @@ ${JSON.stringify(breadcrumb, null, 2)}
 ${navHtml('/blog/' + post.slug)}
 
   <main id="main">
-    <article class="post-article" data-pillar="${post.pillar}">
+    <article class="post-article" data-pillar="${post.pillar}" data-pagefind-body data-pagefind-meta="title:${escapeHtml(t.title)}" data-pagefind-meta="pillar_label:${escapeHtml(S.sections[post.pillar])}" data-pagefind-filter="pillar:${post.pillar}">
 
       <header class="post-header">
         <div class="container container-narrow">
@@ -677,18 +686,24 @@ ${navHtml(listingPath(lang))}
         <h1 style="margin-top: var(--sp-3);">${escapeHtml(S.listingTitle)}</h1>
         <p class="lead">${escapeHtml(S.listingLead)}</p>
 
-        <div class="blog-filter" role="group" aria-label="Filter">
-          <button type="button" data-filter="all" aria-pressed="true">${escapeHtml(S.filterAll)}</button>
-          <button type="button" data-filter="sf"   aria-pressed="false">${escapeHtml(S.sections.sf)}</button>
-          <button type="button" data-filter="data" aria-pressed="false">${escapeHtml(S.sections.data)}</button>
-          <button type="button" data-filter="ai"   aria-pressed="false">${escapeHtml(S.sections.ai)}</button>
+        <div class="blog-controls">
+          <label class="blog-search">
+            <svg class="blog-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+            <input type="search" data-blog-search placeholder="${escapeHtml(S.searchPlaceholder)}" aria-label="${escapeHtml(S.searchPlaceholder)}" autocomplete="off" />
+          </label>
+          <div class="blog-filter" role="group" aria-label="Filter">
+            <button type="button" data-filter="all" aria-pressed="true">${escapeHtml(S.filterAll)}</button>
+            <button type="button" data-filter="sf"   aria-pressed="false">${escapeHtml(S.sections.sf)}</button>
+            <button type="button" data-filter="data" aria-pressed="false">${escapeHtml(S.sections.data)}</button>
+            <button type="button" data-filter="ai"   aria-pressed="false">${escapeHtml(S.sections.ai)}</button>
+          </div>
         </div>
       </div>
     </section>
 
     <section class="section" style="padding-top: 0;">
       <div class="container">
-        <div class="grid-cards cols-2-3">
+        <div class="grid-cards cols-2-3" data-blog-grid>
 ${posts.map(p => `          <a class="card post-card" data-pillar="${p.pillar}" href="${postPath(p.slug, lang)}">
             <div class="post-meta">
               <span class="pill-pillar">${escapeHtml(S.pillars[p.pillar])}</span>
@@ -698,6 +713,10 @@ ${posts.map(p => `          <a class="card post-card" data-pillar="${p.pillar}" 
             <div class="read">${escapeHtml(S.readLink)}</div>
           </a>`).join('\n')}
         </div>
+        <div class="blog-search-results" data-blog-search-results hidden>
+          <div class="blog-search-status" data-blog-search-status></div>
+          <div class="grid-cards cols-2-3" data-blog-search-list></div>
+        </div>
       </div>
     </section>
   </main>
@@ -706,6 +725,65 @@ ${footerHtml}
 
   <script src="/assets/js/i18n.js?v=${ASSET_VERSION}"></script>
   <script src="/assets/js/main.js?v=${ASSET_VERSION}" type="module"></script>
+  <script type="module">
+    // Busca Pagefind no listing — full-text com filtro de pilar.
+    const input  = document.querySelector('[data-blog-search]');
+    const grid   = document.querySelector('[data-blog-grid]');
+    const wrap   = document.querySelector('[data-blog-search-results]');
+    const list   = document.querySelector('[data-blog-search-list]');
+    const status = document.querySelector('[data-blog-search-status]');
+    const filterButtons = document.querySelectorAll('.blog-filter button');
+    const labels = { loading: ${JSON.stringify(S.searchLoading)}, empty: ${JSON.stringify(S.searchEmpty)}, read: ${JSON.stringify(S.readLink)} };
+    let pagefind = null;
+    let token = 0;
+    const loadPagefind = async () => {
+      if (pagefind) return pagefind;
+      try {
+        pagefind = await import('/pagefind/pagefind.js');
+        await pagefind.options({ excerptLength: 28 });
+      } catch (e) { pagefind = { _err: e }; }
+      return pagefind;
+    };
+    const currentFilter = () => {
+      const active = Array.from(filterButtons).find(b => b.getAttribute('aria-pressed') === 'true');
+      return active ? active.dataset.filter : 'all';
+    };
+    const runSearch = async () => {
+      const q = input.value.trim();
+      if (!q) { wrap.hidden = true; grid.style.display = ''; return; }
+      grid.style.display = 'none';
+      wrap.hidden = false;
+      status.textContent = labels.loading;
+      list.innerHTML = '';
+      const my = ++token;
+      const pf = await loadPagefind();
+      if (my !== token) return;
+      if (pf._err) { status.textContent = labels.empty; return; }
+      const filter = currentFilter();
+      const opts = filter === 'all' ? {} : { filters: { pillar: filter } };
+      const r = await pf.search(q, opts);
+      if (my !== token) return;
+      if (!r.results.length) { status.textContent = labels.empty; return; }
+      status.textContent = '';
+      const data = await Promise.all(r.results.slice(0, 24).map(x => x.data()));
+      list.innerHTML = data.map(d => {
+        const pillarCode = (d.filters && d.filters.pillar && d.filters.pillar[0]) || '';
+        const pillarLabel = (d.meta && d.meta.pillar_label) || '';
+        const title = (d.meta && d.meta.title) || d.url;
+        return \`<a class="card post-card" data-pillar="\${pillarCode}" href="\${d.url}">
+          <div class="post-meta"><span class="pill-pillar">\${pillarLabel}</span></div>
+          <h3>\${title}</h3>
+          <p class="post-excerpt">\${d.excerpt}</p>
+          <div class="read">\${labels.read}</div>
+        </a>\`;
+      }).join('');
+    };
+    let timer;
+    if (input) {
+      input.addEventListener('input', () => { clearTimeout(timer); timer = setTimeout(runSearch, 120); });
+      filterButtons.forEach(b => b.addEventListener('click', () => { if (input.value.trim()) runSearch(); }));
+    }
+  </script>
 </body>
 </html>`;
 };

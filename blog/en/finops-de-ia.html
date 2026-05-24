@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>AI FinOps: how to charge LLM inference back to internal customers without fighting IT | Kliente 360</title>
+  <meta name="description" content="LLM inference has variable cost and diffuse attribution. Without a chargeback model, it becomes an IT invoice at month-end. Four AI FinOps models that work." />
+  <meta name="theme-color" content="#0a0a0a" />
+
+  <link rel="canonical" href="https://kliente360.com/blog/en/finops-de-ia.html" />
+  <link rel="alternate" hreflang="pt-BR" href="https://kliente360.com/blog/finops-de-ia.html" />
+  <link rel="alternate" hreflang="en-US" href="https://kliente360.com/blog/en/finops-de-ia.html" />
+  <link rel="alternate" hreflang="es-ES" href="https://kliente360.com/blog/es/finops-de-ia.html" />
+  <link rel="alternate" hreflang="x-default" href="https://kliente360.com/blog/finops-de-ia.html" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Kliente 360" />
+  <meta property="og:title" content="AI FinOps: how to charge LLM inference back to internal customers without fighting IT | Kliente 360" />
+  <meta property="og:description" content="LLM inference has variable cost and diffuse attribution. Without a chargeback model, it becomes an IT invoice at month-end. Four AI FinOps models that work." />
+  <meta property="og:url" content="https://kliente360.com/blog/en/finops-de-ia.html" />
+  <meta property="og:image" content="https://kliente360.com/assets/img/og/finops-de-ia-en.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="article:published_time" content="2026-05-24" />
+  <meta property="article:section" content="Applied AI" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AI FinOps: how to charge LLM inference back to internal customers without fighting IT | Kliente 360" />
+  <meta name="twitter:description" content="LLM inference has variable cost and diffuse attribution. Without a chargeback model, it becomes an IT invoice at month-end. Four AI FinOps models that work." />
+
+  <link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+
+  <link rel="stylesheet" href="/assets/css/tokens.css?v=abbfb6dc0e" />
+  <link rel="stylesheet" href="/assets/css/reset.css?v=abbfb6dc0e" />
+  <link rel="stylesheet" href="/assets/css/main.css?v=abbfb6dc0e" />
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "AI FinOps: how to charge LLM inference back to internal customers without fighting IT",
+  "description": "LLM inference has variable cost and diffuse attribution. Without a chargeback model, it becomes an IT invoice at month-end. Four AI FinOps models that work.",
+  "datePublished": "2026-05-24",
+  "inLanguage": "en-US",
+  "image": "https://kliente360.com/assets/img/og/finops-de-ia-en.png",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://kliente360.com/blog/en/finops-de-ia.html"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Kliente 360"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Kliente 360"
+  },
+  "articleSection": "Applied AI",
+  "keywords": [
+    "AI FinOps",
+    "LLM costs",
+    "inference billing",
+    "internal chargeback",
+    "AI cost management"
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Blog",
+      "item": "https://kliente360.com/blog/en/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Applied AI",
+      "item": "https://kliente360.com/en/pilares/ia/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "AI FinOps: how to charge LLM inference back to internal customers without fighting IT",
+      "item": "https://kliente360.com/blog/en/finops-de-ia.html"
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Pular para o conteúdo</a>
+
+  <header class="nav" role="banner">
+    <div class="container nav-inner">
+      <a class="nav-brand" href="/" aria-label="Kliente 360 — início">
+        <svg class="mark-aperture" viewBox="0 0 80 80" aria-hidden="true">
+          <circle cx="40" cy="22" r="11"/>
+          <circle cx="58" cy="40" r="11"/>
+          <circle cx="40" cy="58" r="11"/>
+          <circle cx="22" cy="40" r="11"/>
+        </svg>
+        <span>kliente 360</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Principal">
+        <a href="/#pilares" data-i18n="nav.pillars">Pilares</a>
+        <a href="/#trilha" data-i18n="nav.trilha">Trilha 360</a>
+        <a href="/#cases" data-i18n="nav.cases">Cases</a>
+        <a href="/blog/" data-i18n="nav.blog" aria-current="page">Blog</a>
+        <a href="/#contato" data-i18n="nav.contact">Contato</a>
+      </nav>
+
+      <div class="nav-right">
+        <div class="lang-switch" role="group" aria-label="Idioma">
+          <button type="button" data-lang="pt" aria-current="true">PT</button>
+          <button type="button" data-lang="en">EN</button>
+          <button type="button" data-lang="es">ES</button>
+        </div>
+        <button class="nav-toggle" type="button" aria-controls="nav-menu" aria-expanded="false" data-nav-toggle data-i18n-attr="aria-label:nav.menu" aria-label="Abrir menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="nav-menu" id="nav-menu" data-open="false">
+      <div class="group">
+        <div class="group-label" data-i18n="nav.mobile.pillars">Pilares</div>
+        <a href="/pilares/salesforce/" data-i18n="nav.mobile.salesforce">Salesforce</a>
+        <a href="/pilares/data/" data-i18n="nav.mobile.data">Data &amp; Analytics</a>
+        <a href="/pilares/ia/" data-i18n="nav.mobile.ai">IA Aplicada</a>
+      </div>
+      <div class="group">
+        <div class="group-label" data-i18n="nav.mobile.empresa">Empresa</div>
+        <a href="/#trilha" data-i18n="nav.mobile.trilha">Trilha 360</a>
+        <a href="/#cases" data-i18n="nav.mobile.cases">Cases</a>
+        <a href="/blog/" data-i18n="nav.mobile.blog">Blog</a>
+        <a href="/como-trabalhamos/">Como trabalhamos</a>
+        <a href="/glossario/">Glossário</a>
+        <a href="/#contato" data-i18n="nav.contact">Contato</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="/#contato" data-i18n="nav.cta">Falar com um sócio</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <article class="post-article" data-pillar="ai" data-pagefind-body data-pagefind-meta="title:AI FinOps: how to charge LLM inference back to internal customers without fighting IT" data-pagefind-meta="pillar_label:Applied AI" data-pagefind-filter="pillar:ai">
+
+      <header class="post-header">
+        <div class="container container-narrow">
+          <div class="post-header-top">
+            <span class="pill-pillar">Practice 03 · AI</span>
+            <a class="post-back" href="https://kliente360.com/blog/en/">Blog</a>
+          </div>
+          <h1>AI FinOps: how to charge LLM inference back to internal customers without fighting IT</h1>
+          <div class="post-meta-line">
+            <time datetime="2026-05-24">24 May 2026</time>
+            <span class="sep">·</span>
+            <span>7 min read</span>
+            <span class="sep">·</span>
+            <span>By Kliente 360</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="container">
+        <div class="post-body">
+          <aside class="post-tldr">
+            <div class="label">TL;DR</div>
+            <p>AI adoption inside a company multiplies use cases faster than the budget can absorb. Without AI FinOps — allocating inference cost to who consumes it — IT becomes the villain of the inflated bill, and the product team has no incentive to optimize. Four internal chargeback models that work, with advantages and pitfalls of each.</p>
+          </aside>
+
+          <p class="post-intro"><strong>I</strong>n the first phase of AI adoption inside a company, nobody asks how much it costs. Pilots are small, the monthly bill fits the innovation budget, and the conversation is about whether the technology works. Six months later, when five different teams have use cases in production and the monthly bill has tripled, the conversation changes. Inevitably, it becomes a fight: IT wants each team to pay what it consumes; product wants IT to absorb it; nobody wants to be the first to set a limit.</p>
+<p>This is the problem AI FinOps solves. Charging LLM inference back internally sounds simple — split the bill — but it&#39;s one of the most delicate exercises of financial governance in tech today, because it mixes real variable cost, multi-tenant attribution, and behavioral incentives. This post enumerates four internal chargeback models, when each one works, and what to avoid.</p>
+<h2>The single-invoice problem</h2>
+<p>Without FinOps, the OpenAI, Anthropic or Bedrock bill lands in a single cost center — usually IT or Data Platform. Three consequences, all bad.</p>
+<p>The first is that cost is invisible to the teams that decide. The PM who picks GPT-4o in production without checking estimated volume pays zero from their budget. The CFO who approves AI investment doesn&#39;t see how much each use case costs per month. Decision without cost signal generates consumption without ceiling.</p>
+<p>The second is that IT becomes the villain. When the bill exceeds the limit, the conversation isn&#39;t &quot;how do we optimize this use case&quot; — it&#39;s &quot;IT overspent&quot;. Cost centralization is kept while merit centralization is broken. The team that delivers ROI keeps the credit; IT keeps the bill.</p>
+<p>The third is that there&#39;s no optimization incentive. A PM who knows the cost lands in another cost center won&#39;t invest time in prompt engineering, in picking a cheaper model, in caching, in <a href="/blog/en/fine-tuning-vs-rag-vs-prompt.html">evaluating fine-tuning vs RAG vs prompt</a>. Optimization without pain doesn&#39;t happen.</p>
+<blockquote>
+<p>Inference cost absorbed by IT is the cheapest way to ensure nobody optimizes anything. The team that pays is the team that thinks about waste.</p>
+</blockquote>
+<h2>Four AI FinOps models</h2>
+<p>Four chargeback architectures we&#39;ve seen work. Each is a trade-off between accounting simplicity and attribution precision.</p>
+<p><strong>Model 1 — Central pool with showback.</strong> The bill still lands at IT, but every month a report shows how much each team consumed (tokens, calls, cost in USD). No real debit, but visibility exists. Works as a bridge: creates awareness without creating a new financial process. Limitation: showback without chargeback rarely changes behavior — it&#39;s information without consequence.</p>
+<p><strong>Model 2 — Proportional chargeback based on volume.</strong> Total monthly cost is split among teams proportionally to consumed token volume. Easy to implement (only needs logs with team tag) and gives real signal. Limitation: a team using an expensive model (GPT-4o, Claude Opus) pays the same per-token as one using a cheap model (GPT-4o-mini, Haiku). Doesn&#39;t reward efficient model choice.</p>
+<p><strong>Model 3 — Chargeback by real cost, with markup.</strong> Each call is logged with model, input tokens, output tokens, and cost calculated in USD. The team is debited the real cost + a 10–20% markup to cover infra and governance (gateway, observability, key vault). It&#39;s the fairest and most expensive model to operate — requires a centralized inference gateway with per-request billing. When it works, it rewards teams that pick the right model, optimize prompts and use cache.</p>
+<p><strong>Model 4 — Upfront budget allocated per use case.</strong> Each approved use case gets a monthly inference budget (e.g. USD 2,000/month for the customer service agent, USD 800/month for the internal sales assistant). The team consumes freely within the limit; exceeded, it needs approval or automatic throttle. Works well in companies with strong initiative-budget culture. Limitation: a poorly calibrated budget becomes either a growth brake or a blank check.</p>
+<h2>How to choose among the four</h2>
+<p>The choice is not aesthetic. It depends on three variables.</p>
+<p><strong>Maturity of the AI operation.</strong> Company with 1–3 production use cases and bill &lt; USD 10k/month: model 1 (showback) is enough. Above that, showback becomes theater. Company with 10+ use cases or bill &gt; USD 50k/month needs model 3 (real cost) or 4 (budget) — otherwise compensatory distortion grows.</p>
+<p><strong>Financial culture of the company.</strong> Companies with mature cloud FinOps already (per-team chargeback in AWS/GCP) adopt models 2 and 3 faster. Companies that still treat everything as annual IT CapEx absorb model 4 (upfront budget) better, which resembles the traditional budgetary model.</p>
+<p><strong>Heterogeneity of usage.</strong> If all use cases use the same model and similar token patterns (e.g. chat with short prompts), model 2 (proportional) is OK. If there&#39;s wide mix — some use cases with huge input (RAG over documents), others with long output (report generation), others using fine-tuning — model 3 (real cost) is the only one that avoids glaring unfairness.</p>
+<h2>Three common pitfalls</h2>
+<p>Some decisions look good on paper and die in execution.</p>
+<p>The first: <strong>including inference cost without including infra cost</strong>. The visible OpenAI bill is only part of the real total. There&#39;s gateway, logging, key vault, observability, governance team. Those costs prorated among teams complete the equation. Charging only inference creates sub-optimization (team invests in complex pipeline, gateway explodes, and nobody pays).</p>
+<p>The second: <strong>not tagging calls from day zero</strong>. Without a team/use-case tag on every request, no model works. Technical setup (inference gateway, SDK hook, HTTP header) needs to be in production from the first call — adding it later means painful retrofit.</p>
+<p>The third: <strong>debiting exactly what the provider charges</strong>. Providers change prices (OpenAI cut prices 4 times in 2024–2025; it can go up too). If chargeback is exactly real cost, the team faces unpredictable swings. Stabilize with markup or monthly snapshot — predictability inside the company matters more than penny-precision.</p>
+<h2>Step zero is log with tag</h2>
+<p>Without inference log with team tag, model, input/output tokens and calculated cost, none of this is executable. That&#39;s the technical investment that unlocks everything else.</p>
+<p>In practice, three paths: (1) self-hosted inference gateway (LiteLLM, Portkey, Helicone), (2) provider-native logging (OpenAI Usage API, Anthropic console with tags), or (3) SDK wrapper that logs to your own data warehouse. Path (1) gives the most control and is the most common in mature operations. Path (3) is lighter but requires discipline so every team uses the wrapper.</p>
+<p>With structured log in warehouse, a dashboard of <a href="/blog/en/custos-reais-de-inferencia.html">real inference costs</a> by team/use-case/model ships in a week. From there, any of the four models is a policy decision, not an engineering one.</p>
+<h2>Where AI FinOps silently fails</h2>
+<p>The signal that the model isn&#39;t working: the finance team still calls IT when the bill goes up. That means cost distribution didn&#39;t reach the visibility level that changes behavior. Diagnostic for who&#39;s implementing: ask each PM to say, without checking the dashboard, how much their use case cost last month. If nobody knows, FinOps exists on paper, not in decisions.</p>
+<p>The tipping point happens when a PM starts asking &quot;would this cheaper model work for this case?&quot; before IT suggests it. There the system is working. Until then, it&#39;s in cultural translation phase — and cultural translation takes longer than technical implementation.</p>
+
+        </div>
+      </div>
+
+      <section class="post-end">
+        <div class="container">
+          <div class="post-end-cta">
+            <div class="label">Keep the conversation going</div>
+            <h3>Want to discuss this topic with a partner?</h3>
+            <p>Initial diagnostic with no commitment. We assess your scenario in a week and send back a report.</p>
+            <a class="btn-link" href="/#contato">Talk to a partner</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="post-explore">
+        <div class="container">
+          <div class="label">Keep exploring</div>
+          <div class="grid-cards cols-2-3">
+            <a class="card explore-card" data-pillar="ai" href="/en/pilares/ia/">
+              <div class="explore-kind">Practice · Applied AI</div>
+              <p>How we deliver Applied AI in practice — scope, common pitfalls, health signals.</p>
+            </a>
+            <a class="card explore-card" href="/en/como-trabalhamos/">
+              <div class="explore-kind">How we work</div>
+              <p>Trilha 360 — the five verbs of our practice: map, prototype, validate, deploy, sustain.</p>
+            </a>
+            <a class="card explore-card" href="/en/glossario/?pilar=ai">
+              <div class="explore-kind">Glossary</div>
+              <p>Curated technical vocabulary for CRM, data and AI. No buzzwords, no lazy jargon.</p>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="post-related">
+        <div class="container">
+          <h2>Further reading</h2>
+          <div class="grid-cards cols-2-3">
+            <a class="card post-card" data-pillar="ai" href="/blog/en/quando-agente-e-resposta.html">
+              <div class="post-meta">
+                <span class="pill-pillar">Practice 03 · AI</span>
+                <span class="post-date">20 May 2026</span>
+              </div>
+              <h3>When an agent is the answer — and when it&#39;s an escape from a poorly modeled problem</h3>
+              <div class="read">Read →</div>
+            </a>
+            <a class="card post-card" data-pillar="ai" href="/blog/en/ia-para-rh.html">
+              <div class="post-meta">
+                <span class="pill-pillar">Practice 03 · AI</span>
+                <span class="post-date">6 May 2026</span>
+              </div>
+              <h3>AI for HR: a practical case of the internal triage agent</h3>
+              <div class="read">Read →</div>
+            </a>
+            <a class="card post-card" data-pillar="ai" href="/blog/en/multi-agent-em-producao.html">
+              <div class="post-meta">
+                <span class="pill-pillar">Practice 03 · AI</span>
+                <span class="post-date">5 May 2026</span>
+              </div>
+              <h3>Multi-agent in production: what we learned running 5 agents for 90 days</h3>
+              <div class="read">Read →</div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <a class="footer-brand" href="/" aria-label="Kliente 360">
+            <svg viewBox="0 0 80 80" aria-hidden="true">
+              <circle cx="40" cy="22" r="11" opacity="0.45"/>
+              <circle cx="58" cy="40" r="11" opacity="0.65"/>
+              <circle cx="40" cy="58" r="11" opacity="0.85"/>
+              <circle cx="22" cy="40" r="11"/>
+            </svg>
+            <span>kliente 360</span>
+          </a>
+          <p data-i18n="footer.tagline">Consultoria especializada em CRM, dados e IA. Conhecimento aplicado, como serviço.</p>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.pillarsTitle">Pilares</h4>
+          <ul>
+            <li><a href="/pilares/salesforce/" data-i18n="nav.mobile.salesforce">Salesforce</a></li>
+            <li><a href="/pilares/data/" data-i18n="nav.mobile.data">Data &amp; Analytics</a></li>
+            <li><a href="/pilares/ia/" data-i18n="nav.mobile.ai">IA Aplicada</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.empresaTitle">Empresa</h4>
+          <ul>
+            <li><a href="/#trilha" data-i18n="nav.trilha">Trilha 360</a></li>
+            <li><a href="/#cases" data-i18n="nav.cases">Cases</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Blog</a></li>
+            <li><a href="/como-trabalhamos/">Como trabalhamos</a></li>
+            <li><a href="/glossario/">Glossário</a></li>
+            <li><a href="/#contato" data-i18n="nav.contact">Contato</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.contactTitle">Contato</h4>
+          <ul>
+            <li><a href="mailto:contato@kliente360.com">contato@kliente360.com</a></li>
+            <li><a href="https://www.linkedin.com/company/kliente360/" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="http://wa.me/5511961875594" target="_blank" rel="noopener">WhatsApp</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div data-i18n="footer.rights">© 2026 Kliente 360. Todos os direitos reservados.</div>
+        <div class="mono">v0.1 · CRM · dados · IA</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/js/i18n.js?v=abbfb6dc0e"></script>
+  <script src="/assets/js/main.js?v=abbfb6dc0e" type="module"></script>
+</body>
+</html>

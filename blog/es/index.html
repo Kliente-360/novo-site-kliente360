@@ -31,9 +31,9 @@
 
   <link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
 
-  <link rel="stylesheet" href="/assets/css/tokens.css?v=193339e2b7" />
-  <link rel="stylesheet" href="/assets/css/reset.css?v=193339e2b7" />
-  <link rel="stylesheet" href="/assets/css/main.css?v=193339e2b7" />
+  <link rel="stylesheet" href="/assets/css/tokens.css?v=abbfb6dc0e" />
+  <link rel="stylesheet" href="/assets/css/reset.css?v=abbfb6dc0e" />
+  <link rel="stylesheet" href="/assets/css/main.css?v=abbfb6dc0e" />
 </head>
 <body>
   <a class="skip-link" href="#main">Pular para o conteúdo</a>
@@ -99,18 +99,40 @@
         <h1 style="margin-top: var(--sp-3);">Estrategia, práctica y crítica.</h1>
         <p class="lead">CRM, datos e IA — ensayos y análisis para quien decide. Contenido técnico, sin clichés.</p>
 
-        <div class="blog-filter" role="group" aria-label="Filter">
-          <button type="button" data-filter="all" aria-pressed="true">Todos</button>
-          <button type="button" data-filter="sf"   aria-pressed="false">Salesforce</button>
-          <button type="button" data-filter="data" aria-pressed="false">Data &amp; Analytics</button>
-          <button type="button" data-filter="ai"   aria-pressed="false">IA Aplicada</button>
+        <div class="blog-controls">
+          <label class="blog-search">
+            <svg class="blog-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+            <input type="search" data-blog-search placeholder="Buscar contenido" aria-label="Buscar contenido" autocomplete="off" />
+          </label>
+          <div class="blog-filter" role="group" aria-label="Filter">
+            <button type="button" data-filter="all" aria-pressed="true">Todos</button>
+            <button type="button" data-filter="sf"   aria-pressed="false">Salesforce</button>
+            <button type="button" data-filter="data" aria-pressed="false">Data &amp; Analytics</button>
+            <button type="button" data-filter="ai"   aria-pressed="false">IA Aplicada</button>
+          </div>
         </div>
       </div>
     </section>
 
     <section class="section" style="padding-top: 0;">
       <div class="container">
-        <div class="grid-cards cols-2-3">
+        <div class="grid-cards cols-2-3" data-blog-grid>
+          <a class="card post-card" data-pillar="ai" href="/blog/es/finops-de-ia.html">
+            <div class="post-meta">
+              <span class="pill-pillar">Pilar 03 · IA</span>
+              <span class="post-date">24 may 2026</span>
+            </div>
+            <h3>FinOps de IA: cómo cobrar inferencia de LLM al cliente interno sin pelear con TI</h3>
+            <div class="read">Leer →</div>
+          </a>
+          <a class="card post-card" data-pillar="sf" href="/blog/es/quando-nao-usar-salesforce.html">
+            <div class="post-meta">
+              <span class="pill-pillar">Pilar 01 · Salesforce</span>
+              <span class="post-date">24 may 2026</span>
+            </div>
+            <h3>Cuándo NO usar Salesforce: 4 escenarios en que el costo de licencia supera el ROI</h3>
+            <div class="read">Leer →</div>
+          </a>
           <a class="card post-card" data-pillar="ai" href="/blog/es/quando-agente-e-resposta.html">
             <div class="post-meta">
               <span class="pill-pillar">Pilar 03 · IA</span>
@@ -125,6 +147,14 @@
               <span class="post-date">19 may 2026</span>
             </div>
             <h3>Data Cloud ya no es CDP — es el nervio central de Salesforce</h3>
+            <div class="read">Leer →</div>
+          </a>
+          <a class="card post-card" data-pillar="data" href="/blog/es/modern-data-stack-2026.html">
+            <div class="post-meta">
+              <span class="pill-pillar">Pilar 02 · Data</span>
+              <span class="post-date">13 may 2026</span>
+            </div>
+            <h3>Modern Data Stack en 2026: qué sobrevivió, qué murió, qué se volvió commodity</h3>
             <div class="read">Leer →</div>
           </a>
           <a class="card post-card" data-pillar="data" href="/blog/es/tableau-linguagem-executiva.html">
@@ -143,6 +173,14 @@
             <h3>Salesforce Partner Program: lo que el cliente nunca te cuenta</h3>
             <div class="read">Leer →</div>
           </a>
+          <a class="card post-card" data-pillar="data" href="/blog/es/databricks-snowflake-bigquery-lock-in.html">
+            <div class="post-meta">
+              <span class="pill-pillar">Pilar 02 · Data</span>
+              <span class="post-date">6 may 2026</span>
+            </div>
+            <h3>Databricks vs Snowflake vs BigQuery: lock-in, costos de salida y lo que el partner oficial no cuenta</h3>
+            <div class="read">Leer →</div>
+          </a>
           <a class="card post-card" data-pillar="ai" href="/blog/es/ia-para-rh.html">
             <div class="post-meta">
               <span class="pill-pillar">Pilar 03 · IA</span>
@@ -157,6 +195,14 @@
               <span class="post-date">5 may 2026</span>
             </div>
             <h3>Análisis de churn: el error de definir &quot;pérdida&quot; antes de la estrategia</h3>
+            <div class="read">Leer →</div>
+          </a>
+          <a class="card post-card" data-pillar="ai" href="/blog/es/multi-agent-em-producao.html">
+            <div class="post-meta">
+              <span class="pill-pillar">Pilar 03 · IA</span>
+              <span class="post-date">5 may 2026</span>
+            </div>
+            <h3>Multi-agent en producción: qué aprendimos corriendo 5 agentes por 90 días</h3>
             <div class="read">Leer →</div>
           </a>
           <a class="card post-card" data-pillar="sf" href="/blog/es/salesforce-industries-vlocity.html">
@@ -408,6 +454,10 @@
             <div class="read">Leer →</div>
           </a>
         </div>
+        <div class="blog-search-results" data-blog-search-results hidden>
+          <div class="blog-search-status" data-blog-search-status></div>
+          <div class="grid-cards cols-2-3" data-blog-search-list></div>
+        </div>
       </div>
     </section>
   </main>
@@ -463,7 +513,66 @@
     </div>
   </footer>
 
-  <script src="/assets/js/i18n.js?v=193339e2b7"></script>
-  <script src="/assets/js/main.js?v=193339e2b7" type="module"></script>
+  <script src="/assets/js/i18n.js?v=abbfb6dc0e"></script>
+  <script src="/assets/js/main.js?v=abbfb6dc0e" type="module"></script>
+  <script type="module">
+    // Busca Pagefind no listing — full-text com filtro de pilar.
+    const input  = document.querySelector('[data-blog-search]');
+    const grid   = document.querySelector('[data-blog-grid]');
+    const wrap   = document.querySelector('[data-blog-search-results]');
+    const list   = document.querySelector('[data-blog-search-list]');
+    const status = document.querySelector('[data-blog-search-status]');
+    const filterButtons = document.querySelectorAll('.blog-filter button');
+    const labels = { loading: "Buscando…", empty: "Ningún post coincide con la búsqueda.", read: "Leer →" };
+    let pagefind = null;
+    let token = 0;
+    const loadPagefind = async () => {
+      if (pagefind) return pagefind;
+      try {
+        pagefind = await import('/pagefind/pagefind.js');
+        await pagefind.options({ excerptLength: 28 });
+      } catch (e) { pagefind = { _err: e }; }
+      return pagefind;
+    };
+    const currentFilter = () => {
+      const active = Array.from(filterButtons).find(b => b.getAttribute('aria-pressed') === 'true');
+      return active ? active.dataset.filter : 'all';
+    };
+    const runSearch = async () => {
+      const q = input.value.trim();
+      if (!q) { wrap.hidden = true; grid.style.display = ''; return; }
+      grid.style.display = 'none';
+      wrap.hidden = false;
+      status.textContent = labels.loading;
+      list.innerHTML = '';
+      const my = ++token;
+      const pf = await loadPagefind();
+      if (my !== token) return;
+      if (pf._err) { status.textContent = labels.empty; return; }
+      const filter = currentFilter();
+      const opts = filter === 'all' ? {} : { filters: { pillar: filter } };
+      const r = await pf.search(q, opts);
+      if (my !== token) return;
+      if (!r.results.length) { status.textContent = labels.empty; return; }
+      status.textContent = '';
+      const data = await Promise.all(r.results.slice(0, 24).map(x => x.data()));
+      list.innerHTML = data.map(d => {
+        const pillarCode = (d.filters && d.filters.pillar && d.filters.pillar[0]) || '';
+        const pillarLabel = (d.meta && d.meta.pillar_label) || '';
+        const title = (d.meta && d.meta.title) || d.url;
+        return `<a class="card post-card" data-pillar="${pillarCode}" href="${d.url}">
+          <div class="post-meta"><span class="pill-pillar">${pillarLabel}</span></div>
+          <h3>${title}</h3>
+          <p class="post-excerpt">${d.excerpt}</p>
+          <div class="read">${labels.read}</div>
+        </a>`;
+      }).join('');
+    };
+    let timer;
+    if (input) {
+      input.addEventListener('input', () => { clearTimeout(timer); timer = setTimeout(runSearch, 120); });
+      filterButtons.forEach(b => b.addEventListener('click', () => { if (input.value.trim()) runSearch(); }));
+    }
+  </script>
 </body>
 </html>
