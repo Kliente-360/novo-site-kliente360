@@ -75,4 +75,4 @@ Si tu empresa está discutiendo multi-agent, tres movimientos honestos antes de 
 
 **Medí latencia y costo desde el primer prototipo.** Multi-agent escala mal en ambos. Descubrirlo en producción es caro; descubrirlo en piloto es barato.
 
-La peor decisión de IA empresarial en 2026 es confundir sofisticación con necesidad. Multi-agent system es poderoso donde encaja. Aplicarlo en todos lados es la forma más cara de hacer con cinco agentes lo que uno haría mejor.
+La peor decisión de IA empresarial en 2026 es confundir sofisticación con necesidad. Multi-agent system es poderoso donde encaja. Aplicarlo en todos lados es la forma más cara de hacer con cinco agentes lo que uno haría mejor. (Para quien quiere ver esto en la operación real, con 5 agentes en producción por 90 días y los errores nombrados, [el diario de campo está acá](/blog/es/multi-agent-em-producao.html).)

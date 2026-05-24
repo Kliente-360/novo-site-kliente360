@@ -75,4 +75,4 @@ If your company is debating multi-agent, three honest moves before committing ar
 
 **Measure latency and cost from the first prototype.** Multi-agent scales poorly in both. Discovering this in production is expensive; in pilot, cheap.
 
-The worst enterprise AI decision in 2026 is confusing sophistication with necessity. Multi-agent systems are powerful where they fit. Applying everywhere is the most expensive way to do with five agents what one would do better.
+The worst enterprise AI decision in 2026 is confusing sophistication with necessity. Multi-agent systems are powerful where they fit. Applying everywhere is the most expensive way to do with five agents what one would do better. (For those who want to see this in real operation, with 5 agents in production for 90 days and the errors named, [the field diary is here](/blog/en/multi-agent-em-producao.html).)
