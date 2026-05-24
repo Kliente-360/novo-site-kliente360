@@ -939,6 +939,13 @@ a.card:hover, .card.linked:hover {
   margin: var(--sp-8) 0 var(--sp-12);
   flex-wrap: wrap;
 }
+/* Mobile: aperta gap+padding+fonte pros 4 filtros caberem em 1 linha
+ * (Todos · Salesforce · Dados · IA Aplicada). Labels já foram encurtados
+ * pra "Dados/Data/Datos" só no filtro. */
+@media (max-width: 480px) {
+  .blog-filter { gap: 6px; }
+  .blog-filter button { padding: 6px 10px; font-size: var(--fs-12); }
+}
 .blog-filter button {
   padding: 8px 14px;
   border-radius: var(--r-pill);

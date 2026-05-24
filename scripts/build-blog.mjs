@@ -74,7 +74,7 @@ const STRINGS = {
     explorePillar: (name) => `Pilar · ${name}`,
     explorePillarDesc: (name) => `Como entregamos ${name} na prática — escopo, riscos típicos, sinais de saúde.`,
     exploreGlossary: 'Glossário',
-    exploreGlossaryDesc: 'Vocabulário técnico de CRM com Salesforce, dados e IA. Definições enxutas, sem jargão.',
+    exploreGlossaryDesc: 'Vocabulário de CRM com Salesforce, dados e IA. Direto ao ponto, com link pro post canônico.',
     exploreHow: 'Como trabalhamos',
     exploreHowDesc: 'Trilha 360 — os cinco verbos da nossa prática: mapear, prototipar, validar, implantar, sustentar.',
     relatedTitle: 'Próximas leituras',
@@ -82,6 +82,7 @@ const STRINGS = {
     listingLead: 'CRM, dados e IA — ensaios e análises para quem decide. Conteúdo técnico, sem clichês.',
     listingMeta: 'Blog Kliente 360 — Estratégia, prática e crítica em CRM, dados e IA. Ensaios e análises para quem decide.',
     filterAll: 'Todos',
+    filterDataShort: 'Dados',
     readLink: 'Ler →',
     searchPlaceholder: 'Buscar no conteúdo',
     searchEmpty: 'Nenhum post corresponde à busca.',
@@ -104,7 +105,7 @@ const STRINGS = {
     explorePillar: (name) => `Practice · ${name}`,
     explorePillarDesc: (name) => `How we deliver ${name} in practice — scope, common pitfalls, health signals.`,
     exploreGlossary: 'Glossary',
-    exploreGlossaryDesc: 'Technical vocabulary for CRM with Salesforce, data and AI. Tight definitions, no jargon.',
+    exploreGlossaryDesc: 'Vocabulary for CRM with Salesforce, data and AI. No buzzwords, with links to the canonical post.',
     exploreHow: 'How we work',
     exploreHowDesc: 'Trilha 360 — the five verbs of our practice: map, prototype, validate, deploy, sustain.',
     relatedTitle: 'Further reading',
@@ -112,6 +113,7 @@ const STRINGS = {
     listingLead: 'CRM, data and AI — essays and analysis for decision-makers. Technical content, no buzzwords.',
     listingMeta: 'Kliente 360 Blog — Strategy, practice and critique in CRM, data and AI. Essays for decision-makers.',
     filterAll: 'All',
+    filterDataShort: 'Data',
     readLink: 'Read →',
     searchPlaceholder: 'Search content',
     searchEmpty: 'No post matches the search.',
@@ -134,7 +136,7 @@ const STRINGS = {
     explorePillar: (name) => `Pilar · ${name}`,
     explorePillarDesc: (name) => `Cómo entregamos ${name} en la práctica — alcance, riesgos típicos, señales de salud.`,
     exploreGlossary: 'Glosario',
-    exploreGlossaryDesc: 'Vocabulario técnico de CRM con Salesforce, datos e IA. Definiciones concisas, sin jerga.',
+    exploreGlossaryDesc: 'Vocabulario de CRM con Salesforce, datos e IA. Directo al grano, con enlace al post canónico.',
     exploreHow: 'Cómo trabajamos',
     exploreHowDesc: 'Trilha 360 — los cinco verbos de nuestra práctica: mapear, prototipar, validar, implantar, sostener.',
     relatedTitle: 'Próximas lecturas',
@@ -142,6 +144,7 @@ const STRINGS = {
     listingLead: 'CRM, datos e IA — ensayos y análisis para quien decide. Contenido técnico, sin clichés.',
     listingMeta: 'Blog Kliente 360 — Estrategia, práctica y crítica en CRM, datos e IA. Ensayos para quien decide.',
     filterAll: 'Todos',
+    filterDataShort: 'Datos',
     readLink: 'Leer →',
     searchPlaceholder: 'Buscar contenido',
     searchEmpty: 'Ningún post coincide con la búsqueda.',
@@ -696,7 +699,7 @@ ${navHtml(listingPath(lang))}
           <div class="blog-filter" role="group" aria-label="Filter">
             <button type="button" data-filter="all" aria-pressed="true">${escapeHtml(S.filterAll)}</button>
             <button type="button" data-filter="sf"   aria-pressed="false">${escapeHtml(S.sections.sf)}</button>
-            <button type="button" data-filter="data" aria-pressed="false">${escapeHtml(S.sections.data)}</button>
+            <button type="button" data-filter="data" aria-pressed="false">${escapeHtml(S.filterDataShort)}</button>
             <button type="button" data-filter="ai"   aria-pressed="false">${escapeHtml(S.sections.ai)}</button>
           </div>
         </div>
