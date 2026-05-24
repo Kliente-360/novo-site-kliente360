@@ -893,7 +893,15 @@ a.card:hover, .card.linked:hover {
 }
 .blog-search input::placeholder { color: var(--color-fg-muted); }
 
-.blog-search-results { display: block; }
+/* Em modo busca, encurta o gap herdado do hero — usuário fez ação ativa,
+ * quer ver os resultados rápido (não a respiração do listing normal). */
+.blog-search-results {
+  display: block;
+  margin-top: calc(var(--sp-12) * -1);
+}
+@media (min-width: 768px) {
+  .blog-search-results { margin-top: calc(var(--sp-16) * -1); }
+}
 .blog-search-status {
   font-family: var(--font-mono);
   font-size: var(--fs-12);
