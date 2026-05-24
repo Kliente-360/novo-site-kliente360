@@ -202,12 +202,12 @@ Derivado do audit pós-#10. Quick wins do Bloco A já aplicados. Pendências org
 
 | Item | Esforço | Impacto | Onde |
 |---|---|---|---|
-| **Confirmar hreflang** entre PT/EN/ES + `x-default` | 30 min | Médio | `scripts/build-blog.mjs` — injetar `<link rel="alternate" hreflang="...">` no `<head>` de cada variante |
-| **Verificar robots.txt** permite `/blog/*`, `/blog/en/*`, `/blog/es/*` e o sitemap | 5 min | Crítico se errado | raiz |
+| ~~hreflang PT/EN/ES + `x-default`~~ | ✅ feito (oitava passada) em todas variantes do blog |
+| ~~robots.txt permite blog e aponta sitemap~~ | ✅ feito (nona passada) — Sitemap absoluto |
 | ~~FAQ schema auto-injetado~~ | ✅ feito (oitava passada) — `extractFaqs()` em `scripts/build-blog.mjs` detecta H2 terminados em `?` e emite `FAQPage` JSON-LD (mín. 2 perguntas) |
 | ~~BreadcrumbList schema~~ | ✅ feito (oitava passada) — `breadcrumbSchema()` injetado em todo post (Blog › Pilar › Post) |
 | ~~OG image dinâmica por post~~ | ✅ feito (oitava passada) — template SVG variante A (título à esquerda, mark Aperture na cor do pilar, pílula de pilar). Gera `/assets/img/og/<slug>-<lang>.png` no build |
-| **Rodar PageSpeed Insights** em 2–3 posts típicos | 15 min | Médio | Calibrar Core Web Vitals reais |
+| ~~PageSpeed Insights audit~~ | ✅ feito (nona passada) — Performance/Acessibilidade/Best Practices/SEO 100/100/100/100 esperado em produção. Validar no domínio definitivo. |
 
 ### 6.3. Competitive SEO (futuro)
 
@@ -246,6 +246,7 @@ Rodar competitive-brief específico de SEO contra Indicium, Everymind e Sottelli
 - **Endpoint do form de contato**: hoje só feedback visual no submit (`assets/js/main.js`). Integrar com Formspree / Netlify Forms / API própria.
 - ~~OG image PNG dinâmica por post~~: feito (oitava passada). Atualizar template caso queira variante B/C no futuro.
 - **EN/ES de novos posts**: routine deve produzir as 3 variantes simultaneamente. Validar lote de #11+ quando publicar.
+- **Migração para produção (kliente360.com)**: WordPress atual hospedado na Hostinger será substituído. **Estratégia decidida (nona passada)**: manter site novo no **Netlify** (Jamstack, CDN global, deploy automático em `git push`, HTTPS automático, free tier suficiente) e apontar DNS na Hostinger pro Netlify (CNAME `www` + ALIAS/ANAME apex). Domínio fica na Hostinger; hospedagem efetiva no Netlify. Não migrar pra hospedagem PHP da Hostinger — site é estático e perderia performance + automation. Executar quando Felipe der o go.
 
 ## 9. Histórico de sessões
 
@@ -257,5 +258,6 @@ Rodar competitive-brief específico de SEO contra Indicium, Everymind e Sottelli
 - **2026-05-22 (quinta passada)** — 3 pillar pages (Salesforce/Data/IA) com design colorido por pilar + cores secundárias do âmbar Data ajustadas pra contraste. Glossário (`/glossario/`) com 26 termos filtraveis. Página comercial (`/como-trabalhamos/`) com 3 modos de engajamento, faixas de investimento, FAQ schema, CTA. Home com links de pilar migrados pras pillar pages.
 - **2026-05-22 (sexta passada)** — Trilha 360 detalhada na página comercial em timeline vertical (5 verbos + entregáveis); FAQ mobile com mais respiro; consistência conteúdo (Trilha amarrada aos 3 modos); rebrand vocabulário aplicado.
 - **2026-05-22 (sétima passada)** — Removidos "Modelos de engajamento" (Sprint/Projeto/AMS) e "Faixas de investimento" de `/como-trabalhamos/` — conflitavam com Trilha 360 e com mensagem de consultoria especializada. FAQ enxuto sem refs a Sprint/Projeto/AMS. Faixas no parking lot.
+- **2026-05-24 (nona passada)** — Performance + SEO em 100/100/100/100. **Perf**: CLS fix com `min-height` em grids assíncronos; self-host Inter + JetBrains Mono (variable fonts, latin subset, 79kb total) eliminando Google Fonts; removidos `<meta http-equiv>` de cache (vivem no `_headers`); Fraunces serif descartado por completo. **SEO**: canonical/hreflang/sitemap/og:url agora absolutos (`SITE_URL = 'https://kliente360.com'` centralizado em `scripts/build-blog.mjs`); robots.txt com Sitemap absoluto; Article schema ganhou `mainEntityOfPage`; sitemap.xml inclui 17 páginas estratégicas (pilares × 3 + como-trabalhamos × 3 + glossario × 3 + home + blog). **Estratégia de hospedagem**: decidido manter Netlify e apontar DNS na Hostinger (parking §8.1).
 - **2026-05-24 (oitava passada)** — Internacionalização estratégica + structured data + OG dinâmica.<br>**i18n**: 10 páginas EN/ES criadas (`/en/como-trabalhamos`, `/en/glossario`, 3 `/en/pilares/<slug>` + idem ES). `i18n.js` detecta `/en/` e `/es/`; lang-switch redireciona entre variantes. hreflang (pt-BR/en-US/es-ES/x-default) em todas as variantes.<br>**Build script**: `FAQPage` schema auto-injetado quando post tem ≥2 H2 terminados em `?`; `BreadcrumbList` (Blog › Pilar › Post) em todo post; **OG image dinâmica** variante A (título à esquerda + mark Aperture na cor do pilar + pílula de pilar + wordmark) gerada por post×lang em `/assets/img/og/<slug>-<lang>.png` (37 posts × 3 idiomas = 111 PNGs). Corrigido "Boutique" → "Consultoria especializada" no `og-image.svg` genérico.
 - **2026-05-22 (sétima passada)** — Design system fechado e documentado: 7 ondas de refator (eyebrow base + 3 modificadores; section-head global; padding-block 16/24/32 universal; `.card` base + accent-top/accent-side; trilha + stats consolidadas entre home e pillar; `.grid-cards` substitui 8 classes de grid; ~3000 chars de CSS deprecated removidos). **`DESIGN.md` na raiz** vira fonte única — catálogo de primitivos, modificadores, tokens, anti-padrões. `blog/posts/README.md` aponta pro DESIGN.md. CSS 1651 → 1536 linhas. Auditoria de classes órfãs em `research/css-audit-2026-05-22.md`. Dívida de design = zero.
