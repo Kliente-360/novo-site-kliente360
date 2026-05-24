@@ -77,6 +77,6 @@ Si estás en una empresa con LLM en producción, tres movimientos prácticos:
 
 **Implementar los cinco patrones antes de escalar.** Truncamiento de contexto, routing por caso de uso, caching, batching donde aplicable, retry inteligente. 2–4 semanas de trabajo que ahorran 50–70% de la factura.
 
-**Traer FinOps al stack de IA.** Como ya existe FinOps para cloud, la IA necesita el equivalente. Dashboards, alertas, ciclos de revisión. Sin eso, la factura cuenta la historia después — siempre tarde para prevenir el impacto de este trimestre.
+**Traer FinOps al stack de IA.** Como ya existe FinOps para cloud, la IA necesita el equivalente. Dashboards, alertas, ciclos de revisión. Sin eso, la factura cuenta la historia después — siempre tarde para prevenir el impacto de este trimestre. Cuando el volumen crece y múltiples equipos consumen inferencia, [el problema se vuelve asignación de costo entre equipos — FinOps de IA como disciplina de gobierno](/blog/es/finops-de-ia.html).
 
 El costo de LLM en 2026 es controlable. Quien crece con IA y mantiene economics sano no tiene modelo secreto — tiene disciplina de cinco patrones. Quien no la tiene ve el piloto exitoso volverse factura inviable en el tercer mes de producción. La diferencia no está en el LLM. Está en el control a su alrededor.

@@ -77,6 +77,6 @@ If you're at a company with LLM in production, three practical moves:
 
 **Implement the five patterns before scaling.** Context truncation, routing by use case, caching, batching where applicable, smart retry. 2–4 weeks of work that save 50–70% of the bill.
 
-**Bring FinOps to the AI stack.** Just as cloud FinOps exists, AI needs its equivalent. Dashboards, alerts, review cycles. Without it, the bill tells the story after — always too late to prevent this quarter's impact.
+**Bring FinOps to the AI stack.** Just as cloud FinOps exists, AI needs its equivalent. Dashboards, alerts, review cycles. Without it, the bill tells the story after — always too late to prevent this quarter's impact. When volume grows and multiple teams consume inference, [the problem becomes cost allocation between teams — AI FinOps as a governance discipline](/blog/en/finops-de-ia.html).
 
 LLM cost in 2026 is controllable. Whoever grows with AI and keeps healthy economics doesn't have a secret model — they have discipline on five patterns. Whoever doesn't sees the successful pilot become an unviable bill in the third month of production. The difference isn't in the LLM. It's in the controls around it.
