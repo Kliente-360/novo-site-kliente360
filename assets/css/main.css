@@ -561,17 +561,19 @@ a.card:hover, .card.linked:hover {
 
 /* Reserva altura para grids populadas async (home blog teaser, pillar pages
  * post-grid). Evita CLS quando os cards entram via fetch+innerHTML depois
- * do paint inicial. `align-content: start` impede que o grid estique as rows
- * pra preencher o min-height — senão sobra "ar" entre cards quando o
- * conteúdo natural é menor que a reserva. */
+ * do paint inicial. `align-content: start` empilha cards no topo;
+ * `min-height` calibrado pra altura real de 3 cards (mobile) / 1 linha
+ * (desktop) — se subestimar, volta CLS; se superestimar, vira ar morto
+ * abaixo do último card. Cobre o caso típico (titulos médios) com folga
+ * mínima; conteúdo maior expande o container naturalmente. */
 #home-blog-grid,
 [data-pillar-filter] {
-  min-height: 900px; /* 3 cards empilhados — mobile */
+  min-height: 720px; /* 3 cards empilhados — mobile (~240px cada + 2 gaps) */
   align-content: start;
 }
 @media (min-width: 768px) {
   #home-blog-grid,
-  [data-pillar-filter] { min-height: 360px; } /* 1 linha de cards — desktop */
+  [data-pillar-filter] { min-height: 280px; } /* 1 linha de cards — desktop */
 }
 
 /* ============ PILARES (overview) ============ */
