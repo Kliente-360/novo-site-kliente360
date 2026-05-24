@@ -31,7 +31,7 @@ const DICT = {
     },
     pillarDeep: {
       cta: 'Falar com um sócio', link: 'Como entregamos',
-      sf:   { eyebrow: 'Pilar 01', title: 'Salesforce — do CRM ao agente.', lead: 'Sales, Service, Data Cloud e Agentforce. Implementação com cabeça de negócio; evolução com agentes onde dado e processo já sustentam.' },
+      sf:   { eyebrow: 'Pilar 01', title: 'Salesforce — do desenho à operação escalável.', lead: 'Sales, Service, Data Cloud e Agentforce. Implementação com cabeça de negócio; evolução com agentes onde dado e processo já sustentam.' },
       data: { eyebrow: 'Pilar 02', title: 'Data & Analytics — do dado bruto à decisão.', lead: 'Engenharia de dados moderna, modelos preditivos e visualização. Agnóstico de stack, com prática certificada na camada de consumo — escolha guiada pelo cenário.' },
       ai:   { eyebrow: 'Pilar 03', titleLead: 'IA Aplicada — do', titleMid: 'problema', titleConn: 'ao', titleEnd: 'agente', titleTail: '.',
               lead: 'Agentes de IA sob medida e produtos SaaS verticais. Validação rápida: do diagnóstico ao primeiro modelo em produção.' },
@@ -69,7 +69,7 @@ const DICT = {
     },
     contact: {
       eyebrow: 'Contato', title: 'Conversa direta com um sócio.',
-      lead: 'Mande uma linha sobre o que está em jogo. Em até 1 dia útil, um dos sócios responde diretamente — sem etapas intermediárias, sem agenda padronizada.',
+      lead: 'Mande uma mensagem sobre o que está em jogo. Em pouco tempo, um dos sócios responde diretamente — sem etapas intermediárias, sem agenda genérica.',
       name: 'Nome', email: 'E-mail corporativo', company: 'Empresa', msg: 'Sobre o que conversamos?',
       msgPh: 'Ex.: estamos implantando Data Cloud e queremos avaliar parceria.',
       submit: 'Enviar mensagem', sent: 'Enviado — em breve respondemos', error: 'Erro ao enviar — tente novamente',
@@ -108,7 +108,7 @@ const DICT = {
     },
     pillarDeep: {
       cta: 'Talk to a partner', link: 'How we deliver',
-      sf:   { eyebrow: 'Practice 01', title: 'Salesforce — from CRM to agent.', lead: 'Sales, Service, Data Cloud and Agentforce. Implementation with business sense; agent-driven evolution where data and process already hold up.' },
+      sf:   { eyebrow: 'Practice 01', title: 'Salesforce — from design to operation that scales.', lead: 'Sales, Service, Data Cloud and Agentforce. Implementation with business sense; agent-driven evolution where data and process already hold up.' },
       data: { eyebrow: 'Practice 02', title: 'Data & Analytics — from raw data to decision.', lead: 'Modern data engineering, predictive models and visualization. Stack-agnostic at the consumption layer — chosen per scenario.' },
       ai:   { eyebrow: 'Practice 03', titleLead: 'Applied AI — from', titleMid: 'problem', titleConn: 'to', titleEnd: 'agent', titleTail: '.',
               lead: 'Custom AI agents and vertical SaaS products. Fast validation: from discovery to first model in production.' },
@@ -146,7 +146,7 @@ const DICT = {
     },
     contact: {
       eyebrow: 'Contact', title: 'A direct conversation with a partner.',
-      lead: 'Send a line about what is at stake. Within 1 business day, one of the partners replies directly — no intermediate steps, no standardized calendar.',
+      lead: 'Send a message about what is at stake. In short order, one of the partners replies directly — no intermediate steps, no generic calendar.',
       name: 'Name', email: 'Work email', company: 'Company', msg: 'What should we discuss?',
       msgPh: 'E.g., we are rolling out Data Cloud and want to evaluate a partnership.',
       submit: 'Send message', sent: 'Sent — we will reply shortly', error: 'Failed to send — try again',
@@ -185,7 +185,7 @@ const DICT = {
     },
     pillarDeep: {
       cta: 'Hablar con un socio', link: 'Cómo entregamos',
-      sf:   { eyebrow: 'Pilar 01', title: 'Salesforce — del CRM al agente.', lead: 'Sales, Service, Data Cloud y Agentforce. Implementación con cabeza de negocio; evolución con agentes donde dato y proceso ya sostienen.' },
+      sf:   { eyebrow: 'Pilar 01', title: 'Salesforce — del diseño a la operación escalable.', lead: 'Sales, Service, Data Cloud y Agentforce. Implementación con cabeza de negocio; evolución con agentes donde dato y proceso ya sostienen.' },
       data: { eyebrow: 'Pilar 02', title: 'Data & Analytics — del dato bruto a la decisión.', lead: 'Ingeniería de datos moderna, modelos predictivos y visualización. Agnóstico de stack en la capa de consumo — la elección la guía el escenario.' },
       ai:   { eyebrow: 'Pilar 03', titleLead: 'IA Aplicada — del', titleMid: 'problema', titleConn: 'al', titleEnd: 'agente', titleTail: '.',
               lead: 'Agentes de IA a medida y productos SaaS verticales. Validación rápida: del diagnóstico al primer modelo en producción.' },
@@ -223,7 +223,7 @@ const DICT = {
     },
     contact: {
       eyebrow: 'Contacto', title: 'Conversación directa con un socio.',
-      lead: 'Envía una línea sobre lo que está en juego. En hasta 1 día hábil, uno de los socios responde directamente — sin etapas intermedias, sin agenda estandarizada.',
+      lead: 'Envía un mensaje sobre lo que está en juego. En poco tiempo, uno de los socios responde directamente — sin etapas intermedias, sin agenda genérica.',
       name: 'Nombre', email: 'E-mail corporativo', company: 'Empresa', msg: '¿Sobre qué conversamos?',
       msgPh: 'Ej.: estamos implementando Data Cloud y queremos evaluar una sociedad.',
       submit: 'Enviar mensaje', sent: 'Enviado — pronto respondemos', error: 'Error al enviar — vuelve a intentar',
