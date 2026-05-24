@@ -237,6 +237,8 @@ LLMs (ChatGPT, Claude, Perplexity, Gemini, AI Overviews do Google) **citam e res
 
 10. **`inLanguage` no schema** — já gerado automaticamente por variante (`pt-BR`, `en-US`, `es-ES`). Garante que o LLM ofereça a versão certa por região.
 
+11. **H2 em forma de pergunta dispara FAQ schema automático.** O build detecta H2 terminando em `?` e, quando o post tem **2 ou mais** dessas seções, injeta `FAQPage` JSON-LD apontando cada pergunta → resposta (o corpo até o próximo H2). Ganho fácil em AI Overview e featured snippets. Não force estilo interrogativo só pra ativar — mas quando o H2 cabe natural como pergunta, prefira pergunta a substantivo abstrato.
+
 ### Padrões de título que funcionam bem
 
 - **"X não é Y — é Z"** (reframe): *Data Cloud não é mais CDP — é o nervo central do Salesforce*
@@ -266,11 +268,23 @@ O blog cresce em rede, não em lista. Cada post deve aumentar a densidade de lig
 
 3. **Texto do link: descritivo, integrado à frase.** Bom: *"como argumentei sobre [Data Cloud como nervo central do Salesforce](/blog/data-cloud-nervo-central.html)"*. Ruim: *"leia mais sobre Data Cloud [aqui](...)"* ou *"veja [este post](...)"*. O texto-âncora vira sinal pra Google e pra LLMs.
 
-4. **Formato técnico do link.** URL absoluta no path do idioma:
+4. **Formato técnico do link.** Três tipos de target válidos no site:
+
+   **Posts de blog** (cruzamento temático com outro post):
    - PT: `/blog/<slug>.html`
    - EN: `/blog/en/<slug>.html`
    - ES: `/blog/es/<slug>.html`
-   
+
+   **Pillar pages** (use quando o link aponta pro pilar como conceito amplo, não pra um post específico):
+   - PT: `/pilares/salesforce/` · `/pilares/data/` · `/pilares/ia/`
+   - EN: `/en/pilares/salesforce/` · `/en/pilares/data/` · `/en/pilares/ia/`
+   - ES: `/es/pilares/salesforce/` · `/es/pilares/data/` · `/es/pilares/ia/`
+
+   **Glossário e Como Trabalhamos** (use quando o post menciona termo técnico ou metodologia que merece definição centralizada, não expansão local):
+   - PT: `/glossario/` · `/como-trabalhamos/`
+   - EN: `/en/glossario/` · `/en/como-trabalhamos/`
+   - ES: `/es/glossario/` · `/es/como-trabalhamos/`
+
    Em cada variante de idioma, linke para a variante do mesmo idioma. Se o post-alvo não tiver tradução no idioma da variante, linke o PT (fallback).
 
 5. **"Próximas leituras" do build não substitui links na prosa.** O bloco de 3 cards no rodapé é algorítmico (mesmo pilar, depois outros). Os links manuais são *contextuais* — aparecem onde o tema cruza, dentro da argumentação. Funções diferentes.
