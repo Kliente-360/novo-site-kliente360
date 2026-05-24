@@ -14,6 +14,13 @@ body {
   font-feature-settings: "cv11", "ss01";
 }
 
+/* iOS Safari auto-zoom em foco quando font-size < 16px no input.
+ * Piso de 16px em todos os campos editáveis pra evitar o zoom indesejado.
+ * Aplica-se globalmente — design pode pedir aparência menor, mas a fonte fica 16px. */
+input, textarea, select {
+  font-size: 16px;
+}
+
 /* ============ LAYOUT PRIMITIVES ============ */
 .container { width: 100%; max-width: var(--container); margin: 0 auto; padding-inline: var(--gutter); }
 .container-narrow { max-width: var(--container-narrow); margin: 0 auto; padding-inline: var(--gutter); }
@@ -879,7 +886,8 @@ a.card:hover, .card.linked:hover {
 .blog-search input {
   flex: 1; min-width: 0;
   border: 0; outline: none; background: transparent;
-  font-family: var(--font-sans); font-size: var(--fs-14);
+  font-family: var(--font-sans);
+  /* 16px piso é regra global anti-zoom (ver topo do main.css). */
   color: var(--color-fg);
   padding: 8px 0;
 }
