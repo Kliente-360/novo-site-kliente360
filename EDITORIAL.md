@@ -58,6 +58,23 @@ Back-catálogo (publicados antes do plano formal) + quick wins SEO (lote extra-p
 | 33 | 2026-05-06 | qua | ai | [IA para RH: caso prático do agente de triagem interna](blog/posts/ia-para-rh.md) | Caso prático do agente de triagem interna | [x] | [x] |
 | 34 | 2026-05-12 | ter | sf | [Salesforce Partner Program: o que o cliente nunca te conta](blog/posts/salesforce-partner-program.md) | O que o cliente nunca te conta | [x] | [x] |
 
+## Plano 2026 — lote 2 (jun)
+
+Continuação do plano. Esgota os 5 quick wins restantes do `research/seo-competitive-brief.md` (#5, #6, #7, #8, #9) + 5 temas novos costurando o pitch integrado de três pilares (incluindo o argumento estrutural da FAQ #1 de `/como-trabalhamos/`).
+
+| # | Data | Dia | Pilar | Tema | Ângulo | Status | Backlink pass |
+|---|---|---|---|---|---|---|---|
+| 35 | 2026-05-26 | ter | data | Tendências de data management 2026 — 5 que mudam, 3 que não | Annual trends post — Quick win SEO #7 | [ ] | [ ] |
+| 36 | 2026-05-27 | qua | ai | RAG não é a resposta — 6 padrões em que fine-tuning ganha | Contraintuitivo, GEO-friendly — Quick win SEO #6 | [ ] | [ ] |
+| 37 | 2026-06-02 | ter | sf | Implementação de Salesforce em 6 semanas — o que cabe num MVP | Crítica às promessas de "14 dias" — Quick win SEO #5 | [ ] | [ ] |
+| 38 | 2026-06-03 | qua | data | Power BI vs Tableau vs Looker vs Metabase — matriz por porte | Comparativo Brasil-específico — Quick win SEO #9 | [ ] | [ ] |
+| 39 | 2026-06-09 | ter | ai | Por que CRM, dados e IA são uma engrenagem — o argumento estrutural | Pitch integrado — pega FAQ #1 de /como-trabalhamos/ e aprofunda | [ ] | [ ] |
+| 40 | 2026-06-10 | qua | sf | Migração de Pardot para Marketing Cloud Engagement — o que ninguém te conta | Migração técnica concreta — Quick win SEO #8 | [ ] | [ ] |
+| 41 | 2026-06-16 | ter | data | Multi-cloud: mito ou estratégia — critério honesto pra decidir | Anti-hype, não é sobre lock-in | [ ] | [ ] |
+| 42 | 2026-06-17 | qua | ai | Vector database OU search engine — quando RAG não precisa de vetor | Contraintuitivo — quando o índice clássico ainda ganha | [ ] | [ ] |
+| 43 | 2026-06-23 | ter | sf | Salesforce ROI — a matriz que vendedor de licença não mostra | Continuação anti-hype do "Quando NÃO usar Salesforce" | [ ] | [ ] |
+| 44 | 2026-06-24 | qua | data | Customer Data Platform — morreu ou virou commodity? | Picks up Data Cloud thread + market angle | [ ] | [ ] |
+
 ## Como atualizar
 
 Ao publicar um post:
@@ -68,10 +85,11 @@ Ao publicar um post:
 
 A coluna **`Backlink pass`** é controlada pela routine de backlink-pass (ver `blog/posts/README.md` §"Routine de backlink-pass"). Marca `[x]` quando o post já foi processado pra receber links contextuais dos posts publicados depois dele. Não mexer manualmente — a routine cuida.
 
-## Distribuição por pilar (plano 2026)
+## Distribuição por pilar (plano 2026 — lotes 1+2 + extras)
 
-- **sf** (Salesforce): 12 posts
-- **data** (Data & Analytics): 11 posts
-- **ai** (IA Aplicada): 11 posts
-
-Total: 34 posts.
+| Pilar | Plano 2026 lote 1 (#01–34) | Plano 2026 lote 2 (#35–44) | Extras (ep01–ep08) | Total |
+|---|---|---|---|---|
+| sf (Salesforce) | 12 | 3 | 3 | **18** |
+| data (Data & Analytics) | 11 | 4 | 2 | **17** |
+| ai (IA Aplicada) | 11 | 3 | 3 | **17** |
+| **Total** | 34 | 10 | 8 | **52** |
