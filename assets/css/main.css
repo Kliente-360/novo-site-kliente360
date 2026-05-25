@@ -1583,41 +1583,58 @@ a.card:hover, .card.linked:hover {
 .cm-expect-item h3 { font-size: var(--fs-18); font-weight: var(--fw-semibold); margin-bottom: var(--sp-2); }
 .cm-expect-item p { font-size: var(--fs-14); color: var(--ink-600); line-height: var(--lh-snug); }
 
-/* FAQ */
-.cm-faq { display: flex; flex-direction: column; gap: 0; max-width: 760px; }
+/* FAQ — accordion estilo card subtle. */
+.cm-faq {
+  display: flex; flex-direction: column;
+  gap: var(--sp-2);
+  max-width: 760px;
+}
 .cm-faq details {
-  border-bottom: 1px solid var(--color-line);
-  padding: var(--sp-6) 0;
+  border: 1px solid var(--color-line);
+  border-radius: var(--r-sm);
+  background: var(--color-bg);
+  transition: border-color var(--dur-fast) var(--ease-out);
 }
-@media (min-width: 768px) { .cm-faq details { padding: var(--sp-5) 0; } }
+.cm-faq details:hover { border-color: var(--line-strong); }
+.cm-faq details[open] { border-color: var(--line-strong); }
 .cm-faq details summary {
-  cursor: pointer;
-  font-size: var(--fs-16);
-  font-weight: var(--fw-semibold);
-  letter-spacing: var(--ls-tight);
-  line-height: 1.4;
-  list-style: none;
-  padding-right: 40px;
-  position: relative;
+  cursor: pointer; list-style: none; position: relative;
+  padding: var(--sp-4) var(--sp-12) var(--sp-4) var(--sp-6);
+  font-size: var(--fs-16); font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-tight); line-height: 1.4;
   color: var(--ink-900);
+  transition: color var(--dur-fast) var(--ease-out);
 }
-@media (min-width: 768px) { .cm-faq details summary { font-size: var(--fs-18); } }
+@media (min-width: 768px) {
+  .cm-faq details summary {
+    padding: var(--sp-6) var(--sp-16) var(--sp-6) var(--sp-6);
+    font-size: var(--fs-18);
+  }
+}
 .cm-faq details summary::-webkit-details-marker { display: none; }
+.cm-faq details summary:hover { color: var(--color-accent); }
 .cm-faq details summary::after {
   content: "+";
-  position: absolute; right: 0; top: 50%;
+  position: absolute; right: var(--sp-6); top: 50%;
   transform: translateY(-50%);
   font-family: var(--font-mono); font-weight: var(--fw-regular);
   font-size: var(--fs-24); color: var(--color-accent);
   line-height: 1;
   transition: color var(--dur-fast) var(--ease-out);
 }
-.cm-faq details summary:hover::after { color: var(--color-accent-hover); }
-.cm-faq details[open] summary::after { content: "−"; }
+.cm-faq details[open] summary::after {
+  content: "−"; color: var(--color-accent);
+}
 .cm-faq details p {
-  margin-top: var(--sp-3);
-  color: var(--ink-800); line-height: var(--lh-normal);
+  margin: 0;
+  padding: 0 var(--sp-6) var(--sp-6);
+  color: var(--ink-700); line-height: var(--lh-normal);
   font-size: var(--fs-16);
+}
+@media (min-width: 768px) {
+  .cm-faq details p {
+    padding: 0 var(--sp-16) var(--sp-6) var(--sp-6);
+  }
 }
 
 /* ============ CONTATO ============ */
