@@ -53,7 +53,7 @@ When the math shows that the promised SLA is impossible, the honest path is to r
 
 **Offer SLA by category.** Customers rarely need 4 hours on *everything*. They need 4 hours on critical cases and tolerate 12 on routine ones. SLA tiered by severity solves the tension between cost and expectation.
 
-**Tie aggressive SLA to investment.** If the customer *really* needs an aggressive general SLA, that changes operations sizing — more agents, specialized tooling, additional automation. Then the price changes. SLA is a cost, not a free promise.
+**Tie aggressive SLA to investment.** If the customer *really* needs an aggressive general SLA, that changes operations sizing — more agents, specialized tooling, [Agentforce absorbing what can be automated in service](/blog/en/agentforce-atendimento-humano.html). Then the price changes. SLA is a cost, not a free promise.
 
 ## Where Service Cloud doesn't help
 

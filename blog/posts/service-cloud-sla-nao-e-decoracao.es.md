@@ -53,7 +53,7 @@ Cuando el cálculo muestra que el SLA prometido es imposible, el camino honesto 
 
 **Ofrecer SLA por categoría.** El cliente rara vez necesita 4 horas en *todo*. Necesita 4 horas en casos críticos, y tolera 12 en rutinarios. SLA escalonado por severidad resuelve la tensión entre costo y expectativa.
 
-**Vincular SLA más agresivo a inversión.** Si el cliente *realmente* necesita SLA agresivo general, eso cambia el dimensionamiento de la operación — más atendentes, herramienta especializada, automatización adicional. Ahí cambia el precio. SLA es costo, no promesa gratis.
+**Vincular SLA más agresivo a inversión.** Si el cliente *realmente* necesita SLA agresivo general, eso cambia el dimensionamiento de la operación — más atendentes, herramienta especializada, [Agentforce absorbiendo lo que puede ser automatizado en atención](/blog/es/agentforce-atendimento-humano.html). Ahí cambia el precio. SLA es costo, no promesa gratis.
 
 ## Dónde Service Cloud no resuelve
 
