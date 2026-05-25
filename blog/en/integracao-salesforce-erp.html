@@ -200,7 +200,7 @@
 <ol>
 <li><strong>Who&#39;s the system of record for customer?</strong> Not &quot;both&quot; — one. The other becomes a mirror. Executive decision, with authority across all areas.</li>
 <li><strong>Who&#39;s the system of record for order?</strong> Same rule. Sales in Salesforce up to X; then ERP. X needs to be defined with clear criteria (status, approval, event).</li>
-<li><strong>Who decides final price, and what&#39;s the override rule?</strong> Salesforce pricebook, ERP table, CPQ, manual exception. Explicit hierarchy, no ambiguity.</li>
+<li><strong>Who decides final price, and what&#39;s the override rule?</strong> Salesforce pricebook, ERP table, <a href="/blog/en/cpq-saas-b2b.html">CPQ delivering real proposals not just quotes</a>, manual exception. Explicit hierarchy, no ambiguity.</li>
 <li><strong>What&#39;s the acceptable sync frequency per entity?</strong> Customer in real time? Order every 15 min? Inventory hourly? Criterion: what the business case requires, not what the tool can do.</li>
 <li><strong>Who&#39;s the operational owner of the integration in production?</strong> When it breaks, who investigates first? Name in the flow, not &quot;the integration team&quot;. Without that, MTTR explodes on the first incident.</li>
 </ol>
