@@ -31,7 +31,7 @@ Lo malo. En el 80% de las empresas brasileñas que adoptaron self-service "en se
 
 **Problema 2: dashboards huérfanos.** Cada usuario crea 5–10 dashboards por trimestre. En dos años, la instancia tiene 5.000 dashboards. Nadie sabe cuál usar. El equipo de datos se vuelve arqueólogo tratando de descubrir qué versión es la "buena".
 
-**Problema 3: lógica de negocio desparramada.** Regla crítica (cómo calcular ingreso, qué cuenta como churn) queda replicada en N dashboards. Cuando cambia, alguien se olvida de actualizar uno, y el número diverge. No es bug — es arquitectura rota.
+**Problema 3: lógica de negocio desparramada.** Regla crítica (cómo calcular ingreso, [qué cuenta como churn](/blog/es/analise-de-churn.html)) queda replicada en N dashboards. Cuando cambia, alguien se olvida de actualizar uno, y el número diverge. No es bug — es arquitectura rota.
 
 **Problema 4: confianza cayendo en el dashboard que importa.** El director ve tres números distintos para la misma cosa en tres reportes y pierde confianza en todos. Vuelve a tomar decisión en la planilla del gerente, [que es exactamente lo que el dashboard de vanidad produce](/blog/es/tableau-linguagem-executiva.html). Self-service mal gobernado entrega lo opuesto de lo prometido.
 

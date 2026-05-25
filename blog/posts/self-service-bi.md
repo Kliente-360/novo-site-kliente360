@@ -31,7 +31,7 @@ A parte ruim. Em 80% das empresas brasileiras que adotaram self-service "pra val
 
 **Problema 2: dashboards órfãos.** Cada usuário cria 5–10 dashboards por trimestre. Em dois anos, a instância tem 5.000 dashboards. Ninguém sabe qual usar. Time de dados vira arqueólogo tentando descobrir qual versão é a "boa".
 
-**Problema 3: lógica de negócio espalhada.** Regra crítica (como calcular receita, o que conta como churn) fica replicada em N dashboards. Quando muda, alguém esquece de atualizar um, e o número diverge. Não é bug — é arquitetura quebrada.
+**Problema 3: lógica de negócio espalhada.** Regra crítica (como calcular receita, [o que conta como churn](/blog/analise-de-churn.html)) fica replicada em N dashboards. Quando muda, alguém esquece de atualizar um, e o número diverge. Não é bug — é arquitetura quebrada.
 
 **Problema 4: confiança caindo no dashboard que importa.** Diretor vê três números diferentes pra mesma coisa em três relatórios e perde confiança em todos. Volta a tomar decisão na planilha do gerente, [que é exatamente o que dashboard de vaidade gera](/blog/tableau-linguagem-executiva.html). Self-service mal governado entrega o oposto do que prometeu.
 

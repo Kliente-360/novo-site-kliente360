@@ -31,7 +31,7 @@ The bad. In 80% of Brazilian companies that adopted self-service "for real", fou
 
 **Problem 2: orphan dashboards.** Each user creates 5–10 dashboards per quarter. In two years, the instance has 5,000 dashboards. Nobody knows which to use. Data team becomes archeologist trying to find the "good" version.
 
-**Problem 3: business logic spread out.** Critical rule (how to compute revenue, what counts as churn) is replicated across N dashboards. When it changes, someone forgets to update one, and the number diverges. It isn't a bug — it's broken architecture.
+**Problem 3: business logic spread out.** Critical rule (how to compute revenue, [what counts as churn](/blog/en/analise-de-churn.html)) is replicated across N dashboards. When it changes, someone forgets to update one, and the number diverges. It isn't a bug — it's broken architecture.
 
 **Problem 4: confidence dropping on the dashboard that matters.** A director sees three different numbers for the same thing in three reports and loses confidence in all of them. Goes back to making decisions on the manager's spreadsheet, [which is exactly what vanity dashboards produce](/blog/en/tableau-linguagem-executiva.html). Self-service without governance delivers the opposite of what was promised.
 
