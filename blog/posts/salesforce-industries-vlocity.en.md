@@ -85,7 +85,7 @@ Five questions to answer before the contract:
 2. **Do you have a 10+ Salesforce team, with a sponsor to invest in OmniStudio training?** If not, consider standard Salesforce.
 3. **Does sector specificity make the standard Salesforce model truly costly to customize?** Quantify. If "customization" fits in 8–12 weeks, [standard Sales Cloud with serious discovery](/blog/en/mapear-processos-antes-do-salesforce.html) is probably better.
 4. **How much of the Industries feature will you actually use?** Picking Industries to use 15% of features is too expensive. If 60%+, makes sense.
-5. **Is there a Salesforce partner with Industries in Brazil, with public cases?** Not hard to verify. Sector without local partner = no real support.
+5. **Is there a Salesforce partner with Industries in Brazil, with public cases?** Not hard to verify. Sector without local partner = no real support. ([How to read a Salesforce partner's tier](/blog/en/salesforce-partner-program.html) without falling for resale-in-disguise is a topic of its own.)
 
 Whoever answers the five honestly decides well. Whoever accepts Industries by pitch decides for other reasons.
 

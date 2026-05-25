@@ -85,7 +85,7 @@ Cinco preguntas para responder antes del contrato:
 2. **¿Tienen equipo Salesforce de 10+ personas, con sponsor para invertir en capacitación OmniStudio?** Si no, considerá Salesforce estándar.
 3. **¿La especificidad del sector vuelve el modelo estándar Salesforce realmente costoso para customizar?** Cuantificar. Si "customización" entra en 8–12 semanas, [Sales Cloud estándar con discovery serio](/blog/es/mapear-processos-antes-do-salesforce.html) probablemente es mejor.
 4. **¿Cuánto de la feature Industries van a usar de hecho?** Tomar Industries para usar el 15% de las features es demasiado caro. Si 60%+, tiene sentido.
-5. **¿Existe partner Salesforce con Industries en Brasil, con casos públicos?** No es difícil verificar. Sector sin partner local = sin soporte real.
+5. **¿Existe partner Salesforce con Industries en Brasil, con casos públicos?** No es difícil verificar. Sector sin partner local = sin soporte real. ([Cómo leer el tier de un partner Salesforce](/blog/es/salesforce-partner-program.html) sin caer en reventa disfrazada es tema aparte.)
 
 Quien responde las cinco honestamente decide bien. Quien acepta Industries por pitch decide por otras razones.
 

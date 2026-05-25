@@ -85,7 +85,7 @@ Cinco perguntas pra responder antes do contrato:
 2. **Vocês têm time Salesforce de 10+ pessoas, com sponsor pra investir em treinamento OmniStudio?** Se não, considera Salesforce padrão.
 3. **A especificidade do setor torna o modelo padrão Salesforce realmente custoso pra customizar?** Quantificar. Se "customização" cabe em 8–12 semanas, [Sales Cloud padrão com discovery sério](/blog/mapear-processos-antes-do-salesforce.html) provavelmente é melhor.
 4. **Quanto da feature Industries vocês vão usar de fato?** Pegar Industries pra usar 15% das features é caro demais. Se 60%+, faz sentido.
-5. **Existe parceiro Salesforce com Industries no Brasil, com cases públicos?** Não é difícil verificar. Setor sem parceiro local = sem suporte real.
+5. **Existe parceiro Salesforce com Industries no Brasil, com cases públicos?** Não é difícil verificar. Setor sem parceiro local = sem suporte real. ([Como ler o tier de um parceiro Salesforce](/blog/salesforce-partner-program.html) sem cair em revenda mascarada é tópico por si só.)
 
 Quem responde os cinco honestamente decide bem. Quem aceita Industries por pitch decide por outras razões.
 
