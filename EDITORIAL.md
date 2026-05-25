@@ -4,11 +4,20 @@ Tabela viva de posts planejados. Marcar `[x]` quando publicado. Atualizar sempre
 
 Cadência: terça **ou** quarta, pulando feriados (ver `blog/posts/README.md` §"Cadência de publicação"). Pilares rotacionam: **sf** (Salesforce), **data** (Data & Analytics), **ai** (IA Aplicada).
 
-## Back-catálogo já publicado (fora do plano 2026)
+## Posts publicados fora do plano 2026
 
-- [x] 2026-05-13 · qua · `data` · [Tableau como linguagem executiva: matando o dashboard de vaidade](blog/posts/tableau-linguagem-executiva.md)
-- [x] 2026-05-19 · ter · `sf` · [Data Cloud não é mais CDP — é o nervo central do Salesforce](blog/posts/data-cloud-nervo-central.md)
-- [x] 2026-05-20 · qua · `ai` · [Quando um agente é a resposta — e quando ele é fuga de problema mal modelado](blog/posts/quando-agente-e-resposta.md)
+Back-catálogo (publicados antes do plano formal) + quick wins SEO (lote extra-plano, publicado fora da rotação Tue/Wed para capturar oportunidades de busca identificadas no `research/seo-competitive-brief.md`).
+
+| # | Data | Dia | Pilar | Tema | Origem | Status | Backlink pass |
+|---|---|---|---|---|---|---|---|
+| ep01 | 2026-05-05 | ter | ai | [Multi-agent em produção: o que aprendemos rodando 5 agentes por 90 dias](blog/posts/multi-agent-em-producao.md) | Quick win SEO #10 | [x] | [x] |
+| ep02 | 2026-05-06 | qua | data | [Databricks vs Snowflake vs BigQuery: lock-in, custos de saída e o que o parceiro oficial não fala](blog/posts/databricks-snowflake-bigquery-lock-in.md) | Quick win SEO #3 | [x] | [x] |
+| ep03 | 2026-05-13 | qua | data | [Tableau como linguagem executiva: matando o dashboard de vaidade](blog/posts/tableau-linguagem-executiva.md) | Back-catálogo | [x] | [x] |
+| ep04 | 2026-05-13 | qua | data | [Modern Data Stack em 2026: o que sobreviveu, o que morreu, o que virou commodity](blog/posts/modern-data-stack-2026.md) | Quick win SEO #1 | [x] | [x] |
+| ep05 | 2026-05-19 | ter | sf | [Data Cloud não é mais CDP — é o nervo central do Salesforce](blog/posts/data-cloud-nervo-central.md) | Back-catálogo | [x] | [x] |
+| ep06 | 2026-05-20 | qua | ai | [Quando um agente é a resposta — e quando ele é fuga de problema mal modelado](blog/posts/quando-agente-e-resposta.md) | Back-catálogo | [x] | [x] |
+| ep07 | 2026-05-24 | dom | sf | [Quando NÃO usar Salesforce: 4 cenários em que o custo de licença supera o ROI](blog/posts/quando-nao-usar-salesforce.md) | Quick win SEO #2 | [x] | [x] |
+| ep08 | 2026-05-24 | dom | ai | [FinOps de IA: como cobrar inferência de LLM do cliente interno sem brigar com a TI](blog/posts/finops-de-ia.md) | Quick win SEO #4 | [x] | [x] |
 
 ## Plano 2026 — 34 posts
 
