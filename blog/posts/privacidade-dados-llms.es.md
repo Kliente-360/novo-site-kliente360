@@ -43,7 +43,7 @@ Esos siete no son teoría — son lo que va a aparecer en la primera auditoría.
 
 ## Lo que cambia con LLM corriendo interno
 
-Para empresas que corren LLM propio (on-prem, modelo abierto auto-hospedado, instancia dedicada), parte del checklist cambia. No desaparece.
+Para empresas que corren LLM propio (on-prem, [modelo abierto auto-hospedado](/blog/es/open-source-vs-proprietary-llms.html), instancia dedicada), parte del checklist cambia. No desaparece.
 
 **El vendor no está en el camino.** Los ítems 3 y parte del 6 (logs del vendor) desaparecen. Pero surgen nuevos: gobernanza del modelo interno, control de acceso al servidor, hardening.
 

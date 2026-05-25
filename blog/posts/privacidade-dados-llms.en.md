@@ -43,7 +43,7 @@ These seven aren't theory — they're what shows up in the first audit. Companie
 
 ## What changes with internal LLMs
 
-For companies running their own LLM (on-prem, self-hosted open model, dedicated instance), part of the checklist changes. Doesn't go away.
+For companies running their own LLM (on-prem, [self-hosted open model](/blog/en/open-source-vs-proprietary-llms.html), dedicated instance), part of the checklist changes. Doesn't go away.
 
 **Vendor isn't in the path.** Items 3 and part of 6 (vendor logs) go away. But new ones appear: internal model governance, server access control, hardening.
 
