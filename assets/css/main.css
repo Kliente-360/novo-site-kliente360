@@ -657,7 +657,7 @@ a.card:hover, .card.linked:hover {
 }
 
 /* No fundo escuro (IA), aclara a cor pra ter contraste suficiente */
-.pillar-deep.dark[data-pillar="ai"] { --c-pillar-on-dark: #A78BFA; }
+.pillar-deep.dark[data-pillar="ai"] { --c-pillar-on-dark: var(--c-ai-on-dark); }
 .pillar-deep.dark .eyebrow {
   background: color-mix(in srgb, var(--c-pillar-on-dark, var(--c-pillar)) 18%, transparent);
   color: var(--c-pillar-on-dark, var(--c-pillar));
@@ -853,9 +853,9 @@ a.card:hover, .card.linked:hover {
   background: currentColor;
 }
 [data-pillar="sf"]   .pill-pillar { background: color-mix(in srgb, var(--c-salesforce) 12%, transparent); color: var(--c-salesforce); }
-[data-pillar="data"] .pill-pillar { background: color-mix(in srgb, var(--c-data) 16%, transparent); color: #8a6f15; }
+[data-pillar="data"] .pill-pillar { background: color-mix(in srgb, var(--c-data) 16%, transparent); color: var(--c-data-deep); }
 [data-pillar="ai"]   .pill-pillar { background: color-mix(in srgb, var(--c-ai) 12%, transparent); color: var(--c-ai); }
-.section.dark [data-pillar="ai"] .pill-pillar { background: rgba(167,139,250,0.18); color: #A78BFA; }
+.section.dark [data-pillar="ai"] .pill-pillar { background: color-mix(in srgb, var(--c-ai-on-dark) 18%, transparent); color: var(--c-ai-on-dark); }
 
 /* Override de maior especificidade: a pílula dentro de um post-card sempre segue
  * o pilar do próprio card, nunca o do article/section ancestral. */
@@ -1239,9 +1239,9 @@ a.card:hover, .card.linked:hover {
   transform: translateY(-2px);
   border-color: var(--color-fg);
 }
-.explore-card[data-pillar="sf"]   { border-top: 3px solid #0B5394; }
-.explore-card[data-pillar="data"] { border-top: 3px solid #8a6f15; }
-.explore-card[data-pillar="ai"]   { border-top: 3px solid #6D28D9; }
+.explore-card[data-pillar="sf"]   { border-top: 3px solid var(--c-salesforce); }
+.explore-card[data-pillar="data"] { border-top: 3px solid var(--c-data-deep); }
+.explore-card[data-pillar="ai"]   { border-top: 3px solid var(--c-ai); }
 .explore-card .explore-kind {
   font-size: var(--fs-18);
   font-weight: var(--fw-semibold);
@@ -1262,9 +1262,9 @@ a.card:hover, .card.linked:hover {
   --pp-color: var(--color-accent);
   --pp-color-ink: #fff;
 }
-.pillar-page[data-pillar="sf"]   { --pp-color: #0B5394; --pp-color-deep: #07355f; --pp-color-soft: #e8eff7; }
-.pillar-page[data-pillar="data"] { --pp-color: #C9A227; --pp-color-deep: #8a6f15; --pp-color-darker: #5d4a0e; --pp-color-soft: #fbf3dc; }
-.pillar-page[data-pillar="ai"]   { --pp-color: #6D28D9; --pp-color-deep: #4c1d95; --pp-color-soft: #ede4fd; }
+.pillar-page[data-pillar="sf"]   { --pp-color: var(--c-salesforce); --pp-color-deep: var(--c-salesforce-deep); --pp-color-soft: var(--c-salesforce-soft); }
+.pillar-page[data-pillar="data"] { --pp-color: var(--c-data); --pp-color-deep: var(--c-data-deep); --pp-color-darker: var(--c-data-darker); --pp-color-soft: var(--c-data-soft); }
+.pillar-page[data-pillar="ai"]   { --pp-color: var(--c-ai); --pp-color-deep: var(--c-ai-deep); --pp-color-soft: var(--c-ai-soft); }
 
 /* Para Data, o âmbar é muito claro pra fundo com texto branco — usar a versão deep no hero/strip. */
 .pillar-page[data-pillar="data"] .pp-hero  { background: var(--pp-color-deep); }

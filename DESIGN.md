@@ -1,12 +1,82 @@
-# Design system — Kliente 360
+# Brand &amp; Design System — Kliente 360
 
+> **Status: v1.0 (2026-05-25)** — guia definitivo. Use como padrão pra produto web, branding, mídias sociais, slides e docs internos. Reusável em outros apps (Next.js / Vercel ou qualquer stack web).
+>
 > **Para quem cria/edita páginas (humano ou agente)**: leia isto antes de inventar classes. Antes de criar `.meu-grid-novo` ou `.minha-card-bonita`, consulte se um primitivo + modificador resolve. Em 90% dos casos resolve.
 >
 > Arquivos de referência:
 > - **Tokens** (cores, tipografia, espaços, etc.): `assets/css/tokens.css`
 > - **Primitivos** (regras CSS): `assets/css/main.css`
 > - **Reset** mínimo: `assets/css/reset.css`
-> - **Showcase visual** (em refator): `/styleguide.html`
+> - **Showcase visual definitivo**: `/styleguide.html`
+
+---
+
+## Marca
+
+A marca da Kliente 360 é composta por dois elementos canônicos:
+
+### Mark Aperture
+
+Quatro círculos nas posições cardeais (N/E/S/W de um quadrado 80×80), com opacidade crescente em sentido horário a partir do topo (0.45 → 0.65 → 0.85 → 1.0). Cor sagrada: **`--logo-green` #009900**.
+
+```svg
+<svg class="mark-aperture" viewBox="0 0 80 80" aria-hidden="true">
+  <circle cx="40" cy="22" r="11"/>   <!-- topo,    opacity 0.45 -->
+  <circle cx="58" cy="40" r="11"/>   <!-- direita, opacity 0.65 -->
+  <circle cx="40" cy="58" r="11"/>   <!-- baixo,   opacity 0.85 -->
+  <circle cx="22" cy="40" r="11"/>   <!-- esquerda, opacity 1.0 -->
+</svg>
+```
+
+CSS reusável (em `main.css`):
+
+```css
+.mark-aperture circle { fill: var(--logo-green); }
+.mark-aperture circle:nth-child(1) { opacity: 0.45; }
+.mark-aperture circle:nth-child(2) { opacity: 0.65; }
+.mark-aperture circle:nth-child(3) { opacity: 0.85; }
+.mark-aperture circle:nth-child(4) { opacity: 1; }
+```
+
+Tamanho mínimo legível: **16px** (favicon). Abaixo disso o gradiente de opacidade vira borrão. Tamanhos canônicos no produto: **16 (favicon) / 28 (nav) / 48 (avatar) / 72-120 (hero)**.
+
+### Wordmark
+
+Texto **"kliente 360"** — lowercase, com espaço entre "kliente" e "360". Inter Bold ou Semibold dependendo do contexto. Letter-spacing tight/tighter.
+
+### Lockup canônico
+
+Mark à esquerda do wordmark, alinhamento baseline, gap = `--sp-3` (12px). Use o lockup horizontal por padrão em todos os contextos com largura suficiente. Versões empilhada e "mark isolado" só em contextos com restrição de espaço (avatar 32×32, favicon).
+
+```html
+<span class="brand-lockup">
+  <svg class="mark-aperture" viewBox="0 0 80 80" aria-hidden="true">
+    <circle cx="40" cy="22" r="11"/><circle cx="58" cy="40" r="11"/>
+    <circle cx="40" cy="58" r="11"/><circle cx="22" cy="40" r="11"/>
+  </svg>
+  <span class="wordmark">kliente 360</span>
+</span>
+```
+
+### Regras de uso
+
+| ✅ Faça | ❌ Não faça |
+|---|---|
+| Mark em verde sagrado `#009900` em fundo claro | Recolorir o mark com cores de pilar (azul/âmbar/violeta) |
+| Wordmark sempre **lowercase com espaço** | CAPS, "kliente360", hífen, itálico, stretching |
+| Lockup horizontal (mark à esquerda do wordmark) | Separar mark e wordmark sem motivo |
+| Em fundo escuro: mark verde + wordmark branco | Wordmark verde sobre fundo escuro (contraste fraco) |
+| Safe area = altura do mark (1×) ao redor | Colar texto/ícone/borda dentro da safe area |
+
+### Cores aplicadas ao mark/lockup
+
+| Fundo | Mark | Wordmark |
+|---|---|---|
+| Branco / cinza claro (`--bg`, `--bg-alt`) | `--logo-green` #009900 | `--ink-900` |
+| Preto / cinza escuro (`--bg-dark`) | `--logo-green` #009900 | branco |
+| Navy (`--bg-deep` #06073E) | `--logo-green` #009900 | branco |
+| Verde acento (`--color-accent`) | branco sólido | branco |
 
 ---
 
@@ -287,7 +357,19 @@ Definidos em `tokens.css`. **Nunca hardcode hex em CSS de página**.
 - `--color-line` / `--line-strong` — bordas.
 
 ### Pilar
-- `--c-salesforce / --c-data / --c-ai` — secundárias por pilar.
+- `--c-salesforce / --c-data / --c-ai` — secundárias por pilar (base).
+- `--c-salesforce-deep / --c-data-deep / --c-ai-deep` — variantes deep pra hover/emphasis.
+- `--c-salesforce-soft / --c-data-soft / --c-ai-soft` — backgrounds tintados.
+- `--c-data-darker` — variante extra-escura específica do âmbar (data hero em fundo escuro).
+- `--c-ai-on-dark` (`#A78BFA`) — violeta clarito pra contraste WCAG AA em fundo escuro.
+
+### Sobre fundo escuro
+
+Tokens dedicados pra texto/linhas em `--bg-dark`, `--bg-deep` e `.section.dark`:
+
+- `--fg-on-dark` / `--fg-on-dark-strong` / `--fg-on-dark-muted` / `--fg-on-dark-subtle` — texto branco com alpha variável.
+- `--line-on-dark` / `--line-on-dark-hover` — bordas brancas com alpha.
+- `--bg-on-dark-hover` — overlay branco translúcido pra hover de botões `.btn-ghost-dark`.
 
 ---
 
@@ -357,9 +439,9 @@ Lista completa em `blog/posts/README.md` (seção Tom de voz).
 
 ---
 
-## Componentes históricos (não reusáveis — não imitar)
+## Componentes app-specific (wrappers de página, não imitar fora do contexto)
 
-Estes existem com nomes próprios porque cada um tem conteúdo único de página. Não tente abstrair — são casos legítimos de wrapper.
+Estes existem com nomes próprios porque cada um tem conteúdo único de página do site kliente360.com. Não tente abstrair — são casos legítimos de wrapper. **Em outro app, não copie estes — só os primitivos reutilizáveis acima.**
 
 - `.hero` (home) — wrapper do hero principal com mark Aperture watermark.
 - `.blog-hero`, `.cm-hero`, `.gloss-hero` — heros de seções específicas. Padding-block usa o sistema, mas têm H1 com max-width próprio.
@@ -370,6 +452,114 @@ Estes existem com nomes próprios porque cada um tem conteúdo único de página
 - `.cm-faq` — accordion FAQ com `<details>` nativo.
 
 Se uma página nova reusar **alguns** destes — ok. Se reusar **todos** — está repetindo a estrutura de blog ou pillar page e talvez não precisa de nome próprio.
+
+---
+
+## Reuso em outro app (Next.js / Vercel ou qualquer stack web)
+
+O sistema é CSS vanilla — sem framework dependency. Funciona em Next.js, Vite, Remix, ou HTML estático.
+
+### O que copiar (núcleo portável)
+
+Três arquivos CSS auto-contidos:
+
+```
+app/styles/
+├─ tokens.css     # cores, tipografia, espaço, raio, sombra, motion
+├─ reset.css      # reset mínimo + box-sizing
+└─ main.css       # primitivos (.card, .btn, .grid-cards, .pill, .stats-strip, .trilha, etc.)
+```
+
+Mais as fontes self-hosted:
+
+```
+public/fonts/
+├─ inter-latin.woff2
+└─ jetbrains-mono-latin.woff2
+```
+
+E o componente Mark (SVG inline):
+
+```tsx
+// components/Mark.tsx
+export function Mark({ size = 32, className = "" }) {
+  return (
+    <svg
+      className={`mark-aperture ${className}`}
+      viewBox="0 0 80 80"
+      width={size}
+      height={size}
+      aria-hidden="true"
+    >
+      <circle cx="40" cy="22" r="11" />
+      <circle cx="58" cy="40" r="11" />
+      <circle cx="40" cy="58" r="11" />
+      <circle cx="22" cy="40" r="11" />
+    </svg>
+  );
+}
+```
+
+### O que NÃO copiar (app-specific)
+
+Tudo em `main.css` abaixo da linha `/* ============ HERO ============ */` é específico do site institucional. Para outro app, comece só com BASE + LAYOUT PRIMITIVES + NAV + BUTTONS + PILLS + ACCESSIBILITY + MARK A + SECTION HEADER + STATS STRIP + GRID CARDS. O resto vem por demanda.
+
+### Import order (Next.js `app/globals.css`)
+
+```css
+@import "./styles/tokens.css";   /* define vars — sempre primeiro */
+@import "./styles/reset.css";    /* reset depois */
+@import "./styles/main.css";     /* primitivos por último */
+```
+
+### Preload das fontes (Next.js `app/layout.tsx`)
+
+```tsx
+<head>
+  <link
+    rel="preload"
+    href="/fonts/inter-latin.woff2"
+    as="font"
+    type="font/woff2"
+    crossOrigin=""
+  />
+</head>
+```
+
+(Alternativa: `next/font/local` — resultado visual idêntico, com otimização automática.)
+
+### Uso em JSX
+
+CSS vars funcionam direto em `style` JSX:
+
+```tsx
+<button className="btn btn-primary">Falar com a gente</button>
+
+<div style={{
+  padding: "var(--sp-8)",
+  background: "var(--color-accent-soft)",
+  borderRadius: "var(--r-md)",
+}}>
+  …
+</div>
+```
+
+Não precisa de Tailwind nem CSS-in-JS. Tokens via `var()` + classes de primitivos cobrem 95% dos casos.
+
+---
+
+## Brand application — além do produto web
+
+O styleguide.html tem mocks visuais em `#brand-app`. Resumo das regras de aplicação:
+
+| Canal | Tamanhos canônicos | Regras |
+|---|---|---|
+| **Instagram / LinkedIn feed** | 1080 × 1080 (quadrado), 1080 × 1350 (vertical) | Tese declarativa, mark inferior esquerdo, eyebrow categoria |
+| **OG / LinkedIn link preview** | 1200 × 627 | Mesmo padrão do OG dinâmico do site (per-post) |
+| **Story / Reels** | 1080 × 1920 | Mark + wordmark no topo, conteúdo centralizado |
+| **Slide / keynote** | 16:9 widescreen | Inter, eyebrow + título grande, mark canto inferior esquerdo (18-24px), paginação em mono à direita. Fundos: branco (conteúdo), navy `--bg-deep` (capa/divisor), preto (citações), verde (CTA final) |
+| **Documento** | A4 / Letter | Cabeçalho com mark + título do doc (Inter Bold) + data/versão (mono pequena). Corpo em Inter Regular, headings em Semibold |
+| **Assinatura de e-mail** | n/a | Nome em Bold + cargo + lockup horizontal compacto + URL em mono. Sem ícones de redes sociais |
 
 ---
 

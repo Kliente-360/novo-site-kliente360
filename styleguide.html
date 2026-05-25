@@ -6,9 +6,9 @@
   <meta name="description" content="Kliente 360 — Style Guide e identidade visual" />
   <title>Style Guide — Kliente 360</title>
   <link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="/assets/css/tokens.css?v=56c2550923" />
-  <link rel="stylesheet" href="/assets/css/reset.css?v=56c2550923" />
-  <link rel="stylesheet" href="/assets/css/main.css?v=56c2550923" />
+  <link rel="stylesheet" href="/assets/css/tokens.css?v=d5c1690014" />
+  <link rel="stylesheet" href="/assets/css/reset.css?v=d5c1690014" />
+  <link rel="stylesheet" href="/assets/css/main.css?v=d5c1690014" />
   <style>
     /* === Styleguide-only ajustes (showcases que não existem em main.css) === */
 
@@ -29,37 +29,107 @@
       .sg-nav-brand span:last-child { display: none; }
     }
 
-    /* Logo mock (mock textual — substituído pelo PNG/SVG real quando aprovado) */
-    .logo {
-      display: inline-flex; align-items: baseline; gap: 6px;
-      font-weight: var(--fw-bold); letter-spacing: var(--ls-tight);
-      font-size: var(--fs-20);
+    /* Brand mark — wordmark + mark-aperture (lockup canônico).
+     * Usado no header do site e em qualquer aplicação que precise da marca completa. */
+    .brand-lockup {
+      display: inline-flex; align-items: center; gap: var(--sp-3);
+      font-weight: var(--fw-semibold);
+      letter-spacing: var(--ls-tight);
+      color: var(--color-fg);
     }
-    .logo .dots { display: inline-flex; gap: 3px; margin-left: 4px; transform: translateY(-2px); }
-    .logo .dots span { width: 6px; height: 6px; border-radius: 50%; background: var(--logo-green); }
-    .logo .dots span:nth-child(1) { opacity: 0.4; }
-    .logo .dots span:nth-child(2) { opacity: 0.6; }
-    .logo .dots span:nth-child(3) { opacity: 0.8; }
-    .logo .dots span:nth-child(4) { opacity: 1; }
-    .logo.large { font-size: clamp(2rem, 4vw, 3.5rem); }
-    .logo.large .dots span { width: 12px; height: 12px; }
-    .logo-stack { flex-direction: column; align-items: flex-start; gap: 0; line-height: 0.95; }
-    .logo-stack .row { display: inline-flex; align-items: baseline; gap: 8px; }
-    .logo-compact { letter-spacing: -0.05em; }
-    .logo-pillars .dots span { opacity: 1 !important; }
+    .brand-lockup .mark-aperture { width: 28px; height: 28px; flex-shrink: 0; }
+    .brand-lockup .wordmark { font-size: var(--fs-20); }
+    .brand-lockup.large { gap: var(--sp-4); }
+    .brand-lockup.large .mark-aperture { width: 72px; height: 72px; }
+    .brand-lockup.large .wordmark { font-size: clamp(2rem, 4vw, 3rem); font-weight: var(--fw-bold); letter-spacing: var(--ls-tighter); }
+    .brand-lockup.stacked { flex-direction: column; align-items: flex-start; gap: var(--sp-3); }
+    .brand-lockup.stacked .wordmark { font-size: var(--fs-24); }
 
-    .logo-stage { aspect-ratio: 4/3; background: var(--bg-alt); border: 1px solid var(--color-line); border-radius: var(--r-lg); display: flex; align-items: center; justify-content: center; padding: var(--sp-6); }
-    .logo-stage.dark { background: var(--bg-dark); color: #fff; }
-    .logo-cell { display: flex; flex-direction: column; gap: var(--sp-3); }
-    .logo-cell figcaption { font-size: var(--fs-14); color: var(--color-fg-muted); }
+    /* Stages — fundos canônicos pra mostrar marca em contexto */
+    .brand-stage {
+      aspect-ratio: 4/3;
+      background: var(--bg-alt);
+      border: 1px solid var(--color-line);
+      border-radius: var(--r-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--sp-12);
+    }
+    .brand-stage.dark { background: var(--bg-dark); border-color: var(--ink-800); color: var(--fg-on-dark); }
+    .brand-stage.dark .brand-lockup { color: var(--fg-on-dark); }
+    .brand-stage.deep { background: var(--bg-deep); border-color: var(--bg-deep); color: var(--fg-on-dark); }
+    .brand-stage.deep .brand-lockup { color: var(--fg-on-dark); }
+    .brand-stage.accent { background: var(--color-accent); border-color: var(--color-accent); color: var(--fg-on-dark); }
+    .brand-stage.accent .brand-lockup { color: var(--fg-on-dark); }
+    .brand-stage.accent .mark-aperture circle { fill: var(--fg-on-dark); }
+    .brand-cell { display: flex; flex-direction: column; gap: var(--sp-3); }
+    .brand-cell figcaption { font-size: var(--fs-14); color: var(--color-fg-muted); }
 
-    /* Icon mark — showcase específico (favicons, lockups, dark/light) */
-    .icon-stage { aspect-ratio: 1; background: var(--bg-alt); border-radius: var(--r-md); display: flex; align-items: center; justify-content: center; min-height: 180px; }
-    .icon-lockup { display: flex; align-items: center; gap: 14px; padding: 14px 18px; background: var(--bg-alt); border-radius: var(--r-md); }
-    .icon-lockup .wordmark { font-weight: var(--fw-bold); font-size: 22px; letter-spacing: var(--ls-tight); }
-    .icon-favicon-row { display: flex; align-items: center; gap: var(--sp-4); font-family: var(--font-mono); font-size: var(--fs-12); color: var(--color-fg-muted); }
-    .icon-favicon-row .bg-fake { background: #fff; border: 1px solid var(--color-line); border-radius: 6px; padding: 4px; display: flex; align-items: center; gap: 4px; }
-    .icon-favicon-row .bg-fake.dark { background: var(--bg-dark); border-color: var(--ink-800); color: #fff; }
+    /* Safe area / clear space: mostra a "área de respiração" mínima (= altura do mark / 2) */
+    .safe-area-demo {
+      position: relative;
+      display: inline-flex;
+      padding: 36px;
+      background: repeating-linear-gradient(45deg, var(--bg-alt), var(--bg-alt) 6px, transparent 6px, transparent 12px);
+      border-radius: var(--r-md);
+    }
+    .safe-area-demo .inner { background: var(--bg); padding: var(--sp-4) var(--sp-6); border-radius: var(--r-sm); }
+
+    /* Tamanhos mínimos legíveis */
+    .min-size-row { display: flex; align-items: flex-end; gap: var(--sp-8); flex-wrap: wrap; padding: var(--sp-6); background: var(--bg-alt); border-radius: var(--r-md); }
+    .min-size-row .size-item { display: flex; flex-direction: column; align-items: center; gap: var(--sp-2); }
+    .min-size-row .label { font-family: var(--font-mono); font-size: var(--fs-12); color: var(--color-fg-muted); }
+
+    /* Do / Don't — copy do .voice mas para visuais */
+    .brand-rules { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-6); }
+    @media (max-width: 768px) { .brand-rules { grid-template-columns: 1fr; } }
+    .brand-rules .rule { padding: var(--sp-6); border-radius: var(--r-md); border: 1px solid var(--color-line); display: flex; flex-direction: column; gap: var(--sp-4); }
+    .brand-rules .rule.do { background: var(--color-accent-soft); border-color: transparent; }
+    .brand-rules .rule.dont { background: #fdecec; border-color: transparent; }
+    .brand-rules .rule h4 { font-size: var(--fs-18); font-weight: var(--fw-semibold); display: flex; align-items: center; gap: var(--sp-2); }
+    .brand-rules .rule.do h4::before { content: "✓"; color: var(--green-700); font-weight: var(--fw-bold); }
+    .brand-rules .rule.dont h4::before { content: "✗"; color: #b3261e; font-weight: var(--fw-bold); }
+    .brand-rules .rule .demo { background: var(--bg); border-radius: var(--r-sm); padding: var(--sp-6); display: flex; align-items: center; justify-content: center; min-height: 90px; }
+    .brand-rules .rule .caption { font-size: var(--fs-14); color: var(--color-fg-muted); }
+
+    /* Copy-button block (snippet pra Next.js / outros apps) */
+    .snippet {
+      font-family: var(--font-mono);
+      font-size: var(--fs-12);
+      background: var(--ink-900);
+      color: var(--bg);
+      padding: var(--sp-4) var(--sp-6);
+      border-radius: var(--r-md);
+      overflow-x: auto;
+      line-height: var(--lh-normal);
+      white-space: pre;
+    }
+    .snippet .c { color: #6e7681; }      /* comment */
+    .snippet .k { color: #ff7b72; }      /* keyword */
+    .snippet .s { color: #a5d6ff; }      /* string */
+
+    /* Brand application — social/slide/doc mocks */
+    .brand-app-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--sp-6); }
+    .brand-app-card { display: flex; flex-direction: column; gap: var(--sp-3); }
+    .brand-app-mock {
+      aspect-ratio: 1;
+      background: var(--bg);
+      border: 1px solid var(--color-line);
+      border-radius: var(--r-md);
+      padding: var(--sp-6);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+    }
+    .brand-app-mock.wide { aspect-ratio: 16/9; }
+    .brand-app-mock.dark { background: var(--bg-dark); color: var(--fg-on-dark); border-color: var(--bg-dark); }
+    .brand-app-mock.deep { background: var(--bg-deep); color: var(--fg-on-dark); border-color: var(--bg-deep); }
+    .brand-app-mock .title { font-size: var(--fs-20); font-weight: var(--fw-semibold); letter-spacing: var(--ls-tight); line-height: var(--lh-snug); }
+    .brand-app-mock .footer { display: flex; align-items: center; gap: var(--sp-2); font-size: var(--fs-12); }
+    .brand-app-mock .footer .mark-aperture { width: 18px; height: 18px; }
+    .brand-app-card figcaption { font-size: var(--fs-14); color: var(--color-fg-muted); }
 
     /* Paleta — strip "tirinha de tinta" (showcase específico de cor) */
     .palette-strip { display: flex; border-radius: var(--r-md); overflow: hidden; border: 1px solid var(--color-line); box-shadow: var(--shadow-xs); }
@@ -132,20 +202,26 @@
   <nav class="sg-nav">
     <div class="container sg-nav-inner">
       <div class="sg-nav-brand">
-        <span class="logo">
-          kliente 360
-          <span class="dots"><span></span><span></span><span></span><span></span></span>
+        <span class="brand-lockup">
+          <svg class="mark-aperture" viewBox="0 0 80 80" aria-hidden="true">
+            <circle cx="40" cy="22" r="11"/>
+            <circle cx="58" cy="40" r="11"/>
+            <circle cx="40" cy="58" r="11"/>
+            <circle cx="22" cy="40" r="11"/>
+          </svg>
+          <span class="wordmark">kliente 360</span>
         </span>
-        <span style="color: var(--color-fg-muted); font-weight: var(--fw-regular);">/ style guide</span>
+        <span style="color: var(--color-fg-muted); font-weight: var(--fw-regular);">/ brand &amp; design system</span>
       </div>
       <div class="sg-nav-links">
-        <a href="#logo-vars">Logo</a>
-        <a href="#icon-marks">Mark</a>
+        <a href="#marca">Marca</a>
         <a href="#cor">Cor</a>
         <a href="#tipo">Tipografia</a>
         <a href="#componentes">Componentes</a>
         <a href="#trilha">Trilha 360</a>
         <a href="#hero">Hero</a>
+        <a href="#brand-app">Aplicação</a>
+        <a href="#nextjs">Next.js</a>
       </div>
     </div>
   </nav>
@@ -153,287 +229,224 @@
   <!-- Cover -->
   <header class="section hero">
     <div class="container">
-      <span class="eyebrow">Brand Guide · v0.1 · 2026</span>
+      <span class="eyebrow">Brand &amp; Design System · v1.0 · 2026</span>
       <h1 class="h1" style="margin-top: var(--sp-4);">Conhecimento aplicado,<br>como serviço.</h1>
-      <p class="lead" style="margin-top: var(--sp-6);">Sistema visual da Kliente 360 — consultoria especializada em CRM, dados e IA. Apple como base, Google no acento, Salesforce na camada de confiança.</p>
+      <p class="lead" style="margin-top: var(--sp-6);">Sistema visual definitivo da Kliente 360 — consultoria especializada em CRM, dados e IA. Apple como base, Google no acento, Salesforce na camada de confiança. Guia oficial pra produto web, branding, mídias sociais, apresentações e documentos internos.</p>
     </div>
   </header>
 
-  <!-- Logo -->
-  <section class="section" id="logo">
+  <!-- Marca (definitiva) -->
+  <section class="section" id="marca">
     <div class="container">
       <header class="section-head">
         <span class="eyebrow" style="color: var(--color-fg-muted);">01 — Marca</span>
-        <h2>Logo</h2>
-        <p class="lead">Wordmark em lowercase + quatro círculos (representam os 360°). Mantém o gestual herdado. Para o site, usamos o wordmark em todos os contextos; ícone curto só em favicon.</p>
+        <h2>Mark Aperture + wordmark "kliente 360"</h2>
+        <p class="lead">A marca é composta por dois elementos canônicos: <strong>Mark Aperture</strong> — quatro círculos nas posições cardeais (N/E/S/W) com opacidade crescente no sentido horário (0.45 → 0.65 → 0.85 → 1.0) — e o <strong>wordmark</strong> em lowercase "kliente 360" com espaço. Cor sagrada: <span class="mono" style="color: var(--logo-green);">#009900</span>. Forma pura sem container — lê "360°" como compasso/lente.</p>
       </header>
 
-      <div class="grid-cards cols-2" style="align-items: center;">
-        <div class="logo-stage" style="aspect-ratio: auto; padding: var(--sp-16);">
-          <span class="logo large">
-            kliente 360
-            <span class="dots"><span></span><span></span><span></span><span></span></span>
-          </span>
+      <!-- Aperture isolado: 3 tamanhos canônicos -->
+      <h3 class="h4" style="margin-bottom: var(--sp-6);">Mark isolado</h3>
+      <div class="min-size-row">
+        <div class="size-item">
+          <svg class="mark-aperture" viewBox="0 0 80 80" width="120" height="120" aria-label="Aperture mark — 120px">
+            <circle cx="40" cy="22" r="11"/>
+            <circle cx="58" cy="40" r="11"/>
+            <circle cx="40" cy="58" r="11"/>
+            <circle cx="22" cy="40" r="11"/>
+          </svg>
+          <span class="label">120px (hero)</span>
         </div>
-        <div class="logo-stage dark" style="aspect-ratio: auto; padding: var(--sp-16);">
-          <span class="logo large" style="color: #fff;">
-            kliente 360
-            <span class="dots"><span></span><span></span><span></span><span></span></span>
-          </span>
+        <div class="size-item">
+          <svg class="mark-aperture" viewBox="0 0 80 80" width="48" height="48" aria-label="Aperture mark — 48px">
+            <circle cx="40" cy="22" r="11"/>
+            <circle cx="58" cy="40" r="11"/>
+            <circle cx="40" cy="58" r="11"/>
+            <circle cx="22" cy="40" r="11"/>
+          </svg>
+          <span class="label">48px (avatar)</span>
+        </div>
+        <div class="size-item">
+          <svg class="mark-aperture" viewBox="0 0 80 80" width="28" height="28" aria-label="Aperture mark — 28px">
+            <circle cx="40" cy="22" r="11"/>
+            <circle cx="58" cy="40" r="11"/>
+            <circle cx="40" cy="58" r="11"/>
+            <circle cx="22" cy="40" r="11"/>
+          </svg>
+          <span class="label">28px (nav)</span>
+        </div>
+        <div class="size-item">
+          <svg class="mark-aperture" viewBox="0 0 80 80" width="16" height="16" aria-label="Aperture mark — 16px">
+            <circle cx="40" cy="22" r="11"/>
+            <circle cx="58" cy="40" r="11"/>
+            <circle cx="40" cy="58" r="11"/>
+            <circle cx="22" cy="40" r="11"/>
+          </svg>
+          <span class="label">16px (favicon)</span>
         </div>
       </div>
-      <p class="muted mono" style="margin-top: var(--sp-4); font-size: var(--fs-12);">Observação: o logo real (PNG do Felipe) substitui esse mock. As proporções e o tracking ficam.</p>
-    </div>
-  </section>
+      <p class="muted mono" style="margin-top: var(--sp-3); font-size: var(--fs-12);">Tamanho mínimo legível: 16px. Abaixo disso, perde o gradiente de opacidade e vira borrão.</p>
 
-  <!-- Logo variações -->
-  <section class="section alt" id="logo-vars">
-    <div class="container">
-      <header class="section-head">
-        <span class="eyebrow" style="color: var(--color-fg-muted);">01b — Variações de logo</span>
-        <h2>Lockups</h2>
-        <p class="lead">Mesma marca, seis aplicações. Todos os mocks textuais — substituídos pelo PNG/SVG final do Felipe sem alterar proporção.</p>
-      </header>
-
+      <!-- Lockup canônico em 4 fundos -->
+      <h3 class="h4" style="margin-top: var(--sp-16); margin-bottom: var(--sp-6);">Lockup canônico em fundos</h3>
+      <p class="muted" style="margin-bottom: var(--sp-6);">Wordmark + mark à esquerda. Use sempre o lockup canônico — variações verticais ou compostas só com justificativa específica.</p>
       <div class="grid-cards cols-2-3">
-        <!-- 1. Horizontal (canônico) -->
-        <figure class="logo-cell">
-          <div class="logo-stage">
-            <span class="logo large">
-              kliente 360
-              <span class="dots"><span></span><span></span><span></span><span></span></span>
+        <figure class="brand-cell">
+          <div class="brand-stage">
+            <span class="brand-lockup large">
+              <svg class="mark-aperture" viewBox="0 0 80 80" aria-hidden="true">
+                <circle cx="40" cy="22" r="11"/><circle cx="58" cy="40" r="11"/><circle cx="40" cy="58" r="11"/><circle cx="22" cy="40" r="11"/>
+              </svg>
+              <span class="wordmark">kliente 360</span>
             </span>
           </div>
-          <figcaption>01 · Horizontal (canônico) — uso default no header e materiais.</figcaption>
+          <figcaption>Fundo claro (canônico) — header, materiais editoriais, fatura.</figcaption>
         </figure>
-
-        <!-- 2. Stacked -->
-        <figure class="logo-cell">
-          <div class="logo-stage">
-            <span class="logo large logo-stack">
-              <span>kliente</span>
-              <span class="row">360 <span class="dots"><span></span><span></span><span></span><span></span></span></span>
+        <figure class="brand-cell">
+          <div class="brand-stage dark">
+            <span class="brand-lockup large">
+              <svg class="mark-aperture" viewBox="0 0 80 80" aria-hidden="true">
+                <circle cx="40" cy="22" r="11"/><circle cx="58" cy="40" r="11"/><circle cx="40" cy="58" r="11"/><circle cx="22" cy="40" r="11"/>
+              </svg>
+              <span class="wordmark">kliente 360</span>
             </span>
           </div>
-          <figcaption>02 · Empilhado — assinaturas verticais, perfis sociais, cards quadrados.</figcaption>
+          <figcaption>Fundo preto — hero escuro, vídeo, social cover.</figcaption>
         </figure>
-
-        <!-- 3. Sem dots -->
-        <figure class="logo-cell">
-          <div class="logo-stage">
-            <span class="logo large">kliente 360</span>
-          </div>
-          <figcaption>03 · Wordmark puro — espaços apertados (favicon largo, rodapé).</figcaption>
-        </figure>
-
-        <!-- 4. Compact k360 -->
-        <figure class="logo-cell">
-          <div class="logo-stage">
-            <span class="logo large logo-compact">
-              k360
-              <span class="dots"><span></span><span></span><span></span><span></span></span>
+        <figure class="brand-cell">
+          <div class="brand-stage deep">
+            <span class="brand-lockup large">
+              <svg class="mark-aperture" viewBox="0 0 80 80" aria-hidden="true">
+                <circle cx="40" cy="22" r="11"/><circle cx="58" cy="40" r="11"/><circle cx="40" cy="58" r="11"/><circle cx="22" cy="40" r="11"/>
+              </svg>
+              <span class="wordmark">kliente 360</span>
             </span>
           </div>
-          <figcaption>04 · Compacto "k360" — ícone para app, social avatar, watermark.</figcaption>
+          <figcaption>Navy (<span class="mono">--bg-deep #06073E</span>) — slides corporativos, keynote intro.</figcaption>
         </figure>
-
-        <!-- 5. Símbolo (dots em arco) -->
-        <figure class="logo-cell">
-          <div class="logo-stage">
-            <svg viewBox="0 0 120 120" width="96" height="96" aria-label="Símbolo Kliente 360">
-              <g fill="var(--logo-green)">
-                <circle cx="60" cy="18" r="8" opacity="0.4"/>
-                <circle cx="102" cy="60" r="8" opacity="0.6"/>
-                <circle cx="60" cy="102" r="8" opacity="0.8"/>
-                <circle cx="18" cy="60" r="8" opacity="1"/>
-              </g>
-            </svg>
-          </div>
-          <figcaption>05 · Símbolo isolado — favicon, OG image, sello de "K360 Inside".</figcaption>
-        </figure>
-
-        <!-- 6. Multi-cor (pilares) -->
-        <figure class="logo-cell">
-          <div class="logo-stage">
-            <span class="logo large logo-pillars">
-              kliente 360
-              <span class="dots">
-                <span style="background:#0B5394"></span>
-                <span style="background:#C9A227"></span>
-                <span style="background:#6D28D9"></span>
-                <span style="background:var(--logo-green)"></span>
-              </span>
+        <figure class="brand-cell">
+          <div class="brand-stage accent">
+            <span class="brand-lockup large">
+              <svg class="mark-aperture" viewBox="0 0 80 80" aria-hidden="true">
+                <circle cx="40" cy="22" r="11"/><circle cx="58" cy="40" r="11"/><circle cx="40" cy="58" r="11"/><circle cx="22" cy="40" r="11"/>
+              </svg>
+              <span class="wordmark">kliente 360</span>
             </span>
           </div>
-          <figcaption>06 · Pilares — 4 pontos coloridos = Salesforce, Data, IA, K360. Use em manifesto/sobre.</figcaption>
+          <figcaption>Verde Kliente — uso pontual em assinaturas/CTA visual. Note: mark perde o gradiente verde-sobre-verde, então preferir mark em branco sólido sobre fundo verde.</figcaption>
         </figure>
       </div>
-      <p class="muted mono" style="margin-top: var(--sp-6); font-size: var(--fs-12);">Regra geral: o lockup canônico (01) é o padrão. Os demais resolvem contextos específicos.</p>
+
+      <!-- Safe area + min size -->
+      <h3 class="h4" style="margin-top: var(--sp-16); margin-bottom: var(--sp-6);">Safe area (clear space)</h3>
+      <p class="muted" style="margin-bottom: var(--sp-6);">Mantenha respiração igual à altura do mark (1×) ao redor da marca. Não cole texto, ícone ou edge dentro dessa área.</p>
+      <div class="safe-area-demo">
+        <div class="inner">
+          <span class="brand-lockup">
+            <svg class="mark-aperture" viewBox="0 0 80 80" aria-hidden="true">
+              <circle cx="40" cy="22" r="11"/><circle cx="58" cy="40" r="11"/><circle cx="40" cy="58" r="11"/><circle cx="22" cy="40" r="11"/>
+            </svg>
+            <span class="wordmark">kliente 360</span>
+          </span>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Ideias de ícone de marca -->
-  <section class="section" id="icon-marks">
+  <!-- Brand rules (do/dont) -->
+  <section class="section alt" id="brand-rules">
     <div class="container">
       <header class="section-head">
-        <span class="eyebrow" style="color: var(--color-fg-muted);">01c — Ícone de marca (exploração)</span>
-        <h2>Quatro ideias de mark</h2>
-        <p class="lead">O wordmark "kliente 360" sempre presente. Ao lado, um ícone que precisa funcionar sozinho em favicon, app icon e avatar social — virar marca mesmo sem o texto. Cada ideia abaixo: ícone grande, lockup, e teste em escala minúscula.</p>
+        <span class="eyebrow" style="color: var(--color-fg-muted);">01b — Marca</span>
+        <h2>Como usar (e como não usar)</h2>
+        <p class="lead">Regras canônicas pra preservar a integridade visual da marca em qualquer aplicação — produto, branding, social, slide ou doc interno.</p>
       </header>
 
-      <div class="grid-cards cols-2">
-
-        <!-- A · Aperture -->
-        <article class="card">
-          <h4 class="h4">A · Aperture</h4>
-          <p class="muted" style="margin-top: var(--sp-2);">Quatro pontos nas posições cardeais — sem container. Forma pura. Lê "360°" como compasso/lente. Minimalismo Apple.</p>
-
-          <div class="icon-stage" style="margin-top: var(--sp-4);">
-            <svg viewBox="0 0 80 80" width="120" height="120" aria-label="Aperture mark">
-              <circle cx="40" cy="22" r="11" fill="#009900" opacity="0.45"/>
-              <circle cx="58" cy="40" r="11" fill="#009900" opacity="0.65"/>
-              <circle cx="40" cy="58" r="11" fill="#009900" opacity="0.85"/>
+      <div class="brand-rules">
+        <div class="rule do">
+          <h4>Mark em verde sagrado #009900</h4>
+          <div class="demo">
+            <svg class="mark-aperture" viewBox="0 0 80 80" width="56" height="56" aria-hidden="true">
+              <circle cx="40" cy="22" r="11"/><circle cx="58" cy="40" r="11"/><circle cx="40" cy="58" r="11"/><circle cx="22" cy="40" r="11"/>
+            </svg>
+          </div>
+          <p class="caption">Cor canônica do mark. Nunca recolorir — exceto branco sobre fundo escuro/acento.</p>
+        </div>
+        <div class="rule dont">
+          <h4>Não recolorir aleatoriamente</h4>
+          <div class="demo">
+            <svg viewBox="0 0 80 80" width="56" height="56" aria-hidden="true">
+              <circle cx="40" cy="22" r="11" fill="#0B5394" opacity="0.45"/>
+              <circle cx="58" cy="40" r="11" fill="#C9A227" opacity="0.65"/>
+              <circle cx="40" cy="58" r="11" fill="#6D28D9" opacity="0.85"/>
               <circle cx="22" cy="40" r="11" fill="#009900"/>
             </svg>
           </div>
+          <p class="caption">As cores de pilar (azul/âmbar/violeta) só aparecem dentro das suas respectivas seções no produto — nunca no mark da marca-mãe.</p>
+        </div>
 
-          <div class="icon-lockup" style="margin-top: var(--sp-4);">
-            <svg viewBox="0 0 80 80" width="36" height="36">
-              <circle cx="40" cy="22" r="11" fill="#009900" opacity="0.45"/>
-              <circle cx="58" cy="40" r="11" fill="#009900" opacity="0.65"/>
-              <circle cx="40" cy="58" r="11" fill="#009900" opacity="0.85"/>
-              <circle cx="22" cy="40" r="11" fill="#009900"/>
+        <div class="rule do">
+          <h4>Wordmark sempre lowercase</h4>
+          <div class="demo">
+            <span style="font-weight: var(--fw-bold); font-size: var(--fs-24); letter-spacing: var(--ls-tighter);">kliente 360</span>
+          </div>
+          <p class="caption">Lowercase com espaço entre "kliente" e "360". Inter Bold / Semibold.</p>
+        </div>
+        <div class="rule dont">
+          <h4>Não inventar variantes do wordmark</h4>
+          <div class="demo">
+            <span style="font-weight: var(--fw-bold); font-size: var(--fs-24); letter-spacing: var(--ls-tighter); text-transform: uppercase;">KLIENTE360</span>
+          </div>
+          <p class="caption">Sem CAPS, sem hífen, sem juntar "kliente360", sem itálico, sem stretching.</p>
+        </div>
+
+        <div class="rule do">
+          <h4>Lockup horizontal por padrão</h4>
+          <div class="demo">
+            <span class="brand-lockup">
+              <svg class="mark-aperture" viewBox="0 0 80 80" aria-hidden="true">
+                <circle cx="40" cy="22" r="11"/><circle cx="58" cy="40" r="11"/><circle cx="40" cy="58" r="11"/><circle cx="22" cy="40" r="11"/>
+              </svg>
+              <span class="wordmark">kliente 360</span>
+            </span>
+          </div>
+          <p class="caption">Mark à esquerda do wordmark. Alinhamento baseline. Gap = sp-3.</p>
+        </div>
+        <div class="rule dont">
+          <h4>Não separar do wordmark sem motivo</h4>
+          <div class="demo" style="gap: var(--sp-12);">
+            <svg class="mark-aperture" viewBox="0 0 80 80" width="28" height="28" aria-hidden="true">
+              <circle cx="40" cy="22" r="11"/><circle cx="58" cy="40" r="11"/><circle cx="40" cy="58" r="11"/><circle cx="22" cy="40" r="11"/>
             </svg>
-            <span class="wordmark">kliente 360</span>
+            <span style="font-weight: var(--fw-bold); font-size: var(--fs-20);">kliente 360</span>
           </div>
+          <p class="caption">Mark e wordmark são um par. Só separar em contextos onde só cabe o mark (favicon, avatar 32×32).</p>
+        </div>
 
-          <div class="icon-favicon-row" style="margin-top: var(--sp-4);">
-            <div class="bg-fake">
-              <svg viewBox="0 0 80 80" width="16" height="16"><circle cx="40" cy="22" r="11" fill="#009900" opacity="0.45"/><circle cx="58" cy="40" r="11" fill="#009900" opacity="0.65"/><circle cx="40" cy="58" r="11" fill="#009900" opacity="0.85"/><circle cx="22" cy="40" r="11" fill="#009900"/></svg>
-              <span>kliente360.com</span>
-            </div>
-            <div class="bg-fake dark">
-              <svg viewBox="0 0 80 80" width="16" height="16"><circle cx="40" cy="22" r="11" fill="#00B300" opacity="0.45"/><circle cx="58" cy="40" r="11" fill="#00B300" opacity="0.65"/><circle cx="40" cy="58" r="11" fill="#00B300" opacity="0.85"/><circle cx="22" cy="40" r="11" fill="#00B300"/></svg>
-            </div>
+        <div class="rule do">
+          <h4>Em fundo escuro: lockup branco</h4>
+          <div class="demo" style="background: var(--bg-dark); border-radius: var(--r-sm);">
+            <span class="brand-lockup" style="color: var(--fg-on-dark);">
+              <svg class="mark-aperture" viewBox="0 0 80 80" aria-hidden="true">
+                <circle cx="40" cy="22" r="11"/><circle cx="58" cy="40" r="11"/><circle cx="40" cy="58" r="11"/><circle cx="22" cy="40" r="11"/>
+              </svg>
+              <span class="wordmark">kliente 360</span>
+            </span>
           </div>
-        </article>
-
-        <!-- B · Tile -->
-        <article class="card">
-          <h4 class="h4">B · Tile</h4>
-          <p class="muted" style="margin-top: var(--sp-2);">Os quatro pontos empacotados num squircle preto — vibe app icon iOS. Versão sólida, com peso visual. Reconhecível mesmo a 16px.</p>
-
-          <div class="icon-stage" style="margin-top: var(--sp-4);">
-            <svg viewBox="0 0 80 80" width="120" height="120" aria-label="Tile mark">
-              <rect x="0" y="0" width="80" height="80" rx="18" fill="#0a0a0a"/>
-              <circle cx="40" cy="18" r="6" fill="#009900" opacity="0.45"/>
-              <circle cx="62" cy="40" r="6" fill="#009900" opacity="0.65"/>
-              <circle cx="40" cy="62" r="6" fill="#009900" opacity="0.85"/>
-              <circle cx="18" cy="40" r="6" fill="#009900"/>
-            </svg>
+          <p class="caption">Mark mantém o verde sagrado; wordmark vira branco. Lê melhor que o verde-sobre-preto.</p>
+        </div>
+        <div class="rule dont">
+          <h4>Não usar wordmark verde sobre escuro</h4>
+          <div class="demo" style="background: var(--bg-dark); border-radius: var(--r-sm);">
+            <span class="brand-lockup" style="color: var(--logo-green);">
+              <svg class="mark-aperture" viewBox="0 0 80 80" aria-hidden="true">
+                <circle cx="40" cy="22" r="11"/><circle cx="58" cy="40" r="11"/><circle cx="40" cy="58" r="11"/><circle cx="22" cy="40" r="11"/>
+              </svg>
+              <span class="wordmark">kliente 360</span>
+            </span>
           </div>
-
-          <div class="icon-lockup" style="margin-top: var(--sp-4);">
-            <svg viewBox="0 0 80 80" width="36" height="36">
-              <rect x="0" y="0" width="80" height="80" rx="18" fill="#0a0a0a"/>
-              <circle cx="40" cy="18" r="6" fill="#009900" opacity="0.45"/>
-              <circle cx="62" cy="40" r="6" fill="#009900" opacity="0.65"/>
-              <circle cx="40" cy="62" r="6" fill="#009900" opacity="0.85"/>
-              <circle cx="18" cy="40" r="6" fill="#009900"/>
-            </svg>
-            <span class="wordmark">kliente 360</span>
-          </div>
-
-          <div class="icon-favicon-row" style="margin-top: var(--sp-4);">
-            <div class="bg-fake">
-              <svg viewBox="0 0 80 80" width="16" height="16"><rect width="80" height="80" rx="18" fill="#0a0a0a"/><circle cx="40" cy="18" r="6" fill="#009900" opacity="0.45"/><circle cx="62" cy="40" r="6" fill="#009900" opacity="0.65"/><circle cx="40" cy="62" r="6" fill="#009900" opacity="0.85"/><circle cx="18" cy="40" r="6" fill="#009900"/></svg>
-              <span>kliente360.com</span>
-            </div>
-            <div class="bg-fake dark">
-              <svg viewBox="0 0 80 80" width="16" height="16"><rect width="80" height="80" rx="18" fill="#fff"/><circle cx="40" cy="18" r="6" fill="#009900" opacity="0.45"/><circle cx="62" cy="40" r="6" fill="#009900" opacity="0.65"/><circle cx="40" cy="62" r="6" fill="#009900" opacity="0.85"/><circle cx="18" cy="40" r="6" fill="#009900"/></svg>
-            </div>
-          </div>
-        </article>
-
-        <!-- C · Orbit -->
-        <article class="card">
-          <h4 class="h4">C · Orbit</h4>
-          <p class="muted" style="margin-top: var(--sp-2);">Cliente no centro, 360° ao redor. Conta uma história: "você no meio, e tudo o que precisa ao redor". Conceito mais narrativo.</p>
-
-          <div class="icon-stage" style="margin-top: var(--sp-4);">
-            <svg viewBox="0 0 80 80" width="120" height="120" aria-label="Orbit mark">
-              <circle cx="40" cy="40" r="38" fill="none" stroke="#009900" stroke-opacity="0.15" stroke-width="1"/>
-              <circle cx="40" cy="40" r="10" fill="#0a0a0a"/>
-              <circle cx="40" cy="8" r="5" fill="#009900" opacity="0.5"/>
-              <circle cx="72" cy="40" r="5" fill="#009900" opacity="0.7"/>
-              <circle cx="40" cy="72" r="5" fill="#009900" opacity="0.85"/>
-              <circle cx="8" cy="40" r="5" fill="#009900"/>
-            </svg>
-          </div>
-
-          <div class="icon-lockup" style="margin-top: var(--sp-4);">
-            <svg viewBox="0 0 80 80" width="36" height="36">
-              <circle cx="40" cy="40" r="38" fill="none" stroke="#009900" stroke-opacity="0.15" stroke-width="1"/>
-              <circle cx="40" cy="40" r="10" fill="#0a0a0a"/>
-              <circle cx="40" cy="8" r="5" fill="#009900" opacity="0.5"/>
-              <circle cx="72" cy="40" r="5" fill="#009900" opacity="0.7"/>
-              <circle cx="40" cy="72" r="5" fill="#009900" opacity="0.85"/>
-              <circle cx="8" cy="40" r="5" fill="#009900"/>
-            </svg>
-            <span class="wordmark">kliente 360</span>
-          </div>
-
-          <div class="icon-favicon-row" style="margin-top: var(--sp-4);">
-            <div class="bg-fake">
-              <svg viewBox="0 0 80 80" width="16" height="16"><circle cx="40" cy="40" r="10" fill="#0a0a0a"/><circle cx="40" cy="8" r="5" fill="#009900" opacity="0.5"/><circle cx="72" cy="40" r="5" fill="#009900" opacity="0.7"/><circle cx="40" cy="72" r="5" fill="#009900" opacity="0.85"/><circle cx="8" cy="40" r="5" fill="#009900"/></svg>
-              <span>kliente360.com</span>
-            </div>
-            <div class="bg-fake dark">
-              <svg viewBox="0 0 80 80" width="16" height="16"><circle cx="40" cy="40" r="10" fill="#fff"/><circle cx="40" cy="8" r="5" fill="#00B300" opacity="0.5"/><circle cx="72" cy="40" r="5" fill="#00B300" opacity="0.7"/><circle cx="40" cy="72" r="5" fill="#00B300" opacity="0.85"/><circle cx="8" cy="40" r="5" fill="#00B300"/></svg>
-            </div>
-          </div>
-        </article>
-
-        <!-- D · Ring 360 -->
-        <article class="card">
-          <h4 class="h4">D · Ring 360</h4>
-          <p class="muted" style="margin-top: var(--sp-2);">Os quatro pontos conectados por um anel sutil — torna o "360°" literal, sem ser desenho de bola. Forma rítmica, lê em qualquer tamanho.</p>
-
-          <div class="icon-stage" style="margin-top: var(--sp-4);">
-            <svg viewBox="0 0 80 80" width="120" height="120" aria-label="Ring 360 mark">
-              <circle cx="40" cy="40" r="28" fill="none" stroke="#0a0a0a" stroke-width="2"/>
-              <circle cx="40" cy="12" r="6" fill="#009900"/>
-              <circle cx="68" cy="40" r="6" fill="#009900"/>
-              <circle cx="40" cy="68" r="6" fill="#009900"/>
-              <circle cx="12" cy="40" r="6" fill="#009900"/>
-            </svg>
-          </div>
-
-          <div class="icon-lockup" style="margin-top: var(--sp-4);">
-            <svg viewBox="0 0 80 80" width="36" height="36">
-              <circle cx="40" cy="40" r="28" fill="none" stroke="#0a0a0a" stroke-width="2"/>
-              <circle cx="40" cy="12" r="6" fill="#009900"/>
-              <circle cx="68" cy="40" r="6" fill="#009900"/>
-              <circle cx="40" cy="68" r="6" fill="#009900"/>
-              <circle cx="12" cy="40" r="6" fill="#009900"/>
-            </svg>
-            <span class="wordmark">kliente 360</span>
-          </div>
-
-          <div class="icon-favicon-row" style="margin-top: var(--sp-4);">
-            <div class="bg-fake">
-              <svg viewBox="0 0 80 80" width="16" height="16"><circle cx="40" cy="40" r="28" fill="none" stroke="#0a0a0a" stroke-width="4"/><circle cx="40" cy="12" r="8" fill="#009900"/><circle cx="68" cy="40" r="8" fill="#009900"/><circle cx="40" cy="68" r="8" fill="#009900"/><circle cx="12" cy="40" r="8" fill="#009900"/></svg>
-              <span>kliente360.com</span>
-            </div>
-            <div class="bg-fake dark">
-              <svg viewBox="0 0 80 80" width="16" height="16"><circle cx="40" cy="40" r="28" fill="none" stroke="#fff" stroke-width="4"/><circle cx="40" cy="12" r="8" fill="#00B300"/><circle cx="68" cy="40" r="8" fill="#00B300"/><circle cx="40" cy="68" r="8" fill="#00B300"/><circle cx="12" cy="40" r="8" fill="#00B300"/></svg>
-            </div>
-          </div>
-        </article>
-
+          <p class="caption">Contraste WCAG fraco. Mark verde + texto branco é o combo certo em fundo escuro.</p>
+        </div>
       </div>
-
-      <p class="muted mono" style="margin-top: var(--sp-8); font-size: var(--fs-12);">Todos preservam o motif dos 4 círculos do logo original. A escolha define se a marca quer ser <strong>pura</strong> (A), <strong>sólida e moderna</strong> (B), <strong>narrativa</strong> (C) ou <strong>literal-360</strong> (D).</p>
     </div>
   </section>
 
@@ -745,13 +758,245 @@
     </div>
   </section>
 
+  <!-- Brand application — além do produto web -->
+  <section class="section" id="brand-app">
+    <div class="container">
+      <header class="section-head">
+        <span class="eyebrow" style="color: var(--color-fg-muted);">10 — Aplicação</span>
+        <h2>Brand application</h2>
+        <p class="lead">Templates canônicos pra mídia social, slides corporativos, docs e e-mails. Mesmo sistema de tokens, sem variação de marca por canal.</p>
+      </header>
+
+      <h3 class="h4" style="margin-bottom: var(--sp-6);">Mídia social</h3>
+      <div class="brand-app-grid">
+        <figure class="brand-app-card">
+          <div class="brand-app-mock dark">
+            <div>
+              <span class="eyebrow on-color" style="font-size: 10px;">PILAR · DATA</span>
+              <h4 class="title" style="margin-top: var(--sp-3); color: var(--fg-on-dark);">Dado limpo é um mito.</h4>
+            </div>
+            <div class="footer" style="color: var(--fg-on-dark-muted);">
+              <svg class="mark-aperture" viewBox="0 0 80 80" aria-hidden="true">
+                <circle cx="40" cy="22" r="11"/><circle cx="58" cy="40" r="11"/><circle cx="40" cy="58" r="11"/><circle cx="22" cy="40" r="11"/>
+              </svg>
+              kliente360.com
+            </div>
+          </div>
+          <figcaption>Instagram / LinkedIn 1080 × 1080 — tese declarativa, fundo escuro, mark inferior esquerdo.</figcaption>
+        </figure>
+        <figure class="brand-app-card">
+          <div class="brand-app-mock">
+            <div>
+              <span class="eyebrow" style="font-size: 10px;">QUICK WIN SEO #7</span>
+              <h4 class="title" style="margin-top: var(--sp-3);">Tendências de data management 2026 — 5 que mudam, 3 que não.</h4>
+            </div>
+            <div class="footer" style="color: var(--color-fg-muted);">
+              <svg class="mark-aperture" viewBox="0 0 80 80" aria-hidden="true">
+                <circle cx="40" cy="22" r="11"/><circle cx="58" cy="40" r="11"/><circle cx="40" cy="58" r="11"/><circle cx="22" cy="40" r="11"/>
+              </svg>
+              kliente360.com/blog
+            </div>
+          </div>
+          <figcaption>Carrossel post 1 — fundo claro, eyebrow categoria, título serve de hook.</figcaption>
+        </figure>
+        <figure class="brand-app-card">
+          <div class="brand-app-mock deep">
+            <div>
+              <span class="eyebrow on-color" style="font-size: 10px; color: var(--fg-on-dark-muted);">CASE</span>
+              <h4 class="title" style="margin-top: var(--sp-3); color: var(--fg-on-dark);">3× CSAT em 9 meses.<br>Salesforce + Data Cloud na operação real.</h4>
+            </div>
+            <div class="footer" style="color: var(--fg-on-dark-muted);">
+              <svg class="mark-aperture" viewBox="0 0 80 80" aria-hidden="true">
+                <circle cx="40" cy="22" r="11"/><circle cx="58" cy="40" r="11"/><circle cx="40" cy="58" r="11"/><circle cx="22" cy="40" r="11"/>
+              </svg>
+              kliente360.com
+            </div>
+          </div>
+          <figcaption>Quote card — fundo navy, métrica em destaque + contexto curto.</figcaption>
+        </figure>
+      </div>
+
+      <p class="muted mono" style="margin-top: var(--sp-6); font-size: var(--fs-12);">Tamanhos canônicos: <strong>1080 × 1080</strong> (feed quadrado), <strong>1080 × 1350</strong> (feed vertical), <strong>1200 × 627</strong> (OG / LinkedIn link preview), <strong>1080 × 1920</strong> (story / reels).</p>
+
+      <h3 class="h4" style="margin-top: var(--sp-16); margin-bottom: var(--sp-6);">Slides &amp; apresentações</h3>
+      <div class="brand-app-grid">
+        <figure class="brand-app-card">
+          <div class="brand-app-mock wide deep">
+            <div>
+              <span class="eyebrow on-color" style="font-size: 10px; color: var(--fg-on-dark-muted);">PROPOSTA · 2026</span>
+              <h4 class="title" style="margin-top: var(--sp-3); color: var(--fg-on-dark); font-size: var(--fs-h4);">Trilha 360 — Mapear, Prototipar, Validar, Implantar, Sustentar.</h4>
+            </div>
+            <div class="footer" style="color: var(--fg-on-dark-muted);">
+              <svg class="mark-aperture" viewBox="0 0 80 80" aria-hidden="true">
+                <circle cx="40" cy="22" r="11"/><circle cx="58" cy="40" r="11"/><circle cx="40" cy="58" r="11"/><circle cx="22" cy="40" r="11"/>
+              </svg>
+              kliente 360
+            </div>
+          </div>
+          <figcaption>Slide 16:9 — capa de proposta, fundo navy, mark no rodapé.</figcaption>
+        </figure>
+        <figure class="brand-app-card">
+          <div class="brand-app-mock wide">
+            <div>
+              <span class="eyebrow" style="font-size: 10px;">SEÇÃO 02</span>
+              <h4 class="title" style="margin-top: var(--sp-3); font-size: var(--fs-h4);">O que vamos fazer juntos.</h4>
+            </div>
+            <div class="footer" style="color: var(--color-fg-muted);">
+              <svg class="mark-aperture" viewBox="0 0 80 80" aria-hidden="true">
+                <circle cx="40" cy="22" r="11"/><circle cx="58" cy="40" r="11"/><circle cx="40" cy="58" r="11"/><circle cx="22" cy="40" r="11"/>
+              </svg>
+              02 / 24
+            </div>
+          </div>
+          <figcaption>Slide de divisor — fundo claro, eyebrow numerada, mark + paginação no rodapé.</figcaption>
+        </figure>
+      </div>
+
+      <p class="muted mono" style="margin-top: var(--sp-6); font-size: var(--fs-12);">Padrão: <strong>16:9 widescreen</strong>, fonte Inter, eyebrow + título grande, mark no canto inferior esquerdo a 18-24 px. Cor de fundo: branco (conteúdo), navy (capa/divisor), preto (citações), verde (CTA final).</p>
+
+      <h3 class="h4" style="margin-top: var(--sp-16); margin-bottom: var(--sp-6);">Documentos &amp; e-mail</h3>
+      <div class="grid-cards cols-2">
+        <article class="card">
+          <h4 class="h4">Cabeçalho de doc</h4>
+          <p class="muted" style="margin-top: var(--sp-2);">Mark à esquerda + título do doc em Inter Bold + data/versão em mono pequena. Margem superior 32-40 px.</p>
+          <div style="margin-top: var(--sp-4); padding: var(--sp-6); background: var(--bg-alt); border-radius: var(--r-md);">
+            <div style="display: flex; align-items: center; gap: var(--sp-3); border-bottom: 1px solid var(--color-line); padding-bottom: var(--sp-4); margin-bottom: var(--sp-4);">
+              <svg class="mark-aperture" viewBox="0 0 80 80" width="32" height="32" aria-hidden="true">
+                <circle cx="40" cy="22" r="11"/><circle cx="58" cy="40" r="11"/><circle cx="40" cy="58" r="11"/><circle cx="22" cy="40" r="11"/>
+              </svg>
+              <div>
+                <div style="font-weight: var(--fw-semibold); font-size: var(--fs-18);">Proposta de implementação</div>
+                <div class="mono" style="font-size: var(--fs-12); color: var(--color-fg-muted);">v1.0 · 2026-06-15 · interno</div>
+              </div>
+            </div>
+            <p style="font-size: var(--fs-14); color: var(--color-fg-muted); margin: 0;">Corpo do documento começa aqui…</p>
+          </div>
+        </article>
+        <article class="card">
+          <h4 class="h4">Assinatura de e-mail</h4>
+          <p class="muted" style="margin-top: var(--sp-2);">Nome em bold + cargo + lockup horizontal compacto. Sem ícones de redes sociais — só o link do site.</p>
+          <div style="margin-top: var(--sp-4); padding: var(--sp-6); background: var(--bg-alt); border-radius: var(--r-md); font-size: var(--fs-14);">
+            <div style="font-weight: var(--fw-semibold);">Felipe Gonzaga</div>
+            <div style="color: var(--color-fg-muted);">Sócio · Kliente 360</div>
+            <div style="margin-top: var(--sp-3); display: flex; align-items: center; gap: var(--sp-2);">
+              <svg class="mark-aperture" viewBox="0 0 80 80" width="18" height="18" aria-hidden="true">
+                <circle cx="40" cy="22" r="11"/><circle cx="58" cy="40" r="11"/><circle cx="40" cy="58" r="11"/><circle cx="22" cy="40" r="11"/>
+              </svg>
+              <span style="font-family: var(--font-mono); font-size: var(--fs-12);">kliente360.com</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Next.js integration -->
+  <section class="section alt" id="nextjs">
+    <div class="container">
+      <header class="section-head">
+        <span class="eyebrow" style="color: var(--color-fg-muted);">11 — Reuso em outros apps</span>
+        <h2>Integração Next.js / Vercel</h2>
+        <p class="lead">Como importar este design system num projeto Next.js novo. CSS vanilla, sem framework dependency — funciona em qualquer app React/Next.</p>
+      </header>
+
+      <div class="grid-cards cols-2" style="align-items: start;">
+        <article class="card">
+          <h4 class="h4">1 · Copie 3 arquivos</h4>
+          <p class="muted" style="margin-top: var(--sp-2);">Os tokens, reset e primitivos são auto-contidos. Copia direto pra <span class="mono">app/styles/</span> (ou <span class="mono">src/styles/</span>).</p>
+          <pre class="snippet" style="margin-top: var(--sp-4);">app/
+└─ styles/
+   ├─ tokens.css     <span class="c"># cores, tipografia, espaço, raio, sombra</span>
+   ├─ reset.css      <span class="c"># reset mínimo + box-sizing</span>
+   └─ main.css       <span class="c"># primitivos (.card, .btn, .grid-cards…)</span></pre>
+        </article>
+        <article class="card">
+          <h4 class="h4">2 · Import no globals.css</h4>
+          <p class="muted" style="margin-top: var(--sp-2);">Ordem importa: tokens primeiro (define vars), reset depois, primitivos por último.</p>
+          <pre class="snippet" style="margin-top: var(--sp-4);"><span class="c">/* app/globals.css */</span>
+<span class="k">@import</span> <span class="s">"./styles/tokens.css"</span>;
+<span class="k">@import</span> <span class="s">"./styles/reset.css"</span>;
+<span class="k">@import</span> <span class="s">"./styles/main.css"</span>;</pre>
+        </article>
+        <article class="card">
+          <h4 class="h4">3 · Self-host das fontes</h4>
+          <p class="muted" style="margin-top: var(--sp-2);">Inter + JetBrains Mono em <span class="mono">.woff2</span>. Vão pra <span class="mono">public/fonts/</span>. tokens.css já tem o <span class="mono">@font-face</span> apontando.</p>
+          <pre class="snippet" style="margin-top: var(--sp-4);">public/
+└─ fonts/
+   ├─ inter-latin.woff2
+   └─ jetbrains-mono-latin.woff2</pre>
+        </article>
+        <article class="card">
+          <h4 class="h4">4 · Preload no layout</h4>
+          <p class="muted" style="margin-top: var(--sp-2);">Em <span class="mono">app/layout.tsx</span>, pre-carregue a Inter pra eliminar FOIT no primeiro paint.</p>
+          <pre class="snippet" style="margin-top: var(--sp-4);"><span class="k">export default function</span> RootLayout({ children }) {
+  <span class="k">return</span> (
+    &lt;html lang=<span class="s">"pt-BR"</span>&gt;
+      &lt;head&gt;
+        &lt;link
+          rel=<span class="s">"preload"</span>
+          href=<span class="s">"/fonts/inter-latin.woff2"</span>
+          as=<span class="s">"font"</span>
+          type=<span class="s">"font/woff2"</span>
+          crossOrigin=<span class="s">""</span>
+        /&gt;
+      &lt;/head&gt;
+      &lt;body&gt;{children}&lt;/body&gt;
+    &lt;/html&gt;
+  );
+}</span></pre>
+        </article>
+        <article class="card">
+          <h4 class="h4">5 · Mark Aperture como componente</h4>
+          <p class="muted" style="margin-top: var(--sp-2);">Não usa CSS — SVG inline. Cole num <span class="mono">components/Mark.tsx</span> e reuse onde precisar.</p>
+          <pre class="snippet" style="margin-top: var(--sp-4);"><span class="k">export function</span> Mark({ size = 32 }) {
+  <span class="k">return</span> (
+    &lt;svg
+      className=<span class="s">"mark-aperture"</span>
+      viewBox=<span class="s">"0 0 80 80"</span>
+      width={size}
+      height={size}
+      aria-hidden=<span class="s">"true"</span>
+    &gt;
+      &lt;circle cx=<span class="s">"40"</span> cy=<span class="s">"22"</span> r=<span class="s">"11"</span> /&gt;
+      &lt;circle cx=<span class="s">"58"</span> cy=<span class="s">"40"</span> r=<span class="s">"11"</span> /&gt;
+      &lt;circle cx=<span class="s">"40"</span> cy=<span class="s">"58"</span> r=<span class="s">"11"</span> /&gt;
+      &lt;circle cx=<span class="s">"22"</span> cy=<span class="s">"40"</span> r=<span class="s">"11"</span> /&gt;
+    &lt;/svg&gt;
+  );
+}</pre>
+        </article>
+        <article class="card">
+          <h4 class="h4">6 · Uso de tokens no JSX</h4>
+          <p class="muted" style="margin-top: var(--sp-2);">CSS vars funcionam direto em <span class="mono">style</span> JSX. Pra dark mode, troque o data-attr no <span class="mono">&lt;html&gt;</span>.</p>
+          <pre class="snippet" style="margin-top: var(--sp-4);">&lt;button
+  className=<span class="s">"btn btn-primary"</span>
+&gt;
+  Falar com a gente
+&lt;/button&gt;
+
+&lt;div style={{
+  padding: <span class="s">"var(--sp-8)"</span>,
+  background: <span class="s">"var(--color-accent-soft)"</span>,
+  borderRadius: <span class="s">"var(--r-md)"</span>,
+}}&gt;
+  ...
+&lt;/div&gt;</pre>
+        </article>
+      </div>
+
+      <p class="muted mono" style="margin-top: var(--sp-8); font-size: var(--fs-12);">Notas: (1) Não precisa de Tailwind nem CSS-in-JS — tokens via <span class="mono">var()</span> + classes de primitivos cobrem 95% dos casos. (2) Pra otimização, considere <span class="mono">next/font/local</span> em vez do <span class="mono">@font-face</span> manual — o resultado visual é idêntico. (3) Hash-based asset versioning (querystring) pode ser feito por middleware ou pelo próprio Vercel se quiser cache busting.</p>
+    </div>
+  </section>
+
   <footer class="sg-footer">
     <div class="container">
-      <span class="logo">
-        kliente 360
-        <span class="dots"><span></span><span></span><span></span><span></span></span>
+      <span class="brand-lockup">
+        <svg class="mark-aperture" viewBox="0 0 80 80" aria-hidden="true">
+          <circle cx="40" cy="22" r="11"/><circle cx="58" cy="40" r="11"/><circle cx="40" cy="58" r="11"/><circle cx="22" cy="40" r="11"/>
+        </svg>
+        <span class="wordmark">kliente 360</span>
       </span>
-      <div style="margin-top: var(--sp-3);">Style Guide · v0.1 · 2026-05-22 · Para validar antes do site grande.</div>
+      <div style="margin-top: var(--sp-3);">Brand &amp; Design System · v1.0 · 2026-05-25 · Guia definitivo pra produto, branding, mídia e templates internos.</div>
     </div>
   </footer>
 

@@ -56,10 +56,29 @@
   --green-900: #003d24;  /* fundos escuros com identidade */
   --logo-green: #009900; /* só para o wordmark/dots originais */
 
-  /* Cores secundárias — uma por pilar (aparecem só dentro da seção do pilar) */
-  --c-salesforce: #0B5394;   /* azul profundo, evita cyan genérico */
-  --c-data:       #C9A227;   /* âmbar; "inteligência" sem virar amarelo startup */
-  --c-ai:         #6D28D9;   /* violeta; código universal de IA */
+  /* Cores secundárias — uma por pilar (aparecem só dentro da seção do pilar).
+   * Variantes: base / deep (hover/emphasis) / soft (background tint) /
+   * on-dark (versão com contraste WCAG AA em fundo escuro). */
+  --c-salesforce:         #0B5394;
+  --c-salesforce-deep:    #07355f;
+  --c-salesforce-soft:    #e8eff7;
+  --c-data:               #C9A227;
+  --c-data-deep:          #8a6f15;
+  --c-data-darker:        #5d4a0e;
+  --c-data-soft:          #fbf3dc;
+  --c-ai:                 #6D28D9;
+  --c-ai-deep:            #4c1d95;
+  --c-ai-soft:            #ede4fd;
+  --c-ai-on-dark:         #A78BFA;  /* violeta clarito p/ AA em fundo escuro */
+
+  /* Texto e linhas sobre fundo escuro (consistência cross-section) */
+  --fg-on-dark:           rgba(255, 255, 255, 1);
+  --fg-on-dark-strong:    rgba(255, 255, 255, 0.92);
+  --fg-on-dark-muted:     rgba(255, 255, 255, 0.75);
+  --fg-on-dark-subtle:    rgba(255, 255, 255, 0.4);
+  --line-on-dark:         rgba(255, 255, 255, 0.25);
+  --line-on-dark-hover:   rgba(255, 255, 255, 0.4);
+  --bg-on-dark-hover:     rgba(255, 255, 255, 0.08);
 
   /* Semânticos */
   --color-fg: var(--ink-900);
