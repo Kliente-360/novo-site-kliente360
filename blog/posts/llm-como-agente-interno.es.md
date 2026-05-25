@@ -27,7 +27,7 @@ La ganancia real es lo que *deja de pasar*: pregunta que iba a RH, a legal, al g
 
 ## Dónde funciona — caso 3: soporte técnico nivel 1
 
-Soporte interno de TI, soporte de aplicación SaaS, helpdesk de RH. Volumen alto de preguntas repetidas, base de conocimiento existente, riesgo bajo en error. El LLM resuelve 40–60% sin escalar a humano. Cuando escala, entrega contexto listo para quien asume — historial del ticket, hipótesis ya probadas, próximos pasos sugeridos.
+Soporte interno de TI, soporte de aplicación SaaS, helpdesk de RH. Volumen alto de preguntas repetidas, base de conocimiento existente, riesgo bajo en error. El LLM resuelve 40–60% sin escalar a humano. Cuando escala, entrega contexto listo para quien asume — historial del ticket, hipótesis ya probadas, próximos pasos sugeridos. El [caso práctico del agente de triaje interno en RH](/blog/es/ia-para-rh.html) detalla el playbook end-to-end de este escenario.
 
 La combinación que funciona: el agente responde primero, el humano confirma soluciones de bajo riesgo, escalamiento explícito para casos con señales de complejidad. No es "reemplazar al soporte"; es absorber el 50% que no necesitaba un humano en primer lugar.
 

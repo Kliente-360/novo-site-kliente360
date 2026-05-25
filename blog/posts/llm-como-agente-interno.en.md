@@ -27,7 +27,7 @@ The real gain is what *stops happening*: questions that used to go to HR, legal,
 
 ## Where it works — case 3: tier-1 tech support
 
-Internal IT support, SaaS app support, HR helpdesk. High volume of repeat questions, existing knowledge base, low risk on errors. An LLM resolves 40–60% without escalating to a human. When it does escalate, it delivers ready context to whoever picks up — ticket history, hypotheses already tested, suggested next steps.
+Internal IT support, SaaS app support, HR helpdesk. High volume of repeat questions, existing knowledge base, low risk on errors. An LLM resolves 40–60% without escalating to a human. When it does escalate, it delivers ready context to whoever picks up — ticket history, hypotheses already tested, suggested next steps. The [practical case of an internal HR triage agent](/blog/en/ia-para-rh.html) walks through the end-to-end playbook for this scenario.
 
 The combination that works: agent answers first, human confirms low-risk solutions, explicit escalation for cases with complexity signals. It isn't "replacing support"; it's absorbing the 50% that didn't need a human in the first place.
 
