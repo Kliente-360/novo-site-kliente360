@@ -11,7 +11,7 @@ keywords: ["multi-agent", "agentes de IA", "produção", "LLM", "orquestração 
 
 **E**m fevereiro de 2026, colocamos cinco agentes pra trabalhar juntos num caso de uso real — não piloto, não demo, produção com SLA. Em maio, completamos 90 dias dessa operação. Esse texto é o diário do que aprendemos. Não tem moral da história triunfal — tem o relato de erros nominados, decisões revertidas, e a fatura técnica que nenhum white-paper de framework menciona.
 
-O cenário: empresa B2B usando os 5 agentes pra fluxo de pré-venda. Um agente extrai contexto de e-mail recebido. Outro pesquisa a empresa do remetente em fontes externas. Outro classifica intenção. Outro propõe próxima ação. Outro escreve rascunho de resposta. Volume real: cerca de 3.000 interações/mês. Modelos usados: Claude Sonnet pros 4 primeiros, GPT-4o-mini pro último. Orquestração: framework próprio em Python (testamos LangGraph e CrewAI antes — voltamos pra solução custom).
+O cenário: empresa B2B usando os 5 agentes pra [fluxo de pré-venda assistido por IA generativa](/blog/ia-generativa-vendas.html). Um agente extrai contexto de e-mail recebido. Outro pesquisa a empresa do remetente em fontes externas. Outro classifica intenção. Outro propõe próxima ação. Outro escreve rascunho de resposta. Volume real: cerca de 3.000 interações/mês. Modelos usados: Claude Sonnet pros 4 primeiros, GPT-4o-mini pro último. Orquestração: framework próprio em Python (testamos LangGraph e CrewAI antes — voltamos pra solução custom).
 
 ## Semana 1 — A ilusão da independência
 
