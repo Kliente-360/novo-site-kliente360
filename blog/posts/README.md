@@ -165,7 +165,7 @@ A próxima publicação esperada é **terça 26/05/2026** (próximo Tue), seguid
 
 ## Tom de voz
 
-Consultoria informada falando com decisor informado. Direto, técnico, sem clichês.
+Consultoria informada falando com decisor informado. Direto, técnico, sem chavões.
 
 **Usar**: "uma prática única", "agentes onde já existe dado", "conversa direta com quem entrega", nomes próprios (Salesforce, Tableau, Agentforce, Data Cloud).
 

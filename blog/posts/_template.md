@@ -7,7 +7,7 @@
 # Título do post. Aparece como <h1>, <title>, OG title.
 # Estilo: declarativo, sem ponto final. Pode ter dois-pontos ou travessão.
 # Tamanho recomendado: 50–80 caracteres (SEO).
-title: "Substitua por um título curto, declarativo, sem clichê"
+title: "Substitua por um título curto, declarativo, sem chavão"
 
 # Slug = nome do arquivo sem .md. URL final: /blog/<slug>.html
 # Padrão: kebab-case, sem acentos, sem stopwords desnecessárias.
