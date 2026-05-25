@@ -66,6 +66,8 @@ Numeração sequencial pela ordem cronológica de publicação. Quando duas entr
 | 50 | 2026-06-17 | qua | ai | Vector database OU search engine — quando RAG não precisa de vetor | Sim | Contraintuitivo — quando o índice clássico ainda ganha | [ ] | [ ] |
 | 51 | 2026-06-23 | ter | sf | Salesforce ROI — a matriz que vendedor de licença não mostra | Sim | Continuação anti-hype do "Quando NÃO usar Salesforce" | [ ] | [ ] |
 | 52 | 2026-06-24 | qua | data | Customer Data Platform — morreu ou virou commodity? | Sim | Picks up Data Cloud thread + market angle | [ ] | [ ] |
+| 53 | 2026-06-30 | ter | data | [Observabilidade de dados: detectar falhas antes do stakeholder](blog/posts/observabilidade-de-dados.md) | Não | Back-catálogo recuperado de auto-branch (gerado 2026-05-23, nunca mergeado) | [ ] | [ ] |
+| 54 | 2026-07-01 | qua | data | [Lakehouse não é silver bullet: quando warehouse simples ainda ganha](blog/posts/lakehouse-vs-warehouse.md) | Não | Back-catálogo recuperado de auto-branch (gerado 2026-05-24, nunca mergeado) | [ ] | [ ] |
 
 ## Como atualizar
 
@@ -82,8 +84,8 @@ A coluna `Backlink pass` é controlada pela routine de backlink-pass (ver `blog/
 | Pilar | Plano (Sim) | Extras (Não) | Total |
 |---|---|---|---|
 | sf (Salesforce) | 15 | 3 | **18** |
-| data (Data & Analytics) | 15 | 2 | **17** |
+| data (Data & Analytics) | 15 | 4 | **19** |
 | ai (IA Aplicada) | 14 | 3 | **17** |
-| **Total** | 44 | 8 | **52** |
+| **Total** | 44 | 10 | **54** |
 
-Publicados: 42 (34 do plano lote 1 + 8 extras). Pendentes do plano lote 2: 10.
+Publicados: 42 (34 do plano lote 1 + 8 extras). Pendentes do plano lote 2: 10. Back-catálogo recuperado de auto-branches: 2 (#53 observabilidade, #54 lakehouse).

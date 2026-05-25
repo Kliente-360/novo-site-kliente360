@@ -31,9 +31,9 @@
 
   <link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
 
-  <link rel="stylesheet" href="/assets/css/tokens.css?v=15d593dd32" />
-  <link rel="stylesheet" href="/assets/css/reset.css?v=15d593dd32" />
-  <link rel="stylesheet" href="/assets/css/main.css?v=15d593dd32" />
+  <link rel="stylesheet" href="/assets/css/tokens.css?v=56c2550923" />
+  <link rel="stylesheet" href="/assets/css/reset.css?v=56c2550923" />
+  <link rel="stylesheet" href="/assets/css/main.css?v=56c2550923" />
 
   <script type="application/ld+json">
 {
@@ -191,7 +191,7 @@
 <ol>
 <li><strong>Defina o &quot;bom o suficiente&quot; para cada caso de uso.</strong> Antes de qualquer projeto, escreva: pra essa decisão, quais campos precisam estar corretos em quantos % dos registros? Pra <a href="/blog/tableau-linguagem-executiva.html">um dashboard executivo que ativa decisão</a>, 98% no <code>valor</code> e na <code>data de fechamento</code> resolve. Pra uma campanha de e-mail, 90% no <code>e-mail principal</code> resolve. Pra um modelo de churn, depende — mas você precisa do número antes de começar.</li>
 <li><strong>Use dado real ruim em paralelo com a limpeza.</strong> Não trave o caso de uso esperando limpeza. Rode o relatório, monte o agente, publique a campanha — com o que existe. A primeira execução vai mostrar exatamente onde o ruído atrapalha. <em>Aí</em> limpa. Isso é dez vezes mais barato que limpar no escuro.</li>
-<li><strong>Faça da observabilidade a peça permanente, não da limpeza.</strong> Limpeza é evento. Observabilidade é processo. Monte alertas pra &quot;% de registros sem CNPJ no objeto Conta passou de 5% pra 12%&quot;, &quot;valor médio do estágio Proposta caiu 30% sem variação no funil&quot;. Esses alertas dizem o que limpar, quando, e o impacto real no negócio. <a href="/blog/dbt-na-pratica.html">Em warehouse moderno, dbt entrega esse tipo de observabilidade via <code>freshness</code> e testes declarativos</a> — não é projeto à parte.</li>
+<li><strong>Faça da <a href="/blog/observabilidade-de-dados.html">observabilidade de dados</a> a peça permanente, não da limpeza.</strong> Limpeza é evento. Observabilidade é processo. Monte alertas pra &quot;% de registros sem CNPJ no objeto Conta passou de 5% pra 12%&quot;, &quot;valor médio do estágio Proposta caiu 30% sem variação no funil&quot;. Esses alertas dizem o que limpar, quando, e o impacto real no negócio. <a href="/blog/dbt-na-pratica.html">Em warehouse moderno, dbt entrega esse tipo de observabilidade via <code>freshness</code> e testes declarativos</a> — não é projeto à parte.</li>
 </ol>
 <p>Empresas que aplicam essas três regras passam a tratar qualidade como prática operacional, não como projeto. E projeto de qualidade clássico — aquele de seis meses, com consultoria, com pacote de &quot;limpeza inicial&quot; — vira o que sempre deveria ter sido: uma exceção pra problemas específicos, não a regra geral.</p>
 <h2>Onde a limpeza séria ainda faz sentido</h2>
@@ -246,28 +246,28 @@
         <div class="container">
           <h2>Próximas leituras</h2>
           <div class="grid-cards cols-2-3">
+            <a class="card post-card" data-pillar="data" href="/blog/lakehouse-vs-warehouse.html">
+              <div class="post-meta">
+                <span class="pill-pillar">Pilar 02 · Data</span>
+                <span class="post-date">1 jul 2026</span>
+              </div>
+              <h3>Lakehouse não é silver bullet: quando warehouse simples ainda ganha</h3>
+              <div class="read">Ler →</div>
+            </a>
+            <a class="card post-card" data-pillar="data" href="/blog/observabilidade-de-dados.html">
+              <div class="post-meta">
+                <span class="pill-pillar">Pilar 02 · Data</span>
+                <span class="post-date">30 jun 2026</span>
+              </div>
+              <h3>Observabilidade de dados: detectar falhas antes do stakeholder</h3>
+              <div class="read">Ler →</div>
+            </a>
             <a class="card post-card" data-pillar="data" href="/blog/modern-data-stack-2026.html">
               <div class="post-meta">
                 <span class="pill-pillar">Pilar 02 · Data</span>
                 <span class="post-date">13 mai 2026</span>
               </div>
               <h3>Modern Data Stack em 2026: o que sobreviveu, o que morreu, o que virou commodity</h3>
-              <div class="read">Ler →</div>
-            </a>
-            <a class="card post-card" data-pillar="data" href="/blog/tableau-linguagem-executiva.html">
-              <div class="post-meta">
-                <span class="pill-pillar">Pilar 02 · Data</span>
-                <span class="post-date">13 mai 2026</span>
-              </div>
-              <h3>Tableau como linguagem executiva: matando o dashboard de vaidade</h3>
-              <div class="read">Ler →</div>
-            </a>
-            <a class="card post-card" data-pillar="data" href="/blog/databricks-snowflake-bigquery-lock-in.html">
-              <div class="post-meta">
-                <span class="pill-pillar">Pilar 02 · Data</span>
-                <span class="post-date">6 mai 2026</span>
-              </div>
-              <h3>Databricks vs Snowflake vs BigQuery: lock-in, custos de saída e o que o parceiro oficial não fala</h3>
               <div class="read">Ler →</div>
             </a>
           </div>
@@ -326,7 +326,7 @@
     </div>
   </footer>
 
-  <script src="/assets/js/i18n.js?v=15d593dd32"></script>
-  <script src="/assets/js/main.js?v=15d593dd32" type="module"></script>
+  <script src="/assets/js/i18n.js?v=56c2550923"></script>
+  <script src="/assets/js/main.js?v=56c2550923" type="module"></script>
 </body>
 </html>

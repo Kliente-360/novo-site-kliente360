@@ -31,9 +31,9 @@
 
   <link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
 
-  <link rel="stylesheet" href="/assets/css/tokens.css?v=15d593dd32" />
-  <link rel="stylesheet" href="/assets/css/reset.css?v=15d593dd32" />
-  <link rel="stylesheet" href="/assets/css/main.css?v=15d593dd32" />
+  <link rel="stylesheet" href="/assets/css/tokens.css?v=56c2550923" />
+  <link rel="stylesheet" href="/assets/css/reset.css?v=56c2550923" />
+  <link rel="stylesheet" href="/assets/css/main.css?v=56c2550923" />
 
   <script type="application/ld+json">
 {
@@ -176,7 +176,7 @@
           </aside>
 
           <p class="post-intro">La pregunta que aparece en comité de datos en 2026: &quot;¿todavía vale hacer modelado dimensional? ¿el lakehouse no resuelve todo?&quot;. La respuesta honesta — sí, todavía vale — va contra un poco de la moda. Pero la moda está equivocada, o al menos vendiendo lakehouse para problema que no es de lakehouse. El modelado dimensional (Kimball, star schema, hecho + dimensión) sigue siendo la mejor forma de organizar dato para consumo analítico — y la confusión entre &quot;almacenar dato de cualquier forma&quot; y &quot;modelar para uso&quot; cuesta caro para empresas que todavía no vivieron el ciclo completo.</p>
-<p>Este texto es la defensa del modelado dimensional en 2026. No es nostalgia — es argumento práctico sobre dónde el enfoque todavía gana y por qué abandonarlo tiene vuelta fuerte de retrabajo.</p>
+<p>Este texto es la defensa del modelado dimensional en 2026. No es nostalgia — es argumento práctico sobre dónde el enfoque todavía gana y por qué abandonarlo tiene vuelta fuerte de retrabajo. <a href="/blog/es/lakehouse-vs-warehouse.html">Cuándo lakehouse es de verdad la arquitectura correcta — y cuándo no lo es — tiene criterios separados propios</a>.</p>
 <h2>Lo que cambió y lo que no</h2>
 <p>En 2018, el modelado dimensional era estándar indiscutible. En 2022, el lakehouse (Databricks Delta, Snowflake Iceberg, Apache Iceberg en cualquier storage) se volvió alternativa seria. En 2026, parte del mercado declaró &quot;el modelado murió&quot; — y esa declaración es equivocada por confundir dos problemas separados.</p>
 <p><strong>Lo que cambió: storage y formato.</strong> El lakehouse permite almacenar dato bruto, semi-estructurado, en parquet abierto. El costo de storage cayó. Schema-on-read sustituye a schema-on-write para muchos casos. ETL pesada para organizar storage se volvió innecesaria.</p>
@@ -262,28 +262,28 @@
         <div class="container">
           <h2>Próximas lecturas</h2>
           <div class="grid-cards cols-2-3">
+            <a class="card post-card" data-pillar="data" href="/blog/es/lakehouse-vs-warehouse.html">
+              <div class="post-meta">
+                <span class="pill-pillar">Pilar 02 · Data</span>
+                <span class="post-date">1 jul 2026</span>
+              </div>
+              <h3>Lakehouse no es la bala de plata: cuándo el warehouse sencillo sigue ganando</h3>
+              <div class="read">Leer →</div>
+            </a>
+            <a class="card post-card" data-pillar="data" href="/blog/es/observabilidade-de-dados.html">
+              <div class="post-meta">
+                <span class="pill-pillar">Pilar 02 · Data</span>
+                <span class="post-date">30 jun 2026</span>
+              </div>
+              <h3>Observabilidad de datos: detectar fallos antes que el stakeholder</h3>
+              <div class="read">Leer →</div>
+            </a>
             <a class="card post-card" data-pillar="data" href="/blog/es/modern-data-stack-2026.html">
               <div class="post-meta">
                 <span class="pill-pillar">Pilar 02 · Data</span>
                 <span class="post-date">13 may 2026</span>
               </div>
               <h3>Modern Data Stack en 2026: qué sobrevivió, qué murió, qué se volvió commodity</h3>
-              <div class="read">Leer →</div>
-            </a>
-            <a class="card post-card" data-pillar="data" href="/blog/es/tableau-linguagem-executiva.html">
-              <div class="post-meta">
-                <span class="pill-pillar">Pilar 02 · Data</span>
-                <span class="post-date">13 may 2026</span>
-              </div>
-              <h3>Tableau como lenguaje ejecutivo: matando el dashboard de vanidad</h3>
-              <div class="read">Leer →</div>
-            </a>
-            <a class="card post-card" data-pillar="data" href="/blog/es/databricks-snowflake-bigquery-lock-in.html">
-              <div class="post-meta">
-                <span class="pill-pillar">Pilar 02 · Data</span>
-                <span class="post-date">6 may 2026</span>
-              </div>
-              <h3>Databricks vs Snowflake vs BigQuery: lock-in, costos de salida y lo que el partner oficial no cuenta</h3>
               <div class="read">Leer →</div>
             </a>
           </div>
@@ -342,7 +342,7 @@
     </div>
   </footer>
 
-  <script src="/assets/js/i18n.js?v=15d593dd32"></script>
-  <script src="/assets/js/main.js?v=15d593dd32" type="module"></script>
+  <script src="/assets/js/i18n.js?v=56c2550923"></script>
+  <script src="/assets/js/main.js?v=56c2550923" type="module"></script>
 </body>
 </html>

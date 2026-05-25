@@ -103,6 +103,42 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://kliente360.com/blog/lakehouse-vs-warehouse.html</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://kliente360.com/blog/en/lakehouse-vs-warehouse.html</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://kliente360.com/blog/es/lakehouse-vs-warehouse.html</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://kliente360.com/blog/observabilidade-de-dados.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://kliente360.com/blog/en/observabilidade-de-dados.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://kliente360.com/blog/es/observabilidade-de-dados.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://kliente360.com/blog/finops-de-ia.html</loc>
     <lastmod>2026-05-24</lastmod>
     <changefreq>yearly</changefreq>
