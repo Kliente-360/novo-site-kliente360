@@ -178,14 +178,14 @@ CSS reduzido de 1651 → 1536 linhas. ~3000 caracteres de regras duplicadas elim
 
 ## 5. Próximos passos imediatos
 
-- ✅ Design system fechado e documentado em `/DESIGN.md`. Nova página/componente segue o padrão sem revisita.
-- ✅ Refator do `styleguide.html` para usar o design system real (décima passada) — 837 → 759 linhas, ~47% menos CSS inline.
-- ✅ Top 5 quick wins SEO publicados (#1–#4 e #10 do brief — ver §6.3).
-- ✅ Form de contato em produção via Netlify Function + Resend (décima segunda passada — pendente apenas env vars do Felipe, §8.1 #1).
-- 🅿 **Validação editorial do site inteiro pelo Felipe** — tom, exemplos, copy de home, pillars, glossário, `/como-trabalhamos/`, posts publicados. Ver §8.1 #7. Maior pendência aberta hoje.
-- 🔁 **Manter routine de blog rodando** — 2 posts/semana × 3 idiomas. Continuous, sem data de fim. Próximos posts puxam da fila §6.3 (5 quick wins restantes) ou de temas novos do `EDITORIAL.md`.
-- ⏳ Migrar pra produção (kliente360.com via Netlify + DNS Hostinger) quando Felipe der o go — ver §8.1 #3.
-- ⏳ Resolver itens do parking lot (§8.1) conforme bloqueios externos destravarem.
+**Fase scaffold + rebrand ENCERRADA (15ª passada — 2026-05-25).** Site live em kliente360.com, form ativo, routines configuradas, DNS migrado. Próxima fase = **manutenção + expansão**.
+
+Quatro fluxos rodando:
+
+1. **Routine de publicação** — 2 posts/semana × 3 idiomas (Tue/Wed BRT, skip feriado BR+SP). Step 0 valida precondições antes de gerar. Fila puxa de `EDITORIAL.md` (5 quick wins restantes do brief + lote 2 de junho com temas novos).
+2. **Routine de backlink-pass** — quinzenal (2ª e 4ª quinta). Insere links inversos nos posts antigos apontando pra publicações da quinzena. State tracker em `EDITORIAL.md`.
+3. **Competitive brief v2** — segunda passada do `seo-competitive-brief.md` com claude-chrome (gaps: schemas dos concorrentes, hreflang, sitemaps, sample profundo). Output: lista de quick wins re-ordenada/expandida pra alimentar a routine.
+4. **Parking lot externo** — itens bloqueados por ação humana (WhatsApp oficial, badge Salesforce Partner, cases com métricas reais, faixas de preço). Resolver conforme destravarem (§8.1).
 
 ## 6. Roadmap SEO/Conteúdo
 
@@ -265,28 +265,31 @@ Derivado do audit pós-#10. Quick wins do Bloco A já aplicados. Pendências org
 
 ### 8.1. Parking lot — pendências a resolver
 
-Itens bloqueados por **ação do Felipe** (input externo, decisão comercial, credenciais ou configuração em painel de terceiro). Agrupados por área.
+#### Resolvido (snapshot do que era parking até 15ª passada)
 
-#### Infra / produção (ordem sugerida de execução)
+| Item | Resolução |
+|---|---|
+| Form de contato — ativar em produção | ✅ Resend ligado, domínio verificado, env vars setadas, e-mail dispara pra felipe@ + rafael@. |
+| Form de contato — integração com app de tasks | ✅ POST pra Supabase `ingest-task` com schema fixo e `external_id` UUID v4. Fire-and-forget. |
+| Migração DNS para Netlify (kliente360.com) | ✅ Hostinger: `ALIAS @ → apex-loadbalancer.netlify.com` + `CNAME www → website-kliente360.netlify.app`. HTTPS via Let's Encrypt. |
+| Validação editorial do site inteiro | ✅ Concluída pelo Felipe na passada de lançamento. |
+| Catch-up pass de backlinks pra posts antigos | ✅ Rodado pré-lançamento — débito histórico zerado. |
 
-| # | Item | O que fazer | Onde aparece / referência |
-|---|---|---|---|
-| 1 | **Form de contato — ativar em produção** | (a) Criar conta Resend (`contato@kliente360.com`) + verificar domínio `kliente360.com` (3 DNS records: SPF/DKIM/DMARC). (b) Gerar API key `Sending access`. (c) Netlify → Site settings → Environment variables, setar: `RESEND_API_KEY`, `CONTACT_FROM="Kliente 360 <contato@kliente360.com>"`, `CONTACT_TO="felipe@kliente360.com,<outros sócios>"`. (d) Definir lista final de sócios que recebem o e-mail. | Function: `netlify/functions/contact.js`. Form: `index.html` §contato. Front: `assets/js/main.js`. |
-| 2 | **Form de contato — integração com app de tasks** | Quando o app de tasks do Felipe estiver pronto, passar: URL do endpoint + tipo de auth (Bearer / X-API-Key / outro) + schema do payload esperado. Setar env vars `TASK_APP_URL` (+ `TASK_APP_TOKEN` e `TASK_APP_HEADER` se necessário) no Netlify. Ajustar `createTask()` em `contact.js` pra bater com o schema. | `netlify/functions/contact.js` — função `createTask()` é fire-and-forget e opcional (form funciona sem ela). |
-| 3 | **Migração DNS para Netlify (kliente360.com)** | Estratégia decidida (nona passada): manter site novo no Netlify e apontar DNS na Hostinger. Painel Hostinger → DNS: `CNAME www → <site>.netlify.app` + `ALIAS/ANAME @ → apex-loadbalancer.netlify.com` (ou IPs A da Netlify se Hostinger não suporta ALIAS). Em paralelo: Netlify → Domain management → adicionar `kliente360.com`. HTTPS provisiona sozinho (Let's Encrypt). WordPress atual fica intocado até DNS propagar. | Domínio Hostinger → hospedagem Netlify. WordPress atual será descontinuado após cutover. |
-| 4 | **WhatsApp — número oficial** | Trocar `5511961875594` (provisório) pelo número oficial. | `index.html` (contato + footer) e `scripts/build-blog.mjs` (footer das páginas geradas). |
-| 5 | **Badge "Salesforce Partner" oficial** | Hoje é pílula textual. Baixar badge SVG/PNG oficial do programa de Partners da Salesforce + ler guidelines de uso da marca. Substituir no hero. | `index.html` hero (badge1). |
-| 6 | **Cases — métricas reais** *(seção oculta até destravar)* | Section `#cases` em `index.html` comentada inline + links de nav removidos em todos os arquivos (décima quarta passada). Pra reativar: descomentar bloco em `index.html`, re-adicionar `<a href="/#cases">` nos 3 lugares de nav + no `scripts/build-blog.mjs`, rebuildar. Decisão de fundo: trocar `—` placeholder pela métrica numérica + `lbl` pelo dado contextual quando Sem Parar e Bodytech aprovarem os números. | `index.html` §cases (comentado). |
-| 7 | **Validação editorial do site inteiro pelo Felipe** *(maior pendência aberta)* | Ler home + 3 pillars + glossário + `/como-trabalhamos/` + sample de posts publicados. Calibrar: tom, exemplos, copy, métricas placeholder, vocabulário rebrand aplicado, exemplos batem com a operação real, FAQ está honesto. Marcar trechos pra reescrever, frases que soam genéricas, claims sem evidência. Esperado: lista de edits → eu aplico em batch numa próxima passada. | Todo o site público. Pode usar `/ultrareview` pra dump de review automatizado se quiser baseline antes da leitura humana. |
+#### Ainda pendente — input externo
 
-#### Continuous (sem data de fim)
+| Item | Bloqueio | Onde aparece |
+|---|---|---|
+| **WhatsApp — número oficial** | Trocar `5511961875594` (provisório) pelo número oficial. | `index.html` (contato + footer) e `scripts/build-blog.mjs` (footer das páginas geradas). |
+| **Badge "Salesforce Partner" oficial** | Hoje é pílula textual. Baixar badge SVG/PNG oficial + ler guidelines de uso da marca. Substituir no hero. | `index.html` hero (badge1). |
+| **Cases — métricas reais** | Sem Parar e Bodytech precisam aprovar números publicáveis. Section `#cases` permanece oculta até lá. | `index.html` §cases (comentado). |
+| **Reativar seção cases** | Depende do item acima. Pra reativar: descomentar bloco em `index.html`, re-adicionar `<a href="/#cases">` nos 3 lugares de nav + no `scripts/build-blog.mjs`, rebuildar. | `index.html` + 9 pillar pages + 3 como-trabalhamos + 3 glossário + `scripts/build-blog.mjs`. |
+| **Faixas de preço** | Decisão pendente sobre transparência comercial pública. Removidas em 2026-05-22 (não combinava com "consultoria especializada que não vende em catálogo"). Conteúdo recuperável via Git. | — |
 
-- 🔁 **Routine de blog**: 2 posts/semana × 3 idiomas. Próximos puxam da fila §6.3 (5 quick wins restantes) ou temas novos do `EDITORIAL.md`. Felipe valida lote a cada 5 posts publicados (pass de backlinks editorial — §6.1).
+#### Continuous (rolando sem ação)
 
-#### Conteúdo / rebrand (Felipe quando tiver banda)
-
-- **Faixas de preço / ordem de grandeza de investimento**: removidas (decisão 2026-05-22 — não combinava com "consultoria especializada que não vende em catálogo"). Reavaliar se em algum momento quisermos transparência comercial pública. Conteúdo recuperável via Git.
-- ~~OG image PNG dinâmica por post~~: feito (oitava passada). Variante A é definitiva — decisão 14ª passada de **descartar variantes B/C**: sem evidência de fadiga visual no feed, sem analytics de CTR por OG, multi-variant seria otimização sem dado. Reabrir só se observarmos problema real.
+- 🔁 **Routine de publicação** — Tue + Wed BRT × 3 idiomas, skip feriado BR + Aniversário SP. Step 0 verifica precondições antes de gerar.
+- 🔁 **Routine de backlink-pass** — quinzenal (2ª e 4ª quinta). State tracker em `EDITORIAL.md` coluna `Backlink pass`.
+- 🔁 **Build Netlify** — a cada push em `main`.
 
 ## 9. Histórico de sessões
 
