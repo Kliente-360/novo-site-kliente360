@@ -18,6 +18,8 @@
  *                                hardcoded em TASK_APP_DEFAULTS).
  */
 
+const { randomUUID } = require('node:crypto');
+
 const MAX_FIELD = 2000;
 
 const escapeHtml = (s) => String(s ?? '')
@@ -117,6 +119,7 @@ const createTask = async ({ name, email, company, message }) => {
   if (!token) throw new Error('TASK_APP_TOKEN não configurado.');
 
   const payload = {
+    external_id:    `lead-website-${randomUUID()}`,
     titulo:         '[LEAD] Novo lead capturado via website',
     descricao:      formatDescricao({ name, email, company, message }),
     responsavel_id: process.env.TASK_APP_RESPONSAVEL_ID || TASK_APP_DEFAULTS.responsavelId,
