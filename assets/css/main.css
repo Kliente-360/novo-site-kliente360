@@ -145,12 +145,9 @@ a.card:hover, .card.linked:hover {
 .trilha-timeline {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--sp-12);
+  gap: var(--sp-16);
   max-width: 760px;
   margin: 0 auto;
-}
-@media (max-width: 640px) {
-  .trilha-timeline { gap: var(--sp-14); }
 }
 .trilha-timeline .step {
   display: grid;
@@ -186,13 +183,14 @@ a.card:hover, .card.linked:hover {
   line-height: var(--lh-normal);
   font-size: var(--fs-16);
 }
-/* SAÍDA: card subtle que fecha o passo. Background distinto + barra
- * colorida lateral funcionam como "selo de entrega" — separa visualmente
- * de uma etapa pra outra sem precisar de gap gigante entre steps. */
+/* SAÍDA: card branco que fecha o passo. Como o cm-section.alt tem bg
+ * cinza claro (--bg-alt), o card branco contrasta e cria selo visual
+ * claro. Margin-top generoso separa da descrição; gap-16 do grid pai
+ * separa do próximo step. */
 .trilha-timeline .step .output {
-  margin-top: var(--sp-5);
-  padding: var(--sp-4) var(--sp-5);
-  background: var(--color-bg-alt);
+  margin-top: var(--sp-6);
+  padding: var(--sp-4) var(--sp-6);
+  background: var(--color-bg);
   border-left: 3px solid var(--color-accent);
   border-radius: var(--r-sm);
   font-size: var(--fs-14);
@@ -214,7 +212,7 @@ a.card:hover, .card.linked:hover {
   position: absolute;
   top: 48px;
   left: 24px;
-  bottom: calc(-1 * var(--sp-12));
+  bottom: calc(-1 * var(--sp-16));
   width: 2px;
   background: var(--color-line);
 }
@@ -222,7 +220,6 @@ a.card:hover, .card.linked:hover {
   .trilha-timeline .step:not(:last-child)::before {
     top: 36px;
     left: 12px;
-    bottom: calc(-1 * var(--sp-14));
   }
 }
 
