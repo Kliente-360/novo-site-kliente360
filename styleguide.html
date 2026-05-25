@@ -179,6 +179,13 @@
     .type-body { font-size: var(--fs-18); line-height: var(--lh-normal); }
     .type-small { font-size: var(--fs-14); color: var(--color-fg-muted); }
     .type-eyebrow { font-size: var(--fs-12); letter-spacing: var(--ls-wide); text-transform: uppercase; font-weight: var(--fw-semibold); color: var(--color-accent); }
+    /* Acento editorial — verde só em parte do heading (padrão da home).
+     * Espelha .hero h1 em do main.css mas escopado pros showcases do styleguide. */
+    .type-display em,
+    .type-h1 em,
+    .type-h2 em,
+    .type-h3 em,
+    .type-h4 em { font-style: normal; color: var(--color-accent); }
 
     /* Escalas — espaçamento / raio / sombra (showcase de tokens) */
     .scale-row { display: flex; align-items: flex-end; gap: var(--sp-4); flex-wrap: wrap; }
@@ -257,7 +264,7 @@
   <header class="section hero">
     <div class="container">
       <span class="eyebrow">Brand &amp; Design System · v1.0 · 2026</span>
-      <h1 class="h1" style="margin-top: var(--sp-4);">Conhecimento aplicado,<br>como serviço.</h1>
+      <h1 class="h1" style="margin-top: var(--sp-4);">Conhecimento aplicado,<br><em>como serviço</em>.</h1>
       <p class="lead" style="margin-top: var(--sp-6);">Sistema visual definitivo da Kliente 360 — consultoria especializada em CRM, dados e IA. Apple como base, Google no acento, Salesforce na camada de confiança. Guia oficial pra produto web, branding, mídias sociais, apresentações e documentos internos.</p>
     </div>
   </header>
@@ -570,15 +577,47 @@
       </header>
 
       <div>
-        <div class="type-row"><div class="sg-label">Display</div><div class="type-display">Aa 360</div></div>
-        <div class="type-row"><div class="sg-label">H1</div><div class="type-h1">Conhecimento aplicado.</div></div>
-        <div class="type-row"><div class="sg-label">H2</div><div class="type-h2">Costuramos CRM, dados e IA.</div></div>
+        <div class="type-row"><div class="sg-label">Display</div><div class="type-display">Aa <em>360</em></div></div>
+        <div class="type-row"><div class="sg-label">H1</div><div class="type-h1">Conhecimento aplicado, <em>como serviço</em>.</div></div>
+        <div class="type-row"><div class="sg-label">H2</div><div class="type-h2">Três pilares como <em>uma prática única</em>.</div></div>
         <div class="type-row"><div class="sg-label">H3</div><div class="type-h3">Pilar — Salesforce</div></div>
         <div class="type-row"><div class="sg-label">H4</div><div class="type-h4">Sales Cloud, Service Cloud, Data Cloud</div></div>
         <div class="type-row"><div class="sg-label">Body</div><div class="type-body">Consultoria especializada que entrega CRM, dados e IA como um sistema único. Time enxuto, poucos clientes estratégicos.</div></div>
-        <div class="type-row"><div class="sg-label">Small</div><div class="type-small">Última atualização: 2026-05-22 · Versão 0.1 do brand guide.</div></div>
+        <div class="type-row"><div class="sg-label">Small</div><div class="type-small">Última atualização: 2026-05-25 · Brand &amp; Design System v1.0.</div></div>
         <div class="type-row"><div class="sg-label">Eyebrow</div><div class="type-eyebrow">Trilha 360 · Etapa 02</div></div>
       </div>
+
+      <!-- Acento editorial: regra de uso do <em> verde -->
+      <article class="card" style="margin-top: var(--sp-12); background: var(--color-accent-soft); border-color: transparent;">
+        <span class="eyebrow" style="color: var(--green-700);">PADRÃO EDITORIAL</span>
+        <h3 class="h4" style="margin-top: var(--sp-3);">Acento verde em parte do heading</h3>
+        <p style="margin-top: var(--sp-3); max-width: 65ch;">A marca abre o hero com um título em <strong>duas partes</strong>: a primeira em tinta cheia, a segunda em verde <span class="mono">--color-accent</span>. É o gestual que sustenta a tagline canônica — "Conhecimento aplicado, <em style="color: var(--color-accent); font-style: normal; font-weight: var(--fw-bold);">como serviço</em>." — e funciona como assinatura visual da Kliente.</p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-6); margin-top: var(--sp-6);">
+          <div>
+            <span class="eyebrow" style="color: var(--green-700); font-size: 10px;">✓ FAÇA</span>
+            <ul style="margin-top: var(--sp-2); font-size: var(--fs-14); line-height: var(--lh-normal); color: var(--ink-800);">
+              <li>Em H1 de hero, abertura de seção forte ou capa de slide.</li>
+              <li>Apenas <strong>1 trecho</strong> verde por heading.</li>
+              <li>Manter o trecho coeso (palavra ou expressão curta — 2 a 5 palavras).</li>
+              <li>Usar tag semântica <span class="mono">&lt;em&gt;</span> (estilo redefinido pra normal + verde).</li>
+            </ul>
+          </div>
+          <div>
+            <span class="eyebrow" style="color: #b3261e; font-size: 10px;">✗ NÃO FAÇA</span>
+            <ul style="margin-top: var(--sp-2); font-size: var(--fs-14); line-height: var(--lh-normal); color: var(--ink-800);">
+              <li>Múltiplos trechos verdes no mesmo heading.</li>
+              <li>Verde em H4, body ou caption (vira ruído).</li>
+              <li>Verde em heading sobre fundo escuro — usar branco ou suave.</li>
+              <li>Trecho curto demais (1 caractere) ou longo demais (toda a frase).</li>
+            </ul>
+          </div>
+        </div>
+        <pre class="snippet" style="margin-top: var(--sp-6); white-space: pre-wrap;"><span class="c">&lt;!-- HTML --&gt;</span>
+&lt;h1&gt;Conhecimento aplicado, &lt;em&gt;como serviço&lt;/em&gt;.&lt;/h1&gt;
+
+<span class="c">/* CSS — escopo recomendado: só em hero/capa */</span>
+<span class="k">.hero</span> h1 em { font-style: normal; color: <span class="k">var</span>(<span class="s">--color-accent</span>); }</pre>
+      </article>
     </div>
   </section>
 

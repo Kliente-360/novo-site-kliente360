@@ -145,6 +145,33 @@ Use as classes utilitárias quando precisar do tamanho específico em qualquer c
 | `.h3` | 32 → 44 px | Section heads em páginas internas |
 | `.h4` | 24 → 32 px | Card heads, subseções |
 
+#### Acento editorial — verde em parte do heading
+
+Padrão de assinatura visual da Kliente: o título do hero (e de aberturas fortes) tem duas partes — a primeira em tinta cheia, a segunda em verde `--color-accent`. É o gestual que sustenta a tagline canônica:
+
+> Conhecimento aplicado, **_como serviço_**.
+
+Implementação: envolver o trecho final em `<em>` e redefinir o estilo no escopo do hero.
+
+```html
+<h1>Conhecimento aplicado, <em>como serviço</em>.</h1>
+```
+
+```css
+.hero h1 em { font-style: normal; color: var(--color-accent); }
+```
+
+Regras:
+
+| ✅ Faça | ❌ Não faça |
+|---|---|
+| Apenas em H1 de hero, abertura de seção forte ou capa de slide | Múltiplos trechos verdes no mesmo heading |
+| Apenas **1 trecho** verde por heading | Verde em H4, body ou caption (vira ruído) |
+| Trecho coeso (2–5 palavras) | Verde em heading sobre fundo escuro — usar branco/suave |
+| Tag semântica `<em>` (estilo redefinido pra normal + verde) | Trecho de 1 caractere ou frase inteira |
+
+Em fundos escuros, o em vira branco (`var(--fg-on-dark)`) — verde sobre escuro perde contraste WCAG.
+
 ### Eyebrow
 
 Linha de label acima do título. Cor padrão é UI green; modificadores ajustam por contexto.
