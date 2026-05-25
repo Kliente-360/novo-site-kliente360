@@ -12,6 +12,15 @@
   <style>
     /* === Styleguide-only ajustes (showcases que não existem em main.css) === */
 
+    /* Scroll: override do smooth global do main.css.
+     * Página tem ~17000px e o smooth animation entre seções distantes
+     * trava interação por segundos. Auto é instantâneo e responsivo. */
+    html { scroll-behavior: auto; }
+
+    /* Sticky nav cobre 56px do topo. Sem scroll-margin, o título da seção
+     * fica escondido atrás do nav ao clicar em uma âncora. */
+    section[id] { scroll-margin-top: 72px; }
+
     /* Nav específica do styleguide (mais simples que .nav do site) */
     .sg-nav {
       position: sticky; top: 0; z-index: 50;
@@ -127,8 +136,8 @@
     .brand-app-mock.dark { background: var(--bg-dark); color: var(--fg-on-dark); border-color: var(--bg-dark); }
     .brand-app-mock.deep { background: var(--bg-deep); color: var(--fg-on-dark); border-color: var(--bg-deep); }
     .brand-app-mock .title { font-size: var(--fs-20); font-weight: var(--fw-semibold); letter-spacing: var(--ls-tight); line-height: var(--lh-snug); }
-    .brand-app-mock .footer { display: flex; align-items: center; gap: var(--sp-2); font-size: var(--fs-12); }
-    .brand-app-mock .footer .mark-aperture { width: 18px; height: 18px; }
+    .brand-app-mock .meta { display: flex; align-items: center; gap: var(--sp-2); font-size: var(--fs-12); }
+    .brand-app-mock .meta .mark-aperture { width: 18px; height: 18px; }
     .brand-app-card figcaption { font-size: var(--fs-14); color: var(--color-fg-muted); }
 
     /* Paleta — strip "tirinha de tinta" (showcase específico de cor) */
@@ -770,19 +779,19 @@
       <h3 class="h4" style="margin-bottom: var(--sp-6);">Mídia social</h3>
       <div class="brand-app-grid">
         <figure class="brand-app-card">
-          <div class="brand-app-mock dark">
+          <div class="brand-app-mock">
             <div>
-              <span class="eyebrow on-color" style="font-size: 10px;">PILAR · DATA</span>
-              <h4 class="title" style="margin-top: var(--sp-3); color: var(--fg-on-dark);">Dado limpo é um mito.</h4>
+              <span class="eyebrow" style="font-size: 10px; color: var(--c-data-deep);">PILAR · DATA</span>
+              <h4 class="title" style="margin-top: var(--sp-3);">Dado limpo é um mito.</h4>
             </div>
-            <div class="footer" style="color: var(--fg-on-dark-muted);">
+            <div class="meta" style="color: var(--color-fg-muted);">
               <svg class="mark-aperture" viewBox="0 0 80 80" aria-hidden="true">
                 <circle cx="40" cy="22" r="11"/><circle cx="58" cy="40" r="11"/><circle cx="40" cy="58" r="11"/><circle cx="22" cy="40" r="11"/>
               </svg>
               kliente360.com
             </div>
           </div>
-          <figcaption>Instagram / LinkedIn 1080 × 1080 — tese declarativa, fundo escuro, mark inferior esquerdo.</figcaption>
+          <figcaption>Quote post — fundo branco, eyebrow tinted com cor do pilar, tese declarativa em grande, mark inferior esquerdo.</figcaption>
         </figure>
         <figure class="brand-app-card">
           <div class="brand-app-mock">
@@ -790,69 +799,69 @@
               <span class="eyebrow" style="font-size: 10px;">QUICK WIN SEO #7</span>
               <h4 class="title" style="margin-top: var(--sp-3);">Tendências de data management 2026 — 5 que mudam, 3 que não.</h4>
             </div>
-            <div class="footer" style="color: var(--color-fg-muted);">
+            <div class="meta" style="color: var(--color-fg-muted);">
               <svg class="mark-aperture" viewBox="0 0 80 80" aria-hidden="true">
                 <circle cx="40" cy="22" r="11"/><circle cx="58" cy="40" r="11"/><circle cx="40" cy="58" r="11"/><circle cx="22" cy="40" r="11"/>
               </svg>
               kliente360.com/blog
             </div>
           </div>
-          <figcaption>Carrossel post 1 — fundo claro, eyebrow categoria, título serve de hook.</figcaption>
+          <figcaption>Carrossel post 1 — eyebrow editorial em verde acento, título serve de hook do post.</figcaption>
         </figure>
         <figure class="brand-app-card">
-          <div class="brand-app-mock deep">
+          <div class="brand-app-mock" style="background: var(--color-accent-soft); border-color: transparent;">
             <div>
-              <span class="eyebrow on-color" style="font-size: 10px; color: var(--fg-on-dark-muted);">CASE</span>
-              <h4 class="title" style="margin-top: var(--sp-3); color: var(--fg-on-dark);">3× CSAT em 9 meses.<br>Salesforce + Data Cloud na operação real.</h4>
+              <span class="eyebrow" style="font-size: 10px; color: var(--green-700);">CASE</span>
+              <h4 class="title" style="margin-top: var(--sp-3);">3× CSAT em 9 meses.<br>Salesforce + Data Cloud na operação real.</h4>
             </div>
-            <div class="footer" style="color: var(--fg-on-dark-muted);">
+            <div class="meta" style="color: var(--green-700);">
               <svg class="mark-aperture" viewBox="0 0 80 80" aria-hidden="true">
                 <circle cx="40" cy="22" r="11"/><circle cx="58" cy="40" r="11"/><circle cx="40" cy="58" r="11"/><circle cx="22" cy="40" r="11"/>
               </svg>
               kliente360.com
             </div>
           </div>
-          <figcaption>Quote card — fundo navy, métrica em destaque + contexto curto.</figcaption>
+          <figcaption>Métrica card — fundo verde suave (<span class="mono">--color-accent-soft</span>), número/resultado em destaque + contexto curto.</figcaption>
         </figure>
       </div>
 
-      <p class="muted mono" style="margin-top: var(--sp-6); font-size: var(--fs-12);">Tamanhos canônicos: <strong>1080 × 1080</strong> (feed quadrado), <strong>1080 × 1350</strong> (feed vertical), <strong>1200 × 627</strong> (OG / LinkedIn link preview), <strong>1080 × 1920</strong> (story / reels).</p>
+      <p class="muted mono" style="margin-top: var(--sp-6); font-size: var(--fs-12);">Tamanhos canônicos: <strong>1080 × 1080</strong> (feed quadrado), <strong>1080 × 1350</strong> (feed vertical), <strong>1200 × 627</strong> (OG / LinkedIn link preview), <strong>1080 × 1920</strong> (story / reels). Paleta padrão: branco como base, verde acento pra editorial, verde suave (<span class="mono">--color-accent-soft</span>) pra cases/métricas, cor de pilar só em eyebrow tinted.</p>
 
       <h3 class="h4" style="margin-top: var(--sp-16); margin-bottom: var(--sp-6);">Slides &amp; apresentações</h3>
       <div class="brand-app-grid">
         <figure class="brand-app-card">
-          <div class="brand-app-mock wide deep">
+          <div class="brand-app-mock wide">
             <div>
-              <span class="eyebrow on-color" style="font-size: 10px; color: var(--fg-on-dark-muted);">PROPOSTA · 2026</span>
-              <h4 class="title" style="margin-top: var(--sp-3); color: var(--fg-on-dark); font-size: var(--fs-h4);">Trilha 360 — Mapear, Prototipar, Validar, Implantar, Sustentar.</h4>
+              <span class="eyebrow" style="font-size: 10px;">PROPOSTA · 2026</span>
+              <h4 class="title" style="margin-top: var(--sp-3); font-size: var(--fs-h4);">Trilha 360 — Mapear, Prototipar, Validar, Implantar, Sustentar.</h4>
             </div>
-            <div class="footer" style="color: var(--fg-on-dark-muted);">
+            <div class="meta" style="color: var(--color-fg-muted);">
               <svg class="mark-aperture" viewBox="0 0 80 80" aria-hidden="true">
                 <circle cx="40" cy="22" r="11"/><circle cx="58" cy="40" r="11"/><circle cx="40" cy="58" r="11"/><circle cx="22" cy="40" r="11"/>
               </svg>
               kliente 360
             </div>
           </div>
-          <figcaption>Slide 16:9 — capa de proposta, fundo navy, mark no rodapé.</figcaption>
+          <figcaption>Slide capa 16:9 — fundo branco, eyebrow categoria, título grande, mark no rodapé.</figcaption>
         </figure>
         <figure class="brand-app-card">
-          <div class="brand-app-mock wide">
+          <div class="brand-app-mock wide" style="background: var(--bg-alt); border-color: transparent;">
             <div>
               <span class="eyebrow" style="font-size: 10px;">SEÇÃO 02</span>
               <h4 class="title" style="margin-top: var(--sp-3); font-size: var(--fs-h4);">O que vamos fazer juntos.</h4>
             </div>
-            <div class="footer" style="color: var(--color-fg-muted);">
+            <div class="meta" style="color: var(--color-fg-muted);">
               <svg class="mark-aperture" viewBox="0 0 80 80" aria-hidden="true">
                 <circle cx="40" cy="22" r="11"/><circle cx="58" cy="40" r="11"/><circle cx="40" cy="58" r="11"/><circle cx="22" cy="40" r="11"/>
               </svg>
               02 / 24
             </div>
           </div>
-          <figcaption>Slide de divisor — fundo claro, eyebrow numerada, mark + paginação no rodapé.</figcaption>
+          <figcaption>Slide divisor 16:9 — fundo cinza claro (<span class="mono">--bg-alt</span>) pra quebrar ritmo, paginação à direita.</figcaption>
         </figure>
       </div>
 
-      <p class="muted mono" style="margin-top: var(--sp-6); font-size: var(--fs-12);">Padrão: <strong>16:9 widescreen</strong>, fonte Inter, eyebrow + título grande, mark no canto inferior esquerdo a 18-24 px. Cor de fundo: branco (conteúdo), navy (capa/divisor), preto (citações), verde (CTA final).</p>
+      <p class="muted mono" style="margin-top: var(--sp-6); font-size: var(--fs-12);">Padrão: <strong>16:9 widescreen</strong>, fonte Inter, eyebrow + título grande, mark no canto inferior esquerdo a 18-24 px. Cor de fundo: branco (conteúdo padrão), cinza claro (divisor), verde suave (CTA / call-out). Evitar fundos escuros saturados — competem com o conteúdo dos slides.</p>
 
       <h3 class="h4" style="margin-top: var(--sp-16); margin-bottom: var(--sp-6);">Documentos &amp; e-mail</h3>
       <div class="grid-cards cols-2">
