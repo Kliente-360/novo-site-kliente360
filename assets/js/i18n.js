@@ -107,7 +107,7 @@ const DICT = {
     },
     pillarDeep: {
       cta: 'Talk to a partner', link: 'How we deliver',
-      sf:   { eyebrow: 'Practice 01', title: 'Salesforce — from design to operation that scales.', lead: 'Sales, Service, Data Cloud and Agentforce. Implementation with business sense; agent-driven evolution where data and process already hold up.' },
+      sf:   { eyebrow: 'Practice 01', title: 'Salesforce — from design to operation that scales.', lead: 'Sales, Service, Data Cloud and Agentforce. Implementation with business sense; evolve with agents where data and process already hold up.' },
       data: { eyebrow: 'Practice 02', title: 'Data & Analytics — from raw data to decision.', lead: 'Modern data engineering, predictive models and visualization. Stack-agnostic at the consumption layer — chosen per scenario.' },
       ai:   { eyebrow: 'Practice 03', titleLead: 'Applied AI — from', titleMid: 'problem', titleConn: 'to', titleEnd: 'agent', titleTail: '.',
               lead: 'Custom AI agents and vertical SaaS products. Fast validation: from discovery to first model in production.' },
@@ -183,7 +183,7 @@ const DICT = {
     },
     pillarDeep: {
       cta: 'Hablar con un socio', link: 'Cómo entregamos',
-      sf:   { eyebrow: 'Pilar 01', title: 'Salesforce — del diseño a la operación escalable.', lead: 'Sales, Service, Data Cloud y Agentforce. Implementación con cabeza de negocio; evolución con agentes donde dato y proceso ya sostienen.' },
+      sf:   { eyebrow: 'Pilar 01', title: 'Salesforce — del diseño a la operación escalable.', lead: 'Sales, Service, Data Cloud y Agentforce. Implementación con cabeza de negocio; evolución con agentes donde datos y proceso ya sostienen.' },
       data: { eyebrow: 'Pilar 02', title: 'Data & Analytics — del dato bruto a la decisión.', lead: 'Ingeniería de datos moderna, modelos predictivos y visualización. Agnóstico de stack en la capa de consumo — la elección la guía el escenario.' },
       ai:   { eyebrow: 'Pilar 03', titleLead: 'IA Aplicada — del', titleMid: 'problema', titleConn: 'al', titleEnd: 'agente', titleTail: '.',
               lead: 'Agentes de IA a medida y productos SaaS verticales. Validación rápida: del diagnóstico al primer modelo en producción.' },
