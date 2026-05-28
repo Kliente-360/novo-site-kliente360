@@ -11,7 +11,7 @@ keywords: ["RAG", "retrieval", "embeddings", "LLM", "vector search"]
 
 The sentence that keeps coming up in a RAG pilot when the result disappoints is "the model got it wrong". It almost never is. The model generated exactly what the context asked for — except the context was the wrong document, the wrong passage, or two right ones missing a third that would have changed the answer. The blame isn't generation; it's retrieval. And because retrieval is less sexy than LLM, the team spends weeks tuning the prompt and swapping models while the problem lives in `top-k`.
 
-This text is about why RAG is hard where no one looks. Not against RAG — it's the right architecture for grounding model answers in proprietary knowledge. But the imbalance between how much we talk about generation and how much we talk about retrieval is costing projects.
+This text is about why RAG is hard where no one looks. Not against RAG — it's the right architecture for grounding model answers in proprietary knowledge. [In six specific patterns, fine-tuning delivers better results](/blog/en/quando-fine-tuning-supera-rag.html). But the imbalance between how much we talk about generation and how much we talk about retrieval is costing projects.
 
 ## Generation became commodity, retrieval didn't
 

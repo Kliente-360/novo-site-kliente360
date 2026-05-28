@@ -11,7 +11,7 @@ keywords: ["RAG", "retrieval", "recuperação", "embeddings", "LLM"]
 
 A frase que se repete no piloto de RAG quando o resultado decepciona é "o modelo errou". Quase nunca é verdade. O modelo gerou exatamente o que o contexto pedia — só que o contexto era o documento errado, o trecho errado, ou os dois certos sem o terceiro que muda a resposta. A culpa não é da geração; é da recuperação. E como retrieval é menos sexy que LLM, o time gasta semanas afinando prompt e trocando modelo enquanto o problema mora no `top-k`.
 
-Esse texto é sobre por que RAG é difícil onde ninguém olha. Não contra RAG — é a arquitetura certa pra colocar conhecimento próprio dentro de respostas de modelo. Mas o desbalanço entre quanto se fala de geração e quanto se fala de recuperação está custando projetos.
+Esse texto é sobre por que RAG é difícil onde ninguém olha. Não contra RAG — é a arquitetura certa pra colocar conhecimento próprio dentro de respostas de modelo. [Em seis padrões específicos, fine-tuning entrega resultado superior](/blog/quando-fine-tuning-supera-rag.html). Mas o desbalanço entre quanto se fala de geração e quanto se fala de recuperação está custando projetos.
 
 ## A geração virou commodity, a recuperação não
 
